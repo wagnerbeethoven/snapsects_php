@@ -1,0 +1,42 @@
+<h2>About the class Insecta</h2>
+
+
+
+<p align="justify">The term insect has its origin in the Latin word “insectum” and it means animal of segmented body. According to the Smithsonian Institution website  “It has long been recognized and documented that insects are the most diverse group of organisms, meaning that the numbers of species of insects are more than any other group. In the world, some 900 thousand different kinds of living insects are known. This representation approximates 80 percent of the world's species.” Some of the most commonly known insects are the bees, cockroaches, flies, crickets, butterflies and beetles.
+
+
+
+Insects differ from other arthropods because their bodies are divided into three main parts: head, thorax and abdomen. On their head are a pair of antennae, the eyes and ocelli, and the external mouthparts. Their thorax has up to four wings dorsally, and it has six legs ventrally. On the abdomen are the genital structures. Some structures are only present or apparent in the adult life stage.
+
+
+
+The insect antennae are in the frontal region of the head, and can be classified in types including: filiform (e.g., cockroach, cricket), setaceous (e.g., grasshopper), geniculate (e.g. ant), plumose (e.g. mosquito), clavate (e.g., butterfly), aristate (e.g., fly) and serrate (e.g., beetle).
+
+
+
+Insects, in most cases, present a pair of compound eyes, located in the lateral part of the head; and many also present simple eyes or ocelli (usually three), located at the apex of the head.
+
+The insects’ mouthparts can be put into different categories, according to the specialization that it presents, and it may be: chewer (e.g., cockroaches, cricket); chewer/defense (e.g., termite, ant); maxilla-sucker (e.g., butterfly); labium suckers (e.g., mosquitoes, cicadas, bedbugs and fleas); licking (e.g., bee). The insects’ thorax is divided into three segments: from front, anterior, to back, posterior, the prothorax, mesothorax and metathorax. Adult insects may present wings. If four wings, two pairs, are present, the insect will be adult and tetrapterous. In this case, the mesothorax will feature the pair of forewings and the metathorax will bear the pair of hindwings. Some hindwings may look dumbbell-shaped and be atrophied. Dumbbell-shaped atrophied wings, haltere, are not functional for flying and are very difficult to be seen with naked eyes. Because of that, insects with haltere wings are thought to have only two wings, for example those that belong to the order Diptera, e.g., mosquitoes and flies.
+
+
+
+Adult Insects that have no wings are apterous or wingless.
+
+
+
+Wings can be distinguished as: membranous (e.g., wasps), tegamina (e.g., crickets, locusts and cockroaches), elytra (e.g., beetles), hemelytra (e.g., bedbugs and cicadas) and haltere (e.g., flies, mosquitoes). Some insects may have two types of wings – for example, a beetle will have a pair of elytra covering over a pair of membranous wings.
+
+
+
+The insects’ legs have different characteristics, according to the function they carry out, and some insects will have more than one type of legs, for example a honey bee has six ambulatory legs, and the pair attached to the prothorax is used for cleaning and the metathorax legs are collectors. The legs of the bees also have ambulatorial function. The insect legs can be classified in types such as: ambulatorial (e.g., bee), cursorial (e.g. ants); saltatorial (e.g. crickets and grasshoppers); raptorial (e.g. mantis); collector (e.g., bees); scansorial (e.g., lice), among others.
+
+
+
+The abdomen of the insects is divided into six to twelve segments, usually contains sensory and genital structures. The abdomen may be free (e.g. butterflies, bees), sessile (e.g. crickets) or pedunculated (e.g., ant, wasps).</p>
+
+
+
+References
+
+GALLO, D. et al. (Orgs.). Entomologia Agrícola. Piracicaba: FEALQ, 2002.</p>
+

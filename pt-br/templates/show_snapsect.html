@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects</title>
+<style>
+body {
+text-align: justify;
+}
+</style>
+
+<script>
+function redimensiona() {
+document.images['grpi'].width = 300;
+}
+
+</script>
+  </head>
+  <body>
+<div id="menu">
+<!-- BEGIN BLOCK_EDIT -->
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='snapsect_ger.php';" value="SEARCH ARTHROPOD"></td>
+<td width="33%"></td>
+<td width="33%"><center><input type="button" onclick="javascript:window.location='add_snapsect.php?id={ID}';" value="EDIT"></center></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="http://www.snapsects.com/pt-br/img/logo_application.jpeg" width="50%" alt="SNAPSECT logo"></center></td>
+<td width="33%"></td>
+</tr></table>
+<center><button id="cmdaddphoto" onclick="javascript:window.location='add_snapsect_photo.php?id=0&codid={CODID}';">ADD PHOTO</button></center>
+<!-- END BLOCK_EDIT -->
+<!-- BEGIN BLOCK_NOEDIT -->
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='snapsect_ger.php';" value="SEARCH ARTHROPOD"></td>
+<td width="33%"></td>
+<td width="33%"></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="http://www.snapsects.com/pt-br/img/logo_application.jpeg" width="50%" alt="SNAPSECT logo"></center></td>
+<td width="33%"></td>
+
+</tr></table>
+<!-- END BLOCK_NOEDIT -->
+</div>
+<hr>
+{TEXTO}
+<div class="foother">
+{RODAPE}
+</div>
+
+</body>
+</html>

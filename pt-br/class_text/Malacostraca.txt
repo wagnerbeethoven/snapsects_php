@@ -1,0 +1,6 @@
+<center><h2>About the class Malacostraca</h2></center>
+
+<p align="justify">The Class Malacostraca belongs to the subphylum Crustacea. Lobsters, crabs, shrimps, barnacles and woodlouse are some of the most common known examples.
+The name crustacean, given to these arthropods, comes from the Latin "crusta" which means crust. In general, they are aquatic animals (e.g., lobsters and shrimps), or live in very wet land areas (e.g., the Isopods).
+Crustaceans have segmented bodies (cephalothorax and abdomen) and articulated appendages. The Crustacean’s cephalic region features five or six segments, which include two pairs of antennae, a pair of eyes, usually pedunculated, and the mouthparts, which consists of a pair of mandibles and two pairs of maxillae. Most crustaceans have a cephalothorax covered by a carapace.
+Crustacean breathe through their gills which are located in the thoracic region.  The thoracic region has eight segments, three pairs of maxillipeds in the anterior region and five pairs of legs, called pereopods in the posterior region. Crustaceans usually bear five pairs of legs in the abdomen which are called pleopods. In the last abdominal segments, the appendages are the uropods and the telson.</p>

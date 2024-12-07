@@ -1,0 +1,61 @@
+<form name="frmphoto" enctype="multipart/form-data" method="POST">
+<input type="hidden" name="id" id="id" value="{P->ID}">
+<input type="hidden" name="codid" id="codid" value="{P->CODID}">
+<input type="hidden" id="lang" name="lang" value="{LANG}">
+<input type="hidden" name="url" id="url" value="{URL}">
+<input type="hidden" id="act" name="act" value="{ACT}">
+<input type="hidden" name="arquivo" id="arquivo" value="{ARQUIVO}">
+
+<main>
+
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" name="voltar" id="voltar" value="[dic78]" onclick="javascript:window.location='show_snapsect.php?id={P->CODID}';"></td>
+<td width="33%"></td>
+<td width="33%"><input type="submit" name="save" id="save" value="[dic80]"></td>
+</tr></table>
+</div>
+
+    <article>
+        <div class="hgroup">
+            <h2>Adicionar imagem</h2>
+            <h3></h3>
+        </div>
+
+
+            <section class="section-form">
+<!-- BEGIN BLOCK_IMG -->
+                <div class="form-group">
+                    <label for="grpfoto">Selecione a imagem</label>
+                    <div class="input-container">
+
+                        <input type="file" name="grpfoto" id="grpfoto">
+                    </div>
+                </div>
+<!-- END BLOCK_IMG -->
+                    <figure class="img-select">
+                        <img id="grfoto" src="{URL}">
+                    </figure>
+
+
+
+                <div class="form-group">
+                    <label for="obs">[dic181]:</label>
+                    <div class="input-container">
+                        <textarea id="obs" name="obs">{OBS}</textarea>
+                    </div>
+                </div>
+
+
+</section>
+</article>
+</main>
+</form>
+
+
+<script language="javascript" src="js/spajax.js"></script>
+<script>
+function redimensiona() {
+document.images['grpi'].width = 300;
+}
+</script>

@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SnapSects</title>
+    <style>
+        body,
+        div {
+            background-color: #FFFFFF;
+        }
+    </style>
+
+</head>
+
+<body onload="inicio();">
+    <div id="dvpage">
+        <div id="menu">
+            <table width="100%">
+                <tr>
+                    <td width="33%"><input type="button"
+                            onclick="javascript:save();window.location='school.php?email={EMAIL}';" value="[dic78]">
+                    </td>
+                    <td width="33%"><br><img src="img/logo_application.jpeg" width="50%" alt="[dic0]"></td>
+                    <td width="33%"></td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <form name="frm">
+            <h1>{SALA}</h1>
+            <div id="dv0">
+                <p><label for="lsttitle">[dic331] </label><input type="text" id="lsttitle" value=""
+                        onchange="javascript:licao.titulo = this.value; "></p>
+                <label for="txttexto">[dic387]</label>
+                <textarea id="txttexto" rows="5" cols="50" onchange="javascript:licao.texto=this.value;"></textarea>
+                <p><label for="datai" id="lbldatai">[dic332]: </label><input type="date" id="datai"
+                        onchange="javascript:licao.datai = this.value;var x=this.value.split('-');document.getElementById('lbldatai').innerHTML='[dic332] ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';">
+                </p>
+                <p><label for="dataf" id="lbldataf">[dic333]: </label><input type="date" id="dataf"
+                        onchange="javascript:licao.dataf = this.value;var x=this.value.split('-');document.getElementById('lbldataf').innerHTML='[dic333] ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';">
+                </p>
+                <p><label for="datag" id="lbldatag">[dic334]: </label><input type="date" id="datag"
+                        onchange="javascript:licao.datag=this.value;var x=this.value.split('-');document.getElementById('lbldatag').innerHTML='[dic334] ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';">
+                </p>
+                <p><label for="maxval">[dic335]: </label><input type="number" id="maxval" value=""
+                        onchange="javascript:licao.nota=this.value;"></p>
+                <input type="button" id="btnnext" onclick="javascript:showquest(1);" value="[dic332]">
+            </div>
+            <div id="dv1" style="display: none">
+                <div id="dvquesttitle2"></div>
+                <div id="dvquesttitle"></div>
+                <div id="dvquest"></div>
+                <label for="txtvl">[dic388]</label><input type="number" id="txtvl" value="0"
+                    onchange="javascript:licao.quest[page-1].valor=this.value;">
+                <label for="lsttexto">[dic336]: </label>
+                <textarea id="lsttexto" rows="5" cols="50" width="100%"
+                    onchange="javascript:licao.quest[page-1].texto = this.value;document.getElementById('cmdproxima').style.display=(licao.quest[page-1].texto.length+licao.quest[page-1].enunciado.length < 1)?'none':'inline';"></textarea>
+                <label for="lstquest">[dic337]: </label>
+                <textarea id="lstquest" rows="5" cols="50" width="100%"
+                    onchange="javascript:licao.quest[page-1].enunciado = this.value;document.getElementById('cmdproxima').style.display=(this.value.length < 1)?'none':'inline';"></textarea>
+                <p><label for="lsttipo">[dic360]: </label><select id="lsttipo"
+                        onchange="javascript:settipo(this.value);">
+                        <option value="0">[dic361]</option>
+                        <option value="1">[dic362]</option>
+                        <option value="2">[dic363]</option>
+                        <option value="3">[dic364]</option>
+                    </select></p>
+                <div id="dvresultado"></div>
+                <table width="100%">
+                    <tr>
+                        <td width="33%"><input type="button" id="cmdprior" onclick="javascript:showquest(page-1);"
+                                value="[dic333]"></td>
+                        <td width="33%"><input type="button" id="cmdsalvar"
+                                onclick="javascript:save(); window.location='school.php?email={EMAIL}';"
+                                value="[dic365]"></td>
+                        <td width="33%"><input type="button" id="cmdproxima" onclick="javascript:showquest(page+1);"
+                                value="[dic332]"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="dvsalas"></div>
+        </form>
+
+    </div>
+    <script type="text/javascript" src="js/spajax.js"></script>
+    <script type="text/javascript">
+        var dic_path = 'http://www.snapsects.com/teste/';
+        var licao = {
+            titulo: '',
+            texto: '',
+            foto: '',
+            datai: new Date(),
+            dataf: new Date(),
+            datag: new Date(),
+            nota: 10,
+            quest: []
+        }
+        var page = 0;
+        var id = '{ID}';
+        var email = '{EMAIL}';
+
+        function inicio() {
+            if (id == '0') {
+                showquest(0);
+            } else {
+                spjson(dic_path + 'school_api.php', 'act=getquest&email={EMAIL}&sala={SALA}&id=' + id, 'POST',
+                    function (res) {
+                        if (res.status == 'ok') {
+                            licao = res.licao;
+                            // alert(JSON.stringify(res));
+                            showquest(0);
+                        } // está tudo ok...
+                    });
+            } // já existe então abre...
+        } // da funcao
+
+        function settipo(v) {
+            licao.quest[page - 1].tipo = v;
+            showresultado(licao.quest[page - 1]);
+            // var texto = '';
+            // if (v == 0) {
+
+            // } // do tipo texto
+            // if ((v == 1) || (v == 2)) { addopcoes(licao.quest[page-1]); }
+            // if (v == 3) { addopcoes2(licao.quest[page-1]); }
+            // document.getElementById('dvresultado').innerHTML = texto;
+        } // da funcao...
+
+        function addopcoes(px) {
+            var input1 = prompt('[dic367]', '');
+            if (input1.length > 0) {
+                if (!px.opcoes) {
+                    px.opcoes = [];
+                }
+                px.opcoes.push({
+                    title: input1,
+                    value: '0'
+                });
+                addopcoes(px);
+            } else {
+                licao.quest[page - 1] = px;
+            }
+            licao.quest[page - 1] = px;
+
+            showresultado(px);
+
+        } // da funcao...
+
+        function addopcoes2(px) {
+            navigator.notification.prompt(dic[367], function (r) {
+                if (r.buttonIndex == 1) {
+                    if (!px.opcoes2) {
+                        px.opcoes2 = [];
+                    }
+                    if (r.input1.length > 0) {
+                        px.opcoes2.push(r.input1);
+                    }
+                    addopcoes2(px);
+                }
+                if (r.buttonIndex == 2) {
+                    if (!px.opcoes2) {
+                        px.opcoes2 = [];
+                    }
+                    if (r.input1.length > 0) {
+                        px.opcoes2.push(r.input1);
+                    }
+                    licao.quest[page - 1] = px;
+                    addopcoes(px);
+                }
+                licao.quest[page - 1] = px;
+
+                showresultado(px);
+            }, 'SnapSects Academic', ['Salvar', 'Feito', 'Limpar'], '');
+
+        } // da funcao...
+
+        function showquest(x) {
+            page = x;
+            document.getElementById('dv0').style.display = 'none';
+            document.getElementById('dv1').style.display = 'none';
+            save();
+            if (x == 0) {
+                document.getElementById('dv0').style.display = 'inline';
+                document.getElementById('lsttitle').value = licao.titulo;
+                document.getElementById('txttexto').value = licao.texto;
+                document.getElementById('datai').value = licao.datai;
+                document.getElementById('dataf').value = licao.dataf;
+                document.getElementById('datag').value = licao.datag;
+                document.getElementById('maxval').value = licao.nota;
+            } else {
+                document.getElementById('dv1').style.display = 'inline';
+                document.getElementById('dvquesttitle2').innerHTML = '<h2>' + document.getElementById('lsttitle')
+                    .value + '</h2>';
+
+                if (x <= licao.quest.length) {
+
+                } // menor, mostra...
+                else {
+                    var e = {
+                        texto: '',
+                        enunciado: '',
+                        foto: '',
+                        valor: 0,
+                        tipo: 0,
+                        resultado: '',
+                        opcoes: [],
+                        opcoes2: []
+                    }
+                    licao.quest.push(e);
+                } // adiciona um novo...
+                document.getElementById('dvquesttitle').innerHTML = '<h2>[dic366] ' + x + '/' + licao.quest.length +
+                    '</h2>';
+                var n = x - 1;
+                document.getElementById('lsttexto').value = licao.quest[n].texto;
+                document.getElementById('txtvl').value = licao.quest[n].valor;
+                document.getElementById('lstquest').value = licao.quest[n].enunciado;
+                document.getElementById('lsttipo').value = licao.quest[n].tipo;
+                showresultado(licao.quest[n]);
+                document.getElementById('cmdproxima').style.display = ((licao.quest[n].texto.length + licao.quest[n]
+                    .enunciado.length) < 1) ? 'none' : 'inline';
+
+            } // maior que zero...
+        } // da funcao...
+
+        function showresultado(p) {
+            var t = '';
+            if (p.tipo == 0) {
+                t = '<textarea rows="5" cols="50" width="100%" onchange="javascript:licao.quest[page-1].resultado=this.value;">' +
+                    p.resultado + '</textarea>';
+            } // do tipo 0
+            if (p.tipo == 1) {
+                for (var r = 0; r < p.opcoes.length; r++) {
+                    var tp = ''; // (licao.quest[page-1].opcoes[r].value == '1')?' checked':'';
+                    if (licao.quest[page - 1].opcoes[r].value == '1') {
+                        tp = ' checked';
+                    }
+                    // verificar se o item está checado...
+
+                    t += '<p><input type="checkbox" id="chk' + r +
+                        '" value="1" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes[' + r +
+                        '].value=' + "'1'" + '; } else {licao.quest[page-1].opcoes[' + r + '].value=' + "'0'" + '; }"' +
+                        tp + '>) <input type="text" id="txt' + r + '" value="' + p.opcoes[r].title +
+                        '" onchange="javascript:licao.quest[page-1].opcoes[' + r + '].title=this.value;">';
+                    t += '<input type="button" onclick="javascript:licao.quest[page-1].opcoes.splice(' + r +
+                        ',1); showresultado(licao.quest[page-1]);" value="-"></p>';
+                } // do for...
+                t += '<input type="button" onclick="javascript:licao.quest[page-1].opcoes.push({ title: ' +
+                    "'', value: '0'" + '}); showresultado(licao.quest[page-1]);" value="+">';
+            } // do tipo 1
+            if (p.tipo == 2) {
+                t += '<table><tr>';
+                t += '<th width="70%"></th>';
+                t += '<th width="10%" class="text-center">Verdadeiro</th>';
+                t += '<th width="10%"class="text-center">Falso</th>';
+                t += '<th width="10%">Remover</th></tr>';
+                for (var r = 0; r < p.opcoes.length; r++) {
+                    var tp = '';
+                    var tpf = '';
+                    if (licao.quest[page - 1].opcoes[r].value == 'v') {
+                        tp = ' checked';
+                    } else {
+                        if (licao.quest[page - 1].opcoes[r].value == 'f') {
+                            tpf = ' checked';
+                        }
+                    }
+                    // verificar se o item está checado...
+                    t += '<tr><td><input type="text" id="txt' + r + '" value="' + p.opcoes[r].title +
+                        '" onchange="javascript:licao.quest[page-1].opcoes[' + r + '].title=this.value;"></td>';
+                    t += '<td><input type="checkbox" id="chk' + r +
+                        '" value="1" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes[' + r +
+                        '].value=' + "'v'" + '; } else {licao.quest[page-1].opcoes[' + r + '].value=' + "'f'" +
+                        '; } showresultado(licao.quest[page-1]);"' + tp + '></tp>';
+                    t += '<td><input type="checkbox" id="chk' + r +
+                        '" value="1" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes[' + r +
+                        '].value=' + "'f'" + '; } else {licao.quest[page-1].opcoes[' + r + '].value=' + "'v'" +
+                        '; } showresultado(licao.quest[page-1]);"' + tpf + '></td>';
+                    t += '<td><input type="button" onclick="javascript:licao.quest[page-1].opcoes.splice(' + r +
+                        ',1); showresultado(licao.quest[page-1]);" value="-"></td></tr>';
+                } // do for...
+                t += '</table>';
+                // alert(t);
+                t += '<input type="button" onclick="javascript:licao.quest[page-1].opcoes.push({ title: ' +
+                    "'', value: '0'" + '}); showresultado(licao.quest[page-1]);" value="+">';
+            } // do tipo 2
+
+            if (p.tipo == 3) {
+                var th = '';
+                t += 'Tabela A';
+                for (var r = 0; r < p.opcoes2.length; r++) {
+                    t += '<p><input type="text" id="txt' + r + '" value="' + p.opcoes2[r] +
+                        '" onchange="javascript:licao.quest[page-1].opcoes2[' + r + ']=this.value;">';
+                    t += '<input type="button" onclick="javascript:licao.quest[page-1].opcoes2.splice(' + r +
+                        ',1); showresultado(licao.quest[page-1]);" value="-"></p>';
+                } // do for...
+                t += '<input type="button" onclick="javascript:licao.quest[page-1].opcoes2.push(' + "' '" +
+                    '); showresultado(licao.quest[page-1]);" value="+">';
+                t += '<br>Tabela B';
+                for (var r = 0; r < p.opcoes.length; r++) {
+                    t += '<p><input type="text" id="txtv' + r + '" value="' + p.opcoes[r].title +
+                        '" onchange="javascript:licao.quest[page-1].opcoes[' + r + '].title=this.value;">';
+                    t += '<select id="lst' + r + '" onchange="javascript:licao.quest[page-1].opcoes[' + r +
+                        '].value=this.value;">';
+                    var th = '';
+                    for (var pr = 0; pr < p.opcoes2.length; pr++) {
+                        var thh = '';
+                        if (p.opcoes[r].value == p.opcoes2[pr]) {
+                            thh = ' selected';
+                        }
+                        th += '<option value="' + p.opcoes2[pr] + '"' + thh + '>' + p.opcoes2[pr] + '</option>';
+                    } // do for pr
+                    t += th + '</select>';
+                    t += '<input type="button" onclick="javascript:licao.quest[page-1].opcoes.splice(' + r +
+                        ',1); showresultado(licao.quest[page-1]);" value="-"></p>';
+                } // do for...
+                t += '<input type="button" onclick="javascript:licao.quest[page-1].opcoes.push({ title: ' +
+                    "'', value: '0'" + '}); showresultado(licao.quest[page-1]);" value="+">';
+            } // do tipo 3
+            document.getElementById('dvresultado').innerHTML = t;
+        } // da funcao...
+
+        function save() {
+            if (licao.titulo.length > 0) {
+                if (email.length > 0) { // verificando o email...
+                    var t = 'act=addquest&email=' + email + '&sala={SALA}&id=' + id;
+                    t += '&header=' + licao.titulo + '|' + licao.texto + '|' + licao.foto + '|' + licao.datai + '|' +
+                        licao.dataf + '|' + licao.datag + '|' + licao.nota;
+                    t += '&count=' + licao.quest.length;
+                    for (var r = 0; r < licao.quest.length; r++) {
+                        t += '&quest' + r + '=' + licao.quest[r].texto + '|' + licao.quest[r].enunciado + '|' + licao
+                            .quest[r].foto + '|' + licao.quest[r].valor + '|' + licao.quest[r].tipo + '|' + licao.quest[
+                                r].resultado + '|';
+                        if (!licao.quest[r].opcoes) {
+                            t += '|';
+                        } else {
+                            for (var rr = 0; rr < licao.quest[r].opcoes.length; rr++) {
+                                if (licao.quest[r].opcoes[rr].title.length > 0) {
+                                    t += licao.quest[r].opcoes[rr].title + '#' + licao.quest[r].opcoes[rr].value + '_';
+                                }
+                            } // do for rr...
+                            if (t[t.length - 1] == '_') {
+                                t = t.substring(0, t.length - 1);
+                            }
+                            t += '|';
+                        } // tipo do tipo lista...
+                        if (!licao.quest[r].opcoes2) {
+                            t += '|';
+                        } else {
+                            for (var rr = 0; rr < licao.quest[r].opcoes2.length; rr++) {
+                                if (licao.quest[r].opcoes2[rr].length > 0) {
+                                    t += licao.quest[r].opcoes2[rr] + '_';
+                                }
+                            } // do for rr...
+                            if (t[t.length - 1] == '_') {
+                                t = t.substring(0, t.length - 1);
+                            }
+                            t += '|';
+                        } // tipo do tipo lista...
+                    } // do for r...
+                    // alert(t);
+                    spjson(dic_path + 'school_api.php', t, 'POST', function (res) {
+                        if (res.status == 'ok') {
+                            id = res.results;
+                        }
+                        // alert(id+' '+res.status);
+                    });
+                } else { // email valido.
+                    window.location = 'index.php';
+                } // email invalido volta para o index...
+            } else { //
+                // caso nao exista o titulo da licao...
+            } // 
+        } // da funcao...
+
+        function setpublico(ch) {
+            // alert('nada');
+            var p = 0;
+            if (ch == true) {
+                p = 1;
+            }
+            spopen(dic_path + 'school_api.php', 'act=setindex&email=' + localStorage.lge + '&sala=' + querystring(1) +
+                '&id=' + id + '&value=' + p, 'POST',
+                function (res) {
+                    // alert(res);
+                });
+        } // da funcao...
+    </script>
+</body>
+
+</html>

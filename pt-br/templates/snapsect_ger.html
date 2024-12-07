@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+<title>SnapSects</title>
+</head>
+<body>
+<!-- BEGIN BLOCK_DESLOGADO -->
+<table border="0" width="100%"><tr>
+<td width="33%"></td>
+<td width="33%"></td>
+<td width="33%"><input type="button" onclick="javascript:window.location='login.php';" value="LOGIN"></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="http://www.snapsects.com/pt-br/img/logo_application.jpeg" width="60%" alt="SNAPSECT logo"></center></td>
+<td width="33%"></td>
+</tr></table>
+<!-- END BLOCK_DESLOGADO -->
+<!-- BEGIN BLOCK_LOGADO -->
+<table border="0" width="100%"><tr>
+<td width="33%"></td>
+<td width="33%"></td>
+<td width="33%"><center><input type="button" onclick="javascript:window.location='login.php';" value="LOGOUT"></center></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="http://www.snapsects.com/pt-br/img/logo_application.jpeg" width="60%" alt="SNAPSECT logo"></center></td>
+<td width="33%"></td>
+
+</tr></table>
+<hr>
+<table border=0 width="100%"><tr>
+<td><center><input type="button" id="cmdprincipal" onclick="javascript:window.location='add_snapsect.php?pag=dvprincipal';" value="IDENTIFY YOUR ARTHROPOD" title="IDENTIFY YOUR ARTHROPOD"></center></td>
+<td><center><input type="button" id="cmddescriptions" onclick="javascript:window.location='add_snapsect.php?pag=dvdescriptions';" value="DESCRIBE YOUR ARTHROPOD" title="DESCRIBE YOUR ARTHROPOD"></center></td>
+<td><center><input type="button" id="cmdmore" onclick="javascript:window.location='add_snapsect.php?pag=dvmore';" value="COLLECTING METHOD"></center></td>
+<td><center><input type="button" id="cmdmediation" onclick="javascript:window.location='add_snapsect.php?pag=dvmediation';" value="MEDIATION TEXT" title="MEDIATION TEXT"></center></td>
+<td><center><input type="button" id="cmdnotes" onclick="javascript:window.location='add_snapsect.php?pag=dvnotes';" value="PROEMIAL NOTES" title="PROEMIAL NOTES"></center></td>
+<td><center><input type="button" id="cmdaudiodesc" onclick="javascript:window.location='add_snapsect.php?pag=dvaudiodesc';" value="AUDIO DESCRIPTION" title="Audio description"></center></td>
+</tr></table>
+<!-- END BLOCK_LOGADO -->
+<!-- BEGIN BLOCK_ADM -->
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" id="cmdadm" onclick="javascript:window.location='index_adm.php';" value="ADMINISTRATION"></td>
+<td width="33%"></td>
+<td width="33%"><input type="button" onclick="javascript:window.location='login.php';" value="LOGOUT"></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="http://www.snapsects.com/pt-br/img/logo_application.jpeg" width="60%" alt="SNAPSECT logo"></center></td>
+<td width="33%"></td>
+
+</tr></table>
+<hr>
+<table border=0 width="100%"><tr>
+<td><center><input type="button" id="cmdprincipal" onclick="javascript:window.location='add_snapsect.php?pag=dvprincipal';" value="IDENTIFY YOUR ARTHROPOD" title="IDENTIFY YOUR ARTHROPOD"></center></td>
+<td><center><input type="button" id="cmddescriptions" onclick="javascript:window.location='add_snapsect.php?pag=dvdescriptions';" value="DESCRIBE YOUR ARTHROPOD" title="DESCRIBE YOUR ARTHROPOD"></center></td>
+<td><center><input type="button" id="cmdmore" onclick="javascript:window.location='add_snapsect.php?pag=dvmore';" value="COLLECTING METHOD"></center></td>
+<td><center><input type="button" id="cmdmediation" onclick="javascript:window.location='add_snapsect.php?pag=dvmediation';" value="MEDIATION TEXT" title="MEDIATION TEXT"></center></td>
+<td><center><input type="button" id="cmdnotes" onclick="javascript:window.location='add_snapsect.php?pag=dvnotes';" value="PROEMIAL NOTES" title="PROEMIAL NOTES"></center></td>
+<td><center><input type="button" id="cmdaudiodesc" onclick="javascript:window.location='add_snapsect.php?pag=dvaudiodesc';" value="AUDIO DESCRIPTION" title="Audio description"></center></td>
+</tr></table>
+<!-- END BLOCK_ADM -->
+<hr>
+
+<center><h2>Search Arthropod</h2></center>
+<div id="dvfilter">
+<p><label for="commonname">Common name: </label><input type="text" name="commonname" id="commonname" value="" onkeyup="javascript:filtro();"></p>
+<center><button id="cmdff2" onclick="javascript:filtro();">Search</button></center>
+<p><label for="lstother">Select Author and Date: </label><select name="lstother" id="lstother" value="" onchange="javascript:filtro();">
+<option value="">All</option>
+<!-- BEGIN BLOCK_OTHER -->
+<option value="{CC}">{CC}</option>
+<!-- END BLOCK_OTHER -->
+</select></p>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="classe">Select Class: </label><select name="classe" id="classe" value="" onchange="javascript:mostraimagem(this.value,'imgclass'); filtro();">
+<option value="">All</option>
+<option value="Arachinida">Arachinida</option>>
+<option value="Chilopoda">Chilopoda</option>
+<option value="Diplopoda">Diplopoda</option>
+<option value="Insecta">Insecta</option>
+<option value="Malacostraca">Malacostraca</option>
+</select></p></td> 
+<td width="20%"><img id="imgclass" style="float: right" width="150px"></td>
+</tr></table>
+<p><label for="lstorder">Select Order: </label><select name="lstorder" id="lstorder" value="" onchange="javascript:filtro();">
+<option value="">All</option>
+<!-- BEGIN BLOCK_ORDER -->
+<option value="{CC}">{CC}</option>
+<!-- END BLOCK_ORDER -->
+</select></p>
+<p><label for="family">Family: </label><input type="text" name="family" id="family" value="" onkeyup="javascript:filtro();"></p>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="lstantennae">Select Antennae: </label><select name="lstantennae" id="lstantennae" value="{P->LSTANTENNAE}" onchange="javascript:mostraimagem(this.value,'imglstantennae'); filtro();">
+<option value="">All</option>
+<option value="Filiform">Filiform</option>
+<option value="Setaceous">Setaceous</option>
+<option value="Geniculate">Geniculate</option>
+<option value="Plumose">Plumose</option>
+<option value="Clavate (gradual club)">Clavate (gradual club)</option>
+<option value="Capitate (abrupt club or knob)">Capitate (abrupt club or knob)</option>
+<option value="Aristate">Aristate</option>
+<option value="Monoliform or Moniliform">Monoliform or Moniliform</option>
+<option value="Lamelate or Lamelar">Lamelate or Lamelar</option>
+<option value="Serrate">Serrate</option>
+<option value="Pectinate">Pectinate</option>
+<option value="Minute and bristle-like">Minute and bristle-like</option>
+<option value="Flabellate">Flabellate</option>
+<option value="other (add type in description box)">other</option>
+</select></p></td> 
+<td width="20%"><img id="imglstantennae" style="float: right" width="150px"></td>
+</tr></table>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="lstmouthparts">Select Mouth parts: </label><select name="lstmouthparts" id="lstmouthparts" onchange="javascript:mostraimagem(this.value,'imglstmouthparts'); filtro();">
+<option value="">All</option>
+<option value="Chewing">Chewing</option>
+<option value="Sucking (Sucker-maxillary)">Sucking (Sucker-maxillary)</option>
+<option value="Sucking-labial">Sucking-labial</option>
+<option value="Lapping">Lapping</option>
+<option value="Sponging">Sponging</option>
+<option value="Piercing-sucking">Piercing-sucking</option>
+<option value="Siphoning">Siphoning</option>
+<option value="other (add type in description box)">other</option>
+</select></p></td> 
+<td width="20%"><img id="imglstmouthparts" width="150px" style="float: right"></td>
+</tr></table>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="lstwings">Select wings: </label><select name="lstwings" id="lstwings" onchange="javascript:mostraimagem(this.value,'imglstwings'); filtro();">
+<option value="">All</option>
+<option value="Membranous">Membranous</option>
+<option value="Elytra">Elytra</option>
+<option value="Hemielytra">Hemielytra</option>
+<option value="Tegmina">Tegmina</option>
+<option value="Haltere (dumbbells)">Haltere (dumbbells)</option>
+<option value="Fringed">Fringed</option>
+<option value="Scaly">Scaly</option>
+<option value="Aptera (no wings)">Aptera (no wings)</option>
+<option value="other (add type in description box)">other</option>
+</select></p></td> 
+<td width="20%"><img id="imglstwings" width="150px" style="float: right"></td>
+</tr></table>
+<p><label for="lstnumlegs">Select number of legs: </label><select name="lstnumlegs" id="lstnumlegs" onchange="javascript:filtro();">
+<option value="">All</option>
+<option value="6">six</option>
+<option value="8">eight</option>
+<option value="10">ten</option>
+<option value="+10">more than ten (add number in description box)</option>
+</select></p>
+<div>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="lstlegs">Select the type of legs: </label><select name="lstlegs" id="lstlegs" onchange="javascript:mostraimagem(this.value,'imglstlegs'); filtro();">
+<option value="">All</option>
+<option value="Ambulatorial">Ambulatorial</option>
+<option value="Cursorial">Cursorial</option>
+<option value="Saltatorial">Saltatorial</option>
+<option value="Scansorial">Scansorial</option>
+<option value="Fossorial">Fossorial</option>
+<option value="Raptorial">Raptorial</option>
+<option value="Natatorial">Natatorial</option>
+<option value="Collector">Collector</option>
+<option value="other (add types in description box)">other</option>
+</select> </p></td>
+<td width="20%"><img id="imglstlegs" width="150px" style="float: right"></td>
+</tr></table>
+</div>
+<center><button id="cmdff" onclick="javascript:filtro();">Search</button></center>
+</div>
+<div id="dvtab">
+</div>
+{ARTHROPODA}
+<div class="foother">
+{RODAPE}
+</div>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/snapsect_ger.js"></script>
+</body>
+</html>

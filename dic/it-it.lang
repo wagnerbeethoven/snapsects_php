@@ -1,0 +1,668 @@
+﻿[name]
+Italiano
+[controler]
+3
+[0]
+Logo SNAPSECT
+[1]
+IDENTIFICARE IL TUO ARTHROPOD
+[2]
+DESCRIVITI IL TUO ARTHROPOD
+[3]
+METODO DI RACCOLTA
+[4]
+TESTO DI MEDIAZIONE
+[5]
+NOTE DI PROVA
+[6]
+DESCRIZIONE DELL'AUDIO
+[7]
+Cerca Arthropod
+[8]
+Nome comune
+[9]
+Ricerca
+[10]
+Seleziona Autore e Data
+[11]
+Tutti
+[12]
+Seleziona la classe
+[13]
+Arachinida
+[14]
+Chilopoda
+[15]
+Diplopodi
+[16]
+Insecta
+[17]
+Malacostraca
+[18]
+Seleziona l'ordine
+[19]
+Famiglia
+[20]
+Seleziona Antenne
+[21]
+Filiforme
+[22]
+setoloso
+[23]
+genicolato
+[24]
+plumose
+[25]
+Clavate (club graduale)
+[26]
+Capito (mazza o manopola brusca)
+[27]
+aristate
+[28]
+Monoliformi o Moniliformi
+[29]
+Lamelate o Lamelar
+[30]
+seghettato
+[31]
+pectinate
+[32]
+Minuto e setoso
+[33]
+flabellate
+[34]
+altro
+[35]
+Seleziona le parti della bocca
+[36]
+masticazione
+[37]
+Succhiare (Sucker-mascellari)
+[38]
+Succhiare-labiali
+[39]
+sciabordio
+[40]
+spugnature
+[41]
+Piercing-succhiare
+[42]
+sifonamento
+[43]
+altro
+[44]
+Seleziona le ali
+[45]
+Membranoso
+[46]
+elitre
+[47]
+Hemielytra
+[48]
+tegmine
+[49]
+Haltere (manubri)
+[50]
+frange
+[51]
+squamoso
+[52]
+Aptera (senza ali)
+[53]
+altro
+[54]
+Seleziona il numero di gambe
+[55]
+sei
+[56]
+otto
+[57]
+dieci
+[58]
+più di dieci (aggiungi il numero nella casella di descrizione)
+[59]
+Seleziona il tipo di gambe
+[60]
+ambulatoriale
+[61]
+cursorial
+[62]
+Saltatorial
+[63]
+Scansorial
+[64]
+fossorial
+[65]
+raptorial
+[66]
+natatorio
+[67]
+Collettore
+[68]
+altro
+[69]
+Ricerca
+[70]
+benvenuti a scapsare la scuola! Sei schermo di ricerca arthropoda ...
+[71]
+Cerca schermo arthropoda ...
+[72]
+<center><h2> ARTHROPODA </h2></center><br><p align = "justify"> Il phylum Arthropoda fa parte del regno di Animalia e copre la più grande varietà di specie del pianeta. Insetti, crostacei, aracnidi, diplopodi e chopopodi appartengono a questo phylum. Gli artropodi, animali invertebrati, sono caratterizzati da un esoscheletro rigido e chitinoso, corpo segmentato, simmetria bilaterale e gambe articolate. In generale, il corpo degli artropodi è costituito da testa, torace e addome. In alcuni casi, tuttavia, la testa e il torace sono classificati come cefalotorace, perché sono uniti. In questi casi, il corpo degli artropodi è diviso in cefalotorace e addome. Sebbene abbiano caratteristiche simili, gli artropodi sono molto diversificati. Possono avere caratteristiche morfologiche così diverse che, agli occhi dei laici, non sembreranno appartenere allo stesso gruppo. Ad esempio, gamberi e granchi sono decapodi e appartengono ai crostacei subphylum. Allo stesso modo, ragni e scorpioni sono aracnidi, appartenenti al subphylum Chelicerata. </P>
+[73]
+<center> CopyRight </center><br><p> Copyright 2017 - 2018 - Francisco J. Lima </p><br><br><p> La ridistribuzione e l'uso nei moduli sorgente e binario, con o senza modifiche, sono consentiti a condizione che siano soddisfatte le seguenti condizioni: </p><br><p> 1. Le ridistribuzioni del codice sorgente devono conservare le suddette informazioni sul copyright, questo elenco di condizioni e il seguente disclaimer. </P><br><p> 2. Le ridistribuzioni in formato binario devono riprodurre la suddetta nota sul copyright, questo elenco di condizioni e il seguente disclaimer nella documentazione e / o in altri materiali forniti con la distribuzione. </P><br><p> 3. Né il nome del titolare del copyright né i nomi dei suoi contributori possono essere utilizzati per sostenere o promuovere prodotti derivati ​​da questo software senza previa autorizzazione scritta specifica. </P><br><br><p> QUESTO SOFTWARE VIENE FORNITO DAL I TITOLARI DEL COPYRIGHT EI COLLABORATORI "COSÌ COME SONO" E QUALSIASI GARANZIA ESPLICITA O IMPLICITA, INCLUSE, MA NON LIMITATE A, LE GARANZIE IMPLICITE DI COMMERCIABILITÀ E IDONEITÀ PER UNO SCOPO PARTICOLARE NON SONO RICONOSCIUTE. IN NESSUN CASO IL TITOLARE DEL COPYRIGHT OI COLLABORATORI SARANNO RESPONSABILI DI ALCUN DANNO DIRETTO, INDIRETTO, ACCIDENTALE, SPECIALE, ESEMPLARE O CONSEQUENZIALE (INCLUSI, MA NON LIMITATAMENTE, APPROVVIGIONAMENTO DI BENI O SERVIZI SOSTITUTIVI, PERDITA DI UTILIZZO, DATI O PROFITTI; O INTERRUZIONE COMMERCIALE) TUTTAVIA CAUSATO E SULLA QUALSIASI TEORIA DI RESPONSABILITÀ, SIA IN CONTRATTO, RESPONSABILITÀ STRETTA, O IN FATTO (INCLUSA NEGLIGENZA O ALTRO) DERIVANTE IN QUALSIASI MODO DALL'USO DI QUESTO SOFTWARE, ANCHE SE AVVISATI DELLA POSSIBILITÀ DI TALI DANNI. </p>
+[74]
+Atualizando a biblioteca de idioma.
+[75]
+artrópodes encontrados
+[76]
+nenhum artrópode encontrado.
+[77]
+impostazioni
+[78]
+Ritorno
+[79]
+Non salvare le modifiche
+[80]
+SALVA E VISTA
+[81]
+DESCRITTORI E COLLABORATORI
+[82]
+BIBLIOGRAFIA
+[83]
+IMMAGINE
+[84]
+<p> Scrivi il nome oi nomi che il tuo campione è comunemente noto come </p>
+[85]
+<p> Scrivi il nome scientifico del tuo esemplare </p>
+[86]
+Nome scientifico
+[87]
+<p> Scrivi chi ha identificato il tuo esemplare; scrivi l'anno in cui il tuo campione è stato identificato. </p>
+[88]
+Autore e Data
+[89]
+Regno: Animalia
+[90]
+Phylum (Arthropoda)
+[91]
+<p> Seleziona la classe del tuo esemplare </p>
+[92]
+Non informato
+[93]
+<p> Scrivi l'ordine del tuo esemplare </p>
+[94]
+Ordine
+[95]
+<p> Scrivi la famiglia del tuo esemplare </p>
+[96]
+<p> Scrivi il genere del tuo esemplare </p>
+[97]
+Genere
+[98]
+<p> Scrivi le specie del tuo esemplare </p>
+[99]
+Specie
+[100]
+<p> Seleziona il sesso del tuo esemplare. </p>
+[101]
+Seleziona il sesso
+[102]
+femmina
+[103]
+maschio
+[104]
+sconosciuto
+[105]
+<p> Indica in quale stadio di sviluppo si trova il campione (ad es. larve, pupe, ninfe e adulti). </p>
+[106]
+Seleziona la fase di sviluppo
+[107]
+larve
+[108]
+Pupa
+[109]
+Ninfa
+[110]
+Adulto
+[111]
+<p> Indica quale tipo di metamorfosi ha il tuo campione. Ad esempio, la sua metamorfosi è semplice, graduale o completa, ha una metamorfosi incompleta. </P>
+[112]
+Metamorfosi
+[113]
+<p> Descrivi chiaramente il tuo campione, con attributi visivi dettagliati; indica il / i colore / i del tuo campione; ad esempio, ha punti neri, è luminoso, ha strisce nere e marroni o è una farfalla blu. </p>
+[114]
+Attributi visivi
+[115]
+<p> Indica il peso, le dimensioni, la lunghezza, la larghezza e la forma del tuo campione (ad esempio, è lungo, il suo corpo è allungato e simile a un bastone, oppure è largo, appiattito lateralmente compresso. (ad esempio, il suo corpo è diviso in testa, torace e addome, è diviso in cefalotorace e addome o in testa e tronco). </p>
+[116]
+Corpo
+[117]
+<p> Indica la dimensione e la forma della testa del tuo esemplare (ad esempio, è triangolare o arrotondata; ha regioni bulbose tra i bocchini e le antenne o Drawn in un becco con l'apparato boccale in avanti ". </p>
+[118]
+Capo
+[119]
+<p> Indica la dimensione, la forma, la lunghezza, il numero di segmenti, il numero di ali esistenti e / o le gambe nel torace del tuo campione. </p><p> Descrivi la sua forma di Pronotum (ad esempio, è breve e distinta dalla testa, è corto e distinto dai lati del protorace, è interamente o quasi interamente coprente la testa, è allungato, è lungo e largo, corto, con lobi che scendono sui lati del protorace). </p>
+[120]
+Torace
+[121]
+<p> Indica la dimensione, la forma, la lunghezza e il numero di segmenti dell'addome del tuo campione. Descrivi la forma complessiva dell'addome del tuo campione: (ad esempio, è ovale o allungata). Descrivi anche le parti dell'addome: base addominale (ad esempio, Ampiamente attaccata al torace; Costruita a una vita stretta incernierata flessibilmente sul corpo), apice addominale (ad esempio, con un lungo filamento; con due lunghi filamenti; con tre lunghi filamenti; Con un organo saltatore biforcuto, con una pinza indurita), tipo di cerci (ad es. Corto con un segmento, allungato con più di due segmenti). </P>
+[122]
+Addome
+[123]
+Seleziona il tipo di antenne
+[124]
+altro (aggiungi tipo nella casella descrizione)
+[125]
+<p> Descrivi le antenne del tuo campione. Descrivere il numero di antenne, la direzione delle antenne (ad es. Proiettare dalla sommità della testa e curvare dietro il corpo, sporgere dai lati superiori della testa che punta in avanti), la forma (ad es., Antenne Densely feathered; Hooked club- come antenne), lunghezza (ad es. "Più lunga del corpo"). </p>
+[126]
+antenne
+[127]
+<p> Indica il numero, la dimensione e il tipo di occhi e ocelli del tuo campione. Descrivi la forma degli occhi e degli ocelli, dove sono posizionati sulla testa (ad esempio, Separato; Riunione nella linea mediana dorsalmente) e la loro localizzazione in relazione ad altre parti nella testa. </P>
+[128]
+Occhi e ocelli
+[129]
+Seleziona il tipo di parti della bocca
+[130]
+<p> Descrivi quali tipi di parti della bocca hanno il tuo campione: (includi il numero e le forme delle parti, Mandibole e struttura tubolare.Indica anche dove si trovano nella testa (ad esempio, Esterno, con mandibole da masticare; tubo cilindrico sotto la testa; all'interno della capsula della testa). </p>
+[131]
+Parti della bocca
+[132]
+Seleziona il tipo di ali anteriori
+[133]
+<p> Descrivi le ali del tuo esemplare. Descrivi il colore, il motivo e la consistenza (ad es., Entrambe le coppie di ali sono membranose, ricoperte di peli microscopici, con molte vene e vene trasversali, le ali anteriori sono coriacee e marroni, le ali anteriori sono dure, opache, formano copertine aderenti sull'addome, ali posteriori trasparenti ;). Descrivi la dimensione e la forma (ad esempio, Largo, grande, Stretto, con una frangia di peli lunghi, Stretto), la lunghezza e il numero di ali (ad esempio, Quattro ali, Due, posteriore ridotto a minuscole mazze; a mazze piccole), la lunghezza dell'apertura alare. Indicare se le ali sono funzionali al volo (ad esempio, Funzionale, Ridotto a pad piccoli). </P>
+[134]
+ali anteriori
+[135]
+Seleziona il tipo di ali posteriori
+[136]
+<p> Descrivi le ali posteriori del tuo esemplare. Descrivi il colore, il motivo e la consistenza (ad esempio, Entrambe le coppie di ali posteriori sono membranose, ricoperte di peli microscopici, con molte vene e vene trasversali, ali posteriori coriacee e marroni, ali posteriori dure, opache, che formano coprioggetti attillati sull'addome, ali posteriori trasparenti;). Descrivi le dimensioni e la forma (ad esempio, Largo, grande, Stretto, con una frangia di peli lunghi, Stretto), la lunghezza e il numero di ali posteriori (ad esempio, Quattro ali, Due, posteriore ridotto a minuscole mazze; ridotto a piccoli club), la lunghezza dell'apertura alare. Indicare se le ali sono funzionali al volo (ad esempio, Funzionale, Ridotto a pad piccoli). </P>
+[137]
+Ali posteriori
+[138]
+<p> Descrivi le gambe del tuo esemplare. Dì come sono modificati o adattati. Per esempio, zampe anteriori (ad esempio, zampe anteriori armate di spine robuste e modificate per afferrare la preda, Foretarsi con segmento basale gonfio, contenente ghiandole di seta), arti posteriori (ad es. Gambe posteriori allargate, modificate per saltare, le zampe posteriori sono collezionisti o gambe del collezionista). Includere le descrizioni dei segmenti delle gambe come cocchi, trocantere, femore, tarso, pretarso (ad es. Con artigli, con gonfiore vescicale) e dove si trovano sul corpo. </P>
+[139]
+Descrizione delle gambe
+[140]
+Seleziona il numero di Tarsomere
+[141]
+Uno
+[142]
+Due
+[143]
+Tre
+[144]
+quattro
+[145]
+Cinque
+[146]
+Seleziona Cerci
+[147]
+Breve con un segmento
+[148]
+Breve con due segmenti
+[149]
+Allunga con più di due segmenti
+[150]
+<p> Descrivi altre caratteristiche specifiche del tuo campione; qualsiasi specializzazione di un'appendice (ad es., C'è) (Ha) un pungiglione alla fine dell'addome). </p>
+[151]
+Caratteristiche morfologiche specifiche
+[152]
+<p> Racconta come hai raccolto il tuo esemplare </p>
+[153]
+Metodo di raccolta
+[154]
+<p> Descrivi l'ambiente in cui hai trovato il tuo esemplare, ad esempio, in acqua corrente pulita; a terra tra le rocce; in terreno sabbioso; volare in una foresta. </p>
+[155]
+Habitat (luogo di ritiro)
+[156]
+<p> Informa i fattori abiotici al momento della raccolta (ad es., vento, temperatura, umidità, precipitazioni, pressione, indice UV) </p>
+[157]
+Fattori abiotici
+[158]
+Ottieni posizione
+[159]
+Localizzazione
+[160]
+Latitudine
+[161]
+Longitudine
+[162]
+Città
+[163]
+Stato o Provincia
+[164]
+nazione
+[165]
+Data di raccolta
+[166]
+Temperatura
+[167]
+<p align = "justify"> Scrivi un testo conciso ma completo sul tuo campione. Scrivi dell'ecologia, della riproduzione e di altri importanti dettagli curiosi. Questo può distinguere il tuo campione o interessare il tuo pubblico. </P>
+[168]
+Testo di mediazione
+[169]
+<p align = "justify"> Scrivi un testo che presenta il tuo campione. Presente ai suoi attributi generali, concetti specifici che miglioreranno la comprensione della descrizione audio. Utilizza linguaggi chiari, concisi, concreti e specifici per trasmettere l'immagine del tuo esemplare. </P>
+[170]
+Note Proemiali
+[171]
+CHIARO
+[172]
+Tassonomia e raccolta
+[173]
+<p align = "justify"> Scrivi la tua descrizione audio con realismo e fantasia. Fornisci informazioni visive dettagliate pertinenti sul tuo campione. </P>
+[174]
+Descrizione audio
+[175]
+CHIARO
+[176]
+PRENDI TUTTO
+[177]
+Bibliografia
+[178]
+Cambia foto
+[179]
+Fare una foto
+[180]
+Libreria di immagini
+[181]
+Descrizione dell'immagine
+[182]
+RIMUOVERE UNA DESCRIZIONE DELL'IMMAGINE E DELL'IMMAGINE
+[183]
+Vuoi rimuovere una descrizione di immagine e immagine?
+[184]
+<p> Scrivi il nome oi nomi di coloro che hanno preso parte alla descrizione audio. </p>
+[185]
+Descrittore
+[186]
+<p> Scrivi un'email per il contatto. </p>
+[187]
+E-mail
+[188]
+<p> Fornisci la tua pagina iniziale, la pagina di Facebook o l'indirizzo del blog. </p>
+[189]
+Home Page
+[190]
+<p> Scrivi il nome oi nomi di coloro che hanno collaborato con te durante il processo di produzione della tua sceneggiatura: il fotografo, lo stagista che ha aiutato con la ricerca ecc. </p>
+[191]
+collaboratori
+[192]
+Elenco dei contributori
+[193]
+RIMUOVI questo artropode
+[194]
+Vuoi rimuoverlo?
+[195]
+aggiungi un nuovo artropodo ...
+[196]
+Corpo (forma e segmenti delle dimensioni)
+[197]
+Testa (forma della taglia e altri attributi della testa del campione)
+[198]
+Tipo di antenne
+[199]
+Tipo di parti della bocca
+[200]
+Tipo di ali anteriori
+[201]
+Tipo di ali posteriori
+[202]
+Numero di gambe
+[203]
+Tipo di gambe
+[204]
+Gambe locomotiva
+[205]
+tarsomero
+[206]
+Cerci
+[207]
+Caratteristiche specifiche
+[208]
+Sviluppo
+[209]
+Regno
+[210]
+phylum
+[211]
+Classe: (Insecta)
+[212]
+Ordine del tuo campione
+[213]
+Sesso
+[214]
+Si prega di scrivere autore ed e-mail ...
+[215]
+Salva l'autore e l'email per future comunicazioni? Se scegli "Annulla" dovrai riempire il nome dell'autore e i campi dell'indirizzo email la prossima volta che invii una descrizione audio.
+[216]
+CERCA ARTROPOD
+[217]
+INVIA UNA EMAIL
+[218]
+MODIFICARE
+[219]
+Immagine di
+[220]
+Crediti
+[221]
+Descritto da
+[222]
+Identificazione
+[223]
+Classe
+[224]
+Descrizione parziale
+[225]
+Collezione
+[226]
+vista
+[227]
+linguaggio
+[228]
+Seleziona la lingua
+[229]
+modificare
+[230]
+<center><h2>Informazioni sulla classe Arachnida</h2></center><p align = "justify"> Gli Arachnida appartengono al subphylum Chelicerata. Alcuni degli esempi più comuni di aracnidi sono zecche, ragni, scorpioni e acari. Come tutti gli artropodi, gli aracnidi hanno un corpo simmetrico bilateralmente, appendici articolate ed ecodisi dell'esoscheletro. Sono caratterizzati dall'avere cheliceri (invece di mandibole), un paio di pedipalpi nella regione orale e quattro paia di gambe nel cefalotorace. Il loro corpo è diviso nel cefalotorace e nell'addome. La regione cefalica presenta occhi semplici, che variano in numero a seconda del gruppo, e ha cheliceri e pedipalpi, che compongono il loro apparato orale. La regione toracica presenta quattro paia di zampe. L'addome di solito ospita le strutture riproduttive e di difesa e mostra variazioni nell'aspetto. Ad esempio, l'addome del ragno è ovale e mostra filatori nella regione posteriore-ventrale, mentre l'addome dello scorpione è allungato (ha un aspetto di coda), con un pungiglione nell'ultimo segmento addominale. </P>
+[231]
+<center><h2>Informazioni sulla classe Chilopoda</h2></center><p align = "justify"> La classe Chilopoda appartiene al subphylum Myriapoda ed è comunemente indicata come millepiedi. Come altri artropodi, hanno un esoscheletro e gambe articolate. Le appendici dei chilopodi sono uniramous. I chilopodi differiscono dagli altri artropodi perché i loro corpi sono divisi in due parti principali: testa e tronco. Il tronco è composto da torace e addome. Dorsolateralmente sulla parte anteriore della testa c'è una coppia di antenne (con numeri variabili di segmenti), e dorsolateralmente vicino alla metà della testa c'è un paio di occhi semplici. Ventrally sulla parte anteriore della testa sono le parti della bocca, che sono composte da una coppia di mandibole e due paia di mascelle. Il torace dei chilopodi comprende da 15 a 193 segmenti e ogni segmento ha un paio di gambe provviste di cardini. Il primo paio di zampe ha artigli di veleno e l'ultimo paio di zampe si estende dietro il corpo. BRUSCA, R. C .; BRUSCA, G. J. Filo Arthropoda: Miriápodes (Centopéias, Milípedes e Afins). In: ________. Invertebrados. Rio de Janeiro: Guanabara Koogan, p. 664-677, 2007. </P>
+[232]
+<center><h2>Informazioni sulla classe Diplopoda</h2></center><br><p align = "justify"> La classe Diplopoda appartiene al subphylum Myriapoda ed è comunemente nota come millepiedi. I Diplopodi si trovano in ambienti tropicali e, come altri artropodi, hanno un esoscheletro, gambe articolate e corpi segmentati. <br> Sono caratterizzati dalla presentazione di due tagma, la testa e il tronco (torace e addome fusi) che sono omonimi e multisegmentato. <br> Il capo dei diplopodi presenta un paio di antenne sul bordo anteriore, un paio di semplici occhi, situati lateralmente nella parte posteriore della testa e un apparato boccale composto da un paio di mandibole e mascelle. Il torace ha da 11 a 192 diplosegmenti (segmenti in coppia). In ognuna di esse, eccetto la prima e l'ultima, ci sono due paia di zampe. <br> Riferimenti <br> BRUSCA, R. C .; BRUSCA, G. J. Filo Arthropoda: Miriápodes (Centopéias, Milípedes e Afins). In: ________. Invertebrados. Rio de Janeiro: Guanabara Koogan, p. 664-677, 2007. </P>
+[233]
+<center><h2>Informazioni sulla classe Insecta</h2></center><br><br><p align = "justify"> Il termine insetto ha la sua origine nella parola latina "insectum" e significa animale di corpo scanalato, o corpo segmentato. La classe Insecta comprende il 70% delle specie animali. Come altri artropodi, gli insetti hanno un esoscheletro, gambe articolate e simmetria del corpo. Alcuni degli insetti più comunemente conosciuti sono le api, scarafaggi, mosche, grilli, farfalle e coleotteri.<br>Gli insetti differiscono dagli altri artropodi perché i loro corpi sono divisi in tre parti principali: testa, torace e addome. Sulla loro testa ci sono un paio di antenne, gli occhi e gli ocelli, e le parti esterne della bocca. Il loro torace ha fino a quattro ali dorsalmente e ha sei gambe ventralmente. Sull'addome ci sono le strutture genitali. Alcune strutture sono presenti o apparenti solo nella fase di vita adulta.<br>Le antenne degli insetti si trovano nella regione frontale della testa e possono essere classificate in tipi: filiforme (ad es. Scarafaggio, cricket), setacea (es. Cavalletta), genicolato (es. Formica), plumose (es. Zanzara), clavata ( es. farfalla), aristato (ad es. volare) e seghettato (es. coleottero).<br>Gli insetti, nella maggior parte dei casi, presentano un paio di occhi composti, situati nella parte laterale della testa; e molti presentano anche occhi semplici o ocelli (di solito tre), situati all'apice della testa.<br>L'apparato boccale degli insetti può essere suddiviso in diverse categorie, secondo la specializzazione che presenta, e può essere: chewer (ad esempio, scarafaggi, cricket); chewer / difesa (ad es. termite, formica); mascella-ventosa (ad es. farfalla); polloni di labium (ad es. zanzare, cicale, cimici e pulci); leccare (ad esempio, ape). Il torace degli insetti è diviso in tre segmenti: anteriore, anteriore, posteriore, posteriore, protorace, mesotorace e metatorace. Se sono presenti quattro ali, due coppie, l'insetto sarà tetrapitale. In questo caso, il metatace mostrerà la coppia di ali anteriori e il metatace porterà la coppia di ali posteriori. Alcune ali posteriori possono sembrare a forma di manubrio ed essere atrofizzate. Ali a forma di manubrio atrofizzate, haltere, non sono funzionali al volo e sono molto difficili da vedere ad occhio nudo. Per questo motivo, si ritiene che gli insetti con ali di haltere abbiano solo due ali, ad esempio quelle che appartengono ai ditteri dell'ordine, ad esempio le zanzare e le mosche.<br>Gli insetti che non hanno ali sono apterosi o privi di ali.<br>Le ali possono essere distinte come: membranose (ad es. Vespe), tegamina (ad esempio grilli, locuste e scarafaggi), elitre (ad es. Scarafaggi), hemelytra (ad esempio insetti) e haltere (ad esempio mosche, zanzare). Alcuni insetti possono avere due tipi di ali: per esempio, uno scarafaggio avrà una coppia di elitre che coprono un paio di ali membranose.<br>Le zampe degli insetti hanno caratteristiche diverse, a seconda della funzione che svolgono, e alcuni insetti avranno più di un tipo di zampe, ad esempio un'ape mellifera ha sei gambe ambulatoriali e la coppia attaccata al metatace viene utilizzata per la pulizia e le gambe del protorace sono collezionisti. Possono essere: ambulatoriale (ad es. Ape), corsivo (ad esempio formiche); saltatoriale (ad esempio grilli e cavallette); raptorial (per esempio mantis); collettore (ad es. api); scansorial (ad esempio, pidocchi), tra gli altri.<br>L'addome degli insetti è diviso in sei a dodici segmenti, di solito contiene strutture sensoriali e genitali. L'addome può essere libero (ad esempio farfalle, api), sessile (ad esempio grilli) o peduncolato (ad esempio, formica, vespe).</P><br>Riferimenti<br>GALLO, D. et al. (org.). Entomologia Agrícola. Piracicaba: FEALQ, 2002. </P>
+[234]
+<center><h2>Informazioni sulla classe Malacostraca</h2></center><br><p align = "justify"> La classe Malacostraca appartiene al subphylum Crustacea. Aragoste, granchi, gamberetti, cirripedi e woodlouse sono alcuni degli esempi più conosciuti. <br> Il nome crostaceo, dato a questi artropodi, deriva dal latino "crusta" che significa crosta. In generale, sono animali acquatici (ad es. Aragoste e gamberetti) o vivono in aree di terreno molto umide (ad esempio gli Isopodi). <br> I crostacei hanno corpi segmentati (cefalotorace e addome) e appendici articolate. La regione cefalica del crostaceo presenta cinque o sei segmenti, che includono due coppie di antenne, un paio di occhi, di solito peduncolati, e l'apparato boccale, che consiste in una coppia di mandibole e due paia di mascelle. La maggior parte dei crostacei ha un cefalotorace coperto da un carapace. <br> I crostacei respirano attraverso le loro branchie che si trovano nella regione toracica. La regione toracica ha otto segmenti, tre paia di maxillipedi nella regione anteriore e cinque paia di zampe, chiamati pereopodi nella regione posteriore. I crostacei di solito portano cinque paia di zampe nell'addome che sono chiamate pleopodi. Negli ultimi segmenti addominali, le appendici sono gli uropodi e il telson. </P>
+[235]
+MENU
+[236]
+Apri il menu principale
+[237]
+Ricerca Avanzata
+[238]
+Chiusura del menu principale
+[239]
+Menu principale
+[240]
+Informazioni su
+[241]
+Domande frequenti
+[242]
+Disclaimer
+[243]
+Annulla
+[244]
+<h3> Informazioni su </h3><br><h3> SnapSects </h3><p> Versione 0.83 Beta </​​p><br><p> Programmazione - Luiz Eduardo Porto Mariz </p><br><p > Questo programma è software libero; puoi ridistribuirlo e / o modificarlo secondo i termini della Licenza BSD di 3-Clausole, come pubblicato in pubblico dominio su ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change < / p><br><br><p> SnapSects è un'applicazione web / mobile interattiva progettata per rendere le immagini degli artropodi accessibili a persone non vedenti o ipovedenti attraverso la descrizione audio scientifica. È uno strumento per la classificazione scientifica degli artropodi, specialmente degli insetti e una risorsa educativa per l'apprendimento della biodiversità e degli aspetti anatomici visivi o della morfologia esterna di quegli organismi. </P><br><p> SnapSects fa affidamento sul volontariato degli utenti contributi mediante la raccolta e l'invio di immagini di artropodi, la loro descrizione audio, la revisione dei contenuti scientifici e la modifica delle bozze dei testi del sito. </p><br><br><p> SnapSects è stato sviluppato dopo una ricerca post-dottorato del 2017 presso il Dipartimento di Entomologia del Museo di Storia Naturale - Smithsonian Institution (Stati Uniti), con una borsa della Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - CAPES (Brasile) ed è conforme alle migliori pratiche di accessibilità e descrizione audio. </p><br><br><p> Questo è un software gratuito, ma costa ancora soldi per scrivere , supporto e distribuzione. Se ti piace utilizzarlo, considera una donazione agli autori di questo software. Aiuterà a rendere SnapSects ancora migliore! </P>
+[245]
+<h3> Domande frequenti </h3><br><br><p><h4> Che cos'è SnapSects? </h4></p><br> Si tratta di un'applicazione web / mobile interattiva progettata per creare immagini di artropodi accessibili a persone non vedenti o ipovedenti tramite la descrizione audio scientifica prodotta da SnapSectors. <br /></p><br><p><h4> Che cos'è un SnapSector? </h4><br> Una volta diventare un collaboratore della pagina web SnapSects o utente dell'app mobile SnapSects e caricare una descrizione o aiutare con la descrizione di un artropode, si diventa un SnapSector, un membro di un gruppo di volontari il cui obiettivo è rendere la scienza accessibile alle persone che sono ciechi o ipovedenti. <br /></p><br><p><h4> SnapSects automaticamente l'audio descrive un'immagine che carico? </h4><br> No. SnapSects non descrive automaticamente alcuna immagine. Ti guida ad una descrizione audio scientifica con suggerimenti su cosa descrivere. Quindi, ti viene richiesto un testo che puoi modificare per perfezionare la tua descrizione audio <br /></p><br><< br> p><h4> Posso caricare qualsiasi immagine su SnapSects? </H4><br > No. Solo foto di Insetti e altri Artropodi sono accettate in questo momento. <br /></p><br><br><p><h4> Posso caricare un'immagine scattata da qualcun altro o qualsiasi altra immagine che ho trovato su il web? </h4><br> Dovresti caricare solo immagini di cui hai il diritto o il permesso di usare. Le immagini dal web devono essere utilizzate solo se sono di dominio pubblico o altrimenti non hanno restrizioni da utilizzare da parte tua o di terze parti. <br /></p><br><br><p><h4> Can Carico un'immagine senza descrizione? </H4><br> Sì. Ma tieni presente che lo scopo di SnapSects è quello di fornire alle persone non vedenti o ipovedenti l'accesso alla descrizione audio scientifica degli artropodi. Dovresti utilizzare l'app per ottenere una descrizione di base della tua foto, in modo che altri possano aiutarti a colmare le lacune. In ogni caso, puoi sempre rivisitare il tuo post e completare o modificare la descrizione. <br /></p><br><br><p><h4> Posso modificare qualsiasi descrizione che ho fatto? </H4><br> Sì. Puoi sempre rivedere i tuoi post e completare o modificare la tua descrizione. Puoi anche autorizzare un collaboratore a farlo. <br /></p><br><p><h4> Devo essere un esperto per caricare o descrivere un'immagine? </H4><br> No. Ma dovresti sempre ricercare attentamente l'artropode sulla tua foto, in modo da fornire una descrizione affidabile. <br /></p><br><p><h4> Posso descrivere le immagini caricate da altri SnapSectors? </H4>< br> Sì. Puoi contattare uno SnapSector, informarlo che desideri collaborare con la descrizione audio o pubblicare il tuo contributo alla descrizione. <br /></p><br><br><p><h4> Posso commentare o dare un parere sui post di SnapSects? </H4><br> Sì. Il tuo contributo e le tue opinioni sono sempre ben accetti e inestimabile. Ricorda sempre di essere cortese, premuroso e rispettoso. Tutti gli SnapSector sono qui con l'obiettivo di rendere le informazioni visive scientifiche sugli artropodi a disposizione delle persone non vedenti o ipovedenti. <br /></p><br><br><p><h4> Posso commentare o dare un parere sui post di SnapSects? </h4>
+[246]
+<h3> Disclaimer </h3><br><br><p> Ultimo aggiornamento: 21 giugno 2018 </p><br><br><p> Le informazioni contenute in questo software (il "Servizio") è solo a scopo informativo generale. I detentori del copyright e i contributori (noti anche come SnapSectors) non si assumono alcuna responsabilità per errori o omissioni nei contenuti del Servizio. </P><br><p> In nessun caso i titolari del copyright e i contributori saranno responsabili per alcuno speciale, danni diretti, indiretti, consequenziali o incidentali o qualsiasi altro danno, sia in un'azione di contratto, negligenza o altro illecito derivante da o in connessione con l'uso del Servizio o il contenuto del Servizio. I titolari di copyright e i contributori si riservano il diritto di apportare aggiunte, cancellazioni o modifiche ai contenuti del Servizio in qualsiasi momento senza preavviso. I detentori del copyright e i contributori non garantiscono che il sito Web sia privo di virus o altri componenti dannosi. </P>
+[247]
+Vuoi controllare il dizionario ogni volta che apri questa applicazione?
+[248]
+No
+[249]
+sì
+[250]
+Seleziona la velocità della voce
+[251]
+Troppo lento
+[252]
+lento
+[253]
+normale
+[254]
+rapido
+[255]
+Molto veloce
+[256]
+la velocità della voce è cambiata.
+[257]
+Impostazioni vocali
+[258]
+Parli automaticamente il contenuto degli schermi?
+[259]
+Smetti di parlare
+[260]
+Impostazioni personali
+[261]
+Inserisci il tuo nome
+[262]
+Inserisci il tuo indirizzo email
+[263]
+Salva le impostazioni personali
+[264]
+schermata di configurazione
+[265]
+impostazioni salvate
+[266]
+Aprire il menu di modifica
+[267]
+Modifica menu
+[268]
+Aprire il menu vai a
+[269]
+Vai al menu
+[270]
+Clicca sul titolo qui sotto per vederne il contenuto
+[271]
+AGGIUNGI IL TUO ARTROPOD
+[272]
+CONNECT
+[273]
+DISCONNECT
+[274]
+UTENTI DI AMMINISTRATORE
+[275]
+Inserisci la tua email
+[276]
+Inserisci la tua password
+[277]
+inviare
+[278]
+Visualizza nuovo contenuto
+[279]
+Hai dimenticato la password?
+[280]
+Si prega di compilare il campo di posta elettronica!
+[281]
+Si prega di compilare il campo della password!
+[282]
+Benvenuto
+[283]
+Email o password non valide
+[284]
+Errore durante la connessione a Internet, riprova più tardi ...
+[285]
+Si è verificato un errore, per favore riprova ...
+[286]
+In attesa di conferma
+[287]
+utente
+[288]
+professore
+[289]
+editore
+[290]
+amministratore
+[291]
+nome
+[292]
+stato
+[293]
+E-mail
+[294]
+utenti
+[295]
+Filtra per
+[296]
+salvare
+[297]
+Osservazioni
+[298]
+Gestisci la schermata degli utenti
+[299]
+Benvenuto negli snapsects accademici!
+[300]
+Conferma la tua password
+[301]
+Schermata di accesso
+[302]
+Utente non trovato!
+[303]
+La tua password è stata inviata al tuo indirizzo email!
+[304]
+SnapSects - Invia password ...
+[305]
+La tua password è
+[306]
+C'è stato un errore! Le password sono diverse, si prega di compilare di nuovo!
+[307]
+Si prega di compilare il nome del campo!
+[308]
+Il campo email non è corretto. Si prega di compilare nuovamente il campo di posta elettronica!
+[309]
+La password deve contenere più di sei lettere!
+[310]
+Utente esistente, usa un altro indirizzo email!
+[311]
+Grazie per esserti iscritto a SnapSects! Abbiamo inviato un'email al tuo indirizzo con un link per confermare la tua registrazione ...
+[312]
+SnapSects - Conferma della registrazione ...
+[313]
+Per completare la registrazione, fai clic sul seguente link:
+[314]
+Conferma la registrazione
+[315]
+Rimuovi utente
+[316]
+Sei sicuro di voler rimuovere l'utente?
+[317]
+Sei sicuro di voler disconnettere?
+[318]
+AMMINISTRAZIONE
+[319]
+Aggiungi immagine
+[320]
+corazza
+[321]
+tronco
+[322]
+Cosa vuoi fare con l'immagine?
+[323]
+Segnala un'immagine inappropriata
+[324]
+Rimuovi immagine e descrizione
+[325]
+Modifica descrizione
+[326]
+Seleziona oggetto
+[327]
+Aggiungi video
+[328]
+Registra video
+[329]
+Titolo del video
+[330]
+Aggiungi media (foto, video o audio)
+[331]
+pubblicare

@@ -1,0 +1,10 @@
+<center><h2>About the class Diplopoda</h2></center>
+
+<p align="justify">The class Diplopoda belongs to the subphylum Myriapoda and is commonly known as millipedes. The Diplopods are found in tropical environments and, like other arthropods, they have an exoskeleton, articulated legs and segmented bodies.
+They are characterized by presenting two tagma, the head and the trunk (fused thorax and abdomen) which are homonymous and multisegmented.  
+The head of the diplopods features a pair of antennae on the front edge, a pair of simple eyes, laterally located on the posterior part of the head, and mouthparts composed of a pair of mandibles and maxillae.
+The thorax has 11 to 192 diplosegments (segments in pairs). In each of them, except for the first and last, there are two pairs of legs.
+
+References
+BRUSCA, R. C.; BRUSCA, G. J. Filo Arthropoda: Miriápodes (Centopéias, Milípedes e Afins). In: ________. Invertebrados. Rio de Janeiro: Guanabara Koogan, p. 664-677, 2007.</p> 
+

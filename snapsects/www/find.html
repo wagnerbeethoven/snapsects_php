@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+<title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+<style>
+body, div {
+	background-color: #FFFFFF;
+}
+
+</style>
+</head>
+<body>
+<div id="dvpage">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='index.html';" value="{dic78}" id="cmdadm" name="cmdadm"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+<hr>
+<center><h2 class="dic7">{dic7}</h2></center>
+<div id="dvfilter">
+<p><label for="commonname" class="dic8">{dic8} / {dic86}: </label><input type="text" name="commonname" id="commonname" value="" onkeyup="javascript:filtro();"></p>
+<center><button id="cmdff2" onclick="javascript:filtro();" class="dic9">{dic9}</button></center>
+<p><input type="checkbox" id="chksearch" onclick="javascript:document.getElementById('dvadvancedsearch').style.display = (this.checked)?'inline':'none';"><label for="chksearch"> {dic237}</label></p>
+<div id="dvadvancedsearch" style="display: none">
+<div id="dvother">
+<p><label for="lstother" class="dic10">{dic10}: </label><select name="lstother" id="lstother" value="" onchange="javascript:filtro();">
+<option value="">{dic11}</option>
+</select></p>
+</div>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="classe">{dic12}: </label><select name="classe" id="classe" value="" onchange="javascript:mostraimagem(this.value,'imgclass'); filtro();">
+<option value="">{dic11}</option>
+<option value="13">{dic13}</option>
+<option value="14">{dic14}</option>
+<option value="15">{dic15}</option>
+<option value="16">{dic16}</option>
+<option value="17">{dic17}</option>
+</select></p></td> 
+<td width="20%"><img id="imgclass" style="float: right" width="150px"></td>
+</tr></table>
+<div id="dvorder">
+<p><label for="lstorder">{dic18}: </label><select name="lstorder" id="lstorder" value="" onchange="javascript:filtro();">
+<option value="">{dic11}</option>
+</select></p>
+</div>
+<p><label for="family">{dic19}: </label><input type="text" name="family" id="family" value="" onkeyup="javascript:filtro();"></p>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="lstantennae">{dic20}: </label><select name="lstantennae" id="lstantennae" value="{P->LSTANTENNAE}" onchange="javascript:mostraimagem(this.value,'imglstantennae'); filtro();">
+<option value="">{dic11}</option>
+<option value="21">{dic21}</option>
+<option value="22">{dic22}</option>
+<option value="23">{dic23}</option>
+<option value="24">{dic24}</option>
+<option value="25">{dic25}</option>
+<option value="26">{dic26}</option>
+<option value="27">{dic27}</option>
+<option value="28">{dic28}</option>
+<option value="29">{dic29}</option>
+<option value="30">{dic30}</option>
+<option value="31">{dic31}</option>
+<option value="32">{dic32}</option>
+<option value="33">{dic33}</option>
+<option value="34">{dic34}</option>
+</select></p></td> 
+<td width="20%"><img id="imglstantennae" style="float: right" width="150px"></td>
+</tr></table>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="lstmouthparts">{dic35}: </label><select name="lstmouthparts" id="lstmouthparts" onchange="javascript:mostraimagem(this.value,'imglstmouthparts'); filtro();">
+<option value="">{dic11}</option>
+<option value="36">{dic36}</option>
+<option value="37">{dic37}</option>
+<option value="38">{dic38}</option>
+<option value="39">{dic39}</option>
+<option value="40">{dic40}</option>
+<option value="41">{dic41}</option>
+<option value="42">{dic42}</option>
+<option value="43">{dic43}</option>
+</select></p></td> 
+<td width="20%"><img id="imglstmouthparts" width="150px" style="float: right"></td>
+</tr></table>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="lstwings">{dic44}: </label><select name="lstwings" id="lstwings" onchange="javascript:mostraimagem(this.value,'imglstwings'); filtro();">
+<option value="">{dic11}</option>
+<option value="45">{dic45}</option>
+<option value="46">{dic46}</option>
+<option value="47">{dic47}</option>
+<option value="48">{dic48}</option>
+<option value="49">{dic49}</option>
+<option value="50">{dic50}</option>
+<option value="51">{dic51}</option>
+<option value="52">{dic52}</option>
+<option value="53">{dic53}</option>
+</select></p></td> 
+<td width="20%"><img id="imglstwings" width="150px" style="float: right"></td>
+</tr></table>
+<p><label for="lstnumlegs">{dic54}: </label><select name="lstnumlegs" id="lstnumlegs" onchange="javascript:filtro();">
+<option value="">{dic11}</option>
+<option value="55">{dic55}</option>
+<option value="56">{dic56}</option>
+<option value="57">{dic57}</option>
+<option value="58">{dic58}</option>
+</select></p>
+<div>
+<table border=0 width="100%"><tr>
+<td width="80%"><p><label for="lstlegs">{dic59}: </label><select name="lstlegs" id="lstlegs" onchange="javascript:mostraimagem(this.value,'imglstlegs'); filtro();">
+<option value="">{dic11}</option>
+<option value="60">{dic60}</option>
+<option value="61">{dic61}</option>
+<option value="62">{dic62}</option>
+<option value="63">{dic63}</option>
+<option value="64">{dic64}</option>
+<option value="65">{dic65}</option>
+<option value="66">{dic66}</option>
+<option value="67">{dic67}</option>
+<option value="68">{dic68}</option>
+</select> </p></td>
+<td width="20%"><img id="imglstlegs" width="150px" style="float: right"></td>
+</tr></table>
+</div>
+<center><button id="cmdff" onclick="javascript:filtro();">{dic69}</button></center>
+</div>
+</div>
+<hr>
+<div id="dvtab">
+</div>
+{dic72}
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript" src="js/find.js"></script>
+</body>
+</html>

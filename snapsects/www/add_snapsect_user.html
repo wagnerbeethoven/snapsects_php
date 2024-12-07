@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,
+          width=device-width, height=device-height, target-densitydpi=150dpi"/>
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<center><h1>{dic287}</h1></center>
+<form name="frm" method="post">
+<input type="hidden" name="id" id="id" value="">
+<input type="hidden" name="pws" id="pws" value="">
+<table border=0 width="90%"><tr>
+<td width="20%"><input type="button" name="voltar" id="voltar" value="{dic243}" onclick="javascript:window.location='snapsect_user_ger.html';"></td>
+<td width="60%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center><center><div id="nometitulo"></div></center></td>
+<td width="20%"><input type="button" name="save" id="save" value="{dic296}" onclick="javascript:salvar();"></td>
+</tr></table>
+<p><label for="status">{dic292}: </label><select name="status" id="status" value="">
+<option value="0">{dic286}</option>
+<option value="1">{dic287}</option>
+<option value="5">{dic288}</option>
+<option value="50">{dic289}</option>
+<option value="67">{dic290}</option>
+</select></p>
+<p><label for="nome">{dic291}: </label><input type="text" name="nome" id="nome" value=""></p>
+<p><label for="email">{dic293}: </label><input type="text" name="email" id="email" value=""></p>
+<p><label for="url">{dic189}: </label><input type="text" name="url" id="url" value=""></p>
+<p><label for="obs">{dic297}: </label><input type="text" name="obs" id="obs" value=""></p>
+<center><button id="cmddel" onclick="javascript:removeusr();">{dic315}</button></center>
+</form>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript" src="js/add_snapsects_user.js"></script>
+</body>
+</html>

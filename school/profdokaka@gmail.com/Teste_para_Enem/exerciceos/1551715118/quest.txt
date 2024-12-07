@@ -1,0 +1,18 @@
+Matemática|Este é uma atividade  que tem o treinamento para o Enem ||2019-03-04|2019-03-04|2019-03-04|10
+Uma empresa deseja iniciar uma campanha publicitária divulgando uma promoção para seus possíveis consumidores. Para esse tipo de campanha, os meios mais viáveis são a distribuição de panfletos na rua e anúncios na rádio local. Considera-se que a população alcançada pela distribuição de panfletos seja igual à quantidade de panfletos distribuídos , enquanto que a alcançada por um anúncio na rádio seja igual à quantidade de ouvintes desse anúncio. O custo de ada anúncio na rádio é de R$ 120,00, e a estimativa é de que seja ouvido por 1500 pessoas. Já a produção e a distribuição dos panfletos custam R$ 180,00 cada 1000 unidades. Considerando que cada pessoa será alcançada por um único desses meios de divulgação, a empresa pretende investir em ambas as mídias.|Considere X e Y os valore (em real) gastos em anúncios na rádio e com panfletos, respectivamente.
+
+O número de pessoas alcançadas pela campanha será dado pela expressão||2|1||50x/4   50y/9
+#1_50x/9   50y/4#0_4x/50    4y/50#0_50/4x   50/9y#0_50/4x   50y/9y#0||
+Uma empresa de comunicação tem a tarefa de elaborar
+um material publicitário de um estaleiro para divulgar um
+novo navio, equipado com um guindaste de 15 m de
+altura e uma esteira de 90 m de comprimento.
+No desenho desse navio, a representação do guindaste
+deve ter sua altura entre 0,5 cm e 1 cm, enquanto a esteira
+deve apresentar comprimento superior a 4 cm.
+Todo o desenho deverá ser feito em uma escala 1 : X.|Os valores possíveis para X são, apenas||2|1|| X > 1 500#0_ X < 3 000#0_1 500 < X < 2 250#1_ 1 500 < X < 3 000#0_2250 < X < 3000.#0||
+O artigo 33 da lei brasileira sobre drogas prevê a pena de reclusão de 5 a 15 anos para qualquer pessoa que seja condenada por tráfico ilícito ou produção não autorizada de drogas. Entretanto, caso o condenado seja réu primário, com bons antecedentes criminais, essa pena pode sofrer uma redução de um sexto a dois terços.
+
+Suponha que um réu primário com bons antecedentes criminais foi condenado  pelo artigo 33 da lei brasileira sobre drogas.
+|Após o benefício da redução de pena, sua pena poderá variar de:||2|1|| 1 ano e 8 meses a 12 anos e 6 meses#1_1 ano e 8 meses a 5 anos#0_3 anos e 4 meses a 10 anos#0_4 anos e 2 meses a 5 anos#0_4 anos e 2 meses a 6 meses#0||
+Saulo e Diego são amigos e trabalham na mesma empresa. Os dois são aficionados por fotografia e tiraram férias no mesmo mês. Eles, então, decidiram fazer uma viagem de carro por várias cidades dos estados da região nordeste. No primeiro dia de viagem, eles percorreram x quilômetros; no segundo dia, percorreram o dobro da distância percorrida no primeiro dia; no terceiro dia, percorreram o triplo do que foi percorrido no primeiro dia e assim sucessivamente. Depois de 20 dias de viagem, eles percorreram 6.300 km|Qual foi a distância x percorrida pelos amigos no primeiro dia de viagem, em quilômetros?||2|1||35#0_30#1_25#0_20#0_15#0||

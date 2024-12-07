@@ -1,0 +1,41 @@
+2018/12/12 15:47	add Tarantula(Brachypelma_smithi).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 15:47	add Tarantula(Brachypelma_smithi).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:02	add Tarantula(Brachypelma_smithi).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:02	add Tarantula(Brachypelma_smithi).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:05	add Tarantula(Brachypelma_smithi).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:08	add Tarantula(Brachypelma_smithi).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:13	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2018/12/12 16:14	add Tarantula(Brachypelma_smithi).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:36	add Tarantula(Brachypelma_smithi) - cópia.jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:37	add logo.jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/13 11:18	del logo.jpg	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:18	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:23	add Tarantula(Brachypelma_smithi).jpg	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:24	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:29	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/17 01:31	add logo.tif	4	Thais	slima_thais@hotmail.com
+2018/12/18 10:23	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/18 10:24	del logo.tif	4	Thais	slima_thais@hotmail.com
+2018/12/18 10:24	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2018/12/18 17:23	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2019/03/16 04:32	del Tarantula_Brachypelma_smithi.jpg	4	Thais	slima_thais@hotmail.com
+2019/03/16 04:37	add Brachypelma_smithi.jpg	4	Thais	slima_thais@hotmail.com
+2019/04/10 15:40	add A-D_Tarântula.mp4	4	Thais	slima_thais@hotmail.com
+2019/04/10 16:15	del A_D_TarA�ntula.mp4	4	Thais	slima_thais@hotmail.com
+2019/04/10 16:31	del A_D_TarA�ntula.mp4	4	Thais	slima_thais@hotmail.com
+2019/04/10 17:01	add A Casinha Pequenina.MP3	4	Thais	slima_thais@hotmail.com
+2019/04/10 17:01	del A_D_TarA�ntula.mp4	4	Thais	slima_thais@hotmail.com
+2019/04/10 17:03	add A Casinha Pequenina.MP3	4	Thais	slima_thais@hotmail.com
+2019/05/22 21:49	add 27_-_Brachypelma_smithi_1.mp3	17	Kawan Xavier 	profdokaka@gmail.com
+2019/05/23 10:44	add 2_Brachypelma_smithi.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:44	del 27__Brachypelma_smithi_1.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:45	del A_D_TarA�ntula.mp4	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:45	del A_D_TarA�ntula.mp4	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:45	del A_Casinha_Pequenina.MP3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:45	del A_D_TarA�ntula.mp4	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:45	del A_D_TarA�ntula.mp4	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:45	del A_D_TarA�ntula.mp4	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:46	del A_D_TarA�ntula.mp4	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:46	del A_D_TarA�ntula.mp4	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 10:46	del A_D_TarA�ntula.mp4	3	Francisco Lima	limafj.us@gmail.com
+2019/05/27 12:10	add 27_-_Brachypelma_smithi_1.mp3	3	Francisco Lima	limafj.us@gmail.com

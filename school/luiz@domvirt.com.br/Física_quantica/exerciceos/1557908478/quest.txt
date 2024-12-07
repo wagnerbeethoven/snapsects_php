@@ -1,0 +1,7 @@
+Eletricidade|Boa sorte e boa prova||Wed May 15 2019 05:13:05 GMT-0300 (Hora oficial do Brasil)|Wed May 15 2019 05:13:05 GMT-0300 (Hora oficial do Brasil)|Wed May 15 2019 05:13:05 GMT-0300 (Hora oficial do Brasil)|10
+|Quem foi Nicola Tesla||5|0|O verdadeiro descobridor da eletricidade, físico, cientista. muito além de seu tempo.
+|||
+|Quem foi Tomas Edson||3|0|Engenheiro elétrico e cientista. Fundador da G.E.|||
+|Assinale a alternativa correta:||3|1||Jogar água nos fios elétricos é uma boa#0_Nunca jogar água em fios elétricos.#1_Madeira é um bom condultor elétrico#0||
+|Marque verdadeiro ou falso||5|2||nota de 3 reais#f_Leite de pato#f_existe um mamífero que tem bico e bota ovo#v||
+|selecione as colunas||3|3||coca-cola#líquido_panqueca#sólido_pum#gazoso|sólido_líquido_gazoso|

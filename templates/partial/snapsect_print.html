@@ -1,0 +1,94 @@
+
+  </head>
+<body class="body-">
+    <header class="site-header">
+        <div class="container">
+            <a class="site-logo" href="http://snapsects.com/">
+                <img src="img/logo/site-logo.svg"
+                    alt="[dic0]">
+                <h1 class="">
+                    SnapSects
+                </h1>
+            </a>
+        </div>
+    </header>
+
+<div id="dvmenu">
+    <button type="button" class="especie-search" onclick="javascript:window.location='show_snapsect.php?lang={LANG}&id={ID}';">
+        <i class="fas fa-search"></i>
+        [dic78]
+    </button>
+
+<ul>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvidentificacao').style.display=(this.checked)?'inline':'none';" id="chkidentificacao" checked><label for="chkidentificacao">[dic222]</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvdescricao').style.display=(this.checked)?'inline':'none';" id="chkdescricao" checked><label for="chkdescricao">[dic224]</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvcolecao').style.display=(this.checked)?'inline':'none';" id="chkcolecao" checked><label for="chkcolecao">[dic225]</label></li>
+<li id="linotes"><input type="checkbox" onclick="javascript:document.getElementById('dvnotes').style.display=(this.checked)?'inline':'none';" id="chknotes" checked><label for="chknotes">[dic170]</label></li>
+<li id="liaudio"><input type="checkbox" onclick="javascript:document.getElementById('dvaudio').style.display=(this.checked)?'inline':'none';" id="chkaudio" checked><label for="chkaudio">[dic174]</label></li>
+<li id="litext"><input type="checkbox" onclick="javascript:document.getElementById('dvtext').style.display=(this.checked)?'inline':'none';" id="chktext" checked><label for="chktext">[dic168]</label></li>
+<li id="libibliografia"><input type="checkbox" onclick="javascript:document.getElementById('dvbibliografia').style.display=(this.checked)?'inline':'none';" id="chkbibliografia" checked><label for="chkbibliografia">[dic177]</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvartropode').style.display=(this.checked)?'inline':'none';" id="chkartropode" checked><label for="chkartropode">[dic378]</label></li>
+</ul>
+    <button type="button" class="especie-search" onclick="javascript:preprint22();">
+        <i class="fas fa-search"></i>
+        [dic379]
+    </button>
+</div>
+<div id="dvmenu2" style="display:none">
+
+</div>
+<div id="dvvideo" style="display:none">
+<video controls></video>
+</div>
+{TEXTO}
+
+<script>
+        var URL_SITE = 'http://snapsects.com/';
+    </script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script>
+function redimensiona() {
+document.images['grpi'].width = 300;
+}
+
+function showimg(i, p) {
+window.location='showimg.php?id='+i+'&photo='+p+'&lang={LANG}';
+} // da funcao...
+
+function showvideo(i) {
+document.getElementById('dvvideo').style.display='inline';
+var v = document.getElementsByTagName("video")[0];
+v.addEventListener('ended', function() {
+document.getElementById('dvvideo').style.display='none';
+});
+
+v.src = i;
+v.play();
+
+} // da funcao...
+
+function preparetela22() {
+document.getElementById('dvmenu2').style.display='inline';
+document.getElementById('dvmenu').style.display='none';
+} // da funcao...
+
+function preprint22() {
+preparetela22();
+alert('[dic380]');
+ print();
+window.location='show_snapsect.html?id={ID}&lang={LANG}';
+
+} // da funcao...
+
+<!-- BEGIN BLOCK_VIDEOFUNC -->
+function delvideo(ii,pp) {
+pp = pp.substr(pp.lastIndexOf('/')+1);
+if (confirm('[dic339]')) {
+spopen(dic_path+'snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang={LANG}','POST', function(res) {
+window.location='show_snapsect.php?id='+ii;
+});
+} else {
+} // cancelar...
+} // da funcao...
+<!-- END BLOCK_VIDEOFUNC -->
+</script>

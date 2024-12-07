@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects</title>
+<style>
+body {
+text-align: justify;
+}
+
+ul {
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+
+li {
+		display:block;
+		margin:0;
+		padding:0;
+		margin-bottom:1px;
+	}
+
+</style>
+  </head>
+  <body>
+<div id="menu">
+<table width="100%"><tr>
+<td width="33%"></td>
+<td width="33%"><br><img src="img/logo_application.jpeg" width="50%" alt="[dic0]"></td>
+<td width="33%"></td>
+</tr></table>
+<h1>SNAPSECTS</h1>
+</div>
+<label for="language">[dic228]: </label><select id="language" onchange="javascript:window.location='index.php?lang='+this.value;">
+<!-- BEGIN BLOCK_DIC -->
+<option value="{LANGID}" {SELECIONADO}>{LANGNAME}</option>
+<!-- END BLOCK_DIC -->
+</select>
+<ul>
+<li><a href="#" id="cmdsnapsect" onclick="javascript:window.location='snapsect_ger.php';">[dic7]</a></li>
+<!-- BEGIN BLOCK_DESLOGADO -->
+<li><a href="login.php">[dic272]</a></li>
+<!-- END BLOCK_DESLOGADO -->
+<!-- BEGIN BLOCK_LOGADO -->
+<li><a href="add_snapsect.php?id=-1">[dic271]</a></li>
+<li><a href="#" onclick="javascript:if (confirm('[dic317]')) { window.location='login.php'; }">[dic273]</a></li>
+<!-- BEGIN BLOCK_PROF -->
+<li><a href="#" id="cmdschool" onclick="javascript:window.location='school.php';">[dic334]</a></li>
+<!-- END BLOCK_PROF -->
+<!-- BEGIN BLOCK_ADM -->
+<li><a href="#" id="cmduser" onclick="javascript:window.location='snapsect_user_ger.php';">[dic274]</a></li>
+<li><a href="#" id="cmdaddimagem" onclick="javascript:window.location='add_imagem.php';">[dic337]</a></li>
+<!-- END BLOCK_ADM -->
+<!-- END BLOCK_LOGADO -->
+<li><a href="showabout.php?id=244">[dic240]</a></li>
+<li><a href="showabout.php?id=245">[dic241]</a></li>
+<li><a href="showabout.php?id=246">[dic242]</a></li>
+</ul>
+
+
+</body>
+</html>

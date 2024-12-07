@@ -1,0 +1,87 @@
+<main>
+    <article>
+        <div class="hgroup">
+            <h2 id="adm-user">Administrar usuários</h2>
+            <h3></h3>
+        </div>
+        <div class="content page-adm-user"> <div class="table-responsive">
+
+    <table>
+        <caption>Usuários cadastrados</caption>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+
+                <th scope="col">Função</th>
+                <th scope="col">Nome</th>
+                <th scope="col"><i class="fas fa-at"></i></th>
+                <th scope="col"><i class="fas fa-link"></i></th>
+                <th scope="col">Observações</th>
+                <th scope="col" colspan="3" class="text-center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- BEGIN BLOCK_CAMPOS -->
+            <tr>
+                <th scope="row">{P->ID}</th>
+                <td data-t="{t}" title="{STATUS}" class="user-status" ><span class="sr-only">{STATUS}</span></i></td>
+                <td>{P->NOME}</td>
+                <td><a title="Clique para enviar email para {P->EMAIL}" href="mailto:{P->EMAIL}"><i
+                            class="fas fa-at"></i></a></td>
+                <td class="user-url" data-url="{P->URL}"></td>
+                <td>{P->OBS}</td>
+                <td><button type="button" name="editar" title="Editar: {P->ID} {P->NOME}" onclick="javascript:document.location.href='add_snapsect_user.php?id={P->ID}';"><i class="fas fa-user-edit"></i></button></td>
+                <td><button type="button" name="remover" title="Remover: {P->ID} {P->NOME}" onclick="javascript:if (confirm('Do you want to remove {P->nome}?')) { document.location.href='snapsect_user_ger.php?id={P->ID}&act=remover'; }"><i class="fas fa-user-slash"></i></button></td>
+                <td><button type="button" name="sendpass" title="Send password: {P->ID} {P->NOME}" onclick="javascript:document.location.href='snapsect_user_ger.php?id={P->ID}&act=sendpassword'; }"><i class="fas fa-key"></i></button></td>
+            </tr>
+            <!-- END BLOCK_CAMPOS -->
+        </tbody>
+    </table>
+
+</div> </div>
+    </article>
+</main>
+    <input type="button" name="sair" value="VOLTAR" title="voltar"
+        onclick="javascript:document.location.href='index_adm.php';">
+
+    <script>
+        window.onload = function()
+        {
+            if(typeof document.getElementsByClassName == 'function')
+            {
+                var tdStatus = document.getElementsByClassName('user-status');
+                for(var index = 0; index < tdStatus.length; index++)
+                {
+                    var td = tdStatus[index];
+                    var t = td.dataset.t;
+                    if(t === '67')
+                    {
+                        td.innerHTML += '<i title="'+td.title+'" class="fas fa-cog">';
+                    }
+                    else if(t === '1')
+                    {
+                        td.innerHTML += '<i title="'+td.title+'" class="fas fa-user">';
+                    }
+                    else if(t === '0')
+                    {
+                        td.innerHTML += '<i title="'+td.title+'" class="fas fa-user-times">';
+                    }
+                    else if(t === '10')
+                    {
+                        td.innerHTML += '<i title="'+td.title+'" class="fas fa-graduation-cap">';
+                    }
+                }
+                var tdUrl = document.getElementsByClassName('user-url');
+                for(var index = 0; index < tdUrl.length; index++)
+                {
+                    var td = tdUrl[index];
+                    var url = td.dataset.url;
+                    if(url !== '')
+                    {
+                        td.innerHTML += '<a href="'+url+'" target="_blank" title="O link ['+url+'] irá abrir em uma nova janela"><i class="fas fa-link"></i></a>';
+                    }
+                    
+                }
+            }
+        };
+    </script>

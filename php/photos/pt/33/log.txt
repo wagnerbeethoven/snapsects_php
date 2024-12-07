@@ -1,0 +1,20 @@
+2018/12/12 15:47	add Tarantula(Brachypelma_smithi).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 15:47	add Tarantula(Brachypelma_smithi).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:02	add Tarantula(Brachypelma_smithi).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:02	add Tarantula(Brachypelma_smithi).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:05	add Tarantula(Brachypelma_smithi).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:08	add Tarantula(Brachypelma_smithi).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:13	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2018/12/12 16:14	add Tarantula(Brachypelma_smithi).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:36	add Tarantula(Brachypelma_smithi) - cópia.jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:37	add logo.jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/13 11:18	del logo.jpg	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:18	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:23	add Tarantula(Brachypelma_smithi).jpg	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:24	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:29	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/17 01:31	add logo.tif	4	Thais	slima_thais@hotmail.com
+2018/12/18 10:23	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/18 10:24	del logo.tif	4	Thais	slima_thais@hotmail.com
+2018/12/18 10:24	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2018/12/18 17:23	delete error: no file name	4	Thais	slima_thais@hotmail.com

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="menu">
+<center>SNAPSECT - ADMINISTRATOR</center>
+</div>
+
+<ul>
+<li><button id="cmduser" onclick="javascript:window.location='snapsect_user_ger.html';">Users administrator</button></li>
+<li><button id="cmdtexts" onclick="javascript:window.location='snapsect_adm.html';">Arthropods information</button></li>
+<li><button id="cmdsnapsect" onclick="javascript:window.location='index.html';">Search Arthropod</button></li>
+</ul>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript">
+
+    document.addEventListener("deviceready", function () {
+if ((!sessionStorage.lgs) || (sessionStorage.lgs !== '67')) {
+window.location='index.html';
+} // nao e adm...
+    }, false);
+</script>
+</body>
+</html>

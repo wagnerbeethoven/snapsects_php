@@ -1,0 +1,169 @@
+﻿<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <link rel="stylesheet" href="DIR_LAYOUT/css/main.css"> -->
+    <link rel="stylesheet" href="DIR_LAYOUT/css/main.css">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="DIR_LAYOUT/img/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="DIR_LAYOUT/img/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="DIR_LAYOUT/img/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="DIR_LAYOUT/img/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="DIR_LAYOUT/img/favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120"
+        href="DIR_LAYOUT/img/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="DIR_LAYOUT/img/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152"
+        href="DIR_LAYOUT/img/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="xT/img/favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="DIR_LAYOUT/img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="DIR_LAYOUT/img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="DIR_LAYOUT/img/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="DIR_LAYOUT/img/favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="SnapSects" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="DIR_LAYOUT/img/favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="DIR_LAYOUT/img/favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="DIR_LAYOUT/img/favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="DIR_LAYOUT/img/favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="DIR_LAYOUT/img/favicon/mstile-310x310.png" />
+    <title>SnapSects</title>
+    <script>
+        var URL_SITE = 'SITE_URL';
+    </script>
+</head>
+
+<body class="body-">
+    <header class="site-header">
+        <div class="container">
+            <a class="site-logo" href="SITE_URL">
+                <img src="DIR_LAYOUT/img/logo/site-logo.svg"
+                    alt="[dic0]">
+                <h1 class="">
+                    SnapSects
+                </h1>
+            </a>
+
+            <div class="site-lang">
+
+                <select id="language" onchange="javascript:window.location='index.php?lang='+this.value;">
+                    <option value="" selected disabled>[dic228]</option>
+<!-- BEGIN BLOCK_DIC -->
+<option value="{LANGID}" {SELECIONADO}>{LANGNAME}</option>
+<!-- END BLOCK_DIC -->
+                </select>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="site-menu">
+        <div class="container">
+            <button type="button" title="Menu principal" class="navbar-toggler" data-toggle="collapse"
+                data-target="#site-menu" aria-controls="site-menu" aria-expanded="false"
+                aria-label="[dic596]">
+                <i class="fas fa-bars"></i> <span>Menu</span>
+            </button>
+
+            <div class="collapse" id="site-menu">
+                <div class="site-lang">
+                    <select id="language" onchange="javascript:window.location='index.php?lang='+this.value;">
+                        <option value="" selected disabled>[dic228]</option>
+<!-- BEGIN BLOCK_DIC2 -->
+<option value="{LANGID}" {SELECIONADO}>{LANGNAME}</option>
+<!-- END BLOCK_DIC2 -->
+                    </select>
+                </div>
+                <ul>
+                    <li class="active "><a href="SITE_URLindex.php?lang={LANG}">[dic189]</a></li>
+    <!-- BEGIN BLOCK_DESLOGADO -->
+                    <li class=""><a href="login.php?lang={LANG}">[dic272]</a></li>
+    <!-- END BLOCK_DESLOGADO -->
+    <!-- BEGIN BLOCK_LOGADO -->
+                    <li class=""><a href="#" onclick="javascript:if (confirm('[dic317]')) { window.location='login.php?lang={LANG}'; }">[dic273]</a></li>  
+<!-- BEGIN BLOCK_PROF -->
+                <li class=""><a href="SITE_URLschool.php?lang={LANG}">[dic334]</a></li>
+    <!-- END BLOCK_PROF -->
+    <!-- BEGIN BLOCK_ADM -->
+                <li class=""><a href="SITE_URLsnapsect_user_ger.php">[dic274]</a></li>
+                <li class=""><a href="SITE_URLadd_imagem.php">[dic337]</a></li>
+    <!-- END BLOCK_ADM -->
+    <!-- END BLOCK_LOGADO -->
+                    <li class=""><a href="SITE_URLshowabout.php?id=244">[dic240]</a></li>
+                    <li class=""><a href="SITE_URLshowabout.php?id=245">[dic241]</a></li>
+                    <li class=""><a href="SITE_URLshowabout.php?id=246">[dic242]</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- BEGIN BLOCK_MENU_ARTROPOD_JS -->
+    <nav class="new-insect">
+        <div class="container">
+            <button type="button" title="Adicionar artropode" data-toggle="collapse" data-target="#new-insect" aria-controls="new-insect"
+                aria-expanded="false" aria-label="Exibir/Ocultar Menu para adicionar artropode">
+                <i class="fas fa-spider"></i> <span>Adicionar novo inseto</span>
+            </button>
+            <div class="collapse" id="new-insect">
+
+                <ul>
+                    <li class=""><a id="cmdprincipal" onclick="javascript:changetela('dvprincipal');" style="cursor: pointer;">[dic1]</a></li>
+                    <li class=""><a id="cmdauthor" onclick="javascript:changetela('dvauthor');" style="cursor: pointer;">[dic81]</a></li>
+                    <li class=""><a id="cmddescriptions" onclick="javascript:changetela('dvdescriptions');"  style="cursor: pointer;">[dic2]</a></li>
+                    <li class=""><a id="cmdmore" onclick="javascript:changetela('dvmore');" style="cursor: pointer;">[dic3]</a></li>
+                    <li class=""><a id="cmdnotes" onclick="javascript:changetela('dvnotes');" style="cursor: pointer;">[dic5]</a></li>
+                    <li class=""><a id="cmdaudiodesc" onclick="javascript:changetela('dvaudiodesc');" style="cursor: pointer;">[dic6]</a></li>
+                    <li class=""><a id="cmdmediation" onclick="javascript:changetela('dvmediation');"  style="cursor: pointer;">[dic168]</a></li>
+                    <li class=""><a id="cmdbibliography" onclick="javascript:changetela('dvbibliography');" style="cursor: pointer;">[dic177]</a></li>
+                    <li class=""><a id="cmdpicture" onclick="javascript:changetela('dvpicture');" style="cursor: pointer;">[dic83]</a></li>
+                </ul>
+
+
+            </div>
+            <hr>
+        </div>
+    </nav>
+    <!-- END BLOCK_MENU_ARTROPOD_JS -->
+    
+    <!-- BEGIN BLOCK_MENU_ARTROPOD -->
+    <nav class="new-insect">
+        <div class="container">
+            <button type="button" title="Adicionar artropode" data-toggle="collapse" data-target="#new-insect"
+                aria-controls="new-insect" aria-expanded="false"
+                aria-label="Exibir/Ocultar Menu para adicionar artropode">
+                <i class="fas fa-spider"></i> <span>Adicionar novo inseto</span>
+            </button>
+            <div class="collapse" id="new-insect">
+
+                <ul>
+                    <li class=""><a id="cmdprincipal" href="add_snapsect.php?pag=dvprincipal">[dic1]</a></li>
+                    <li class=""><a id="cmddescriptions" href="add_snapsect.php?pag=dvdescriptions">[dic2]</a></li>
+                    <li class=""><a id="cmdmore" href="add_snapsect.php?pag=dvmore">[dic3]</a></li>
+                    <li class=""><a id="cmdnotes" href="add_snapsect.php?pag=dvnotes">[dic5]</a></li>
+                    <li class=""><a id="cmdaudiodesc" href="add_snapsect.php?pag=dvaudiodesc">[dic6]</a></li>
+                    <li class=""><a id="cmdmediation" href="add_snapsect.php?pag=dvmediation">[dic4]</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    <!-- END BLOCK_MENU_ARTROPOD -->
+    
+    
+    TEMPLATE_CONTENT
+
+    <footer class="site-footer" id="site-footer" style="margin-top: 681.6px;">
+            [dic73]
+    </footer>
+
+    <script src="DIR_LAYOUT/js/fontawesome-v5.7.2.js"></script>
+    <script src="DIR_LAYOUT/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="DIR_LAYOUT/js/popper.min.js"></script>
+    <script src="DIR_LAYOUT/js/bootstrap.min.js"></script>
+    <script src="DIR_LAYOUT/js/scripts.js"></script>
+</body>
+
+</html>

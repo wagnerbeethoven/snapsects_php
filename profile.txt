@@ -1,0 +1,193 @@
+https://www.lambda3.com.br/2017/08/entendendo-certificados-e-provisioning-profiles-do-ios/
+Lambda3
+Home
+Soluções
+Pessoas
+Blog
+Podcast
+ 
+Entendendo Certificados e Provisioning Profiles do iOS
+por Mahmoud Ali | ago 14, 2017 | Desenvolvimento, Mobile, Xamarin | 2 comentários
+Se você já fez aplicativos para iOS, já deve ser familiar com o seguinte cenário: você finalmente sai da procrastinação e decide fazer o app, passa um tempo decidindo como fazer, qual vai ser o MVP, quais tecnologias usar, etc. Você começa a codar e testa seu aplicativo no simulador do iOS, depois você decide validar o aplicativo num dispositivo físico. Aí você vê que o XCode/Xamarin está reclamando que não tem um Proviosioning Profile ou Signing Identity válido pro seu app.
+O que é isso? Por que eu preciso disso? Como eu nunca ouvi falar disso até agora? Quanto tempo isso vai me atrasar no lançamento do app? Na tentativa de responder essas perguntas você começa a pesquisar loucamente. 10 abas abertas e várias frustrações depois, você continua sem entender Q Q TA COTESENO™.
+Esse cenário é familiar pra você também? Eu passei por isso, e logo entendi que, inevitavelmente, o processo de distribuir ou testar um app em um aparelho é complexo, principalmente para a Apple, e você vai precisar entender tudo para conseguir fazer isso da maneira correta. Este post é uma tentativa de esclarecer o que você precisa fazer pra conseguir assinar o seu app para que ele possa ser testado num dispositivo físico, simplificando as explicações de mais de 100 páginas de documentação da Apple sobre o assunto.
+Antes de prosseguir, vale lembrar alguns pré-requisitos:
+• Você precisa de um computador Mac para fazer todo o processo
+• Você precisa já ter uma conta de Developer da Apple ativada (99 dólares anuais)
+Por que isso tudo existe?
+Primeiro é preciso entender porque esse processo na plataforma Apple é mais complexo comparado ao do Android.
+Basicamente a Apple quer se assegurar de que só devs registrados possam assinar aplicações, e que esses apps só possam ser distribuídos pela App Store. Se você precisa de uma loja intranet, você deveria estar usando a licença Enterprise da Apple, que custa 299 dólares anuais. Para garantir a autenticidade de todos os envolvidos no processo de distribuição/instalação do app, os sistemas de segurança da Apple basicamente farão as seguintes perguntas, que você deve ser capaz de responder:
+• Quem é responsável por esse app?
+• Qual é o app sendo instalado?
+• Em quais dispositivos esse app está sendo instalado?
+Mas se eu sou dev, eu preciso ser capaz de testar meu app em dispositivos físicos antes de enviar para a App Store. O que faço?!
+Calma, a Apple também permite esse cenário, você verá com o andamento do post que todos os passos basicamente servem para responder essas perguntas, e ela te permitirá testar a aplicação em dispositivos físicos.
+O Portal
+Toda a configuração das informações necessárias de certificados, provisioning profiles e dispositivos será feita no portal de desenvolvedor da Apple, no menu “Certificates, IDs & Profiles”, vou chamar essa página de “Página principal do portal” no resto do post.
+apple development portal
+Infelizmente a cara do portal muda com certa frequência e pode ser que os botões não estejam mais nos lugares que coloquei nas fotos, mas você deve conseguir se achar sem muito esforço.
+Certificados Digitais
+Para garantir que as respostas que você dará para as perguntas acima são válidas, a Apple utiliza os conceitos de Certificados Digitais e Chain of Trust, que é uma forma de garantir autenticidade de informações utilizando criptografia assimétrica.
+Basicamente você terá um certificado digital assinado pela Apple que será usado para assinar apps feitos por você. Como este certificado foi assinado pela Apple, ela confiará nas informações que forem criptografadas com esse certificado. Daí vem o nome de “cadeia de confiança”: ela confia no seu app apenas porque ele foi assinado com o seu certificado, que por sua vez, foi assinado pela própria Apple. Acredito que, por enquanto, entender que esse fluxo acontece é o suficiente para você poder prosseguir. Mais detalhes disso vão além do escopo desse post mas podem ser lidos nos links que adicionei acima.
+Essencialmente o que você fará nessa seção é responder à primeira pergunta: quem é responsável por esse app?
+Criando Certificados
+Conforme explicado acima, quase todo o processo necessita de certificados digitais para assinar chaves e arquivos. Então você começará fazendo isso: gerando um certificado digital válido.
+A Apple separa certificados de desenvolvimento de certificados de produção, mas o fluxo é o mesmo para os dois casos. Neste post usarei sempre o fluxo de desenvolvimento.
+Acesse a página principal do portal e vé em Certificates > All. Clique no botão de Adicionar (+) acima.
+Você verá várias opções de certificados, neste post criarei o certificado de “iOS App Development“, usado para desenvolvimento. Quando você quiser lançar o app para loja ou em uma plataforma como Azure Mobile Center, você deverá usar o “App Store and Ad Hoc“, que seria um certificado de produção, o fluxo é o mesmo para esses dois casos.
+certificados
+Depois de selecionar a opção correta, clique em Continue no final da página.
+A sua necessidade pode variar se seu app for mais complexo (possuir Push Notification, integrações com Game Center, etc.).
+Deixe essa página aberta, você voltará para ela em breve, antes você precisa gerar um Certificate Signing Request (CSR) para enviar. A Apple usará esse arquivo CSR para gerar o seu certificado (par de chaves privada-pública). O próprio site te dá um passo a passo, comece abrindo o Keychain Access, no seu Mac.
+Por aqui você gerará um CSR. Vá em Request a Certificate from a Certificate Authority.
+CSR
+Nesta tela, preencha o “User email address”, escolha um nome, e mude a opção para “Saved to Disk”. Você terá um arquivo CSR pronto para ser enviado para a Apple.
+Volte para o seu browser, no portal, e faça upload do arquivo recém-gerado.
+Você não precisa mais manter esse arquivo CSR, ele é temporário e usado apenas para gerar os certificados válidos.
+Se tudo ocorrer com sucesso, você verá uma mensagem de sucesso e a opção de baixar seu certificado. Faça o download dele.
+download certificado
+Clique duas vezes no certificado (arquivo .cer) para que ele seja instalado no seu Keychain. Você pode validar a instalação acessando o Keychain.
+certificado keychain
+Armazenamento e backup do certificado
+Se você prestou atenção na mensagem da Apple ao fazer o download do certificado, ou simplesmente sabe como funciona chaves privadas e públicas, pode estar se perguntando como você consegue fazer backup desse certificado, ou ainda, como reusar isso caso esteja usando múltiplos macs/trabalhando numa equipe grande. Isso é um ponto importante. Esses certificados têm data de expiração (você precisa refazer esse processo anualmente), e existe um limite de número de certificados permitidos no portal da Apple. Então você não vai querer gerar um certificado novo toda hora que trocar de Mac, nem gerar um certificado para cada membro da equipe.
+O problema é que o certificado que você fez download é, de fato, apenas a chave pública, então se você pretende fazer as coisas do jeito certo e reusar o certificado, você precisa exportar a chave privada do seu certificado do Mac que a gerou, só essa máquina é capaz de exportar a chave privada, e sem ela, o certificado não pode ser reusado. Se você formatou a máquina ou limpou as chaves do seu Keychain, você terá que gerar outro certificado.
+Encontre a chave pela busca do Keychain, você saberá que é a chave correta pois quando expandi-la, verá o certificado atrelado à ela. Selecione a chave, clique com o botão direito e clique em Export. Preste atenção para garantir que é um arquivo .p12 sendo exportado. Você precisará definir uma senha para ela com o objetivo de aumentar a segurança.
+exportação chave privada
+Lembre-se que nem a própria Apple vai armazenar essa chave pra você. O ideal, então, é que esse par chave-privada/chave-pública seja versionado para que sua equipe (e você) possa reusá-la.
+Quando for configurar um novo Mac você precisará instalar o Certificado e a chave privada, ambos são adicionados ao Keychain clicando duas vezes sobre o arquivo, sendo que a chave privada exigirá que você digite a senha definida.
+Tome muito cuidado com esses arquivos. Idealmente esses arquivos deveriam estar criptografados no seu repositório, pois quem tiver acesso a eles basicamente ganha o poder de alegar ser você, e consequentemente, ser o dono dos apps assinados por você.
+App ID
+A parte dos certificados é chata, mas necessária. É preciso também entender a importância dos arquivos que você tem em mãos para não se perder nem expor seu app à ataques. Por sorte, essa foi a parte mais trabalhosa.
+Agora que você tem o certificado, você vai poder responder a segunda pergunta da lista do começo do post: qual é o app sendo instalado?
+O App ID é quem irá responder isso. Como o nome sugere, ele é um identificador único para cada aplicação, e é associado à conta do seu time no portal da Apple. Normalmente ele é especificado de maneira “DNS-reversa” (ex.: br.com.akamud.MeuApp) para diminuir a probabilidade de choques de nomes. Existem duas maneiras de criar um App ID, ele pode ser usado como Wildcard, ou pode ser específico. Para simplificar, utilizarei o modo específico nesse post, que é obrigatório se você pretende usar algum recurso especial no seu app, como Push Notifications.
+Na página principal, acesse o menu Identifiers > App IDs. Você terá a lista de todos os App IDs cadastrados em sua conta. Clique no “+” para cadastrar um novo App ID.
+App ID
+No primeiro campo, coloque um nome amigável para você identificar seu app (ex.: “Meu App”), no campo App ID Suffix é que você usará o nome com DNS reverso, como disse anteriormente, usarei o Explicit App ID neste post. Se o seu app tiver recursos especiais, selecione-os na seção App Services. Clique em Continue.
+explicit app id
+Confira todos os dados e se estiverem corretos, clique em Register. Pronto, esta parte está completa.
+Cadastrando Dispositivos
+Agora você precisa responder à última pergunta: em quais dispositivos este app está sendo instalado? Lembre-se que a Apple não quer que você distribua seu app sem passar pela loja oficial, então se você pretende testar seu app em algum dispositivo antes de lançar na loja, ele precisa estar pré-cadastradado no portal da Apple. Mas tem uma sacada nisso: você só pode ter 100 dispositivos cadastrados por ano de licença. Esses 100 slots são resetados apenas a cada ano, por isso, selecione bem os dispositivos físicos em que queira testar o app.
+Todo iPhone ou iPad possui um código único que o identifica, esse identificador é chamado de UDID, é uma cadeia de 40 caracteres que você usará para registrar seu dispositivo no portal. Você pode obter esse UDID pelo iTunes.
+Plugue seu aparelho e abra o iTunes, selecione-o na tela principal do iTunes, e clique em “Serial Number“, você verá que o label mudará e agora você lerá “UDID” no mesmo local. Esse é o código que você precisa. Clique com o botão direito sobre o código e selecione Copy. Guarde esse código para cadastrá-lo no portal.
+UDID iTunes
+Acesse a página principal do portal novamente, selecione “All” na seção “Devices“. Aqui você tem a lista de todos os dispositivos cadastrados na sua conta, clique em “+” para registrar seu novo dispositivo.
+Escolha um nome amigável, cole o UDID do passo anterior e clique em Continue.
+register device
+Confira os dados e confirme. Pronto, seu dispositivo está cadastrado para ser usado.
+Provisioning Profiles
+Ainda falta um passo. Você respondeu a todas as perguntas, mas lembra que o XCode/Xamarin estava reclamando da falta de uma “Signing Identity” e de “Provisioning Profiles”? Então, é o Provisioning Profile que junta todas as informações que você criou e cadastrou até agora. Ele é o arquivo que agrupa as 3 respostas do início do post. Você vai juntar seu certificado, seu app ID, e seus dispositivos, todos neste único arquivo.
+Para criar um provisioning profile, acesse a página principal do portal, e na seção “Provisioning Profiles“, escolha “All“. Clique no “+“. Você verá várias opções, neste post seu objetivo é assinar o seu app para continuar desenvolvendo em cima de um dispositivo físico, então selecione “iOS App Development” e continue.
+ios provisioning profile
+A primeira informação que você vai precisar definir é o App ID, selecione o App ID criado anteriormente.
+ios provisioning profile app id
+Agora você deve selecionar o certificado criado para o seu app.
+ios provisioning profile certificados
+Escolha todos os dispositivos em que queira poder testar seu app.
+ios provisioning profile devices
+Escolha um nome para o provisioning profile, confira tudo, e se estiver correto, clique em Continue.
+ios provisioning profile nome
+Pronto! Agora faça o download do provisioning profile e abra-o no seu Mac, ele será automaticamente adicionado ao XCode e você poderá usá-lo para assinar seus aplicativos.
+Utilizando o Profile
+No Visual Studio for Mac, agora o profile estará disponível para o seu app. Primeiro, confira no arquivo Info.plist se o seu “Bundle Identifier” é compatível com o App ID que você criou.
+info plist
+Depois, como o processo foi feito para Desenvolvimento, selecione o “Signing Identity” de Developer e escolha o Profile. Se você não conseguiu enxergá-lo ou ele não estiver selecionável, isso provavelmente significa que o seu App ID não está batendo com o Bundle Identifier do seu app.
+visual studio for mac provisioning profile
+Lembre-se que este provisioning profile só pode ser usado para o aplicativo com mesmo App ID que você definiu no site. Então se criar outro aplicativo, você precisará gerar outro provisioning profile que atenda ao novo app.
+Conclusão
+Este post foca principalmente no processo de testar sua aplicação em um dispositivo físico. O processo de distribuição para loja tem passos a mais (como a configuração no iTunes Connect), que não é o foco desse primeiro post, apesar de vários processos se repetirem. Isso não significa que você não pode se beneficiar deste post, você precisará entender todas essas palavras-chaves e arquivos para conseguir desenvolver e publicar seu app na loja.
+A ideia foi resumir a documentação extensa do site da Apple focando no que você precisa saber para fazer tudo corretamente. Claro que se você sentir falta de alguma informação, você deve consultar a documentação oficial, que é mais completa.
+Algumas ferramentas facilitam a geração desses arquivos e automatizam algumas dessas tarefas, mas isso não te livra de ter que conhecer esses conceitos, afinal, o que você faz quando algo dá errado? Você, como profissional, precisa saber o que está fazendo. O XCode já é capaz de gerar um Signing Identity para desenvolvimento, o Visual Studio for Mac também, e ferramentas como o Fastlane automatizam todo esse processo utilizando as melhores práticas. Novamente, explicar como essas automatizações funciona fogem do escopo deste post, mas não ignore os conceitos apresentados aqui se decidir usar uma delas.
+(Cross-post de: http://high5devs.com/2017/08/entendendo-certificados-e-provisioning-profiles-do-ios/)
+Foto usada no post: Silver Iphone 6 in Macbook Pro, Pexels
+Compartilhe isso:
+FacebookLinkedInTwitterGoogleRedditE-mailTelegram
+2 comentários
+Lambda3
+Entrar
+1
+Recomendar1
+Compartilhar
+Ordenar por Mais recentes
+Avatar
+Participe da discussão...
+Participe da discussão...
+
+Fazer login com
+Disqus
+Facebook
+Twitter
+Google
+ou registre-se no Disqus
+O Disqus é uma rede de conversação
+Disqus nunca modera ou censura. As regras nessa comunidade são delas mesma.
+Não seja um babaca ou faça qualquer coisa ilegal. Tudo é mais fácil dessa maneira.
+
+
+Leia todos os termos e condições
+ 
+Avatar
+Mario Do Tenis de Mesaum mês atrás
+Olá muito boa a matéria. Existe um limite de certificados por conta ?
+Vote positivoVote negativo
+Responder
+Compartilhar ›
+Avatar
+Carlos Sulzer Pegoin reply toMario Do Tenis de Mesa24 dias atrás
+Sim. Somente 3 certificados
+Vote positivoVote negativo
+Responder
+Compartilhar ›
+Desenvolvido por Disqus
+Inscreva-se
+Adicione o Disqus no seu site
+Privacidade
+Eventos
+Visual Studio Summit Brasil 2018
+Data inicial: 1 de junho de 2018
+Data final: 2 de junho de 2018
+Local: São Paulo/SP
+Mais informações
+TDC São Paulo 2018
+Data inicial: 17 de julho de 2018
+Data final: 21 de julho de 2018
+Local: São Paulo/SP
+Mais informações
+Próximos Posts
+Lambda3 Podcast 96 – Service Fabric (25 de Maio de 2018)    
+Lambda3 Podcast 98 – Java (8 de junho de 2018)    
+    Don't miss it - Subscribe by RSS
+Recent Comments
+Roubando as senhas de um processo | Lambda3 em Não utilize variáveis de ambiente para segredos
+Usando FluentNHibernate e FluentMigrator com .NET Core | Lambda3 em NHibernate no .NET Standard 2 (3o update): saiu!
+Rodando Docker a partir do WSL no Windows | Lambda3 em Contêineres Linux no Windows nativamente, sem máquina virtual – parte 2
+Digite seu endereço de e-mail para assinar este blog e receber notificações de novas publicações por e-mail.
+Junte-se a 184 outros assinantes
+        Endereço de e-mail       
+Assinar
+Autores
+Select Author...
+Categorias
+Agilidade (34) 
+ALM (237) 
+Análise de Negócios (14) 
+Cases (6) 
+Desenvolvimento (228) 
+Empreendedorismo (14) 
+Gestão (113) 
+Infra (63) 
+Java (11) 
+Microsoft (385) 
+Mobile (35) 
+Open Source (99) 
+Outros (104) 
+Pessoas (6) 
+Podcast (97) 
+Práticas de Engenharia (93) 
+Web (53) 
+Xamarin (17) 
+Arquivos
+ArquivosSelecionar o mês
+Tags
+.NET (105 itens).NET Core (25 itens).NET Magazine (22 itens)Agile (121 itens)ALM (55 itens)Arquitetura (100 itens)ASP.Net (19 itens)ASP.NET Core (18 itens)ASP.Net MVC (94 itens)Azure (88 itens)Blog (25 itens)Build (28 itens)C# (92 itens)C#7 (26 itens)Carreira (16 itens)Certificação (19 itens)Cloud (26 itens)DDD (16 itens)Democracia organizacional (21 itens)DevOps (36 itens)Diversidade (14 itens)Docker (31 itens)Evento (25 itens)Eventos (181 itens)Gestão de projeto (30 itens)git (33 itens)Indicação de conteúdo (21 itens)Javascript (22 itens)liderança (23 itens)Mobile (19 itens)nodejs (27 itens)Outros (22 itens)podcast (104 itens)podcast não técnico (41 itens)Polêmicas (14 itens)Powershell (17 itens)Scrum (51 itens)SharePoint (20 itens)Source Control (17 itens)Testes Automatizados (24 itens)TFS (127 itens)Visual Studio (78 itens)VSTS (53 itens)Webcast (17 itens)xamarin (24 itens)
+Lambda3 - Direitos Reservados 2017
+:)

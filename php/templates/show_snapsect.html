@@ -1,0 +1,47 @@
+ <script>
+   function redimensiona() {
+     document.images['grpi'].width = 300;
+   }
+ </script>
+ <main>
+   <article>
+     <div id="menu">
+       <!-- BEGIN BLOCK_EDIT -->
+       <table width="100%">
+         <tr>
+           <td width="33%"><input type="button" onclick="javascript:window.location='snapsect_ger.php';"
+               value="SEARCH ARTHROPOD"></td>
+           <td width="33%"></td>
+           <td width="33%"><input type="button" onclick="javascript:window.location='add_snapsect.php?id={ID}';"
+               value="EDIT"></td>
+         </tr>
+         <tr>
+           <td width="33%"></td>
+           <td width="33%"><br><img src="http://www.snapsects.com/site/img/logo_application.jpeg" width="50%"
+               alt="SNAPSECT logo"></td>
+           <td width="33%"></td>
+         </tr>
+       </table>
+       <button id="cmdaddphoto" onclick="javascript:window.location='add_snapsect_photo.php?id=0&codid={CODID}';">ADD
+         PHOTO</button>
+       <!-- END BLOCK_EDIT -->
+       <!-- BEGIN BLOCK_NOEDIT -->
+       <table width="100%">
+         <tr>
+           <td width="33%"><input type="button" onclick="javascript:window.location='snapsect_ger.php';"
+               value="SEARCH ARTHROPOD"></td>
+           <td width="33%"></td>
+           <td width="33%"></td>
+         </tr>
+         <tr>
+           <td width="33%"></td>
+           <td width="33%"><br><img src="http://www.snapsects.com/site/img/logo_application.jpeg" width="50%"
+               alt="SNAPSECT logo"></td>
+           <td width="33%"></td>
+
+         </tr>
+       </table>
+       <!-- END BLOCK_NOEDIT -->
+     </div> {TEXTO}
+   </article>
+ </main>

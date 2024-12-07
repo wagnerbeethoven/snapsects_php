@@ -1,0 +1,1 @@
+<?php header("location: http://www.snapsects.com/site/snapsect_ger.php"); ?>

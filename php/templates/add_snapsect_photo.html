@@ -1,0 +1,36 @@
+<script language="javascript" src="templates/func.js"></script>
+<script language="javascript" src="templates/myajax.js"></script>
+<script>
+  function redimensiona() {
+    document.images['grpi'].width = 300;
+  }
+</script>
+<form name="frmphoto" enctype="multipart/form-data" method="POST">
+  <input type="hidden" name="id" id="id" value="{P->ID}">
+  <input type="hidden" name="codid" id="codid" value="{P->CODID}">
+  <input type="hidden" name="url" id="url" value="{P->URL}">
+
+  <input type="file" name="grpfoto" id="grpfoto">
+  <img id="grfoto" src="{P->URL}">
+  <p><label for="datacad">Date: </label><input type="date" name="datacad" id="datacad" value="{P->DATACAD}"></p>
+  <p><label for="title">Title: </label><input type="text" name="title" id="title" value="{P->TITLE}"></p>
+  <label for="obs">Picture description:</label>
+  <textarea width="500px" rows="10" id="obs" name="obs">{P->OBS}</textarea>
+  <div id="menu">
+    <table width="100%">
+      <tr>
+        <td width="33%"><input type="button" name="voltar" id="voltar" value="CANCEL"
+            onclick="javascript:window.location='show_snapsect.php?id={P->CODID}';"></td>
+        <td width="33%"></td>
+        <td width="33%"><input type="submit" name="save" id="save" value="SAVE"></td>
+      </tr>
+      <tr>
+        <td width="33%"></td>
+        <td width="33%"><br><img src="http://www.snapsects.com/site/img/logo_application.jpeg" width="50%"
+            alt="SNAPSECT logo"></td>
+        <td width="33%"></td>
+      </tr>
+    </table>
+    <hr>
+  </div>
+</form>

@@ -1,0 +1,75 @@
+<!-- <html>
+
+<head>
+<title>SnapSects User</title>
+</head>
+
+<body> -->
+
+<main>
+    <article>
+        <div class="hgroup">
+            <h2 id="adm-user">Administrar usuários</h2>
+            <h3></h3>
+        </div>
+        <div class="content page-adm-user">
+            <div class="table-responsive">
+
+
+
+                <table>
+                    <caption>Usuários cadastrados</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+
+                            <th scope="col">Função</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col"><i class="fas fa-at"></i></th>
+                            <th scope="col"><i class="fas fa-link"></i></th>
+                            <th scope="col">Observações</th>
+                            <th scope="col" colspan="3" class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- BEGIN BLOCK_CAMPOS -->
+                        <tr>
+                            <td>{STATUS}</td>
+                            <td>{P->NOME}, {P->EMAIL}</td>
+                            <td>{P->URL}</td>
+                            <td>{P->OBS}</td>
+                            <td>
+                                <button type="button" name="editar" title="Editar {P->NOME}"  onclick="javascript:document.location.href='add_snapsect_user.php?id={P->ID}';"><i class="fas fa-user-edit"></i></button>
+                            </td>
+                            <td><input type="button" name="remover" value="REMOVER" title="remover: {P->ID} {P->NOME}"
+                                    onclick="javascript:if (confirm('Do you want to remove {P->nome}?')) { document.location.href='snapsect_user_ger.php?id={P->ID}&act=remover'; }">
+                            </td>
+                            <td><input type="button" name="sendpass" value="SEND PASSWORD"
+                                    title="Send password: {P->ID} {P->NOME}"
+                                    onclick="javascript:document.location.href='snapsect_user_ger.php?id={P->ID}&act=sendpassword'; }">
+                            </td>
+                        </tr>
+                        <!-- END BLOCK_CAMPOS -->
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </article>
+</main>
+
+<!-- 
+
+<h2>User</h2>
+<table>
+
+
+</table>
+<input type="button" name="sair" value="VOLTAR" title="voltar"
+onclick="javascript:document.location.href='index_adm.php';">
+
+
+</body>
+
+</html> -->

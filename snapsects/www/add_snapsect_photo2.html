@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects - Acadêmico</title>
+<style>
+body {
+text-align: justify;
+}
+</style>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/dados.js"></script>
+<script type="text/javascript">
+// var sendimage = '';
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+}, false);
+
+function redimensiona() {
+document.images['grpi'].width = 300;
+} // da funcao
+
+function envia() {
+var d = new Date();
+var nome = d.getTime().toString();
+var temp = 'act=addimage&lang='+localStorage.language;
+temp += '&id='+querystring(0);
+temp += '&arquivo='+nome+'.jpg';
+temp += '&img='+sendimage;
+temp += '&text='+document.getElementById('obs').value;
+spopen(dic_path+'snapsect_api.php',temp,'POST', function(res) {
+window.location='show_snapsect.html?id='+querystring(0);
+});
+} // da funcao...
+
+function tirarfoto() {
+navigator.camera.getPicture(function(imageData) {
+alert('aqui estou');
+// sendimage = imageData;
+// alert('estou aqui');
+// var image = document.getElementById('grfoto');
+// image.src = "data:image/jpeg;base64," + imageData;
+// image.width = 300;
+// imagem = imageData;
+// alert(imagem.length);
+}, function(message) {
+    alert('Failed because: ' + message);
+}, { quality: 50,
+   destinationType: Camera.DestinationType.DATA_URL,
+//                                destinationType: navigator.camera.DestinationType.FILE_URI,
+saveToPhotoAlbum : true,
+                                sourceType: navigator.camera.PictureSourceType.PHOTO
+
+});
+} // da funcao
+
+function tirarfoto2() {
+navigator.camera.getPicture(function(imageData) {
+sendimage = imageData;
+// var image = document.getElementById('grfoto');
+// image.src = "data:image/jpeg;base64," + imageData;
+// image.width = 300;
+// imagem = imageData;
+}, function(message) {
+    alert('Failed because: ' + message);
+}, { quality: 50,
+    destinationType: Camera.DestinationType.DATA_URL,
+//                               destinationType: navigator.camera.DestinationType.FILE_URI,
+                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+
+});
+} // da funcao
+
+</script>
+  </head>
+  <body>
+<div id="dvpage">
+<form name="frmphoto" enctype="multipart/form-data" method="POST">
+<input type="hidden" name="id" id="id" value="{P->ID}">
+<input type="hidden" name="codid" id="codid" value="{P->CODID}">
+<input type="hidden" id="lang" name="lang" value="{LANG}">
+<input type="hidden" name="url" id="url" value="{P->URL}">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" name="voltar" id="voltar" value="{dic78}" onclick="javascript:window.location='show_snapsect.html?id={P->CODID}';"></td>
+<td width="33%"></td>
+<td width="33%"><input type="button" name="save" id="save" value="{dic80}" onclick="javascript:envia();"></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="http://www.snapsects.com/teste/img/logo_application.jpeg" width="50%" alt="{dic0}"></center></td>
+<td width="33%"></td>
+</tr></table>
+<hr>
+</div>
+<button id="cmdaddfoto" onclick="tirarfoto();">{dic179}</button>
+<button id="cmdaddfoto2" onclick="tirarfoto2();">{dic180}</button>
+<img id="grfoto" src="">
+<center><label for="obs">{dic181}:</label></center>
+<textarea width="500px" rows="10" id="obs" name="obs"></textarea>
+
+</form>
+<hr><br>
+{dic73}
+</div>
+</body>
+</html>

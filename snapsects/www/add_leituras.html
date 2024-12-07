@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='school.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"><input type="button" onclick="javascript:save();" value="{dic296}"></td>
+</tr></table>
+</div>
+<hr>
+<form name="frm">
+<div id="dvtitle"></div>
+<p><label for="txttitle">{dic375} </label><input type="text" id="txttitle" value="" onchange="javascript:licao.titulo = this.value; "></p>
+<center><label for="txttext">{dic376}: </label></center>
+<textarea id="txttext" rows="10" width="100%" onchange="javascript:licao.text = this.value;document.getElementById('cmdproxima').style.display=(licao.quest[page-1].texto.length+licao.quest[page-1].enunciado.length < 1)?'none':'inline';"></textarea>
+</form>
+<br>
+<hr>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+var licao = { 
+titulo: '',
+text: ''
+}
+var id = '';
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+document.getElementById('dvtitle').innerHTML='<center><h1>'+querystring(0)+'</h1></center>';
+if (querystring(1) == '') {
+
+fala(dic[352],cvoz);
+} else {
+// alert(querystring(0)+' '+querystring(1));
+id = querystring(1);
+spjson(dic_path+'api_school.php','act=getleitura&email='+localStorage.lge+'&sala='+querystring(0)+'&id='+querystring(1),'POST', function(res) {
+if (res.status == 'ok') {
+licao = res.leitura;
+// alert(JSON.stringify(res));
+showleitura();
+fala(licao.titulo.replaceAll('_',' '),cvoz);
+} // está tudo ok...
+});
+} // já existe então abre...
+    }, false);
+
+function showleitura() {
+document.getElementById('txttitle').value = licao.titulo.replaceAll('_',' ');
+document.getElementById('txttext').value = licao.text;
+} // da funcao...
+
+function save() {
+var t='act=addleitura&email='+localStorage.lge;
+t+='&sala='+querystring(0);
+t+='&title='+document.getElementById('txttitle').value;
+t+='&text='+licao.text;
+spopen(dic_path+'api_school.php',t,'POST', function(res) {
+// alert(res);
+// alert(id+' '+res.status);
+window.location='school.html';
+});
+} // da funcao...
+
+</script>
+</body>
+</html>

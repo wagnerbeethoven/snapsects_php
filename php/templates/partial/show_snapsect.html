@@ -1,0 +1,32 @@
+<script>
+    function redimensiona() {
+        document.images['grpi'].width = 300;
+    }
+</script>
+<div id="menu">
+</div>
+
+<div class="especie-navegation">
+
+    <!-- BEGIN BLOCK_NOEDIT -->
+    <button type="button" class="especie-search" onclick="javascript:window.location='snapsect_ger.php';">
+        <i class="fas fa-search"></i>
+        Pesquisar artrópode
+    </button>
+    <!-- END BLOCK_NOEDIT -->
+
+    <!-- BEGIN BLOCK_EDIT -->
+    <button type="button" class="especie-search" onclick="javascript:window.location='snapsect_ger.php';">
+        <i class="fas fa-search"></i>
+        Pesquisar artrópode
+    </button>
+    <button id="cmdaddphoto" class="especie-fotos" type="button"
+        onclick="javascript:window.location='add_snapsect_photo.php?id=0&codid={CODID}';">
+        <i class="far fa-images"></i> Adicionar foto </button>
+
+    <button type="button" class="especie-edit" onclick="javascript:window.location='add_snapsect.php?id={ID}';"> <i
+            class="fas fa-pencil-alt"></i>
+        Editar</button>
+    <!-- END BLOCK_EDIT -->
+</div>
+{TEXTO}

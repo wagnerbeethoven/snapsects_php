@@ -1,0 +1,16 @@
+<h2>About the class Chilopoda</h2>
+
+
+
+<p align="justify">The Class Chilopoda belongs to the subphylum Myriapoda and is commonly referred to as centipedes. Like other arthropods, they have an exoskeleton and articulated legs. The chilopods’ appendages are uniramous.
+
+Chilopods differ from other arthropods because their bodies are divided into two main parts: head and trunk. The trunk is composed of thorax and abdomen. Dorsolaterally on the anterior part of the head there is a pair of antennae (with variable numbers of segments), and dorsolaterally near the middle of the head there is a pair of simple eyes. Ventrally on the anterior part of the head are the mouthparts, which are composed of a pair of mandibles and two pairs of maxillae. The thorax of the chilopods consists of 15 to 193 segments, and each segment has a pair of hinged legs. The first pair of legs has venom claws and the last pair of legs extends behind the body.
+
+
+
+References
+
+BRUSCA, R. C.; BRUSCA, G. J. Filo Arthropoda: Miriápodes (Centopéias, Milípedes e Afins). In: ________. Invertebrados. Rio de Janeiro: Guanabara Koogan, p. 664-677, 2007.</p> 
+
+
+

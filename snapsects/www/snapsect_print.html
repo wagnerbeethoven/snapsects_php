@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,
+          width=device-width, height=device-height, target-densitydpi=150dpi"/>
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="dvmenu">
+<table border="0" width="100%"><tr>
+<td width="20%"><input type="button" onclick="javascript:if (parseInt(querystring(0)) < 0) { window.location='index.html'; } else { window.location='show_snapsect.html?id='+querystring(0)+'&lang='+querystring(1); }" value="{dic78}"></td>
+<td width="60%"><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="20%"></td>
+</tr></table>
+<form id="frm">
+<ul>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvidentificacao').style.display=(this.checked)?'inline':'none';" id="chkidentificacao" checked><label for="chkidentificacao">{dic222}</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvdescricao').style.display=(this.checked)?'inline':'none';" id="chkdescricao" checked><label for="chkdescricao">{dic224}</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvcolecao').style.display=(this.checked)?'inline':'none';" id="chkcolecao" checked><label for="chkcolecao">{dic225}</label></li>
+<li id="linotes"><input type="checkbox" onclick="javascript:document.getElementById('dvnotes').style.display=(this.checked)?'inline':'none';" id="chknotes" checked><label for="chknotes">{dic170}</label></li>
+<li id="liaudio"><input type="checkbox" onclick="javascript:document.getElementById('dvaudio').style.display=(this.checked)?'inline':'none';" id="chkaudio" checked><label for="chkaudio">{dic174}</label></li>
+<li id="litext"><input type="checkbox" onclick="javascript:document.getElementById('dvtext').style.display=(this.checked)?'inline':'none';" id="chktext" checked><label for="chktext">{dic168}</label></li>
+<li id="libibliografia"><input type="checkbox" onclick="javascript:document.getElementById('dvbibliografia').style.display=(this.checked)?'inline':'none';" id="chkbibliografia" checked><label for="chkbibliografia">{dic177}</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvartropode').style.display=(this.checked)?'inline':'none';" id="chkartropode" checked><label for="chkartropode">{dic378}</label></li>
+</ul>
+<center><input type="button" id="cmdprint" onclick="javascript:preprint22();" value="{dic379}">   <input type="button" value="{dic406}" onclick="javascript:convertacentotohtml(getpdf('SnapSects Academic - {dic407}','{dic408}','<html><body>'+document.getElementById('dvtoprint').innerHTML+'</body></html>'));"></center>
+</form>
+</div>
+<div id="dvtoprint">
+<div id="dvmenu2" style="display:none">
+<table border="0" width="100%"><tr>
+<td width="20%"></td>
+<td width="60%"><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}"></center></td>
+<td width="20%"></td>
+</tr></table>
+</div>
+<hr>
+<div id="dvshowtitulo"></div>
+<div id="dvshowfotos"></div>
+
+<div id="dvtexto">
+</div>
+<hr>
+{dic73}
+</div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/SocialSharing.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+
+    document.addEventListener("deviceready", function () {
+if ((device.platform == 'Android') && (device.version < 8.1)) {
+document.getElementById('cmdprint').style.display = 'none';
+} 
+if (querystring(0) < '1') {
+window.location='index.html';
+} // nao tem informacao...
+convertpage();
+mostra();
+cvoz();
+    }, false);
+
+function mostra() {
+var ii = '';
+spjson(dic_path+'cel_api.php','act=gettext&id='+querystring(0)+'&lang='+localStorage.language+ii,'POST', function(q) {
+// alert(q+' '+querystring(0));
+var res = q.text;
+var ee = q.data;
+var media_url = dic_path+'photos/'+localStorage.language.substring(0,2)+'/'+q.id+'/';
+// titulo
+var t = '<center><h2>'+ee.commonname+' ('+ee.scientificname+')</h2></center>';
+if (ee.photo.length > 0) {
+t += '<br><center><img id="grpi" src="'+media_url+ee.photo+'" alt="'+dic[219]+' '+ee.commonname+' ('+ee.scientificname+') - '+ee.photodesc+'" width="500px" onload="redimensiona();" onclick="showimg('+ee.id+", '"+ee.photo+"');"+'" /></center><br>';
+}
+document.getElementById('dvshowtitulo').innerHTML = t;
+// fotos...
+var l = q.photos;
+var phtxt = '';
+if (l.length > 0) {
+if (l.length == 1) {
+phtxt = '<center><img src="'+media_url+l[0].url+'" width="300px" ';
+phtxt+=(l[0].text.length > 0)?'alt="'+l[0].text+'"':'alt="Image"';
+phtxt+=' onclick="showimg('+q.id+", '"+l[0].url+"');"+'"></center>';
+} // apenas uma foto...
+else {
+phtxt +='<table border="0" width="100%"><tr>';
+pht = 1;
+for (var r=0;r<l.length;r++) {
+phtxt += '<td width="33%"><center><img src="'+media_url+l[r].url+'" width="300px" ';
+phtxt +=(l[r].text.length > 0)?'alt="'+l[r].text+'"':'alt="Image"';
+phtxt +=' onclick="showimg('+q.id+", '"+l[r].url+"');"+'"></center>';
+phtxt +='</td>';
+pht = pht + 1;
+if (pht > 3) {
+pht = 1;
+phtxt+='</tr><tr>';
+} // do pht >3
+} // do for...
+phtxt+='</tr></table>';
+} // mais que uma foto...
+} // existem imagens...
+// final das fotos...
+document.getElementById('dvshowfotos').innerHTML = phtxt;
+
+document.getElementById('dvtexto').innerHTML = convertdic(res);
+// fala(dic[226]); // +' '+e.commonname); // +' '+dic[ee.classe]+' '+ee.commonname);
+fala(dic[226]+' '+q.commonname);
+}, function(e) { alert(e+' erro '+querystring(0)); });
+} // da funcao
+
+function redimensiona() {
+document.images['grpi'].width = 300;
+} // da funcao
+
+function showimg(i, p) {
+document.getElementById('dvpage').style.display = 'none';
+fala(dic[322]);
+var entries = [];
+
+entries.push({    
+title: dic[323],
+id: "alert('informar imagem imprópria');"
+});
+
+entries.push({    
+title: dic[324],
+id: "delimg(i,p);"
+});
+
+entries.push({    
+title: dic[325],
+id: "alert('editar descrição');"
+});
+
+entries.push({    
+title: dic[243],
+id: "var c = 1;"
+});
+
+var context = {    
+title: dic[322],
+items: entries,    
+x: 0,    
+y: 0
+}
+
+ContextMenu.open(context, function (ele) {    
+document.getElementById('dvpage').style.display = 'inline';
+fala(dic[238]);
+eval(ele);
+
+});
+
+
+} // da funcao...
+
+function delimg(ii,pp) {
+if (confirm(dic[183])) {
+spopen(dic_path+'snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang='+localStorage.language,'POST', function(res) {
+window.location='show_snapsect.html?id='+ii;
+});
+} else {
+} // cancelar...
+} // da funcao...
+
+function showvideo(i) {
+document.getElementById('dvvideo').style.display='inline';
+var v = document.getElementsByTagName("video")[0];
+v.addEventListener('ended', function() {
+document.getElementById('dvvideo').style.display='none';
+});
+
+v.src = i;
+v.play();
+
+} // da funcao...
+
+function delvideo(ii,pp) {
+pp = pp.substr(pp.lastIndexOf('/')+1);
+if (confirm(dic[339])) {
+spopen(dic_path+'snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang='+localStorage.language,'POST', function(res) {
+window.location='show_snapsect.html?id='+ii;
+});
+} else {
+} // cancelar...
+} // da funcao...
+
+function preparetela22() {
+document.getElementById('dvmenu2').style.display='inline';
+document.getElementById('dvmenu').style.display='none';
+} // da funcao...
+
+function preprint22() {
+// preparetela22();
+// alert(dic[380]);
+var page = document.getElementById('dvtoprint');
+cordova.plugins.printer.print(page, 'Document.html');
+// window.location='index.html';
+window.location='snapsect_print.html?id='+querystring(0)+'&lang='+querystring(1);
+// print();
+} // da funcao...
+
+function getpdf(title, msg, txt) {
+if ((device.platform == 'Android') && (device.version <= 8.1)) {
+cordova.plugins.email.open({
+to: '',
+subject: title,
+body: txt,
+isHtml: true
+});
+} else {
+getpdf8(title, msg, txt);
+}
+} // da funcao...
+
+function getpdf8(title, msg, txt) {
+var options = {
+                documentSize: 'A4',
+fileName: 'snapsects.pdf',
+               type: 'base64'
+//type: 'share' // impressora
+              }
+
+pdf.fromData( txt, options).then(function(stats) {exportar(title,msg,stats); }).catch(function(err) { alert(err); });
+
+} // da funcao...
+
+function exportar2(assunto, msg, arquivo) {
+var nada = 'Olá estou aqui...';
+alert(nada);
+} // da funcaao...
+
+function exportar3(assunto, msg, arquivo) {
+window.plugins.socialsharing.share(null, 'Android filename', 'data:PDF/pdf;base64,'+arquivo, null);
+} // da funcao...
+
+function exportar(assunto,msg,arquivo) {
+var options = {
+  message: msg, // not supported on some apps (Facebook, Instagram)
+  subject: assunto, // fi. for email
+  files: ['data:application/pdf;df:snapsects.pdf;base64,'+arquivo]
+//  url: 'https://www.website.com/foo/#bar?a=b',
+//  chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title,
+//  appPackageName: 'com.apple.social.facebook' // Android only, you can provide id of the App you want to share with
+};
+
+window.plugins.socialsharing.shareWithOptions(options, function(results) {
+// location.reload(); 
+
+// navigator.app.loadUrl("file:///android_asset/www/index.html", {wait:2000, loadingDialog:"Wait,Loading App", loadUrlTimeoutValue: 60000});
+// window.setTimeout(function() { window.location.href='show_snapsect.html?id='+querystring(0); }, 500); // +'&lang='+querystring(1);
+// alert('foi');
+}, function(msg) {
+// window.setTimeout(function() { window.location='show_snapsect.html?id='+querystring(0); }, 500); // +'&lang='+querystring(1);
+});
+} // da funcao.
+
+</script>
+</body>
+</html>

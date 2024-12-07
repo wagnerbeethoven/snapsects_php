@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SnapSects - Administrator</title>
+</head>
+
+<body>
+  <div id="menu">
+    <input type="button" id="voltar" value="ADMINISTRATION" onclick="javascript:window.location='index_adm.php';">
+    SNAPSECTS - ADMINISTRATOR
+  </div>
+  <form name="frm" id="frm" enctype="multipart/form-data" method="POST">
+    <input type="hidden" id="act" value="addimage">
+    <p><label for="lst">Select the item: </label><select name="lst" id="lst" value=""
+        onchange="javascript:mostraimagem(this.value,'imglst');">
+        <option value="">-- SnapSects --</option>
+        <option value="logo application">Logo application</option>
+        <option value="">-- Class --</option>
+        <option value="Arachinida">Arachinida</option>>
+        <option value="Chilopoda">Chilopoda</option>
+        <option value="Diplopoda">Diplopoda</option>
+        <option value="Insecta">Insecta</option>
+        <option value="Malacostraca">Malacostraca</option>
+        <option value="">-- Antennae --</option>
+        <option value="Filiform">Filiform</option>
+        <option value="Setaceous">Setaceous</option>
+        <option value="Geniculate">Geniculate</option>
+        <option value="Plumose">Plumose</option>
+        <option value="Clavate (gradual club)">Clavate (gradual club)</option>
+        <option value="Capitate (abrupt club or knob)">Capitate (abrupt club or knob)</option>
+        <option value="Aristate">Aristate</option>
+        <option value="Monoliform or Moniliform">Monoliform or Moniliform</option>
+        <option value="Lamelate or Lamelar">Lamelate or Lamelar</option>
+        <option value="Serrate">Serrate</option>
+        <option value="Pectinate">Pectinate</option>
+        <option value="Minute and bristle-like">Minute and bristle-like</option>
+        <option value="Flabellate">Flabellate</option>
+        <option value="">-- Mouth parts --</option>
+        <option value="Chewing">Chewing</option>
+        <option value="Sucking (Sucker-maxillary)">Sucking (Sucker-maxillary)</option>
+        <option value="Sucking-labial">Sucking-labial</option>
+        <option value="Lapping">Lapping</option>
+        <option value="Sponging">Sponging</option>
+        <option value="Piercing-sucking">Piercing-sucking</option>
+        <option value="Siphoning">Siphoning</option>
+        <option value="">-- forewings --</option>
+        <option value="Membranous">Membranous</option>
+        <option value="Elytra">Elytra</option>
+        <option value="Hemielytra">Hemielytra</option>
+        <option value="Tegmina">Tegmina</option>
+        <option value="Fringed">Fringed</option>
+        <option value="Scaly">Scaly</option>
+        <option value="Aptera (no wings)">Aptera (no wings)</option>
+        <option value="">-- Hind Wings --</option>
+        <option value="Haltere (dumbbells)">Haltere (dumbbells)</option>
+        <option value="Fringed">Fringed</option>
+        <option value="Scaly">Scaly</option>
+        <option value="Aptera (no hind wings)">Aptera (no hind wings)</option>
+        <option value="">-- legs --</option>
+        <option value="Ambulatorial">Ambulatorial</option>
+        <option value="Cursorial">Cursorial</option>
+        <option value="Saltatorial">Saltatorial</option>
+        <option value="Scansorial">Scansorial</option>
+        <option value="Fossorial">Fossorial</option>
+        <option value="Raptorial">Raptorial</option>
+        <option value="Natatorial">Natatorial</option>
+        <option value="Collector">Collector</option>
+        <option value="">-- Cerci --</option>
+        <option value="Short with one segment">Short with one segment</option>
+        <option value="Short with two segments">Short with two segments</option>
+        <option value="Elongate with more than two segments">Elongate with more than two segments</option>
+      </select> <img id="imglst" width="200px" align="right"></p>
+    <div id="dvprincipal" style="display: none">
+      This picture is .JPG
+      <input type="file" name="grpfoto" id="grpfoto">
+      <input type="submit" name="enviar" id="enviar" value="ENVIAR">
+    </div>
+  </form>
+  <script type="text/javascript" src="scripts/spajax.js"></script>
+  <script type="text/javascript">
+    function mostraimagem(arq, obj) {
+      document.getElementById(obj).style.display = 'none';
+      document.getElementById('dvprincipal').style.display = 'none';
+      if (arq.length > 0) {
+        document.getElementById(obj).src = 'http://www.snapsects.com/site/img/' + arq.replaceAll(' ', '_') + '.jpg';
+        document.getElementById(obj).width = 200;
+        document.getElementById(obj).style.display = 'inline';
+        document.getElementById('dvprincipal').style.display = 'inline';
+      } // pode mostrar...
+    } // da funcao
+  </script>
+
+
+</body>
+
+</html>

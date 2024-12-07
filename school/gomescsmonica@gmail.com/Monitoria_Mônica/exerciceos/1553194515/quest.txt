@@ -1,0 +1,12 @@
+LISTA DE QUESTÕES 3|Lista de questões de diversos assuntos.||2019-03-21|2019-03-26|2019-03-26|30
+|Qual país sediará as olimpíadas de 2020?||1|1||Japão#1_Austrália#0_Canadá#0_França#0_Holanda#0||
+|Qual o nome da  antiga aliança formada por Alemanha, Japão e Itália? ||1|0|Tríplice Aliança|||
+|O Big Ben é um dos pontos turísticos mais famosos dos Estados Unidos.||1|2||Essa afirmação é?#f||
+|Correlacione a primeira coluna de acordo com a segunda: ||1|3||É a ciência do raciocínio lógico e abstrato, que estuda quantidades, medidas, espaços, estruturas, variações e estatísticas.#0_É a área das ciências humanas que estuda o comportamento humano em função do meio e os processos que interligam os indivíduos em associações, grupos e instituições# Sociologia_É a ciência que estuda o ser humano e sua ação no tempo e no espaço concomitantemente à análise de processos e eventos ocorridos no passado.#História| Matemática_ Sociologia_História|
+|Em que período da Pré-História o fogo foi descoberto?||1|1||Neolítico#0_Paleolítico#1_Idade dos Metais#0_Período da Pedra Lascada#0||
+|Os países que tem o Português como língua oficial, são?||1|2||Brasil#v_Índia#f_Portugal#v_Macau#v_Nova Zelândia#f||
+|Quanto tempo a luz do sol demora para chegar á Terra?||1|0|8 minutos.|||
+|Atualmente quantos elementos químicos a tabela periódica possui?||1|1||109#0_118#1_108#0_92#0_99#0||
+|O Cristianismo é maior religião politeísta com maior adeptos no mundo.||1|2||Essa afirmação é?#f||
+|Qual o número mínimo de jogadores em uma partida de futebol? ||1|0|7 jogadores.|||
+|||0|0||||

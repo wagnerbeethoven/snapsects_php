@@ -1,0 +1,29 @@
+2018/11/21 18:27	add logo.jpg	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/03 23:58	add VID_20181203_233539.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 09:33	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 09:38	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 09:44	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 09:48	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 11:01	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 11:01	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 11:07	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 11:07	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 12:33	add VID_20181206_122314.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 12:42	add VID_20181203_232143.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/10 21:23	add Vespula germanica 2.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/18 15:45	add Vespula germanica 2.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/18 15:57	add Vespula germanica 2.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/18 20:56	add Vespula germanica 2.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/18 23:15	add 1643F849-FE1D-4B78-80E2-15277BCDF69E.MOV	3	Francisco Lima	limafj.us@gmail.com
+2018/12/18 23:15	add 1643F849-FE1D-4B78-80E2-15277BCDF69E.MOV	3	Francisco Lima	limafj.us@gmail.com
+2018/12/18 23:19	add 56687511049__77934CF0-CBBC-4DCE-991C-8637FEEF8F04.MOV	3	Francisco Lima	limafj.us@gmail.com
+2018/12/20 16:17	del http://www.snapsects.com/teste/photos/pt/5/VID_20181206_122314.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 16:18	del http://www.snapsects.com/teste/photos/pt/5/VID_20181206_122314.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 16:23	del VID_20181206_122314.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 16:23	del VID_20181203_232143.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 17:06	del 56687511049__77934CF0-CBBC-4DCE-991C-8637FEEF8F04.MOV	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 17:11	add pri_x_simba_mini.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 17:14	del pri_x_simba_mini.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 17:57	del logo.jpg	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 18:06	add abelha.jpg	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/20 18:07	del abelha.jpg	13	Luiz Eduardo	leduardop2@gmail.com

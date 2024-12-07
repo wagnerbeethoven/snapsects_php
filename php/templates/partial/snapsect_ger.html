@@ -1,0 +1,197 @@
+<main>
+    <article>
+        <div class="hgroup">
+            <h2 id="search">[dic7]</h2>
+            <h3>.</h3>
+        </div>
+        <div class="content page-search">
+            <!-- [dic72]
+                {ARTHROPODA} -->
+            <section id="dvfilter" class="search">
+
+                <fieldset>
+                    <legend>[dic323]</legend>
+                    <ul class="form-list simple-search">
+                        <li>
+                            <label for="commonname" class="sr-only">[dic8]: </label>
+                            <div class="input-group">
+                                <input type="text" name="commonname" id="commonname" placeholder="[dic8]" value=""
+                                    onkeyup="javascript:filtro();" />
+                                <button id="cmdff2" onclick="javascript:filtro();" title="[dic9]"><i
+                                        class="fas fa-search"></i></button>
+                            </div>
+                        </li>
+                        <li class="search-filter">
+                            <input type="checkbox" id="chksearch"
+                                onclick="javascript:document.getElementById('dvadvancedsearch').style.display = (this.checked) ? 'inline' : 'none';">
+                            <label for="chksearch">
+                                <span><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i>
+                                    [dic237]</span></label>
+                        </li>
+                    </ul>
+                    <div id="dvadvancedsearch" class="dvadvancedsearch" style="display: none;">
+                        <ul class="search-advanced">
+                            <li>
+                                <label for="lstother">[dic10]: </label>
+                                <div class="input-advanced-search">
+                                    <select name="lstother" id="lstother" onchange="javascript:filtro();">
+                                        <option value="">[dic11]</option>
+                                        <!-- BEGIN BLOCK_OTHER -->
+                                        <option value="{CC}">{CC}</option>
+                                        <!-- END BLOCK_OTHER -->
+                                    </select>
+                                </div>
+
+                            </li>
+                            <li>
+                                <label for="classe">[dic12]: </label>
+                                <div class="input-advanced-search">
+                                    <select name="classe" id="classe"
+                                        onchange="javascript:mostraimagem(this.value, 'imgclass'); filtro();">
+                                        <option value="">[dic11]</option>
+                                        <option value="Arachinida">[dic13]</option>
+                                        <option value="Chilopoda">[dic14]</option>
+                                        <option value="Diplopoda">[dic15]</option>
+                                        <option value="Insecta">[dic16]</option>
+                                        <option value="Malacostraca">[dic17]</option>
+                                    </select>
+                                    <img id="imgclass" style="float: right" width="150" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="lstorder">[dic18]: </label>
+                                <div class="input-advanced-search">
+                                    <select name="lstorder" id="lstorder" onchange="javascript:filtro();">
+                                        <option value="">[dic11]</option>
+                                        <!-- BEGIN BLOCK_ORDER -->
+                                        <option value="{CC}">{CC}</option>
+                                        <!-- END BLOCK_ORDER -->
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="family">[dic19]: </label>
+                                <div class="input-advanced-search">
+                                    <input type="text" name="family" id="family" value=""
+                                        onkeyup="javascript:filtro();" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="lstantennae">[dic20]: </label>
+                                <div class="input-advanced-search">
+                                    <select name="lstantennae" id="lstantennae" value="{P->LSTANTENNAE}"
+                                        onchange="javascript:mostraimagem(this.value, 'imglstantennae'); filtro();">
+                                        <option value="">[dic11]</option>
+                                        <option value="Filiform">[dic21]</option>
+                                        <option value="Setaceous">[dic22]</option>
+                                        <option value="Geniculate">[dic23]</option>
+                                        <option value="Plumose">[dic24]</option>
+                                        <option value="Clavate (gradual club)">[dic25]</option>
+                                        <option value="Capitate (abrupt club or knob)">[dic26]</option>
+                                        <option value="Aristate">[dic27]</option>
+                                        <option value="Monoliform or Moniliform">[dic28]</option>
+                                        <option value="Lamelate or Lamelar">[dic29]</option>
+                                        <option value="Serrate">[dic30]</option>
+                                        <option value="Pectinate">[dic31]</option>
+                                        <option value="Minute and bristle-like">[dic32]</option>
+                                        <option value="Flabellate">[dic33]</option>
+                                        <option value="other (add type in description box)">[dic34]</option>
+                                    </select>
+                                    <img id="imglstantennae" style="float: right" width="150" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="lstmouthparts">[dic35]: </label>
+                                <div class="input-advanced-search">
+                                    <select name="lstmouthparts" id="lstmouthparts"
+                                        onchange="javascript:mostraimagem(this.value, 'imglstmouthparts'); filtro();">
+                                        <option value="">[dic11]</option>
+                                        <option value="Chewing">[dic36]</option>
+                                        <option value="Sucking (Sucker-maxillary)">[dic37]</option>
+                                        <option value="Sucking-labial">[dic38]</option>
+                                        <option value="Lapping">[dic39]</option>
+                                        <option value="Sponging">[dic40]</option>
+                                        <option value="Piercing-sucking">[dic41]</option>
+                                        <option value="Siphoning">[dic42]</option>
+                                        <option value="other (add type in description box)">[dic43]</option>
+                                    </select>
+                                    <img id="imglstmouthparts" width="150" style="float: right" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="lstwings">[dic44]: </label>
+                                <div class="input-advanced-search">
+                                    <select name="lstwings" id="lstwings"
+                                        onchange="javascript:mostraimagem(this.value, 'imglstwings'); filtro();">
+                                        <option value="">[dic11]</option>
+                                        <option value="Membranous">[dic45]</option>
+                                        <option value="Elytra">[dic46]</option>
+                                        <option value="Hemielytra">[dic47]</option>
+                                        <option value="Tegmina">[dic48]</option>
+                                        <option value="Haltere (dumbbells)">[dic49]</option>
+                                        <option value="Fringed">[dic50]</option>
+                                        <option value="Scaly">[dic51]</option>
+                                        <option value="Aptera (no wings)">[dic52]</option>
+                                        <option value="other (add type in description box)">[dic53]</option>
+                                    </select>
+                                    <img id="imglstwings" width="150" style="float: right" />
+                                </div>
+                            </li>
+                            <li>
+                                <label for="lstnumlegs">[dic54]: </label>
+                                <div class="input-advanced-search">
+                                    <select name="lstnumlegs" id="lstnumlegs" onchange="javascript:filtro();">
+                                        <option value="">[dic11]</option>
+                                        <option value="6">[dic55]</option>
+                                        <option value="8">[dic56]</option>
+                                        <option value="10">[dic57]</option>
+                                        <option value="+10">[dic58]</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="lstlegs">[dic59]: </label>
+                                <div class="input-advanced-search">
+                                    <select name="lstlegs" id="lstlegs"
+                                        onchange="javascript:mostraimagem(this.value, 'imglstlegs'); filtro();">
+                                        <option value="">[dic11]</option>
+                                        <option value="Ambulatorial">[dic60]</option>
+                                        <option value="Cursorial">[dic61]</option>
+                                        <option value="Saltatorial">[dic62]</option>
+                                        <option value="Scansorial">[dic63]</option>
+                                        <option value="Fossorial">[dic64]</option>
+                                        <option value="Raptorial">[dic65]</option>
+                                        <option value="Natatorial">[dic66]</option>
+                                        <option value="Collector">[dic67]</option>
+                                        <option value="other (add types in description box)">[dic68]</option>
+                                    </select>
+                                    <img id="imglstlegs img-select" />
+                                </div>
+                            </li>
+                            <li>
+                                <button id="cmdff" onclick="javascript:filtro();"><i class="fas fa-bug"></i>
+                                    [dic69]</button>
+                            </li>
+                        </ul>
+                    </div>
+                </fieldset>
+            </section>
+        </div>
+        <div id="dvtab">
+        </div>
+    </article>
+</main>
+
+
+<script src="DIR_LAYOUT/js/anchor.min.js"></script>
+<script>
+    anchors.options = {
+        placement: 'left',
+        visible: 'always',
+        icon: '#'
+    };
+    anchors.add('.hgroup h2');
+</script>
+
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/snapsect_ger.js"></script>

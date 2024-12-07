@@ -1,0 +1,60 @@
+
+        <div class="login">
+                <form name="frm" method="POST">
+<input type="hidden" id="lang" name="lang" value="{LANG}">
+        <fieldset>
+            <legend>
+                <img alt="[dic0]" src="http://snapsects.com/img/logo/site-logo.svg">
+                <span class="sr-only">SnapSects</span>
+            </legend>
+
+<ul>
+<li>
+<label for="nome">[dic261]: </label>
+<input type="text" name="nome" id="nome" value="" required autofocus>
+</li>
+<li>
+<label for="email">[dic262]: </label>
+<input type="email" name="email" id="email" value="" required>
+</li>
+<li>
+<label for="pws">[dic276]: </label>
+<input type="password" name="pws" id="pws" value="" required>
+</li>
+<li>
+<label for="pws2">[dic300]: </label>
+<input type="password" name="pws2" id="pws2" value="" required>
+</li>
+<li>
+[dic188]
+<label for="url">[dic189]: </label>
+<input type="text" name="url" id="url" value="">
+</li>
+<li>
+<label for="prof">[dic603]: </label>
+<input type="checkbox" id="prof" name="prof" value="1">
+</li>
+<li>
+<label for="school">[dic604]: </label>
+<input type="text" name="school" id="school" value="">
+</li>
+<li>
+                <select id="language" name="language">
+                    <option value="" selected disabled>[dic228]</option>
+<!-- BEGIN BLOCK_DIC -->
+<option value="{LANGID}" {SELECIONADO}>{LANGNAME}</option>
+<!-- END BLOCK_DIC -->
+                </select>
+</li>
+</ul>
+<input type="submit" class="send" name="save" id="save" value="[dic277]">
+<input type="button" class="send" name="voltar" id="voltar" value="[dic243]" onclick="javascript:window.location='index.php';">
+        </fieldset>
+</form>
+
+<script>
+    windows.onload = function(){
+        document.getElementById('nome').focus();
+    };
+</script>
+        </div>

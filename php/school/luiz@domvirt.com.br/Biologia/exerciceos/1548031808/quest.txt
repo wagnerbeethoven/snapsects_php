@@ -1,0 +1,5 @@
+Insetos|Boa prova!||Sun Jan 20 2019 22:47:21 GMT-0200 (Horário brasileiro de verão)|Sun Jan 20 2019 22:47:21 GMT-0200 (Horário brasileiro de verão)|Sun Jan 20 2019 22:47:21 GMT-0200 (Horário brasileiro de verão)|10
+|Selecione as alternativas corretas.|1549044404841.jpg|2.5|1||errada 1#0_certa 2#1_errada 3#0_certa 4#1_errada 5#0||
+|responda quantos anos tem o luiz|1549044472587.jpg|2.5|0|51 anos|||
+|selecione as colunas||2.5|3||marcar coluna 2#coluna 2_marcar coluna 1#coluna 1_marcar a coluna 5#coluna 5_marcar coluna 4#coluna 4_marcar coluna 3#coluna 3|coluna 1_coluna 2_coluna 3_coluna 4_coluna 5|
+|verdadeiro ou falso||2.5|2||o dia tem 15 horas#f_o ano tem 365 dias#v_a semana tem 7 dias#v||

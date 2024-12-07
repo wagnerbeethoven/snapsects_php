@@ -1,0 +1,18 @@
+2018/12/03 23:50	add VID_20181203_234620.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/04 01:16	add VID_20181203_233539.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 09:25	add VID_20181206_010648.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 13:10	add IMG_20181202_160322.jpg	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 17:29	add VID_20181206_130953.mp4	0		
+2018/12/06 17:34	add VID_20181206_130953.mp4	0		
+2018/12/06 17:45	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 17:55	add IMG_20181202_160322.jpg	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 17:58	add IMG_20181202_160322.jpg	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 17:58	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 18:03	add IMG_20181202_160322.jpg	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 18:03	add .	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 18:06	add IMG_20181202_160322.jpg	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/06 18:34	add VID_20181206_180617.mp4	13	Luiz Eduardo	leduardop2@gmail.com
+2018/12/11 11:05	del 	0		
+2018/12/11 11:07	del 	0		
+2018/12/13 11:10	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/20 18:03	del logo.jpg	13	Luiz Eduardo	leduardop2@gmail.com

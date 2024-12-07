@@ -1,0 +1,11 @@
+2018/12/12 15:23	add Tick(Dermacentor_occidentalis).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/19 19:00	add logo.jpeg	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:49	del Tick(Dermacentor_occidentalis).jpg	4	Thais	slima_thais@hotmail.com
+2019/03/05 03:32	add Dermacentor occidentalis .jpg	4	Thais	slima_thais@hotmail.com
+2019/03/05 03:35	del Dermacentor occidentalis .jpg	4	Thais	slima_thais@hotmail.com
+2019/05/22 21:48	add 26_-_Dermacentor_Occidentalis_1.mp3	17	Kawan Xavier 	profdokaka@gmail.com
+2019/05/22 21:48	add 26_-_Dermacentor_Occidentalis_1.mp3	17	Kawan Xavier 	profdokaka@gmail.com
+2019/05/23 09:20	del 26__Dermacentor_Occidentalis_1.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 09:21	add 3_dermacentor_occidentalis.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 09:21	add 3_dermacentor_occidentalis.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/27 12:05	add 26_-_Dermacentor_Occidentalis_1.mp3	3	Francisco Lima	limafj.us@gmail.com

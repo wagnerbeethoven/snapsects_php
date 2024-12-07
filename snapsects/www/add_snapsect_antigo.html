@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,
+          width=device-width, height=device-height, target-densitydpi=150dpi"/>
+
+<style>
+.container img {
+    max-width:300px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+}
+</style>
+</head>
+<body>
+<div class="geral">
+    <div class="row">
+<table border=0 width="100%"><tr>
+<td width="33%"><button width="90%" onclick="javascript:window.location='index.html';">Cancel</button></td>
+<td width="33%"><center><h1>SnapSect</h1></center></td>
+<td width="33%"><button width="90%" onclick="javascript:envia();">Ok</button></td>
+</tr></table>
+</div>
+<table border="0" width="100%"><tr>
+<td width="25%"><button onclick="javascript:muda(1);" width="90%">Taxonomy</button></td>
+<td width="25%"><button onclick="javascript:muda(2);" width="90%">Descriptions</button></td>
+<td width="25%"><button onclick="javascript:muda(3);" width="90%" halt="Additional information">+</button></td>
+<td width="25%"><button onclick="javascript:muda(4);" width="90%" >Pictures</button></td>
+</tr></table>
+<input type="hidden" name="id" id="id" value="0">
+<center><div id="dvtitle"></div></center>
+<div id="dv1">
+<center>Fill up the forms with the scientific classification of your specimen</center>
+<p><label for="commonname">Common Name: </label><input type="text" id="commonname" title="Write the name that your specimen is known where you found it; write its popular name"></p>
+<p><label for="scientificname">Scientific name: </label><input type="text" id="scientificname" title="write the scientific name of your specimen; give a scientific name for your specimen, if it does not have one yet"></p>
+<p><label for="kingdom">Kingdom: </label><input type="text" id="kingdom" title="Animalia"></p>
+<p><label for="phylum">Phylum: </label><input type="text" id="phylum" title="Arthropoda"></p>
+<p><label for="classe">Select Class: </label><select name="classe" id="classe" value="" onchange="javascript:filtro();">
+<option value="Arachinida">Arachinida</option>>
+<option value="Chilopoda">Chilopoda</option>
+<option value="Diplopoda">Diplopoda</option>
+<option value="Insecta">Insecta</option>
+<option value="Malacostraca">Malacostraca</option>
+</select></p>
+<p><label for="foorder">Order: </label><input type="text" id="foorder" title="Write the order of your specimen"></p>
+<p><label for="family">Family: </label><input type="text" id="family" title="Write the Family of your specimen"></p>
+<p><label for="genus">Genus: </label><input type="text" id="genus" title="Write the Genus of your specimen"></p>
+<p><label for="species">Species: </label><input type="text" id="species" title="Write the Species of your specimen"></p>
+</div>
+<div id="dv2">
+<p><label for="colors">Visual attributes: </label><input type="text" id="colors" title="Describe your specimen clearly, with detailed visual attributes; indicate the color(s) of your specimen; it has black dots, it shines, it has black and brown stripes"></p>
+<p><label for="bbody">Body (size, shape and segments): </label><input type="text" id="bbody" title="Give the size, shape, length, width, type/number of segments"></p>
+<p><label for="hhead">Head: </label><input type="text" id="hhead" title="Give the size, shape and other attributes of the head of your specimen"></p>
+<p><label for="thorax">Thorax: </label><input type="text" id="thorax" title="Describe the thorax of your specimen. Give the size, shape, length, number of segments, number of existing wings, of legs"></p>
+<p><label for="abdomen">Abdomen: </label><input type="text" id="abdomen" title="Describe the abdomen of your specimen. Give the size, shape, length, number of segments, indicate the existence of other appendages or parts"></p>
+<div id="dvantennae"></div>
+<p><label for="antennae">Antennae: </label><input type="text" id="antennae" title="Describe the antennae of your specimen. Give the type, shape, length, number of antennae"></p>
+<p><label for="eyesandocelli">Eyes and ocelli: </label><input type="text" id="eyesandocelli" title="Indicate how many eyes and ocelli your specimen has, where they are located in the head and their localization in related to other parts in the head)"></p>
+<div id="dvmouthparts"></div>
+<p><label for="mouthparts">Mouth parts: </label><input type="text" id="mouthparts" title="Indicate which are the mouth parts that your specimen has, what type they are, where they are located in the head, their localization in related to other parts in the head"></p>
+<div id="dvwings"></div>
+<p><label for="wings">Wings: </label><input type="text" id="wings" title="Describe the wings of your specimen. Indicate the color, size, shape, length, number of wings, the length of wingspan"></p>
+<p><label for="lstnumlegs">Select number of locomotive appendages (legs): </label><select name="lstnumlegs" id="lstnumlegs">
+<option value="6">6</option>
+<option value="8">8</option>
+<option value="10">10</option>
+<option value="+10">+10</option>
+</select></p>
+<div id="dvlegs"></div>
+<p><label for="locomotive">Locomotive appendages (legs): </label><input type="text" id="locomotive" title="Indicate how many legs your specimen has, what type they are, where they are located in the body"></p>
+<p><label for="specificcharacteristics">Specific characteristics: </label><input type="text" id="specificcharacteristics" title="Indicate specific characteristics of your specimen; any specialization of an appendage"></p>
+</div>
+<div id="dv3">
+<p><label for="development">Development: </label><input type="text" id="development" title="Indicate the type of development of your specimen, what developmental stage it is, if it is a female or mail"></p>
+<p><label for="metamorphosis">Metamorphosis: </label><input type="text" id="metamorphosis" title="Indicate what type of metamorphosis your specimen has"></p>
+<p><label for="collecting">Collecting method: </label><input type="text" id="collecting" title="Indicate how you collected your specimen, what material you used"></p>
+<p><label for="placelocal">Where: </label><select id="placelocal" name="placelocal" onchange="javascript:mudalocal(this.value);">
+<option value="w">Water</option>
+<option value="g">Ground</option>
+<option value="o">Other</option>
+</select></p>
+<div id="dvw">
+<p>Select water:</p> 
+<p><input type="checkbox" name="water1" id="water1" value="1" title="clear" {W1}>) clear</p>
+<p><input type="checkbox" name="water2" id="water2" value="2" title="dark" {W2}>) dark</p>
+<p><input type="checkbox" id="water3" name="water3" value="3" title="dirt" {W3}>) dirt</p>
+<p><input type="checkbox" id="water4" name="water4" value="4" title="clean" {W4}>) clean</p>
+<p><input type="checkbox" id="water5" name="water5" value="5" title="polluted" {W5}>) polluted</p>
+<p><input type="checkbox" id="water6" name="water6" value="6" title="running" {W6}>) running</p>
+<p><input type="checkbox" id="water7" name="water7" value="7" title="stopped" {W7}>) stopped</p>
+</div>
+<div id="dvg">
+<p>Select ground:</p>
+<p><input type="checkbox" id="ground1" name="ground1" value="1" title="type of soil" {G1}>) type of soil</p>
+<p><input type="checkbox" id="ground2" name="ground2" value="2" title="arenous" {G2}>) arenous</p>
+<p><input type="checkbox" id="ground3" name="ground3" value="3" title="rock" {G3}>) rock</p>
+</div>
+<div id="dvo">
+<p>Other:</p>
+<p><input type="checkbox" id="other1" name="other1" value="1" {O1} title="flying">) flying</p>
+<p><input type="checkbox" id="other2" name="other2" value="2" {O2} title="on a tree">) on a tree</p>
+<p><input type="checkbox" id="other3" name="other3" value="3" {O3} title="under a dead tree">) under a dead tree</p>
+</div>
+<p><label for="place">Habitat (Place of collection): </label><input type="text" id="place" title="Indicate where you located, found, your specimen"></p>
+</div>
+<div id="dv4">
+<div class="container">
+<img src="" id="myImage" >
+</div>
+        <br />
+    <input type="button" class="snapbutton"
+    onclick="snapshot()" value="tapshot"/>
+</div>
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+var mydados; 
+var apifile = 'http://www.domvirt.com.br/snapsect/snapsect_api.php';
+var imagem = '';
+
+    document.addEventListener("deviceready", function () {
+// alert('estou aqui');
+document.getElementById('dvantennae').innerHTML = getantennae();
+document.getElementById('dvmouthparts').innerHTML = getmouthparts();
+document.getElementById('dvwings').innerHTML = getwings();
+document.getElementById('dvlegs').innerHTML = getlegs();
+muda(1);
+// mudalocal('w');
+if (querystring(0).length > 0) {
+spjson(apifile,'act=get&id='+querystring(0),'GET', mostra, function() { });
+}  else { document.getElementById('id').value='0'; }
+
+    }, false);
+
+function muda(n) {
+document.getElementById('dv1').style.display='none';
+document.getElementById('dv2').style.display='none';
+document.getElementById('dv3').style.display='none';
+document.getElementById('dv4').style.display='none';
+if (n == 1) {
+document.getElementById('dvtitle').innerHTML = 'Taxonomy';
+document.getElementById('dv1').style.display='block';
+// document.getElementById('commonname').focus();
+} // 1
+if (n == 2) {
+document.getElementById('dvtitle').innerHTML = 'Descriptions';
+document.getElementById('dv2').style.display='block';
+// document.getElementById('colors').focus();
+} // 2
+if (n == 3) {
+document.getElementById('dvtitle').innerHTML = 'Additional information';
+document.getElementById('dv3').style.display='block';
+// document.getElementById('development').focus();
+} // 3
+if (n == 4) {
+document.getElementById('dvtitle').innerHTML = 'SnapShot';
+document.getElementById('dv4').style.display='block';
+} // 4
+
+} // da funcao
+
+function snapshot() {
+navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+//     destinationType: Camera.DestinationType.DATA_URL
+                                destinationType: navigator.camera.DestinationType.FILE_URI,
+                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY 
+
+});
+} // da funcao
+
+function onSuccess(imageData) {
+    var image = document.getElementById('myImage');
+    image.src = "data:image/jpeg;base64," + imageData;
+imagem = imageData;
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+function mudalocal(v) {
+document.getElementById('dvw').style.display='none';
+document.getElementById('dvg').style.display='none';
+document.getElementById('dvo').style.display='none';
+if (v.length > 0) {
+document.getElementById('dv'+v).style.display='block';
+} // existe local
+} // da funcao.
+
+function envia() {
+if (document.getElementById('commonname').value.length > 0) {
+if (document.getElementById('scientificname').value.length > 0) {
+var temp='act=add';
+temp+='&id='+document.getElementById('id').value;
+temp+='&commonname='+document.getElementById('commonname').value;
+temp+='&scientificname='+document.getElementById('scientificname').value;
+temp+='&kingdom='+document.getElementById('kingdom').value;
+temp+='&phylum='+document.getElementById('phylum').value;
+temp+='&classe='+document.getElementById('classe').value;
+temp+='&oorder='+document.getElementById('foorder').value;
+temp+='&family='+document.getElementById('family').value;
+temp+='&genus='+document.getElementById('genus').value;
+temp+='&species='+document.getElementById('species').value;
+temp+='&colors='+document.getElementById('colors').value;
+temp+='&bbody='+document.getElementById('bbody').value;
+temp+='&hhead='+document.getElementById('hhead').value;
+temp+='&thorax='+document.getElementById('thorax').value;
+temp+='&abdomen='+document.getElementById('abdomen').value;
+temp+='&lstantennae='+document.getElementById('lstantennae').value;
+temp+='&antennae='+document.getElementById('antennae').value;
+temp+='&eyesandocelli='+document.getElementById('eyesandocelli').value;
+temp+='&lstmouthparts='+document.getElementById('lstmouthparts').value;
+temp+='&mouthparts='+document.getElementById('mouthparts').value;
+temp+='&lstwings='+document.getElementById('lstwings').value;
+temp+='&wings='+document.getElementById('wings').value;
+temp+='&lstnumlegs='+document.getElementById('lstnumlegs').value;
+temp+='&lstlegs='+document.getElementById('lstlegs').value;
+temp+='&locomotive='+document.getElementById('locomotive').value;
+temp+='&specificcharacteristics='+document.getElementById('specificcharacteristics').value;
+temp+='&development='+document.getElementById('development').value;
+temp+='&metamorphosis='+document.getElementById('metamorphosis').value;
+temp+='&collecting='+document.getElementById('collecting').value;
+temp+='&place='+document.getElementById('place').value;
+temp+='&water='+document.getElementById('placelocal').value;
+var x = document.getElementById('placelocal').value;
+if (x == 'w') {
+for (var r=1;r<8;r++) {
+if (document.getElementById('water'+r).checked == true) { temp += r; }
+} // do for...
+} // w
+if (x == 'g') {
+for (var r=1;r<4;r++) {
+if (document.getElementById('ground'+r).checked == true) { temp += r; }
+} // do for...
+} // g
+if (x == 'o') {
+for (var r=1;r<4;r++) {
+if (document.getElementById('other'+r).checked == true) { temp += r; }
+} // do for...
+} // o
+// temp+='&ground='+document.getElementById('ground').value;
+// temp+='&other='+document.getElementById('other').value;
+
+// temp+='&datacad='+document.getElementById('datacad').value;
+// temp+='&lat='+document.getElementById('lat').value;
+// temp+='&lng='+document.getElementById('lng').value;
+// temp+='&city='+document.getElementById('city').value;
+// temp+='&country='+document.getElementById('country').value;
+// temp+='&uf='+document.getElementById('uf').value;
+// temp+='&address='+document.getElementById('address').value;
+temp+='&photo='+imagem;
+// temp+='&win='+document.getElementById('win').value;
+// temp+='&temperature='+document.getElementById('temperature').value;
+
+spjson(apifile,temp,'POST', function(resposta) {
+window.location='index.html';
+}, function() { });
+} // scientificname existe
+else { document.getElementById('scientificname').focus(); }
+} // commonname existe...
+else { document.getElementById('commonname').focus(); }
+} // da funcao...
+
+function mostra(dados) {
+document.getElementById('id').value=dados.id;
+document.getElementById('commonname').value=dados.commonname;
+document.getElementById('scientificname').value=dados.scientificname;
+document.getElementById('kingdom').value=dados.kingdom;
+document.getElementById('phylum').value=dados.phylum;
+document.getElementById('classe').value=dados.classe;
+document.getElementById('foorder').value=dados.oorder;
+document.getElementById('family').value=dados.family;
+document.getElementById('genus').value=dados.genus;
+document.getElementById('species').value=dados.species;
+document.getElementById('colors').value=dados.colors;
+document.getElementById('bbody').value=dados.bbody;
+document.getElementById('hhead').value=dados.hhead;
+document.getElementById('thorax').value=dados.thorax;
+document.getElementById('abdomen').value=dados.abdomen;
+document.getElementById('lstantennae').value=dados.lstantennae;
+document.getElementById('antennae').value=dados.antennae;
+document.getElementById('eyesandocelli').value=dados.eyesandocelli;
+document.getElementById('lstmouthparts').value=dados.lstmouthparts;
+document.getElementById('mouthparts').value=dados.mouthparts;
+document.getElementById('lstwings').value=dados.lstwings;
+document.getElementById('wings').value=dados.wings;
+document.getElementById('lstnumlegs').value=dados.lstnumlegs;
+document.getElementById('lstlegs').value=dados.lstlegs;
+document.getElementById('locomotive').value=dados.locomotive;
+document.getElementById('specificcharacteristics').value=dados.specificcharacteristics;
+document.getElementById('development').value=dados.development;
+document.getElementById('metamorphosis').value=dados.metamorphosis;
+document.getElementById('collecting').value=dados.collecting;
+document.getElementById('place').value=dados.place;
+if (dados.water.length > 0) {
+document.getElementById('placelocal').value=dados.water[0];
+for (var r=1;r<dados.water.length;r++) {
+if (dados.water[0] == 'w') { document.getElementById('water'+dados.water[r]).checked = true; }
+if (dados.water[0] == 'g') { document.getElementById('ground'+dados.water[r]).checked = true; }
+if (dados.water[0] == 'o') { document.getElementById('other'+dados.water[r]).checked = true; }
+} // do for...
+mudalocal(dados.water[0]);
+} // do water...
+else { mudalocal(''); }
+// document.getElementById('water').value=dados.water;
+// document.getElementById('ground').value=dados.ground;
+// document.getElementById('other').value=dados.other;
+// document.getElementById('datacad').value=dados.datacad;
+// document.getElementById('lat').value=dados.lat;
+// document.getElementById('lng').value=dados.lng;
+// document.getElementById('city').value=dados.city;
+// document.getElementById('country').value=dados.country;
+// document.getElementById('uf').value=dados.uf;
+// document.getElementById('address').value=dados.address;
+document.getElementById('myImage').src="data:image/jpeg;base64," +dados.photo;
+// document.getElementById('win').value=dados.win;
+// document.getElementById('temperature').value=dados.temperature;
+} // da funcao...
+
+</script>
+</body>
+</html>

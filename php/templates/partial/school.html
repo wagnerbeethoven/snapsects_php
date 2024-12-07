@@ -1,0 +1,432 @@
+<h1>{TITULO}</h1>
+<main>
+    <article>
+        <div class="hgroup">
+            <h2 id="school">[dic358]</h2>
+            <h3></h3>
+        </div>
+        <div class="content page-school">
+            <fieldset>
+    <legend>
+        <button title="[dic363]" class="exibir-informacao" type="button" data-toggle="collapse"
+            data-target="#exibir-cursos" aria-expanded="true" aria-controls="exibir-cursos">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <h2 id="meus-cursos">[dic339]</h2>
+
+        <button title="[dic340]" onclick="javascript:addsala();"><i class="fas fa-plus-circle"></i>[dic340]</button>
+        <button title="[dic340]" onclick="javascript:delsala();"><i class="far fa-trash-alt"></i>[dic341]</button>
+    </legend>
+    <div class="collapsed" id="exibir-cursos">
+        <section class="section-form">
+            <div class="form-group">
+                <p>[dic359]</p>
+                <label for="audiodesc">[dic339]</label>
+                <div class="input-container">
+                   <select id="lstsalas" onchange="show(this.value);">
+                        <!-- BEGIN BLOCK_SALAS -->
+                        <option value="{SALA}">{SALA}</option>
+                        <!-- END BLOCK_SALAS -->
+                    </select>
+                </div>
+                <aside>
+                </aside>
+            </div>
+        </section>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>
+        <button title="[dic364]" class="exibir-informacao" type="button" data-toggle="collapse"
+            data-target="#exibir-atividades-sugeridas" aria-expanded="true" aria-controls="exibir-atividades-sugeridas">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <h2 id="atividades-sugeridas">[dic343]</h2>
+        <button title="[dic344]" id="bt-add-atividade-sugerida" >
+            <i class="fas fa-plus-circle"></i>
+            [dic344]
+        </button>
+    </legend>
+
+    <div class="collapse" id="exibir-atividades-sugeridas" style="display: none;">
+        <table>
+            <caption>[dic362] <strong id="strong-atividade-suge"></strong></caption>
+            <thead>
+                <tr>
+                    <th scope="col" width="90%">[dic365]</th>
+                    <th scope="col" width="10%" colspan="2" class="text-center">[dic366]</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-atividades">
+
+            </tbody>
+        </table>
+    </div>
+</fieldset>
+            
+<fieldset>
+    <legend>
+        <button title="[dic368]" class="exibir-informacao" type="button" data-toggle="collapse"
+            data-target="#exibir-leituras-sugeridas" aria-expanded="true" aria-controls="exibir-leituras-sugeridas">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <h2 class="leituras-sugeridas">[dic345]</h2><button title="[dic346]" id="bt-add-leitura-sugerida"><i class="fas fa-plus-circle"></i>[dic346]</button>
+    </legend>
+    <div class="collapse" id="exibir-leituras-sugeridas" style="display: none;">
+        <table>
+            <caption>[dic369]</caption>
+            <thead>
+                <tr>
+                    <th scope="col" width="90%">[dic370]</th>
+                    <th scope="col" width="10%" class="text-center">[dic366]</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-leituras">
+
+            </tbody>
+        </table>
+    </div>
+</fieldset>
+            
+<fieldset>
+    <legend>
+        <button title="[dic374]" class="exibir-informacao" type="button"
+            data-toggle="collapse" data-target="#exibir-aguardando-correcao" aria-expanded="true" aria-controls="exibir-aguardando-correcao">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <h2 id="atividades-aguardando-correcao">[dic347]</h2>
+    </legend>
+
+    <div class="collapse" id="exibir-aguardando-correcao" style="display: none;">
+        
+    </div>
+</fieldset>
+<fieldset>
+    <legend>
+        <button title="Exibir/ocultar atividades corrigidas" class="exibir-informacao" type="button" data-toggle="collapse"
+            data-target="#atividades-corrigidas" aria-expanded="true" aria-controls="atividades-corrigidas">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <h2 id="atividades-corrigidas">[dic348]</h2>
+    </legend>
+
+    <div class="collapse" id="exibir-atividades-corrigidas" style="display: none;">
+        
+    </div>
+</fieldset>
+            
+
+
+<fieldset>
+    <legend>
+        <button title="[dic379]" class="exibir-informacao" type="button" data-toggle="collapse"
+            data-target="#alunos-inscritos" aria-expanded="true" aria-controls="alunos-inscritos">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <h2 class="alunos-inscritos">[dic380]</h2>
+        <button title="Adicionar novo aluno" onclick="javascript:addconv();"><i class="fas fa-plus-circle"></i>[dic342]</button>
+    </legend>
+    <div class="collapse" id="alunos-inscritos" style="display: none;">
+        <table>
+            <caption>[dic375] <strong id='strong-alunos'></strong></caption>
+            <thead>
+                <tr>
+                    <th scope="col" width="80%">[dic293]</th>
+                    <th scope="col" width="10%" class="text-center">[dic366]</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-alunos">
+                
+
+            </tbody>
+        </table>
+    </div>
+</fieldset>
+            
+            
+<div id="dvpage">
+<div id="menu">
+</div>
+
+<div id="dvshow">
+
+</div>
+
+</div>
+<script type="text/javascript" src="SITE_URLjs/spajax.js"></script>
+<script type="text/javascript">
+var dic_path = 'SITE_URL';
+
+function showAtividadesSugeridas(atividades, v)
+{
+    var len = atividades.length;
+    var tbody = document.getElementById('tbody-atividades');
+    tbody.innerHTML = '';
+    if(len > 0)
+    {
+        var div = document.getElementById('exibir-atividades-sugeridas');        
+        var trs = '';
+        for (var r=0;r<len;r++)
+        {
+            trs += '<tr>';
+            trs += '<th scope="row"><a href="add_exerciceos.php?email={EMAIL}&id='+atividades[r].id+'&sala='+v+'" id="chk'+r+'" title="[dic360] \''+atividades[r].title+'\'">'+atividades[r].title+'</a></th>';
+            trs += '<td><button type="button" data-status="'+atividades[r].visible+'" onclick="javascript:setpublished(\''+atividades[r].id+"', '"+v+"', "+(atividades[r].visible == '0'?'true':'false')+',this);"'+' name="publicar" title="[dic367] \''+atividades[r].title+'\'"><i class="far '+(atividades[r].visible == '0'?'fa-circle':'fa-check-circle')+' "></i></button></td>';
+            trs += '<td><button type="button" name="remover" title="[dic361] \''+atividades[r].title+'\'" onclick="javascript:delquest('+"'"+atividades[r].id+"', '"+v+"');"+'"><i class="far fa-trash-alt"></i></button></td>';
+            trs += '</tr>';
+        }
+        tbody.innerHTML = trs;
+        div.style.display = '';
+    }
+}
+
+function showLeituras(leituras, v)
+{
+    var len = leituras.length;
+    var tbody = document.getElementById('tbody-leituras');
+    tbody.innerHTML = '';
+    if(len > 0)
+    {
+        var div = document.getElementById('exibir-leituras-sugeridas');        
+        var trs = '';
+        for (var r=0;r<len;r++)
+        {
+            trs += '<tr>';
+            trs += '<th scope="row"><a href="add_leituras.php?email={EMAIL}&sala='+v+'&id='+leituras[r]+'" title="[dic372] \''+leituras[r]+'\'">'+leituras[r]+'</a></th>';
+            trs += '<td><button type="button" name="remover" title="[dic373] \''+leituras[r]+'\'" onclick="javascript:delleitura('+"'"+leituras[r]+"', '"+v+"');"+'"><i class="far fa-trash-alt"></i></button></td>';
+            trs += '</tr>';
+        }
+        tbody.innerHTML = trs;
+        div.style.display = '';
+    }
+}
+
+function corrigirAtividade(bt)
+{
+    window.location='correcao.php?email={EMAIL}&sala='+bt.dataset.sala+'&id='+bt.dataset.id+'&prova='+bt.dataset.prova;
+}
+
+function showCorrecoes(provas, v)
+{
+    var len = provas.length;
+    var div = document.getElementById('exibir-aguardando-correcao');
+    div.innerHTML = '';
+    if(len > 0)
+    {        
+        var tables = '';
+        
+        for (var r=0;r<len;r++)
+        {
+            tables += '<table>';
+            tables += '<caption>[dic375] <strong id="strong-correcao">'+provas[r].title+'</strong> [dic376]</caption>';
+            tables += '<thead><tr><th scope="col" width="90%">[dic377]</th><th scope="col" width="10%" class="text-center">[dic366]</th> </tr> </thead>';
+            tables += '<tbody id="tbody-correcao">';
+            for (var rr=0;rr < provas[r].provas.length;rr++) 
+            {
+                tables += '<tr>';
+                tables += '<th scope="row"><a title="[dic378] \''+provas[r].provas[rr]+'\'" href="correcao.php?email={EMAIL}&sala='+document.getElementById('lstsalas').value+'&id='+provas[r].id+'&prova='+provas[r].provas[rr]+'">'+provas[r].provas[rr]+'</a></th>';
+                tables += '<td><button type="button" onclick="javascript:corrigirAtividade(this);" title="[dic378] \''+provas[r].provas[rr]+'\'" data-sala="'+document.getElementById('lstsalas').value+'" data-id="'+provas[r].id+'" data-prova="'+provas[r].provas[rr]+'"><i class="fas fa-pen-nib"></i></button></td>';
+                tables += '</tr>';
+            }
+            tables += '</tbody></table>';
+        }
+        div.innerHTML = tables;
+        div.style.display = '';
+    }
+}
+
+function showCorrigidas(provas, v)
+{
+    var len = provas.length;
+    var div = document.getElementById('exibir-atividades-corrigidas');
+    div.innerHTML = '';
+    if(len > 0)
+    {
+        var tables = '';
+        
+        for (var r=0;r<len;r++)
+        {
+            tables += '<table>';
+            tables += '<caption>[dic375] <strong id="strong-correcao">'+provas[r].title+'</strong> [dic376]</caption>';
+            tables += '<thead><tr><th scope="col" width="90%">[dic377]</th><th scope="col" width="10%" class="text-center">[dic366]</th> </tr> </thead>';
+            tables += '<tbody id="tbody-correcao">';
+            for (var rr=0;rr < provas[r].corrigidas.length;rr++)
+            {
+                tables += '<tr>';
+                tables += '<th scope="row"><a title="[dic378] \''+provas[r].corrigidas[rr].title+'\'" href="correcao.php?email={EMAIL}&sala='+document.getElementById('lstsalas').value+'&id='+provas[r].id+'&prova='+provas[r].provas[rr]+'">'+res.provas[r].corrigidas[rr].nota+' - '+res.provas[r].corrigidas[rr].title+'</a></th>';
+                tables += '<td><button type="button" onclick="javascript:corrigirAtividade(this);" title="[dic378] \''+provas[r].corrigidas[rr].title+'\'" data-sala="'+document.getElementById('lstsalas').value+'" data-id="'+provas[r].id+'" data-prova="'+provas[r].corrigidas[rr].title+'"><i class="fas fa-pen-nib"></i></button></td>';
+                tables += '</tr>';
+            }
+            tables += '</tbody></table>';
+        }
+        div.innerHTML = tables;
+        div.style.display = '';
+    }
+}
+
+function showAlunos(alunos)
+{
+    var len = alunos.length;
+    var tbody = document.getElementById('tbody-alunos');
+    var strong = document.getElementById('strong-alunos');
+    
+    strong.innerHTML = document.getElementById('lstsalas').value;    
+    tbody.innerHTML = '';
+    if(len > 0)
+    {
+        var div = document.getElementById('alunos-inscritos');        
+        var trs = '';
+        for (var r=0;r<len;r++)
+        {
+            trs += '<tr>';
+            trs += '<th scope="row">'+alunos[r]+'</th>';
+            trs += '<td><button type="button" name="remover" title="[dic373] \''+alunos[r]+'\'" onclick="delconv('+"'"+alunos[r]+"');"+'"><i class="far fa-trash-alt"></i></button></td>';
+            trs += '</tr>';
+        }
+        tbody.innerHTML = trs;
+        div.style.display = '';
+    }
+}
+
+function show(v) {
+var t='';
+var btAddAtividadeSugerida = document.getElementById('bt-add-atividade-sugerida');
+btAddAtividadeSugerida.onclick = function()
+{
+    addexerciceos(v);
+};
+
+var btAddLeituraSugerida = document.getElementById('bt-add-leitura-sugerida');
+btAddLeituraSugerida.onclick = function()
+{
+    addleituras(v);
+};
+
+spjson('SITE_URLschool_api.php','act=getshow&email={EMAIL}&sala='+v,'POST', function(res) {
+
+showAtividadesSugeridas(res.exerciceos,v);
+showLeituras(res.leituras,v);
+showCorrecoes(res.provas,v);
+showCorrigidas(res.provas,v);
+showAlunos(res.alunos,v);
+
+document.getElementById('dvshow').innerHTML = t;
+});
+//document.getElementById('cmddelsala').style.display='inline';
+//document.getElementById('cmdaddconv').style.display='inline';
+
+} // da funcao...
+
+function addsala() {
+var px = prompt('[dic350]','');
+// verificando caracteres estranhos...
+px = px.replaceAll('&','');
+px = px.replaceAll('/','');
+px = px.replaceAll('\\','');
+px = px.replaceAll('-','');
+px = px.replaceAll('?','');
+px = px.replaceAll('=','');
+px = px.replaceAll('*','');
+px = px.replaceAll('.','');
+px = px.replaceAll('|','');
+px = px.replaceAll('_',' ');
+px = px.trim();
+if (px.length > 0) {
+spopen(dic_path+'school_api.php','act=addsala&email={EMAIL}&sala='+px,'POST', function(res) {
+window.location='school.php?email={EMAIL}';
+});
+}
+} // da funcao...
+
+function delsala() {
+var v = document.getElementById('lstsalas').value;
+if (window.confirm('[dic351]')) {
+spopen(dic_path+'school_api.php','act=delsala&email={EMAIL}&sala='+v,'POST', function(res) {
+window.location='school.php?email={EMAIL}';
+});
+} // removendo...
+} // da funcao...
+
+function addexerciceos(x) {
+window.location='add_exerciceos.php?email={EMAIL}&id=0&sala='+x;
+} // da funcao
+
+function delquest(i, s) {
+if (confirm('[dic352]')) {
+spopen(dic_path+'school_api.php','act=delquest&email={EMAIL}&sala='+s+'&id='+i,'POST', function(res) {
+show(s);
+});
+} // removendo...
+} // da funcao...
+
+function setpublished(i, s, v, c) {
+    if(c !== undefined)
+    {
+        v = c.dataset.status == 1 ? false : true;
+    }
+var x =(v == true)?1:0;
+spopen(dic_path+'school_api.php','act=setindex&email={EMAIL}&sala='+s+'&id='+i+'&value='+x,'POST', function(res) {
+if(c !== undefined)
+{
+    c.innerHTML = '<i class="far '+(!v?'fa-circle':'fa-check-circle')+' "></i>';
+    c.dataset.status = v ? 1 : 0;
+}
+});
+} // da funcao...
+
+function addleituras(x) {
+window.location='add_leituras.php?email={EMAIL}&sala='+x+'&id=';
+} // da funcao...
+
+function addconv() {
+var input1 = window.prompt('[dic353]');
+if (input1.length > 0) {
+spjson(dic_path+'school_api.php','act=addconv&email={EMAIL}&aluno='+input1+'&sala='+document.getElementById('lstsalas').value,'POST', function(res) {
+if (res.status == 'ok') {
+alert('[dic354]');
+show(document.getElementById('lstsalas').value);
+} // esta ok...
+else { alert('[dic355]'); }
+});
+} // envia o convite...
+} // da funcao...
+
+function delleitura(i,s) {
+if(confirm('[dic356]')) {
+spopen(dic_path+'school_api.php','act=delleitura&email={EMAIL}&sala='+s+'&id='+i,'POST', function(rr) {
+show(s);
+}); // removendo...
+} // ok...
+} // da funcao...
+
+function delconv(a) {
+var s = document.getElementById('lstsalas').value;
+if (confirm('[dic357]')) {
+spopen(dic_path+'school_api.php','act=delconv&email={EMAIL}&sala='+s+'&aluno='+a,'POST', function(res) {
+show(s);
+});
+} // pode remover...
+} // da funcao...
+
+window.onload = function()
+{
+    show(document.getElementById('lstsalas').value);
+};
+</script>
+
+ 
+        </div>
+    </article>
+</main>
+<script src="SITE_URLjs/anchor.min.js"></script>
+<script>
+    anchors.options = {
+  placement: 'left',
+  visible: 'always',
+  icon: '#'
+};
+    anchors.add('.hgroup h2');
+</script>
+

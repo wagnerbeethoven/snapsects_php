@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects School</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='snapsect_school.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<div id="dvtitle"></div>
+<div id="txttitle"></div>
+<div id="txttext"></div>
+<br>
+<hr>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+var licao = { 
+titulo: '',
+text: ''
+}
+var id = '';
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+cvoz();
+document.getElementById('dvtitle').innerHTML='<center><h1>'+querystring(1).replaceAll('_',' ')+'</h1></center>';
+if (querystring(2) == '') {
+window.location='snapsect_school.html';
+} else {
+
+// alert(querystring(0)+' '+querystring(1));
+id = querystring(2);
+spjson(dic_path+'api_school.php','act=getleitura&email='+querystring(0)+'&sala='+querystring(1)+'&id='+querystring(2).replaceAll('.txt',''),'POST', function(res) {
+if (res.status == 'ok') {
+licao = res.leitura;
+// alert(JSON.stringify(res));
+showleitura();
+fala(licao.titulo.replaceAll('_',' '));
+} // está tudo ok...
+});
+} // já existe então abre...
+    }, false);
+
+function showleitura() {
+document.getElementById('txttitle').innerHTML = '<center><h2>'+licao.titulo.replaceAll('_',' ')+'</h2></center>';
+document.getElementById('txttext').innerHTML = '<p>'+licao.text+'</p>';
+} // da funcao...
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,
+          width=device-width, height=device-height, target-densitydpi=150dpi"/>
+
+</head>
+<body>
+<div id="geral">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="20%"><input type="button" onclick="javascript:window.location='index.html';" value="BACK"></td>
+<td width="60%"><center>SNAPSECT</center></td>
+<td width="20%"><input type="button" onclick="javascript:editar();" value="EDIT"></td>
+</tr></table>
+</div>
+<div id="resultado">
+</div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript">
+var mydados; 
+var apifile = 'http://www.domvirt.com.br/snapsect/snapsect_api.php';
+var id=0;
+    document.addEventListener("deviceready", function () {
+id = querystring(0);
+spopen(apifile,'act=gettext&id='+id,'GET', function(res) {
+document.getElementById('resultado').innerHTML = res;
+}, function() { });
+    }, false);
+
+function editar() {
+window.location='add_snapsect.html?id='+id;
+} // da funcao...
+</script>
+</body>
+</html>

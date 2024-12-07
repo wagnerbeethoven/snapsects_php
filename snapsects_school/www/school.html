@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects School</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript" src="js/dados.js"></script>
+<script type="text/javascript" src="js/school.js"></script>
+<script type="text/javascript">
+function tela(n) {
+for (var r=1;r<5;r++) {
+document.getElementById('dv'+r).style.display=(r == n)?'inline':'none';
+} // do for...
+fala('questão '+n);
+} // da funcao.
+</script>
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location= 'index.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<center><h1>Exercício 01</h1></center>
+<div id="dv1">
+<center><h2>1 - Assinale a alternativa correta.</h2></center>
+<p>Pode-se identificar o sexo de uma mosca pela seguinte característica:</p>
+<p><input type="checkbox" id="chk01"><label for="chk01">) As asas posteriores da mosca macho são do tipo Halteres;</label></p>
+<p><input type="checkbox" id="chk02"><label for="chk02">) As asas posteriores da mosca fêmea são do tipo Halteres;</label></p>
+<p><input type="checkbox" id="chk03"><label for="chk03">) O aparelho bucal da mosca fêmea é do tipo Esponjoso;</label></p>
+<p><input type="checkbox" id="chk04"><label for="chk04">) Os olhos da mosca fêmea são mais próximos do que os olhos da mosca macho;</label></p>
+<p><input type="checkbox" id="chk05"><label for="chk05">) Os olhos da mosca macho são mais próximos do que os olhos da mosca fêmea.</label></p>
+<br>
+<table border="0"><tr>
+<td width="33%"></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:tela(2);">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dv2">
+<center><h2>2 – Relacione a divisão do corpo de um artrópode com a classe a que ele pertence.</h2></center>
+<p><select id="lst1">
+<option value="">Selecione</option>
+<option value="A">Cabeça e tronco.</option>
+<option value="B">Cabeça, tórax e abdômen.</option>
+<option value="C">Cefalotórax e abdômen.</option>
+</select><label for="lst1"> ) Insecta.</label></p>
+<p><select id="lst2">
+<option value="">Selecione</option>
+<option value="A">Cabeça e tronco.</option>
+<option value="B">Cabeça, tórax e abdômen.</option>
+<option value="C">Cefalotórax e abdômen.</option>
+</select><label for="lst2"> ) Malacostraca.</label></p>
+<p><select id="lst3">
+<option value="">Selecione</option>
+<option value="A">Cabeça e tronco.</option>
+<option value="B">Cabeça, tórax e abdômen.</option>
+<option value="C">Cefalotórax e abdômen.</option>
+</select><label for="lst3"> ) Chilopoda.</label></p>
+<br>
+<table border="0"><tr>
+<td width="33%"><button onclick="javascript:tela(1);">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:tela(3);">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dv3">
+<center><h2>3 – Que artrópode sou eu?</h2></center>
+<p><select id="lst4">
+<option value="">Selecione</option>
+<option value="A">Minha perna é dividida em:  coxa, trocânter, fêmur, patela, tíbia, metatarso, tarso e garras.</option>
+<option value="B">Tenho dois pares de antenas.</option>
+<option value="C">Minha perna é dividida em:  coxa, trocânter, fêmur, tíbia, tarso, pré-tarso e garras.</option>
+<option value="D">Em cada segmento de meu tronco, há um par de pernas.</option>
+<option value="E">Tenho diplossegmentos.</option>
+</select><label for="lst4"> ) Sou um inseto.</label></p>
+<p><select id="lst5">
+<option value="">Selecione</option>
+<option value="A">Minha perna é dividida em:  coxa, trocânter, fêmur, patela, tíbia, metatarso, tarso e garras.</option>
+<option value="B">Tenho dois pares de antenas.</option>
+<option value="C">Minha perna é dividida em:  coxa, trocânter, fêmur, tíbia, tarso, pré-tarso e garras.</option>
+<option value="D">Em cada segmento de meu tronco, há um par de pernas.</option>
+<option value="E">Tenho diplossegmentos.</option>
+</select><label for="lst5"> )  Sou um diplópode.</label></p>
+<p><select id="lst6">
+<option value="">Selecione</option>
+<option value="A">Minha perna é dividida em:  coxa, trocânter, fêmur, patela, tíbia, metatarso, tarso e garras.</option>
+<option value="B">Tenho dois pares de antenas.</option>
+<option value="C">Minha perna é dividida em:  coxa, trocânter, fêmur, tíbia, tarso, pré-tarso e garras.</option>
+<option value="D">Em cada segmento de meu tronco, há um par de pernas.</option>
+<option value="E">Tenho diplossegmentos.</option>
+</select><label for="lst6"> )  Sou um quilópode.</label></p>
+<p><select id="lst7">
+<option value="">Selecione</option>
+<option value="A">Minha perna é dividida em:  coxa, trocânter, fêmur, patela, tíbia, metatarso, tarso e garras.</option>
+<option value="B">Tenho dois pares de antenas.</option>
+<option value="C">Minha perna é dividida em:  coxa, trocânter, fêmur, tíbia, tarso, pré-tarso e garras.</option>
+<option value="D">Em cada segmento de meu tronco, há um par de pernas.</option>
+<option value="E">Tenho diplossegmentos.</option>
+</select><label for="lst7"> ) Sou um aracnídeo.</label></p>
+<p><select id="lst8">
+<option value="">Selecione</option>
+<option value="A">Minha perna é dividida em:  coxa, trocânter, fêmur, patela, tíbia, metatarso, tarso e garras.</option>
+<option value="B">Tenho dois pares de antenas.</option>
+<option value="C">Minha perna é dividida em:  coxa, trocânter, fêmur, tíbia, tarso, pré-tarso e garras.</option>
+<option value="D">Em cada segmento de meu tronco, há um par de pernas.</option>
+<option value="E">Tenho diplossegmentos.</option>
+</select><label for="lst8">  ) Sou um crustáceo.</label></p>
+<br>
+<table border="0"><tr>
+<td width="33%"><button onclick="javascript:tela(2);">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:tela(4);">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dv4">
+<center><h2>4 – Nas seguintes alternativas, uma apresenta apenas o tipo de asas. Outra apresenta apenas o tipo de antenas. Marque quais são essas duas alternativas.</h2></center>
+<p><input type="checkbox" id="chk1" value="A"><label for="chk1">)  Setácea, membranosa, plumosa;</label></p>
+<p><input type="checkbox" id="chk2" value="B"><label for="chk2">) Escamosa, membranosa, élitro;</label></p>
+<p><input type="checkbox" id="chk3" value="C"><label for="chk3">) Élitro, filiforme, tégmina;</label></p>
+<p><input type="checkbox" id="chk4" value="D"><label for="chk4">) Clavada, lamelada, aristada;</label></p>
+<p><input type="checkbox" id="chk5" value="E"><label for="chk5">) Hemiélitro, halteres, geniculada.</label></p>
+<br>
+<table border="0"><tr>
+<td width="33%"><button onclick="javascript:tela(3);">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:envia();">{dic277}</button></td>
+</tr></table>
+</div>
+
+<div id="dvresultado"></div>
+<hr>
+<div id="dvrodape">
+{dic73}
+</div>
+</div>
+</body>
+</html>

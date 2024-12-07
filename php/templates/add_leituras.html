@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects</title>
+<style>
+body, div {
+	background-color: #FFFFFF;
+}
+
+</style>
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='school.php?email={EMAIL}';" value="[dic78]"></td>
+<td width="33%"><br><img src="img/logo_application.jpeg" width="50%" alt="[dic0]"></td>
+<td width="33%"><input type="button" onclick="javascript:save();" value="[dic296]"></td>
+</tr></table>
+</div>
+<hr>
+<form name="frm">
+<h1>{SALA}</h1>
+<p><label for="txttitle">[dic375] </label><input type="text" id="txttitle" value="{ID}" onchange="javascript:licao.titulo = this.value; "></p>
+<label for="txttext">[dic376]: </label>
+<textarea id="txttext" rows="10" width="100%" onchange="javascript:licao.text = this.value;document.getElementById('cmdproxima').style.display=(licao.quest[page-1].texto.length+licao.quest[page-1].enunciado.length < 1)?'none':'inline';">{TEXTO}</textarea>
+</form>
+
+</div>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript">
+var dic_path = 'http://www.snapsects.com/teste/';
+var licao = { 
+titulo: '{SALA}',
+text: '{TEXTO}'
+}
+var id = '{ID}';
+
+function save() {
+var t='act=addleitura&email={EMAIL}';
+t+='&sala={SALA}';
+t+='&title='+document.getElementById('txttitle').value;
+t+='&text='+licao.text;
+spopen(dic_path+'school_api.php',t,'POST', function(res) {
+// alert(id+' '+res.status);
+window.location='school.php?email={EMAIL}';
+});
+} // da funcao...
+
+</script>
+</body>
+</html>

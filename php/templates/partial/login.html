@@ -1,0 +1,35 @@
+    <form name="frm" method="POST">
+        <fieldset>
+            <legend>
+                <img title="SnapSects" src="DIR_LAYOUT/img/logo/site-logo.svg">
+                <span class="sr-only">SnapSects</span>
+            </legend>
+
+            <h2>Por favor preencha:</h1>
+                <ul>
+                    <li>
+                        <label for="email">[dic275]</label>
+                        <input type="email" name="email" id="email" value="" placeholder="[dic275]" required
+                               autofocus>
+                    </li>
+                    <li>
+                        <label for="pws">[dic276]</label>
+                        <input type="password" name="pws" id="pws" value="" placeholder="[dic276]">
+                    </li>
+                </ul>
+                <div class="login-reset">
+                    <input class="login-reset-btn" type="submit" name="cmdforget" id="cmdforget" value="[dic279]">
+                </div>
+                <input class="send" type="submit" name="cmdlogin" id="cmdlogin" value="Login">
+                <div class="login-create-account">
+                   Ainda não tem conta? <input type="submit" name="cmdnewuser" id="cmdnewuser" value="[dic278]"></div>
+
+        </fieldset>
+    </form>
+    <footer><a href="SITE_URLsnapsect_ger.php">[dic327]</a></footer>
+
+<script>
+    windows.onload = function(){
+        document.getElementById('email').focus();
+    };
+</script>

@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="dvbody">
+<center><h1>SnapSects School</h1></center>
+<br>
+<form name="frm" enctype="multipart/form-data" method="post">
+<input type="hidden" name="id" id="id" value="">
+<table id="tabprincipal" border=0 width="100%"><tr>
+<td width="33%"><input type="button" name="voltar" id="voltar" value="{dic79}" onclick="javascript:if (querystring(0) > -1) {window.location='show_snapsect.html?id='+querystring(0);} else {window.location='index.html'; }"></td>
+<td width="33%"></td>
+<td width="33%"><center><input type="button" name="saveandview" id="saveandview" value="{dic80}" onclick="javascript:salvar();"></center></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="40%" alt="{dic0}" onclick="javascript:startcommand();"></center><center><div id="nometitulo"></div></center></td>
+<td width="33%"></td>
+</tr></table>
+<hr>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript" src="js/dados.js"></script>
+<script type="text/javascript" src="js/add_snapsect.js"></script>
+<script type="text/javascript">
+
+function opnmenu() {
+document.getElementById('dvpage').style.display = 'none';
+fala(dic[268]);
+var entries = [];
+
+entries.push({    
+title: dic[81],
+id: "changetela('dvauthor');"
+});
+
+entries.push({    
+title: dic[1],
+id: "changetela('dvprincipal');"
+});
+
+entries.push({    
+title: dic[2],
+id: "changetela('dvdescriptions');"
+});
+
+entries.push({    
+title: dic[3],
+id: "changetela('dvmore');"
+});
+
+entries.push({    
+title: dic[5],
+id: "changetela('dvnotes');"
+});
+
+entries.push({    
+title: dic[6],
+id: "changetela('dvaudiodesc');"
+});
+
+entries.push({    
+title: dic[4],
+id: "changetela('dvmediation');"
+});
+
+entries.push({    
+title: dic[82],
+id: "changetela('dvbibliography');"
+});
+
+entries.push({    
+title: dic[83],
+id: "changetela('dvpicture');"
+});
+
+if (parseInt(querystring(0)) > -1) {
+entries.push({    
+title: '',    
+id: '',    
+isSeparator: true
+});
+
+entries.push({    
+title: dic[193],
+id: "if (confirm('"+dic[194]+"')) {del_snapsect(querystring(0)); window.location='index.html'; }"
+});
+}
+
+entries.push({    
+title: '',    
+id: '',    
+isSeparator: true
+});
+
+entries.push({    
+title: dic[243],
+id: ''
+});
+
+var context = {    
+title: dic[269],
+items: entries,    
+x: 0,    
+y: 0
+}
+
+ContextMenu.open(context, function (ele) {    
+document.getElementById('dvpage').style.display = 'inline';
+fala(dic[238]);
+eval(ele);
+
+});
+
+} // da funcao
+
+</script>
+<hr>
+<center><h2><select id="lstpg" onchange="javascript:changetela(this.value);">
+<option value="dvauthor">{dic81}</option>
+<option value="dvprincipal">{dic1}</option>
+<option value="dvdescriptions">{dic2}</option>
+<option value="dvmore">{dic3}</option>
+<option value="dvnotes">{dic5}</option>
+<option value="dvaudiodesc">{dic6}</option>
+<option value="dvmediation">{dic4}</option>
+<option value="dvbibliography">{dic82}</option>
+<option value="dvpicture">{dic83}</option>
+</select></h2></center>
+<div id="dvprincipal" style="display:inline">
+<center><h2>{dic1}</h2></center>
+{dic84}
+<p><label for="commonname">{dic8}: </label><input type="text" name="commonname" id="commonname" value=""></p>
+{dic85}
+<p><label for="scientificname">{dic86}: </label><input type="text" name="scientificname" id="scientificname" value=""></p>
+{dic87}
+<p><label for="other">{dic88}: </label><input type="text" name="other" id="other" value=""></p>
+<p><label for="kingdom">{dic89}: </label><input type="text" name="kingdom" id="kingdom" value=""></p>
+<p><label for="phylum">{dic90}: </label><input type="text" name="phylum" id="phylum" value=""></p>
+{dic91}
+<table border=0 width="100%"><tr>
+<td width="70%"><p><label for="classe">{dic12}: </label><select name="classe" id="classe" value="" onchange="javascript:mostraimagem(this.value,'imgclass'); arrumaclasse();">
+<option value="92" selected>{dic92}</option>
+<option value="13">{dic13}</option>
+<option value="14">{dic14}</option>
+<option value="15">{dic15}</option>
+<option value="16">{dic16}</option>
+<option value="17">{dic17}</option>
+</select></p></td> 
+<td width="30%"><img id="imgclass" width="100px"></td>
+</tr></table>
+{dic93}
+<p><label for="oorder">{dic94}: </label><input type="text" name="oorder" id="oorder" value=""></p>
+{dic95}
+<p><label for="family">{dic19}: </label><input type="text" name="family" id="family" value=""></p>
+{dic96}
+<p><label for="genus">{dic97}: </label><input type="text" name="genus" id="genus" value=""></p>
+{dic98}
+<p><label for="species">{dic99}: </label><input type="text" name="species" id="species" value=""></p>
+{dic100}
+<p><label for="gender">{dic101}: </label><select name="gender" id="gender" >
+<option value="92" selected>{dic92}</option>
+<option value="102">{dic102}</option>
+<option value="103">{dic103}</option>
+<option value="104">{dic104}</option>
+</select></p>
+{dic105}
+<p><label for="development">{dic106}: </label><select name="development" id="development" value="">
+<option value="92" selected>{dic92}</option>
+<option value="107">{dic107}</option>
+<option value="108">{dic108}</option>
+<option value="109">{dic109}</option>
+<option value="110">{dic110}</option>
+<option value="104">{dic104}</option>
+</select></p>
+{dic111}
+<p><label for="metamorphosis">{dic112}: </label><input type="text" name="metamorphosis" id="metamorphosis" value=""></p>
+<table width="100%" border="0"><tr>
+<td width="33%"><button onclick="javascript:changetela('dvauthor'); document.getElementById('lstpg').value = 'dvauthor'; return false;">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:changetela('dvdescriptions'); document.getElementById('lstpg').value = 'dvdescriptions'; return false;">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dvdescriptions" style="display:none">
+<center><h2>{dic2}</h2></center>
+{dic91}
+<table border=0 width="100%"><tr>
+<td width="70%"><p><label for="classe2">{dic12}: </label><select name="classe2" id="classe2" value="" onchange="javascript:mostraimagem(this.value,'imgclass2'); document.getElementById('classe').value = this.value;arrumaclasse();">
+<option value="92" selected>{dic92}</option>
+<option value="13">{dic13}</option>
+<option value="14">{dic14}</option>
+<option value="15">{dic15}</option>
+<option value="16">{dic16}</option>
+<option value="17">{dic17}</option>
+</select></p></td> 
+<td width="30%"><img id="imgclass2" width="100px"></td>
+</tr></table>
+{dic113}
+<p><label for="colors">{dic114}: </label></p>
+<p><textarea name="colors" id="colors" width="100%" rows="5"></textarea></p>
+{dic115}
+<p><label for="bbody">{dic116}: </label><input type="text" name="bbody" id="bbody" value=""></p>
+<input type="hidden" name="hhead" id="hhead" value="">
+<input type="hidden" name="thorax" id="thorax" value="">
+<input type="hidden" name="abdomen" id="abdomen" value="">
+<div id="dvinseto" style="display:none">
+{dic117}
+<p><label for="hhead1">{dic118}: </label><input type="text" name="hhead1" id="hhead1" value="" onchange="javascript:document.getElementById('hhead').value=this.value;"></p>
+{dic119}
+<p><label for="thorax1">{dic120}: </label><input type="text" name="thorax1" id="thorax1" value="" onchange="javascript:document.getElementById('thorax').value=this.value;"></p>
+{dic121}
+<p><label for="abdomen1">{dic122}: </label><input type="text" name="abdomen1" id="abdomen1" value="" onchange="javascript:document.getElementById('abdomen').value=this.value;"></p>
+</div>
+<div id="dvaranha" style="display:none">
+<p><label for="hhead2">{dic320}: </label><input type="text" name="hhead2" id="hhead2" value="" onchange="javascript:document.getElementById('hhead').value=this.value;"></p>
+<p><label for="abdomen2">{dic122}: </label><input type="text" name="abdomen2" id="abdomen2" value="" onchange="javascript:document.getElementById('abdomen').value=this.value;"></p>
+</div>
+<div id="dvmiriapode" style="display:none">
+<p><label for="hhead3">{dic118}: </label><input type="text" name="hhead3" id="hhead3" value="" onchange="javascript:document.getElementById('hhead').value=this.value;"></p>
+<p><label for="thorax3">{dic321}: </label><input type="text" name="thorax3" id="thorax3" value="" onchange="javascript:document.getElementById('thorax').value=this.value;"></p>
+</div>
+<div id="dvantenas" style="display:none">
+<table border=0 width="100%"><tr>
+<td width="70%"><p><label for="lstantennae">{dic123}: </label><select name="lstantennae" id="lstantennae" value="" onchange="javascript:mostraimagem(this.value,'imglstantennae');">
+<option value="92" selected>{dic92}</option>
+<option value="21">{dic21}</option>
+<option value="22">{dic22}</option>
+<option value="23">{dic23}</option>
+<option value="24">{dic24}</option>
+<option value="25">{dic25}</option>
+<option value="26">{dic26}</option>
+<option value="27">{dic27}</option>
+<option value="28">{dic28}</option>
+<option value="29">{dic29}</option>
+<option value="30">{dic30}</option>
+<option value="31">{dic31}</option>
+<option value="32">{dic32}</option>
+<option value="33">{dic33}</option>
+<option value="124">{dic124}</option>
+</select></p></td> 
+<td width="30%"><img id="imglstantennae" width="100px"></td>
+</tr></table>
+{dic125}
+<p><label for="antennae">{dic126}: </label><input type="text" name="antennae" id="antennae" value=""></p>
+</div>
+{dic127}
+<p><label for="eyesandocelli">{dic128}: </label><input type="text" name="eyesandocelli" id="eyesandocelli" value=""></p>
+<table border=0 width="100%"</tr>
+<td width="70%"><p><label for="lstmouthparts">{dic129}: </label><select name="lstmouthparts" id="lstmouthparts" onchange="javascript:mostraimagem(this.value,'imglstmouthparts');">
+<option value="92" selected>{dic92}</option>
+<option value="36">{dic36}</option>
+<option value="37">{dic37}</option>
+<option value="38">{dic38}</option>
+<option value="39">{dic39}</option>
+<option value="40">{dic40}</option>
+<option value="41">{dic41}</option>
+<option value="42">{dic42}</option>
+<option value="124">{dic124}</option>
+</select></p></td> 
+<td width="30%"><img id="imglstmouthparts" width="100px"></td>
+</tr></table>
+{dic130}
+<p><label for="mouthparts">{dic131}: </label><input type="text" name="mouthparts" id="mouthparts" value=""></p>
+<div id="dvasas" style="display:none">
+<table border=0 width="100%"><tr>
+<td width="70%"><p><label for="lstwings">{dic132}: </label><select name="lstwings" id="lstwings" onchange="javascript:mostraimagem(this.value,'imglstwings');">
+<option value="92" selected>{dic92}</option>
+<option value="45">{dic45}</option>
+<option value="46">{dic46}</option>
+<option value="47">{dic47}</option>
+<option value="48">{dic48}</option>
+<option value="50">{dic50}</option>
+<option value="51">{dic51}</option>
+<option value="52">{dic52}</option>
+<option value="124">{dic124}</option>
+</select></p></td> 
+<td width="70%"><img id="imglstwings" width="100px"></td>
+</tr></table>
+{dic133}
+<p><label for="wings">{dic134}: </label><input type="text" name="wings" id="wings" value=""></p>
+<table border=0 width="100%"><tr>
+<td width="70%"><p><label for="lsthindwings">{dic135}: </label><select name="lsthindwings" id="lsthindwings" onchange="javascript:mostraimagem(this.value,'imglsthindwings');">
+<option value="92" selected>{dic92}</option>
+<option value="45">{dic45}</option>
+<option value="49">{dic49}</option>
+<option value="50">{dic50}</option>
+<option value="51">{dic51}</option>
+<option value="52">{dic52}</option>
+<option value="124">{dic124}</option>
+</select></p></td> 
+<td width="30%"><img id="imglsthindwings" width="100px"></td>
+</tr></table>
+{dic136}
+<p><label for="hindwings">{dic137}: </label><input type="text" name="hindwings" id="hindwings" value=""></p>
+</div>
+<p><label for="lstnumlegs">{dic54}: </label><select name="lstnumlegs" id="lstnumlegs">
+<option value="92" selected>{dic92}</option>
+<option value="55">{dic55}</option>
+<option value="56">{dic56}</option>
+<option value="57">{dic57}</option>
+<option value="58">{dic58}</option>
+</select></p>
+<table border=0 width="100%"><tr>
+<td width="70%"><p><label for="lstlegs">{dic59}: </label><select name="lstlegs" id="lstlegs" onchange="javascript:mostraimagem(this.value,'imglstlegs');">
+<option value="92" selected>{dic92}</option>
+<option value="60">{dic60}</option>
+<option value="61">{dic61}</option>
+<option value="62">{dic62}</option>
+<option value="63">{dic63}</option>
+<option value="64">{dic64}</option>
+<option value="65">{dic65}</option>
+<option value="66">{dic66}</option>
+<option value="67">{dic67}</option>
+<option value="124">{dic124}</option>
+</select></p></td> 
+<td width="30%"><img id="imglstlegs" width="100px"></td>
+</tr></table>
+{dic138}
+<p><label for="locomotive">{dic139}: </label><input type="text" name="locomotive" id="locomotive" value=""></p>
+<p><label for="tarsomere">{dic140}: </label><select name="tarsomere" id="tarsomere">
+<option value="92" selected>{dic92}</option>
+<option value="141">{dic141}</option>
+<option value="142">{dic142}</option>
+<option value="143">{dic143}</option>
+<option value="144">{dic144}</option>
+<option value="145">{dic145}</option>
+</select></p>
+<p><label for="cerci">{dic146}: </label><select name="cerci" id="cerci">
+<option value="92" selected>{dic92}</option>
+<option value="147">{dic147}</option>
+<option value="148">{dic148}</option>
+<option value="149">{dic149}</option>
+</select></p>
+{dic150}
+<p><label for="specificcharacteristics">{dic151}: </label><input type="text" name="specificcharacteristics" id="specificcharacteristics" value=""></p>
+<table width="100%" border="0"><tr>
+<td width="33%"><button onclick="javascript:changetela('dvprincipal'); document.getElementById('lstpg').value = 'dvprincipal'; return false;">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:changetela('dvmore'); document.getElementById('lstpg').value = 'dvmore'; return false;">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dvmore" style="display:none">
+<center><h2>{dic3}</h2></center>
+{dic152}
+<p><label for="collecting">{dic153}: </label><input type="text" name="collecting" id="collecting" value=""></p>
+{dic154}
+<p><label for="place">{dic155}: </label><input type="text" name="place" id="place" value=""></p>
+{dic156}
+<p><label for="win">{dic157}: </label><input type="text" name="win" id="win" value=""></p>
+<p><input type="button" id="cmdgps" onclick="javascript:getgps();" value="{dic158}"></p>
+<p><label for="address">{dic159}: </label><input type="text" name="address" id="address" value=""></p>
+<p><label for="lat">{dic160}: </label><input type="text" name="lat" id="lat" value=""></p>
+<p><label for="lng">{dic161}: </label><input type="text" name="lng" id="lng" value=""></p>
+<p><label for="city">{dic162}: </label><input type="text" name="city" id="city" value=""></p>
+<p><label for="uf">{dic163}: </label><input type="text" name="uf" id="uf" value="" ></p>
+<p><label for="country">{dic164}: </label><input type="text" name="country" id="country" value=""></p>
+<p><label for="datacad">{dic165}: </label><input type="text" name="datacad" id="datacad" value=""></p>
+
+<p><label for="temperature">{dic166}: </label><input type="text" name="temperature" id="temperature" value=""></p>
+<table width="100%" border="0"><tr>
+<td width="33%"><button onclick="javascript:changetela('dvdescriptions'); document.getElementById('lstpg').value = 'dvdescriptions'; return false;">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:changetela('dvnotes'); document.getElementById('lstpg').value = 'dvnotes'; return false;">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dvmediation" style="display:none">
+<center><h2>{dic4}</h2></center>
+{dic167}
+<center><label for="mediation">{dic168}:</label></center>
+<textarea width="100%" rows="10" id="mediation" name="mediation"></textarea>
+<table width="100%" border="0"><tr>
+<td width="33%"><button onclick="javascript:changetela('dvaudiodesc'); document.getElementById('lstpg').value = 'dvaudiodesc'; return false;">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:changetela('dvbibliography'); document.getElementById('lstpg').value = 'dvbibliography'; return false;">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dvnotes" style="display:none">
+<center><h2>{dic5}</h2></center>
+{dic169}
+
+<center><label for="notes">{dic170}:</label></center>
+<textarea width="100%" rows="10" id="notes" name="notes"></textarea>
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:clearnotes();" value="{dic171}"></td>
+<td width="33%"></td>
+<td width="33%"><input type="button" onclick="javascript:getnotes();" value="{dic172}"></td>
+</tr></table>
+<table width="100%" border="0"><tr>
+<td width="33%"><button onclick="javascript:changetela('dvmore'); document.getElementById('lstpg').value = 'dvmore'; return false;">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:changetela('dvaudiodesc'); document.getElementById('lstpg').value = 'dvaudiodesc'; return false;">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dvaudiodesc" style="display:none">
+<center><h2>{dic6}</h2></center>
+{dic173}
+<center><label for="audiodesc">{dic174}:</label></center>
+<textarea width="100%" rows="10" id="audiodesc" name="audiodesc"></textarea>
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:clearaudiodesc();" value="{dic175}"></td>
+<td width="33%"></td>
+<td width="33%"><input type="button" onclick="javascript:getaudiodesc();" value="{dic176}"></td>
+</tr></table>
+<table width="100%" border="0"><tr>
+<td width="33%"><button onclick="javascript:changetela('dvnotes'); document.getElementById('lstpg').value = 'dvnotes'; return false;">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:changetela('dvmediation'); document.getElementById('lstpg').value = 'dvmediation'; return false;">{dic332}</button></td>
+</tr></table>
+
+</div>
+<div id="dvbibliography" style="display:none">
+<center><h2>{dic82}</h2></center>
+<center><label for="water">{dic177}:</label></center>
+<textarea width="100%" rows="10" id="water" name="water"></textarea>
+<table width="100%" border="0"><tr>
+<td width="33%"><button onclick="javascript:changetela('dvmediation'); document.getElementById('lstpg').value = 'dvmediation'; return false;">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:changetela('dvpicture'); document.getElementById('lstpg').value = 'dvpicture'; return false;">{dic332}</button></td>
+</tr></table>
+</div>
+<div id="dvpicture" style="display:none">
+<center><h2>{dic83}</h2></center>
+<input type="hidden" id="salvafoto" name="salvafoto" value="0">
+<center><input type="button" onclick="javascript:snapshot();" value="{dic179}" /> <input type="button" onclick="javascript:snapshot2();" value="{dic180}" /></center>
+<img id="grfoto" src="" width="300px">
+<center><label for="photodesc">{dic181}:</label></center>
+<textarea width="100%" rows="5" id="photodesc" name="photodesc"></textarea>
+<center><input type="button" id="delpic" name="delpic" value="{dic182}" onclick="javascript:yesnoconfirm('SnapSect School','{dic183}',function() { delimage(); });"></center>
+<table width="100%" border="0"><tr>
+<td width="33%"><button onclick="javascript:changetela('dvbibliography'); document.getElementById('lstpg').value = 'dvbibliography'; return false;">{dic333}</button></td>
+<td width="33%"></td>
+<td width="33%"><center><input type="button" name="saveandview2" id="saveandview2" value="{dic80}" onclick="javascript:salvar();"></center></td>
+</tr></table>
+</div>
+<div id="dvauthor" style="display:none">
+<center><h2>{dic81}</h2></center>
+{dic184}
+<p><label for="author">{dic185}: </label><input type="text" name="author" id="author" value=""></p>
+{dic186}
+<p><label for="email">{dic187}: </label><input type="text" name="email" id="email" value=""></p>
+{dic188}
+<p><label for="url">{dic189}: </label><input type="text" name="url" id="url" value=""></p>
+{dic190}
+<center><label for="colaborative">{dic191}:</label></center>
+<textarea width="100%" rows="5" id="colaborative" name="colaborative"></textarea>
+<center><label for="ground">{dic192}</label></center>
+<textarea width="100%" rows="5" id="ground" name="ground"></textarea>
+<table width="100%" border="0"><tr>
+<td width="33%"></td>
+<td width="33%"></td>
+<td width="33%"><button onclick="javascript:changetela('dvprincipal'); document.getElementById('lstpg').value = 'dvprincipal'; return false;">{dic332}</button></td>
+</tr></table>
+</div>
+<hr>
+<center><input type="button" id="delbtn" onclick="javascript:if (querystring(0) > -1) yesnoconfirm('SnapSect School',dic[194], function() {del_snapsect(querystring(0)); window.location='find.html'; });" value="{dic193}"></center>
+</form>
+<hr>
+<div id="dvrodape">
+{dic73}
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+2018/12/12 15:18	add Chigger_flea_or_Sand_flea(Tunga_penetrans).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/19 18:49	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2019/03/05 03:15	del Chigger_flea_or_Sand_flea(Tunga_penetrans).jpg	4	Thais	slima_thais@hotmail.com
+2019/03/05 03:19	add Tunga penetrans .jpg	4	Thais	slima_thais@hotmail.com
+2019/05/23 09:14	add 7-1_tunga_penetrans.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 09:15	add 7-2_tunga_penetrans.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 11:41	add 7-1_tunga_penetrans.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 11:42	add 7-2_tunga_penetrans.mp3	3	Francisco Lima	limafj.us@gmail.com

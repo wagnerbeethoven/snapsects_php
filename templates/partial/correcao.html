@@ -1,0 +1,155 @@
+﻿<style>
+.clcerto {
+        color: blue;
+}
+
+.clerrado {
+        color: red;
+}
+
+</style>
+
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='school.php';" value="[dic78]"></td>
+<td width="33%"><
+/td>
+<td width="33%"><input type="button" onclick="javascript:save();" value="[dic296]"></td>
+</tr></table>
+</div>
+<hr>
+<form name="frm">
+<div id="dvtitle"></div>
+<div id="dvresultado"></div>
+</form>
+</div>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript">
+var email = '{EMAIL}';
+var sala = '{SALA}';
+var id = '{ID}';
+var prova = '{PROVA}';
+
+var resp = [];
+var quest = [];
+var ok = [];
+var tab = [];
+
+function inicio() {
+sala = sala.replaceAll(' ','_');
+prova = prova.replaceAll(' ','_');
+
+tab['0'] = ' '; 
+tab['1'] = 'X'; // dic[393];
+tab['v'] = '[dic371]';
+tab['f'] = '[dic372]';
+
+var t = '<center><h2>'+sala.replaceAll('_',' ')+'</h2></center>';
+spjson(dic_path+'api_school.php','act=getcorrecao&email='+email+'&sala='+sala.replaceAll(' ','_')+'&id='+id+'&prova='+prova.replaceAll(' ','_'),'POST', function(res) {
+// alert('ok');
+if (res.status == 'ok') {
+quest = res.results.quest;
+resp = res.results.resp;
+ok = res.results.ok;
+t+='<center><h2>'+quest.titulo+'</h2></center>';
+var soma = 0;
+for (var r=0;r<quest.quest.length;r++) {
+if (quest.quest[r].foto.length > 0) {
+t+='<center><img width="300px" alt="image" src="'+dic_path+'school/'+email+'/'+sala.replaceAll(' ','_')+'/exerciceos/'+id+'/'+quest.quest[r].foto+'"></center>';
+} // existe foto...
+
+t+='<p>'+quest.quest[r].texto+'</p>';
+t+='<h3>'+(r+1)+') '+quest.quest[r].enunciado;
+if (ok.nota) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+ok.quest[r].nota+'">';
+} // existe correcao...
+else {
+if (quest.quest[r].tipo == 0) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="0">';
+} else {
+var err = quest.quest[r].opcoes.length;
+for (var rr=0;rr<quest.quest[r].opcoes.length;rr++) {
+if (quest.quest[r].opcoes[rr].value == resp[r].opc[rr]) {
+err--;
+}
+} // do for rr.
+if (err == 0) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+quest.quest[r].nota+'">';
+} else {
+var vl = quest.quest[r].valor / quest.quest[r].opcoes.length;
+vl = vl * err;
+vl = quest.quest[r].valor - vl;
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+parseFloat(vl).toFixed(1)+'">';
+}
+}
+} // calcula a correcao automatica...
+t+=' ('+quest.quest[r].valor+')';
+t+='</h3>';
+if (quest.quest[r].tipo == 0) {
+t+='<center><b>[dic418]</b></center>';
+t+='<p>'+resp[r].resposta+'</p>';
+t+='<br>';
+t+='<center><b>[dic419]</b></center>';
+t+='<p><b>'+quest.quest[r].resultado+'</b></p>';
+} else {
+for (var rr=0;rr<quest.quest[r].opcoes.length;rr++) {
+var subtexto = (quest.quest[r].tipo == 3)? '('+quest.quest[r].opcoes[rr].value+') '+quest.quest[r].opcoes[rr].title+' ('+resp[r].opc[rr]+')':'('+tab[quest.quest[r].opcoes[rr].value]+') '+quest.quest[r].opcoes[rr].title+' ('+tab[resp[r].opc[rr]]+')';
+var cl = (quest.quest[r].opcoes[rr].value == resp[r].opc[rr])?' title="[dic401] - '+subtexto+'" class="clcerto"':' title="[dic402] - '+subtexto+'" class="clerrado"';
+t+='<p'+cl+'>'+subtexto+'</p>';
+} // do for...
+} // outras opcoes...
+t+='<center><label for="mem'+r+'">[dic415]</label></center>';
+if (ok.nota) {
+t+='<textarea id="mem'+r+'" rows="5" cols="50">'+ok.quest[r].obs+'</textarea>';
+} else {
+t+='<textarea id="mem'+r+'" rows="5" cols="50"></textarea>';
+}
+
+t+='<br>';
+} // do for r
+if (ok.nota) {
+t+='<p><b>[dic397]<input type="number" value="'+ok.nota+'" id="intsoma"></b></p>';
+} // existe correcao...
+else {
+t+='<p><b>[dic397]<input type="number" value="'+soma+'" id="intsoma"></b></p>';
+}
+document.getElementById('dvresultado').innerHTML = t;
+atualiza();
+} // resultado ok
+else {
+if (res.status == 'changed') {
+alert('[dic417]');
+window.location='school.php?sala='+sala+'&id='+id+'&prova='+prova;
+} // volta para a pagina anterior...
+}
+
+});
+} // da funcao
+
+function atualiza() {
+var soma = 0;
+for (var r=0;r<quest.quest.length;r++) {
+var su = document.getElementById('conta'+r.toString()).value;
+soma+=parseFloat(su);
+}  // do for...
+document.getElementById('intsoma').value = soma.toFixed(1);
+} // da funcao...
+
+function save() {
+var t = 'act=setcorrecao&email={EMAIL}&sala='+sala+'&id='+id+'&prova='+prova;
+t+='&contador='+resp.length+'&nota='+document.getElementById('intsoma').value.toString().replaceAll(',','.');
+for (var r=0;r<quest.quest.length;r++) {
+t+='&quest'+r+'='+document.getElementById('mem'+r.toString()).value+'|';
+// alert('cheguei');
+t+=document.getElementById('conta'+r.toString()).value.toString().replaceAll(',','.');
+} // do for...
+spjson(dic_path+'api_school.php',t,'POST', function(resp) {
+window.location='school.php';
+});
+} // da funcao...
+
+window.onload = function() {
+inicio();
+} // da funcao...
+</script>

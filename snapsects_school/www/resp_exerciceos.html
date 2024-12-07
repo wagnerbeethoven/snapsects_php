@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects School</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:save();window.location='snapsect_school.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<form name="frm">
+<div id="dvtitle"></div>
+<div id="dvprova"></div>
+<div id="dvapresentacao"></div>
+<hr>
+<div id="dv1" style="display: inline">
+<div id="dvquesttitle2"></div>
+<div id="dvquesttitle"></div>
+<div id="dvquest"></div>
+<div id="lsttexto"></div>
+<div id="lstquest"></div>
+<input type="hidden" id="lsttipo" value="0">
+<div id="dvresultado"></div>
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" id="cmdprior" onclick="javascript:showquest(page-1);" value="{dic333}"></td>
+<td width="33%"><input type="button" id="cmdproxima" onclick="javascript:showquest(page+1);" value="{dic332}"></td>
+<td width="33%"><input type="button" id="cmdsalvar" onclick="javascript:envia();" value="{dic421}"></td>
+</tr></table>
+</div>
+<div id="dvsalas"></div>
+</form>
+<br>
+<hr>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+var licao = { 
+titulo: '',
+texto: '',
+foto: '',
+datai: new Date(),
+dataf: new Date(),
+datag: new Date(),
+nota: 10,
+quest: []
+}
+var page = 1;
+var id = '';
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+cvoz();
+startres();
+document.getElementById('dvtitle').innerHTML='<center><h1>'+querystring(1).replaceAll('_','')+'</h1></center>';
+if (querystring(0) == '0') {
+showquest(0);
+fala(dic[351]);
+} else {
+id = querystring(0);
+var temp = localStorage.getItem('quest_'+id.toString());
+// alert(temp);
+// if (temp == null) { 
+spjson(dic_path+'api_school.php','act=getquestschool&email='+querystring(2)+'&sala='+querystring(1)+'&id='+querystring(0),'POST', function(res) {
+if (res.status == 'ok') {
+licao = res.licao;
+if (temp == null) {  } else {
+var licao2 = JSON.parse(temp);
+for (var r=0;r<licao.quest.length;r++) {
+if (licao2.quest.length > r) {
+licao.quest[r].resultado = licao2.quest[r].resultado;
+for (var rr=0;rr<licao.quest[r].opcoes.length;rr++) {
+if (licao2.quest[r].opcoes.length > rr) { licao.quest[r].opcoes[rr].value = licao2.quest[r].opcoes[rr].value; }
+} // do for rr.
+} // pode inserir os valores salvos...
+} // do for...
+} // ja existe respostas salvas...
+fala(licao.titulo+', '+licao.texto, function() {
+showquest(1);
+document.getElementById('dvapresentacao').innerHTML = '<p>'+licao.texto+'</p>';
+document.getElementById('dvprova').innerHTML = '<center><h2>'+licao.titulo+'</h2></center>';
+});
+} // está tudo ok...
+});
+} // já existe então abre...
+    }, false);
+
+function showquest(x) {
+if (x < 1) { x = 1; }
+if (x > licao.quest.length) { x = licao.quest.length; }
+page = x;
+
+save();
+
+// document.getElementById('dvquesttitle2').innerHTML='<center><h2>'+document.getElementById('lsttitle').value+'</h2></center>';
+
+document.getElementById('dvquesttitle').innerHTML='<center><h2>'+dic[366]+' '+x+'/'+licao.quest.length+'</h2></center>';
+var n = x-1;
+document.getElementById('lsttexto').innerHTML='<p>'+licao.quest[n].texto+'</p>';
+document.getElementById('lstquest').innerHTML='<p><b>'+licao.quest[n].enunciado+'</b></p>';
+document.getElementById('lsttipo').value=licao.quest[n].tipo;
+showresultado(licao.quest[n]);
+document.getElementById('cmdproxima').style.display=(x > licao.quest.length-1)?'none':'inline';
+document.getElementById('cmdprior').style.display=(x > 1)?'inline':'none';
+// fala(dic[366]+' '+x+' / '+licao.quest.length+' - '+licao.quest[page-1].texto+' '+licao.quest[page-1].enunciado);
+readquest();
+
+} // da funcao...
+
+function showresultado(p) {
+var t = '';
+if (p.foto.length > 0) {
+var url = dic_path+'school/'+querystring(2)+'/'+querystring(1).replaceAll(' ','_')+'/exerciceos/'+querystring(0)+'/'+p.foto;
+t+='<center><img src="'+url+'" alt="Image"></center>';
+} // existe foto.
+
+if (p.tipo == 0) {
+t='<textarea rows="5" width="100%" onchange="javascript:licao.quest[page-1].resultado=this.value;">'+p.resultado+'</textarea>';
+} // do tipo 0
+if (p.tipo == 1) {
+for (var r=0;r<p.opcoes.length;r++) {
+var tp = ''; // (licao.quest[page-1].opcoes[r].value == '1')?' checked':'';
+if (licao.quest[page-1].opcoes[r].value == '1') {tp=' checked'; }
+// verificar se o item está checado...
+
+t+='<p><input type="checkbox" id="chk'+r+'" value="1" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes['+r+'].value='+"'1'"+'; } else {licao.quest[page-1].opcoes['+r+'].value='+"'0'"+'; }"'+tp+'><label for="chk'+r+'">) '+p.opcoes[r].title+'</label></p>';
+// t+='<input type="button" onclick="javascript:licao.quest[page-1].opcoes.splice('+r+',1); showresultado(licao.quest[page-1]);" value="-"></p>';
+} // do for...
+} // do tipo 1
+if (p.tipo == 2) {
+t+='<table border="0"><tr>';
+t+='<th width="70%"></th>';
+t+='<th width="15%">'+dic[371]+'</th>';
+t+='<th width="15%">'+dic[372]+'</th>';
+for (var r=0;r<p.opcoes.length;r++) {
+var tp = '';
+var tpf = '';
+if (licao.quest[page-1].opcoes[r].value == 'v') { tp = ' checked'; 
+} else {
+if (licao.quest[page-1].opcoes[r].value == 'f') { tpf = ' checked'; }
+}
+// verificar se o item está checado...
+t+='<tr><td>'+p.opcoes[r].title+'</td>';
+t+='<td><input type="checkbox" id="chk'+r+'" value="1" title="'+dic[371]+' - '+p.opcoes[r].title+'" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes['+r+'].value='+"'v'"+'; } else {licao.quest[page-1].opcoes['+r+'].value='+"'f'"+'; } showresultado(licao.quest[page-1]);"'+tp+'></tp>';
+t+='<td><input type="checkbox" id="chkk'+r+'" value="1" title="'+dic[372]+' - '+p.opcoes[r].title+'" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes['+r+'].value='+"'f'"+'; } else {licao.quest[page-1].opcoes['+r+'].value='+"'v'"+'; } showresultado(licao.quest[page-1]);"'+tpf+'></td></tr>';
+} // do for...
+t+='</table>';
+} // do tipo 2
+
+if (p.tipo == 3) {
+var th = '';
+var t='';
+for (var r=0;r<p.opcoes.length;r++) {
+t+='<p><label for="lst'+r+'">'+p.opcoes[r].title+'</label>';
+t+='<select id="lst'+r+'" onchange="javascript:licao.quest[page-1].opcoes['+r+'].value=this.value;">';
+for (var pr=0;pr<p.opcoes2.length;pr++) {
+var thh = '';
+if (p.opcoes[r].value == p.opcoes2[pr]) { thh = ' selected'; }
+th+='<option value="'+p.opcoes2[pr]+'"'+thh+'>'+p.opcoes2[pr]+'</option>';
+} // do for pr
+t+=th+'</select></p>';
+} // do for...
+} // do tipo 3
+document.getElementById('dvresultado').innerHTML = t;
+} // da funcao...
+
+function save() {
+localStorage.setItem('quest_'+id,JSON.stringify(licao));
+} // da funcao...
+
+function envia() {
+navigator.notification.confirm(dic[420], function(rr) {
+if (rr == 1) {
+save();
+var t = 'act=addquestschool&email='+querystring(2)+'&sala='+querystring(1)+'&id='+id;
+t+='&userid='+localStorage.email+'&username='+localStorage.nome;
+t+='&count='+licao.quest.length;
+for (var r=0;r<licao.quest.length;r++) {
+t+='&quest'+r+'='+licao.quest[r].resultado+'|';
+if (!licao.quest[r].opcoes) { t+='|'; } else {
+for (var rr=0;rr<licao.quest[r].opcoes.length;rr++) {
+if (licao.quest[r].opcoes[rr].title.length > 0) { t+=licao.quest[r].opcoes[rr].value+'_'; }
+} // do for rr...
+if (t[t.length-1] == '_') { t = t.substring(0,t.length-1); }
+t+='|';
+} // tipo do tipo lista...
+} // do for r...
+// alert(t);
+spjson(dic_path+'api_school.php',t,'POST', function(res) {
+//alert(JSON.stringify(res));
+if (res.status == 'ok') {
+localStorage.removeItem('quest_'+id.toString());
+window.location='snapsect_school.html';
+} // ok...
+// alert(id+' '+res.status);
+});
+} // o botao ok
+}, 'SnapSects School', [dic[249], dic[248]]);
+} // da funcao...
+
+function readquest() {
+var t=dic[486]+' '+page+' / '+licao.quest.length+' - '+licao.quest[page-1].texto+' '+licao.quest[page-1].enunciado;
+if (licao.quest[page-1].tipo == 0) { 
+t+=' , '+dic[487]+': ';
+fala(t, readtipo0);
+}
+if (licao.quest[page-1].tipo == 1) { 
+t+=' , '+dic[488]+': ';
+fala(t, readtipo1);
+}
+if (licao.quest[page-1].tipo == 2) { 
+t+=' , '+dic[489]+': ';
+fala(t, readtipo2);
+}
+if (licao.quest[page-1].tipo == 3) { 
+t+=' , '+dic[490]+': ';
+fala(t, readtipo3);
+}
+} // da funcao...
+
+function readtipo0() {
+var t =(licao.quest[page-1].resultado.length < 1)?dic[491]:dic[492]+': '+licao.quest[page-1].resultado+': , '+dic[493];
+getvoice(t, function(res) {
+var v = res.toUpperCase();
+var op = -1;
+if (dic[494].toUpperCase().indexOf(v) > -1) { op = 0; }
+if (dic[495].toUpperCase().indexOf(v) > -1) { op = 1; }
+if (dic[496].toUpperCase().indexOf(v) > -1) {
+fala(dic[442], startcommand);
+} else {
+if (dic[497].toUpperCase().indexOf(v) > -1) {
+licao.quest[page-1].resultado = '';
+fala(dic[498], function() { showresultado(licao.quest[page-1]); });
+} else {
+getvoice(dic[499]+': ',function(rr) {
+if (op == 0) {
+licao.quest[page-1].resultado = rr;
+fala(dic[500], function() { showquest(page+1); });
+}
+if (op == 1) {
+licao.quest[page-1].resultado += ' '+rr;
+fala(dic[500], function() { showquest(page+1); });
+}
+if (op == -1) { readtipo0(); }
+}); // da pergunta...
+} // nao zerei...
+ } // nao cancelei...
+}); // do getvoice...
+} // da funcao...
+
+function subleitura(p, o) {
+if (o < 0) { o = 0; }
+if (o < licao.quest[page-1].opcoes2.length) {
+var t = (p+1)+' - '+licao.quest[page-1].opcoes[p].title+'. '+dic[501]+': '+licao.quest[page-1].opcoes2[o]+'? '+dic[502]+' '+(o+1)+' '+dic[503]+' '+licao.quest[page-1].opcoes2.length;
+getvoice(t, function(res) {
+if (dic[478].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+licao.quest[page-1].opcoes[p].value = licao.quest[page-1].opcoes2[o];
+showresultado(licao.quest[page-1]);
+leitura(p+1);
+} // aceita e vai pro próximo...
+else {
+if (dic[504].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+subleitura(p,o+1);
+} // nao
+else {
+if (dic[505].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+subleitura(p,o-1);
+} else {
+fala(dic[442], startcommand);
+} // nao e voltar...
+} // cancelou...
+} // nao aceita...
+});
+} // o menor que numero de opcoes2
+else {
+leitura(p+1);
+} // vai pro próximo...
+} // da funcao...
+
+function leitura(r) {
+if (r < 0) { r = 0; }
+if (r<licao.quest[page-1].opcoes.length) {
+if (licao.quest[page-1].tipo == 1) {
+var t=(r+1)+' - '+licao.quest[page-1].opcoes[r].title+': '+dic[506]+' '; // 
+t+=(licao.quest[page-1].opcoes[r].value == '1')?dic[507]:dic[508];
+getvoice(t, function(res) {
+if (dic[509].toUpperCase().indexOf(res.toUpperCase()) == 0) {
+licao.quest[page-1].opcoes[r].value = '1';
+showresultado(licao.quest[page-1]);
+fala(dic[510], function() { leitura(r+1); });
+} // marcar
+else {
+if (dic[511].toUpperCase().indexOf(res.toUpperCase()) == 0) {
+licao.quest[page-1].opcoes[r].value = '0';
+showresultado(licao.quest[page-1]);
+fala(dic[512], function() { leitura(r+1); });
+} // desmarcar...
+else {
+if (dic[477].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+fala(dic[442], startcommand);
+} // mandou sair...
+else {
+if (dic[513].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+leitura(r-1);
+} else {
+if (dic[478].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+if (licao.quest[page-1].opcoes[r].value == '1') {
+licao.quest[page-1].opcoes[r].value = '0';
+fala(dic[458], function() { leitura(r+1); });
+} else {
+licao.quest[page-1].opcoes[r].value = '1';
+fala(dic[459], function() { leitura(r+1); });
+
+}
+} else {
+var t=dic[514]+' ';
+t+=(licao.quest[page-1].opcoes[r].value == '1')?' '+dic[515]+'.':' '+dic[516]+'.';
+fala(t, function() { leitura(r+1); });
+} // nao sim...
+} // nao volta...
+} // vai pro proximo sem fazer nada...
+} // nao e desmarcar...
+} // nao é marcar...
+});
+} // tipo selecione...
+else {
+if (licao.quest[page-1].tipo == 2) {
+var t=(r+1)+' - '+licao.quest[page-1].opcoes[r].title+': '+dic[517]+', ';
+t+=(licao.quest[page-1].opcoes[r].value == 'v')?dic[518]:dic[519];
+getvoice(t, function(res) {
+if (licao.quest[page-1].opcoes[r].value == '0') { licao.quest[page-1].opcoes[r].value = 'f'; }
+if (dic[520].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+licao.quest[page-1].opcoes[r].value='v';
+showresultado(licao.quest[page-1]);
+fala(dic[521], function() { leitura(r+1); });
+} else {
+if (dic[522].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+licao.quest[page-1].opcoes[r].value='f';
+showresultado(licao.quest[page-1]);
+fala(dic[523], function() { leitura(r+1); });
+} // falso
+else {
+if (dic[478].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+licao.quest[page-1].opcoes[r].value=(licao.quest[page-1].opcoes[r].value == 'v')?'f':'v';
+showresultado(licao.quest[page-1]);
+var fl =(licao.quest[page-1].opcoes[r].value == 'v')?dic[524]:dic[525];
+fala(fl, function() { leitura(r+1); });
+
+} // inverte de v para f
+else {
+if (dic[505].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+leitura(r-1);
+} else {
+if (dic[477].toUpperCase().indexOf(res.toUpperCase()) > -1) {
+fala(dic[442], startcommand);
+} else {
+fala(dic[526], function() { leitura(r+1); });
+} // vai pro proximo
+} // nao volta...
+} // nao inverte...
+} // nao e falso.
+} // nao e verdadeiro...
+}); // do getvoice...
+} // verdadeiro e falso
+else {
+if (licao.quest[page-1].tipo == 3) {
+var t=(r+1)+' - '+licao.quest[page-1].opcoes[r].title+', ';
+t+=(licao.quest[page-1].opcoes[r].value != 0)?': '+dic[527]+': '+licao.quest[page-1].opcoes[r].value:': '+dic[528];
+t+=': , ';
+fala(t, function() { subleitura(r,0); });
+} // tipo ligar colunas...
+} // nao e do tipo verdadeiro e falso...
+} // nao e do tipo selecione...
+} // r menor que length...
+else {
+if (page < licao.quest.length) { showquest(page+1); } else { startcommand(); }
+} // terminou de marcar todas...
+} // da funcao...
+
+function readtipo1() {
+getvoice(dic[529], function(rr) {
+if (dic[478].toUpperCase().indexOf(rr.toUpperCase()) > -1) {
+leitura(0);
+} // pode fazer
+else {
+fala(dic[530], startcommand);
+} // cancela...
+}); // sim ou nao...
+} // da funcao...
+
+function readtipo2() {
+getvoice(dic[529], function(rr) {
+if (dic[478].toUpperCase().indexOf(rr.toUpperCase()) > -1) {
+leitura(0);
+} // pode fazer
+else {
+fala(dic[530], startcommand);
+} // cancela...
+}); // sim ou nao...
+} // da funcao
+
+function readtipo3() {
+getvoice(dic[529], function(rr) {
+if (dic[478].toUpperCase().indexOf(rr.toUpperCase()) > -1) {
+leitura(0);
+} // pode fazer
+else {
+fala(dic[530], startcommand);
+} // cancela...
+}); // sim ou nao...
+} // da funcao...
+
+function startres() {
+var f = {
+title: dic[485],
+cmd: "readquest();"
+}
+cmds.push(f);
+
+var f = {
+title: dic[486],
+cmd: "showquest(str_cmd);"
+}
+cmds.push(f);
+} // da funcao...
+</script>
+</body>
+</html>

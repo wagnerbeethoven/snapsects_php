@@ -1,0 +1,3 @@
+Teste 1|Aqui estudaremos o SnapSects||2019-03-18|2019-03-18|2019-03-18|20
+|Qual a cor do céu?||0|2||Amarelo#f_Vermelho#f_Azul#v||
+|Você conhece o SnapSects?||0|0|Sim.|||

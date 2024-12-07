@@ -1,0 +1,81 @@
+<form name="frm" id="frm" enctype="multipart/form-data" method="POST">
+<input type="hidden" id="act" value="addimage">
+<p><label for="lst">[dic326]: </label><select name="lst" id="lst" value="" onchange="javascript:mostraimagem(this.value,'imglst');">
+<option value="">-- SnapSects --</option>
+<option value="logo application">Logo application</option>
+<option value="">--  Class --</option>
+<option value="13">[dic13]</option>>
+<option value="14">[dic14]</option>
+<option value="15">[dic15]</option>
+<option value="16">[dic16]</option>
+<option value="17">[dic17]</option>
+<option value="">-- Antennae --</option>
+<option value="21">[dic21]</option>
+<option value="22">[dic22]</option>
+<option value="23">[dic23]</option>
+<option value="24">[dic24]</option>
+<option value="25">[dic25]</option>
+<option value="26">[dic26]</option>
+<option value="27">[dic27]</option>
+<option value="28">[dic28]</option>
+<option value="29">[dic29]</option>
+<option value="30">[dic30]</option>
+<option value="31">[dic31]</option>
+<option value="32">[dic32]</option>
+<option value="33">[dic33]</option>
+<option value="34">[dic34]</option>
+<option value="">-- Mouth parts --</option>
+<option value="36">[dic36]</option>
+<option value="37">[dic37]</option>
+<option value="38">[dic38]</option>
+<option value="39">[dic39]</option>
+<option value="40">[dic40]</option>
+<option value="41">[dic41]</option>
+<option value="42">[dic42]</option>
+<option value="43">[dic43]</option>
+<option value="">-- forewings --</option>
+<option value="45">[dic45]</option>
+<option value="46">[dic46]</option>
+<option value="47">[dic47]</option>
+<option value="48">[dic48]</option>
+<option value="52">[dic52]</option>
+<option value="53">[dic53]</option>
+<option value="">-- Hind Wings --</option>
+<option value="49">[dic49]</option>
+<option value="50">[dic50]</option>
+<option value="51">[dic51]</option>
+<option value="">-- legs --</option>
+<option value="60">[dic60]</option>
+<option value="61">[dic61]</option>
+<option value="62">[dic62]</option>
+<option value="63">[dic63]</option>
+<option value="64">[dic64]</option>
+<option value="65">[dic65]</option>
+<option value="66">[dic66]</option>
+<option value="67">[dic67]</option>
+<option value="68">[dic68]</option>
+<option value="">-- Cerci --</option>
+<option value="147">[dic147]</option>
+<option value="148">[dic148]</option>
+<option value="149">[dic149]</option>
+</select> <img id="imglst" width="200px" align="right"></p>
+<div id="dvprincipal" style="display: none">
+<center>This picture is .JPG</center>
+<input type="file" name="grpfoto" id="grpfoto">
+<center><input type="submit" name="enviar" id="enviar" value="[dic296]"></center>
+</div>
+</form>
+<script type="text/javascript" src="scripts/spajax.js"></script>
+<script type="text/javascript">
+function mostraimagem(arq, obj) {
+document.getElementById(obj).style.display = 'none';
+document.getElementById('dvprincipal').style.display = 'none';
+if (arq.length > 0) {
+document.getElementById(obj).src = dic_path+'img/'+arq.replaceAll(' ','_')+'.jpg';
+document.getElementById(obj).width = 200;
+document.getElementById(obj).style.display = 'inline';
+document.getElementById('dvprincipal').style.display = 'inline';
+} // pode mostrar...
+} // da funcao
+</script>
+<br>

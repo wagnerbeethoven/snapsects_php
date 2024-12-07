@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects School</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location= 'snapsect_school.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<form name="frm">
+<div id="dvtitle"></div>
+<div id="dv0" style="display: none">
+<p><label for="lsttitle">{dic353} </label><input type="text" id="lsttitle" value="" onchange="javascript:licao.titulo = this.value; "></p>
+<p><label for="datai" id="lbldatai">{dic354}: </label><input type="date" id="datai" onchange="javascript:licao.datai = this.value;var x=this.value.split('-');document.getElementById('lbldatai').innerHTML=dic[354]+' ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';"></p>
+<p><label for="dataf" id="lbldataf">{dic355}: </label><input type="date" id="dataf" onchange="javascript:licao.dataf = this.value;var x=this.value.split('-');document.getElementById('lbldataf').innerHTML=dic[355]+' ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';"></p>
+<p><label for="datag" id="lbldatag">{dic356}: </label><input type="date" id="datag" onchange="javascript:licao.datag=this.value;var x=this.value.split('-');document.getElementById('lbldatag').innerHTML=dic[356]+' ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';"></p>
+<p><label for="maxval">{dic357}: </label><input type="number" id="maxval" value="" onchange="javascript:licao.nota=this.value;"></p>
+<center><input type="button" id="btnnext" onclick="javascript:showquest(1);" value="{dic332}"></center>
+</div>
+<div id="dv1" style="display: none">
+<div id="dvquesttitle2"></div>
+<div id="dvquesttitle"></div>
+<div id="dvquest"></div>
+<div id="lsttexto"></div>
+<div id="lstquest"></div>
+<input type="hidden" id="lsttipo" value="0">
+<div id="dvresultado"></div>
+</div>
+<div id="dvsalas"></div>
+</form>
+<br>
+<hr>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+var licao = { 
+titulo: '',
+texto: '',
+foto: '',
+datai: new Date(),
+dataf: new Date(),
+datag: new Date(),
+nota: 10,
+quest: []
+}
+var correcao = [];
+var page = 1;
+var id = '';
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+document.getElementById('dvtitle').innerHTML='<center><h1>'+querystring(1).replaceAll('_','')+'</h1></center>';
+if (querystring(0) == '0') {
+showquest(0);
+fala(dic[351]);
+} else {
+// alert(querystring(0)+' '+querystring(1));
+id = querystring(0);
+spjson(dic_path+'api_school.php','act=getgabarito&email='+querystring(2)+'&sala='+querystring(1)+'&id='+querystring(0)+'&prova='+localStorage.email,'POST', function(res) {
+// alert(JSON.stringify(res));
+if (res.status == 'ok') {
+licao = res.licao.quest;
+correcao = res.licao.correcao;
+alert(JSON.stringify(licao));
+showquest(1);
+fala(licao.titulo);
+} // está tudo ok...
+});
+} // já existe então abre...
+    }, false);
+
+function showquest(x) {
+document.getElementById('dv0').style.display='none';
+
+document.getElementById('dv1').style.display='inline';
+document.getElementById('dvquesttitle2').innerHTML='<center><h2>'+document.getElementById('lsttitle').value+'</h2></center>';
+var t = '';
+t+='<center><h2>'+licao.titulo+'</h2></center>';
+// alert(JSON.stringify(licao));
+if (correcao.length > 0) {
+t+='<center>'+dic[396]+' '+licao.nota+'</center>';
+} // da nota...
+
+for (var n=0;n<licao.quest.length;n++) {
+t+='<center><h2>'+dic[366]+' '+(n+1)+'/'+licao.quest.length+'</h2></center>';
+t+='<p>'+licao.quest[n].texto+'</p>';
+if (correcao.length > 0) {
+t+='<p>'+dic[397]+licao.quest[n].nota+'</p>';
+} // da nota...
+if (licao.quest[n].foto.length > 0) {
+var url = dic_path+'school/'+querystring(2)+'/'+querystring(1).replaceAll(' ','_')+'/exerciceos/'+querystring(0)+'/'+licao.quest[n].foto;
+t+='<center><img src="'+url+'" alt="Image"></center>';
+} // existe foto.
+t+='<p><b>'+licao.quest[n].enunciado+'</b></p>';
+
+t+=showresultado(licao.quest[n]);
+if (correcao.length > 0) {
+if (correcao[n].comentario.length > 0) {
+t+='<center><b>'+dic[398]+'</b></center>';
+t+='<p>'+correcao[n].comentario+'</p>';
+} // existe comentario...
+} // existe correcao...
+t+='<br>';
+fala(dic[366]+' '+x+' de '+licao.quest.length);
+} // do for...
+document.getElementById('dvresultado').innerHTML = t;
+} // da funcao...
+
+function showresultado(p) {
+var rq = [];
+rq['0'] = dic[394];
+rq['1'] = dic[393];
+rq['v'] = dic[371];
+rq['f'] = dic[372];
+var t = '';
+if (p.tipo == 0) {
+t+='<center>'+dic[399]+'</center>';
+t+='<p>'+p.resposta+'</p>';
+if (correcao.length > 0) {
+t+='<center>'+dic[400]+'</center>';
+t+='<p>'+p.resultado+'</p>';
+} // mostrando o resultado...
+t+='</p>';
+} // do tipo 0
+if (p.tipo == 1) {
+for (var r=0;r<p.opcoes.length;r++) {
+var tp = ''; // (licao.quest[page-1].opcoes[r].value == '1')?' checked':'';
+if (p.opcoes2[r] == '1') {tp=' checked'; }
+// verificar se o item está checado...
+
+t+='<p>'+rq[p.opcoes2[r]]+' - '+p.opcoes[r].title;
+if (correcao.length > 0) {
+if (p.opcoes[r].value == p.opcoes2[r]) { t+=' - '+dic[401]; }
+else { t+=' - '+dic[402]; }
+} // e
+t+='</p>';
+} // do for...
+} // do tipo 1
+if (p.tipo == 2) {
+for (var r=0;r<p.opcoes.length;r++) {
+// verificar se o item está checado...
+t+='<p>'+rq[p.opcoes2[r]]+' - '+p.opcoes[r].title;
+if (correcao.length > 0) {
+if (p.opcoes[r].value == p.opcoes2[r]) { t+=' - '+dic[401]; }
+else { t+=' - '+dic[402]; }
+} // existe correcao...
+t+='</p>';
+} // do for...
+} // do tipo 2
+
+if (p.tipo == 3) {
+var t='';
+for (var r=0;r<p.opcoes.length;r++) {
+t+='<p>'+p.opcoes2[r]+' - '+p.opcoes[r].title;
+if (correcao.length > 0) {
+if (p.opcoes[r].value == p.opcoes2[r]) { t+=' - '+dic[401]; }
+else { t+=' - '+dic[403]+' '+p.opcoes[r].value; }
+} // existe correcao...
+t+='</p>';
+} // do for...
+} // do tipo 3
+return t;
+} // da funcao...
+
+</script>
+</body>
+</html>

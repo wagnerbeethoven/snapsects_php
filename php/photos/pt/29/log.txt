@@ -1,0 +1,24 @@
+2018/12/12 15:14	add American_cockroach(Periplaneta_americana).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 15:15	add American_cockroach(Periplaneta_americana).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:41	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:42	add logo.png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:42	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:42	del logo.png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:42	add logo.png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:43	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:45	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:45	del logo.png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:45	add logo.png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:49	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 16:50	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 17:43	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 17:43	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 17:43	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/13 11:26	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/13 11:27	add American_cockroach(Periplaneta_americana).png	4	Thais	slima_thais@hotmail.com
+2018/12/19 19:12	del logo.png	4	Thais	slima_thais@hotmail.com
+2018/12/19 19:12	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2019/02/22 14:41	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:34	del logo.jpg	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:41	del American_cockroach(Periplaneta_americana).png	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:42	add logo.jpg	4	Thais	slima_thais@hotmail.com

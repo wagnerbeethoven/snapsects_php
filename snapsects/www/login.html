@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='index.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<form name="frm" method="POST">
+<p><label for="email">{dic275}: </label><input type="email" name="email" id="email" value=""></p>
+<p><label for="pws">{dic276}: </label><input type="password" name="pws" id="pws" value=""></p>
+<center><input type="button" name="cmdlogin" id="cmdlogin" onclick="javascript: sendlogin();" value="{dic277}"></center>
+<center><input type="button" name="cmdnewuser" id="cmdnewuser" onclick="javascript: novouser();" value="{dic278}"></center>
+<center><input type="button" name="cmdforget" id="cmdforget" onclick="javascript:getmail();" value="{dic279}"></center>
+</form>
+<br>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+document.getElementById('email').focus();
+if (!localStorage.lge) { } else { document.getElementById('email').value = localStorage.lge; }
+if (!localStorage.lgp) { } else { document.getElementById('pws').value = localStorage.lgp; }
+fala(dic[301],cvoz);
+    }, false);
+
+function sendlogin() {
+var email = document.getElementById('email').value;
+var pws = document.getElementById('pws').value;
+var erro = 0;
+if (email.length < 5) {
+alert(dic[280]);
+document.getElementById('email').setfocus();
+erro = 1;
+return false;
+} // email invalido...
+if (pws.length < 5) {
+alert(dic[281]);
+document.getElementById('pws').setfocus();
+erro = 1;
+return false;
+} // arruma o e-mail...
+if (erro == 0) {
+spjson(dic_path+'cel_api.php','act=login&email='+email+'&pws='+pws,'POST',function(q) {
+// var x = q.indexOf('{');
+// if (x > 0) { q = q.substring(x); }
+// q = JSON.parse(q);
+if (q.status > -1) {
+localStorage.lge = email;
+localStorage.lgp = pws;
+localStorage.lgn = q.nome;
+localStorage.lgi = q.id;
+sessionStorage.lgs = q.status;
+if ((q.status == '67') || (q.status == '5')) { localStorage.lgnic = q.nic; } else { localStorage.lgnic =''; }
+alert(dic[282]+' '+q.nome+'!');
+window.location='index.html';
+} // aceitou o login...
+else {
+alert(dic[283]);
+document.getElementById('email').setfocus();
+} // erro no login...
+}, function(e) { 
+if (e == '0') {
+fala(dic[284]);
+} else {
+fala(dic[285]);
+} // erro genérico
+}); // tentando o login...
+} // solicitando o login...
+} // da funcao...
+
+function novouser() {
+window.location='newuser.html';
+} // da funcao
+
+function getmail() {
+var email = document.getElementById('email').value;
+if (email.length < 5) {
+alert(dic[281]);
+} // email vazio...
+else {
+spopen(dic_path+'cel_api.php','act=cmdforget&email='+email+'&lang='+localStorage.language,'POST', function(res) {
+alert(dic[parseInt(res)]);
+});
+} // email preenchido...
+} // da funcao...
+
+</script>
+</body>
+</html>

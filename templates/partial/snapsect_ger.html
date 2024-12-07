@@ -1,0 +1,222 @@
+<!-- BEGIN BLOCK_ADD -->
+    <nav class="new-insect">
+        <div class="container">
+            <button type="button" title="[dic341]" data-toggle="collapse" data-target="#new-insect"
+                aria-controls="new-insect" aria-expanded="false"
+                aria-label="[dic597]">
+                <i class="fas fa-spider"></i> <span>[dic195]</span>
+            </button>
+            <div class="collapse" id="new-insect">
+
+                <ul>
+                    <li class=""><a id="cmdprincipal" href="add_snapsect.php?pag=dvprincipal">[dic1]</a></li>
+                    <li class=""><a id="cmddescriptions" href="add_snapsect.php?pag=dvdescriptions">[dic2]</a></li>
+                    <li class=""><a id="cmdmore" href="add_snapsect.php?pag=dvmore">[dic3]</a></li>
+                    <li class=""><a id="cmdmediation" href="add_snapsect.php?pag=dvmediation">[dic4]</a></li>
+                    <li class=""><a id="cmdnotes" href="add_snapsect.php?pag=dvnotes">[dic5]</a></li>
+                    <li class=""><a id="cmdaudiodesc" href="add_snapsect.php?pag=dvaudiodesc">[dic6]</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- END BLOCK_ADD -->
+
+    <main>
+    <article>
+        <div class="hgroup">
+            <h2 id="search">[dic601]</h2>
+            [dic602]
+        </div>
+        <div class="content page-search">
+            <section id="dvfilter" class="search">
+
+                <fieldset>
+                    <legend></legend>
+                    <ul class="form-list simple-search">
+                        <li>
+                            <label for="commonname" class="sr-only">[dic8]</label>
+                            <div class="input-group">
+                                <input type="text" name="commonname" id="commonname" placeholder="[dic8]" value=""
+                                    onkeyup="javascript:filtro();" />
+                                <button id="cmdff2" onclick="javascript:filtro();" title="[dic9]"><i
+                                        class="fas fa-search"></i></button>
+                            </div>
+                        </li>
+                        <li class="search-filter">
+                            <input type="checkbox" id="chksearch"
+                                onclick="javascript:document.getElementById('dvadvancedsearch').style.display = (this.checked) ? 'inline' : 'none';">
+                            <label for="chksearch">
+                                <span><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i>
+                                    [dic237]</span></label>
+                        </li>
+                    </ul>
+
+                    <div id="dvadvancedsearch" class="dvadvancedsearch" style="display: none;">
+                        <ul class="search-advanced">
+                            <li>
+<label for="lstother">[dic10]: </label>
+                                <div class="input-advanced-search">
+<select name="lstother" id="lstother" value="" onchange="javascript:filtro();">
+<option value="">[dic11]</option>
+<!-- BEGIN BLOCK_OTHER -->
+<option value="{CC}">{CC}</option>
+<!-- END BLOCK_OTHER -->
+</select>
+</div>
+
+</li>
+                            <li>
+<label for="classe">[dic12]: </label>
+                                <div class="input-advanced-search">
+<select name="classe" id="classe" value="" onchange="javascript:mostraimagem(this.value,'imgclass'); filtro();">
+<option value="">[dic11]</option>
+<option value="13">[dic13]</option>
+<option value="14">[dic14]</option>
+<option value="15">[dic15]</option>
+<option value="16">[dic16]</option>
+<option value="17">[dic17]</option>
+</select>
+                                    <img id="imgclass" style="float: right" width="150" />
+                                </div>
+                            </li>
+                            <li>
+<label for="lstorder">[dic18]: </label>
+                                <div class="input-advanced-search">
+<select name="lstorder" id="lstorder" value="" onchange="javascript:filtro();">
+<option value="">[dic11]</option>
+<!-- BEGIN BLOCK_ORDER -->
+<option value="{CC}">{CC}</option>
+<!-- END BLOCK_ORDER -->
+</select>
+</div>
+</li>
+
+                            <li>
+<label for="family">[dic19]: </label>
+                                <div class="input-advanced-search">
+<input type="text" name="family" id="family" value="" onkeyup="javascript:filtro();">
+</div>
+</li>
+<li>
+<label for="lstantennae">[dic20]: </label>
+                                <div class="input-advanced-search">
+<select name="lstantennae" id="lstantennae" value="{P->LSTANTENNAE}" onchange="javascript:mostraimagem(this.value,'imglstantennae'); filtro();">
+<option value="">[dic11]</option>
+<option value="21">[dic21]</option>
+<option value="22">[dic22]</option>
+<option value="23">[dic23]</option>
+<option value="24">[dic24]</option>
+<option value="25">[dic25]</option>
+<option value="26">[dic26]</option>
+<option value="27">[dic27]</option>
+<option value="28">[dic28]</option>
+<option value="29">[dic29]</option>
+<option value="30">[dic30]</option>
+<option value="31">[dic31]</option>
+<option value="32">[dic32]</option>
+<option value="33">[dic33]</option>
+<option value="34">[dic34]</option>
+</select>
+                                    <img id="imglstantennae" style="float: right" width="150" />
+</div>
+</li> 
+
+<li>
+<label for="lstmouthparts">[dic35]: </label>
+                                <div class="input-advanced-search">
+<select name="lstmouthparts" id="lstmouthparts" onchange="javascript:mostraimagem(this.value,'imglstmouthparts'); filtro();">
+<option value="">[dic11]</option>
+<option value="36">[dic36]</option>
+<option value="37">[dic37]</option>
+<option value="38">[dic38]</option>
+<option value="39">[dic39]</option>
+<option value="40">[dic40]</option>
+<option value="41">[dic41]</option>
+<option value="42">[dic42]</option>
+<option value="43">[dic43]</option>
+</select>
+                                    <img id="imglstmouthparts" width="150" style="float: right" />
+</div>
+</li> 
+<li>
+<label for="lstwings">[dic44]: </label>
+                                <div class="input-advanced-search">
+<select name="lstwings" id="lstwings" onchange="javascript:mostraimagem(this.value,'imglstwings'); filtro();">
+<option value="">[dic11]</option>
+<option value="45">[dic45]</option>
+<option value="46">[dic46]</option>
+<option value="47">[dic47]</option>
+<option value="48">[dic48]</option>
+<option value="49">[dic49]</option>
+<option value="50">[dic50]</option>
+<option value="51">[dic51]</option>
+<option value="52">[dic52]</option>
+<option value="53">[dic53]</option>
+</select>
+                                    <img id="imglstwings" width="150" style="float: right" />
+</div>
+</li>
+<li>
+<label for="lstnumlegs">[dic54]: </label>
+                                <div class="input-advanced-search">
+<select name="lstnumlegs" id="lstnumlegs" onchange="javascript:filtro();">
+<option value="">[dic11]</option>
+<option value="55">[dic55]</option>
+<option value="56">[dic56]</option>
+<option value="57">[dic57]</option>
+<option value="58">[dic58]</option>
+</select>
+</div>
+</li>
+<li>
+<label for="lstlegs">[dic59]: </label>
+                                <div class="input-advanced-search">
+<select name="lstlegs" id="lstlegs" onchange="javascript:mostraimagem(this.value,'imglstlegs'); filtro();">
+<option value="">[dic11]</option>
+<option value="60">[dic60]</option>
+<option value="61">[dic61]</option>
+<option value="62">[dic62]</option>
+<option value="63">[dic63]</option>
+<option value="64">[dic64]</option>
+<option value="65">[dic65]</option>
+<option value="66">[dic66]</option>
+<option value="67">[dic67]</option>
+<option value="68">[dic68]</option>
+</select>
+<img id="imglstlegs" width="150" style="float: right" />
+</div>
+</li>
+                                <button id="cmdff" onclick="javascript:filtro();"><i class="fas fa-bug"></i>
+                                    [dic9]</button>
+                            </li>
+                        </ul>
+                    </div>
+                </fieldset>
+            </section>
+        </div>
+<div id="dvtab">
+</div>
+    </article>
+</main>
+<br>
+<div style="margin-left: auto, margin-right: auto;">
+[dic72]
+</div>
+<br>
+
+{ARTHROPODA}
+
+<script src="http://snapsects.com/js/anchor.min.js"></script>
+<script>
+    anchors.options = {
+        placement: 'left',
+        visible: 'always',
+        icon: '#'
+    };
+    anchors.add('.hgroup h2');
+</script>
+
+
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/snapsect_ger.js"></script>

@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:save(function() { window.location='school.html'; });" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<form name="frm">
+<div id="dvtitle"></div>
+<div id="dv0">
+<p><label for="lsttitle">{dic353} </label><input type="text" id="lsttitle" value="" onchange="javascript:licao.titulo = this.value;"></p>
+<div id="dv0image" name="dv0image" style="display:none">
+<center><img src="" id="image0" width="300px" alt="Image"></center>
+<center><input type="button" value="{dic390}" onclick="javascript:delimage(0);"></center>
+</div>
+<div id="dv0noimage" style="display:none">
+<center><input type="button" value="{dic389}" onclick="javascript:getimage(0);"></center>
+</div>
+<center><label for="txttexto">{dic387}</label></center>
+<textarea id="txttexto" rows="5" onchange="javascript:licao.texto=this.value;"></textarea>
+<p><label for="datai" id="lbldatai">{dic354}: </label><input type="date" id="datai" onchange="javascript:licao.datai = this.value;var x=this.value.split('-');document.getElementById('lbldatai').innerHTML=dic[354]+' ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';"></p>
+<p><label for="dataf" id="lbldataf">{dic355}: </label><input type="date" id="dataf" onchange="javascript:licao.dataf = this.value;var x=this.value.split('-');document.getElementById('lbldataf').innerHTML=dic[355]+' ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';"></p>
+<p><label for="datag" id="lbldatag">{dic356}: </label><input type="date" id="datag" onchange="javascript:licao.datag=this.value;var x=this.value.split('-');document.getElementById('lbldatag').innerHTML=dic[356]+' ('+x[2]+'/'+x[1]+'/'+x[0]+'): ';"></p>
+<p><label for="maxval">{dic357}: </label><input type="number" id="maxval" value="" onchange="javascript:licao.nota=this.value;"></p>
+<center><input type="button" id="btnnext" onclick="javascript:showquest(1);" value="{dic332}"></center>
+</div>
+<div id="dv1" style="display: none">
+<div id="dvquesttitle2"></div>
+<div id="dvquesttitle"></div>
+<div id="dvquest"></div>
+<center><label for="txtvl">{dic388}</label><input type="number" id="txtvl" value="0" onchange="javascript:licao.quest[page-1].valor=this.value;"></center>
+<div id="dv1image" style="display:none">
+<center><img src="" id="image1" width="300px" alt="Image"></center>
+<center><input type="button" value="{dic390}" onclick="javascript:delimage(1);"></center>
+</div>
+<div id="dv1noimage" style="display:none">
+<center><input type="button" value="{dic389}" onclick="javascript:getimage(1);"></center>
+</div>
+<center><label for="lsttexto">{dic358}: </label></center>
+<center><textarea id="lsttexto" rows="5" width="100%" onchange="javascript:licao.quest[page-1].texto = this.value;document.getElementById('cmdproxima').style.display=(licao.quest[page-1].texto.length+licao.quest[page-1].enunciado.length < 1)?'none':'inline';"></textarea></center>
+<center><label for="lstquest">{dic359}: </label></center>
+<center><textarea id="lstquest" rows="5" width="100%" onchange="javascript:licao.quest[page-1].enunciado = this.value;showquest(page);"></textarea></center>
+<p><label for="lsttipo">{dic360}: </label><select id="lsttipo" onchange="javascript:settipo(this.value);">
+<option value="0">{dic361}</option>
+<option value="1">{dic362}</option>
+<option value="2">{dic363}</option>
+<option value="3">{dic364}</option>
+</select></p>
+<div id="dvresultado"></div>
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" id="cmdprior" onclick="javascript:showquest(page-1);" value="{dic333}"></td>
+<td width="33%"><input type="button" id="cmdproxima" onclick="javascript:showquest(page+1);" value="{dic332}"></td>
+<td width="33%"><input type="button" id="cmdsalvar" onclick="javascript:save(function() { window.location='school.html'; });" value="{dic365}"></td>
+</tr></table>
+</div>
+<div id="dvsalas"></div>
+</form>
+<br>
+<hr>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+var licao = { 
+titulo: '',
+texto: '',
+foto: '',
+datai: new Date(),
+dataf: new Date(),
+datag: new Date(),
+nota: 10,
+quest: []
+}
+var page = 0;
+var id = '';
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+document.getElementById('dvtitle').innerHTML='<center><h1>'+querystring(1)+'</h1></center>';
+if (querystring(0) == '0') {
+fala(dic[351],function() {
+cvoz();
+showquest(0);
+
+});
+} else {
+id = querystring(0);
+spjson(dic_path+'api_school.php','act=getquest&email='+localStorage.lge+'&sala='+querystring(1)+'&id='+querystring(0),'POST', function(res) {
+if (res.status == 'ok') {
+licao = res.licao;
+showquest(0);
+fala(licao.titulo,cvoz);
+} // está tudo ok...
+});
+} // já existe então abre...
+    }, false);
+
+function settipo(v) {
+licao.quest[page-1].tipo = v;
+var texto = '';
+if (v == 0) {
+showresultado(licao.quest[page-1]);
+} // do tipo texto
+if ((v == 1) || (v == 2)) { addopcoes(licao.quest[page-1]); }
+if (v == 3) { addopcoes2(licao.quest[page-1]); }
+// document.getElementById('dvresultado').innerHTML = texto;
+} // da funcao...
+
+function addopcoes(px) {
+navigator.notification.prompt(dic[367], function(r) {
+if (r.buttonIndex == 1) {
+if (!px.opcoes) { px.opcoes = []; }
+if (r.input1.length > 0) { px.opcoes.push({ title: r.input1, value: '0'}); }
+addopcoes(px);
+}
+if (r.buttonIndex == 2) {
+if (!px.opcoes) { px.opcoes = []; }
+if (r.input1.length > 0) { px.opcoes.push({ title: r.input1, value: '0'}); }
+licao.quest[page-1]=px;
+}
+licao.quest[page-1]=px;
+
+showresultado(px);
+}, 'SnapSects Academic', [dic[296],dic[411],dic[412]], '');
+
+} // da funcao...
+
+function addopcoes2(px) {
+navigator.notification.prompt(dic[367], function(r) {
+if (r.buttonIndex == 1) {
+if (!px.opcoes2) { px.opcoes2 = []; }
+if (r.input1.length > 0) { px.opcoes2.push(r.input1); }
+addopcoes2(px);
+}
+if (r.buttonIndex == 2) {
+if (!px.opcoes2) { px.opcoes2 = []; }
+if (r.input1.length > 0) { px.opcoes2.push(r.input1); }
+licao.quest[page-1]=px;
+addopcoes(px);
+}
+licao.quest[page-1]=px;
+
+showresultado(px);
+}, 'SnapSects Academic', [dic[296],dic[411],dic[412]], '');
+
+} // da funcao...
+
+function showquest(x) {
+page = x;
+document.getElementById('dv0').style.display='none';
+document.getElementById('dv1').style.display='none';
+document.getElementById('dv0image').style.display='none';
+document.getElementById('dv1image').style.display='none';
+document.getElementById('dv0noimage').style.display='none';
+document.getElementById('dv1noimage').style.display='none';
+save();
+if (x == 0) {
+document.getElementById('dv0').style.display='inline';
+document.getElementById('lsttitle').value = licao.titulo;
+if (licao.foto.length > 0) {
+document.getElementById('dv0image').style.display='inline';
+document.getElementById('image0').src = dic_path+'school/'+localStorage.lge+'/'+querystring(1)+'/exerciceos/'+id+'/'+licao.foto;
+} else {
+document.getElementById('dv0noimage').style.display='inline';
+// document.getElementById('image0').src = '';
+} // do sem imagem...
+document.getElementById('txttexto').value = licao.texto;
+document.getElementById('datai').value = licao.datai;
+document.getElementById('dataf').value = licao.dataf;
+document.getElementById('datag').value = licao.datag;
+document.getElementById('maxval').value = licao.nota;
+} else {
+document.getElementById('dv1').style.display='inline';
+document.getElementById('dvquesttitle2').innerHTML='<center><h2>'+document.getElementById('lsttitle').value+'</h2></center>';
+
+if (x <= licao.quest.length) {
+
+} // menor, mostra...
+else {
+var e = {
+texto: '',
+enunciado: '',
+foto: '',
+valor: 0,
+tipo: 0,
+resultado: '',
+opcoes: [],
+opcoes2: []
+}
+licao.quest.push(e);
+} // adiciona um novo...
+document.getElementById('dvquesttitle').innerHTML='<center><h2>'+dic[366]+' '+x+'/'+licao.quest.length+'</h2></center>';
+var n = x-1;
+if (licao.quest[n].foto.length > 0) {
+document.getElementById('dv1image').style.display='inline';
+document.getElementById('image1').src = dic_path+'school/'+localStorage.lge+'/'+querystring(1)+'/exerciceos/'+id+'/'+licao.quest[n].foto;
+} else {
+document.getElementById('dv1noimage').style.display='inline';
+// document.getElementById('image1').src = '';
+} // do sem imagem...
+document.getElementById('lsttexto').value=licao.quest[n].texto;
+document.getElementById('txtvl').value=licao.quest[n].valor;
+document.getElementById('lstquest').value=licao.quest[n].enunciado;
+document.getElementById('lsttipo').value=licao.quest[n].tipo;
+showresultado(licao.quest[n]);
+document.getElementById('cmdproxima').style.display=((licao.quest[n].texto.length + licao.quest[n].enunciado.length) < 1)?'none':'inline';
+
+
+} // maior que zero...
+// readquest();
+} // da funcao...
+
+function showresultado(p) {
+var t = '';
+if (p.tipo == 0) {
+t+='<center><label for="memresposta'+page+'">'+dic[539]+': </label></center>';
+t+='<center><textarea id="memresposta'+page+'" rows="5" width="100%" onchange="javascript:licao.quest[page-1].resultado = this.value;">'+p.resultado+'</textarea></center>';
+document.getElementById('dvresultado').innerHTML = t;
+return true;
+} // do tipo 0
+if (p.tipo == 1) {
+for (var r=0;r<p.opcoes.length;r++) {
+var tp = ''; // (licao.quest[page-1].opcoes[r].value == '1')?' checked':'';
+if (licao.quest[page-1].opcoes[r].value == '1') {tp=' checked'; }
+// verificar se o item está checado...
+
+t+='<p><input type="checkbox" id="chk'+r+'" value="1" title="'+p.opcoes[r].title+'" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes['+r+'].value='+"'1'"+'; } else {licao.quest[page-1].opcoes['+r+'].value='+"'0'"+'; }"'+tp+'>) <input type="text" id="txt'+r+'" value="'+p.opcoes[r].title+'" onchange="javascript:licao.quest[page-1].opcoes['+r+'].title=this.value;">';
+t+='<input type="button" onclick="javascript:licao.quest[page-1].opcoes.splice('+r+',1); showresultado(licao.quest[page-1]);" value="'+dic[370]+'" title="'+p.opcoes[r].title+'"></p>';
+} // do for...
+t+='<center><input type="button" onclick="javascript:licao.quest[page-1].opcoes.push({ title: '+"'', value: '0'"+'}); showresultado(licao.quest[page-1]);" value="+"></center>';
+} // do tipo 1
+if (p.tipo == 2) {
+t+='<table border="0"><tr>';
+t+='<th width="70%"></th>';
+t+='<th width="10%">'+dic[371]+'</th>';
+t+='<th width="10%">'+dic[372]+'</th>';
+t+='<th width="10%">'+dic[370]+'</th></tr>';
+for (var r=0;r<p.opcoes.length;r++) {
+var tp = '';
+var tpf = '';
+if (licao.quest[page-1].opcoes[r].value == 'v') { tp = ' checked'; 
+} else {
+if (licao.quest[page-1].opcoes[r].value == 'f') { tpf = ' checked'; }
+}
+// verificar se o item está checado...
+t+='<tr><td><input type="text" id="txt'+r+'" value="'+p.opcoes[r].title+'" onchange="javascript:licao.quest[page-1].opcoes['+r+'].title=this.value;"></td>';
+t+='<td><input type="checkbox" id="chk'+r+'" value="1" title="'+dic[371]+' '+p.opcoes[r].title+'" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes['+r+'].value='+"'v'"+'; } else {licao.quest[page-1].opcoes['+r+'].value='+"'f'"+'; } showresultado(licao.quest[page-1]);"'+tp+'></tp>';
+t+='<td><input type="checkbox" id="chk'+r+'" value="1" title="'+dic[372]+' '+p.opcoes[r].title+'" onclick="javascript:if (this.checked) {licao.quest[page-1].opcoes['+r+'].value='+"'f'"+'; } else {licao.quest[page-1].opcoes['+r+'].value='+"'v'"+'; } showresultado(licao.quest[page-1]);"'+tpf+'></td>';
+t+='<td><input type="button" onclick="javascript:licao.quest[page-1].opcoes.splice('+r+',1); showresultado(licao.quest[page-1]);" value="'+dic[370]+'" title="'+p.opcoes[r].title+'"></td></tr>';
+} // do for...
+t+='</table>';
+t+='<center><input type="button" onclick="javascript:licao.quest[page-1].opcoes.push({ title: '+"'', value: '0'"+'}); showresultado(licao.quest[page-1]);" value="+"></center>';
+} // do tipo 2
+
+if (p.tipo == 3) {
+var th = '';
+t+='<center>'+dic[413]+'</center>';
+for (var r=0;r<p.opcoes2.length;r++) {
+t+='<p><input type="text" id="txt'+r+'" value="'+p.opcoes2[r]+'" onchange="javascript:licao.quest[page-1].opcoes2['+r+']=this.value;">';
+t+='<input type="button" onclick="javascript:licao.quest[page-1].opcoes2.splice('+r+',1); showresultado(licao.quest[page-1]);" value="'+dic[370]+'" title="'+p.opcoes2[r]+'></p>';
+} // do for...
+t+='<center><input type="button" onclick="javascript:licao.quest[page-1].opcoes2.push('+"''"+'); showresultado(licao.quest[page-1]);" value="+"></center>';
+t+='<br><center>'+dic[414]+'</center>';
+for (var r=0;r<p.opcoes.length;r++) {
+t+='<p><input type="text" id="txtv'+r+'" value="'+p.opcoes[r].title+'" onchange="javascript:licao.quest[page-1].opcoes['+r+'].title=this.value;">';
+t+='<select id="lst'+r+'" onchange="javascript:licao.quest[page-1].opcoes['+r+'].value=this.value;">';
+for (var pr=0;pr<p.opcoes2.length;pr++) {
+var thh = '';
+if (p.opcoes[r].value == p.opcoes2[pr]) { thh = ' selected'; }
+th+='<option value="'+p.opcoes2[pr]+'"'+thh+'>'+p.opcoes2[pr]+'</option>';
+} // do for pr
+t+=th+'</select>';
+t+='<input type="button" onclick="javascript:licao.quest[page-1].opcoes.splice('+r+',1); showresultado(licao.quest[page-1]);" value="'+dic[370]+'" title="'+p.opcoes[r].title+'"></p>';
+} // do for...
+t+='<center><input type="button" onclick="javascript:licao.quest[page-1].opcoes.push({ title: '+"'', value: '0'"+'}); showresultado(licao.quest[page-1]);" value="+"></center>';
+} // do tipo 3
+document.getElementById('dvresultado').innerHTML = t;
+} // da funcao...
+
+function save(okfunc) {
+if (licao.titulo.length > 0) {
+if (localStorage.lge.length > 0) { // verificando o email...
+var t = 'act=addquest&email='+localStorage.lge+'&sala='+querystring(1)+'&id='+id;
+t+='&header='+licao.titulo+'|'+licao.texto+'|'+licao.foto+'|'+licao.datai+'|'+licao.dataf+'|'+licao.datag+'|'+licao.nota;
+t+='&count='+licao.quest.length;
+for (var r=0;r<licao.quest.length;r++) {
+t+='&quest'+r+'='+licao.quest[r].texto+'|'+licao.quest[r].enunciado+'|'+licao.quest[r].foto+'|'+licao.quest[r].valor+'|'+licao.quest[r].tipo+'|'+licao.quest[r].resultado+'|';
+if (!licao.quest[r].opcoes) { t+='|'; } else {
+for (var rr=0;rr<licao.quest[r].opcoes.length;rr++) {
+if (licao.quest[r].opcoes[rr].title.length > 0) { t+=licao.quest[r].opcoes[rr].title+'#'+licao.quest[r].opcoes[rr].value+'_'; }
+} // do for rr...
+if (t[t.length-1] == '_') { t = t.substring(0,t.length-1); }
+t+='|';
+} // tipo do tipo lista...
+if (!licao.quest[r].opcoes2) { t+='|'; } else {
+for (var rr=0;rr<licao.quest[r].opcoes2.length;rr++) {
+if (licao.quest[r].opcoes2[rr].length > 0) { t+=licao.quest[r].opcoes2[rr]+'_'; }
+} // do for rr...
+if (t[t.length-1] == '_') { t = t.substring(0,t.length-1); }
+t+='|';
+} // tipo do tipo lista...
+} // do for r...
+spjson(dic_path+'api_school.php',t,'POST', function(res) {
+if (res.status == 'ok') {
+id=res.results; 
+if (!okfunc) { } else { okfunc(); }
+}
+});
+} else { // email valido.
+window.location='index.html';
+} // email invalido volta para o index...
+} else { //
+if (!okfunc) { } else { okfunc(); }
+// caso nao exista o titulo da licao...
+} // 
+
+} // da funcao...
+
+function getimage(n) {
+navigator.camera.getPicture(function(imageData) {
+uploadFile(imageData, n);
+}, function(message) {
+
+}, { quality: 50,
+//   destinationType: Camera.DestinationType.DATA_URL,
+                               destinationType: navigator.camera.DestinationType.FILE_URI,
+saveToPhotoAlbum : false,
+//                                sourceType: navigator.camera.PictureSourceType.PHOTO
+                               sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+});
+} // da funcao
+
+    function uploadFile(mediaFile, n) {
+// var nome = mediaFile.substring(mediaFile.lastIndexOf('/')+1);
+var d = new Date();
+var nome = d.getTime()+'.jpg';
+        var ft = new FileTransfer(),
+            path = mediaFile, // .fullPath,
+name = localStorage.lge+'|'+querystring(1)+'|exerciceos|'+id+'|'+nome;
+        ft.upload(path,
+            "http://www.snapsects.com/school/inc.php",
+            function(result) {
+if (n == 0) {
+licao.foto=nome;
+} // do inicio
+else {
+licao.quest[page-1].foto = nome;
+} // do quest
+showquest(page);
+            },
+            function(error) {
+//                alert('Error uploading file ' + path + ': ' + error.code);
+            },
+            { fileName: name, chunkedMode: false });   
+    } // da funcao
+
+function delimage(n) {
+navigator.notification.confirm(dic[391], function(rropt) {
+if (rropt = 1) {
+var foto = '';
+if (n == 0) {
+foto = licao.foto;
+licao.foto = '';
+} else {
+foto = licao.quest[page-1].foto;
+licao.quest[page-1].foto = '';
+} // do quest...
+spjson(dic_path+'school/inc.php','act=del&email='+localStorage.lge+'&sala='+querystring(1)+'&id='+id+'&foto='+foto,'POST', function(res) {
+if (res.status == 'ok') {
+
+} // funcionou
+else {
+alert(res.msg);
+} // ocorreu um erro...
+showquest(page);
+});
+} // ok remove...
+},'SnapSects Academic',[dic[370],dic[243]]);
+} // da funcao...
+
+function readnotafinal() {
+var t='O valor da prova é '+licao.nota+': , deseja alterar?';
+getvoicetext(t, function(res) {
+licao.nota = res;
+showquest(1);
+}, function() {
+showquest(1);
+});
+} // da funcao.
+
+function readapresentacao() {
+var t= 'o campo apresentação ';
+t+=(licao.texto.length > 0)?'contem o seguinte texto: , '+licao.texto+': , deseja alterar?':'está vazio, deseja alterar?';
+getvoicetext(t, function(res) {
+licao.texto = res;
+readnotafinal();
+}, function() {
+readnotafinal();
+});
+
+} // da funcao...
+
+function readtipo() {
+var tp = ['escrita','múltipla escolha','verdadeiro ou falso','ligar as colunas'];
+var t='o exercício é do tipo: '+tp[licao.quest[page-1].tipo]+': , deseja alterar para: (escrita, múltipla escolha, verdadeiro ou falso ou ligar as colunas) sim ou não?';
+getvoicelist(t, tp, function(res) {
+licao.quest[page-1].tipo = p;
+});
+} // da funcao.
+
+function readenunciado() {
+var t='o enunciado ';
+t+=(licao.quest[page-1].enunciado.length > 0)?'contem o seguinte texto: , '+licao.quest[page-1].enunciado+': , deseja alterar agora?':'está vazio, deseja alterar agora?';
+getvoicetext(t, function(res) {
+licao.quest[page-1].enunciado = res;
+readtipo();
+}, function() {
+readtipo();
+});
+} // da funcao...
+
+function readquest() {
+if (page < 1) {
+var t='o título ';
+t+=(licao.titulo.length > 0)?'contem o seguinte texto: '+licao.titulo+': , deseja alterar?':'está vazio, deseja editar agora?';
+getvoicetext(t, function(rr) {
+licao.titulo = rr;
+readapresentacao();
+}, function() {
+readapresentacao();
+});
+} else {
+var t=dic[366]+' '+page+' de '+licao.quest.length+'. ';
+t+='o texto de apoio ';
+t+=(licao.quest[page-1].texto.length > 0)?'contem o seguinte texto: ,'+licao.quest[page-1].texto+': , deseja alterar agora?':'está vazio, deseja alterar agora?';
+getvoicetext(t, function(res) {
+licao.quest[page-1].texto = res;
+readenunciado();
+}, function() {
+readenunciado();
+});
+} // maior que 0
+} // da funcao...
+
+</script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='index.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<div id="dvtitle"></div>
+<div id="dvsalas"></div>
+<table border="0" width="100%"><tr>
+<td><button id="cmdsalas" onclick="javascript:gerircursos(document.getElementById('lstsalas').value);">{dic533}</button></td>
+<td><button id="cmdprovas" onclick="javascript:gerirprovas();">{dic534}</button></td>
+<td><button id="cmdleituras" onclick="javascript:gerirleituras();">{dic535}</button></td>
+<td><button id="cmdalunos" onclick="javascript:geriralunos();">{dic536}</button></td>
+</tr></table>
+<div id="dvshow">
+
+</div>
+
+<br>
+<hr>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+var data;
+var salas;
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+document.getElementById('dvtitle').innerHTML='<center><h1>'+localStorage.lgnic+'</h1></center>';
+
+fala(dic[334],function() {
+cvoz();
+getsalas();
+});
+    }, false);
+
+function getsalas() {
+if (!localStorage.defaultsalas) { localStorage.defaultsalas = ''; }
+spjson(dic_path+'api_school.php','act=getsalas&email='+localStorage.lge,'POST', function(dados) {
+salas = dados.salas;
+var len = dados.salas.length;
+t='<label for="lstsalas">'+dic[347]+': </label><select id="lstsalas" onchange="show(this.value);">';
+for (var r=0;r<len;r++) {
+t+='<option value="'+dados.salas[r]+'"';
+t+=(localStorage.defaultsalas == dados.salas[r])?' selected>':'>';
+t+=dados.salas[r]+'</option>';
+} // do for...
+t+='</select>';
+document.getElementById("dvsalas").innerHTML = t;
+show(document.getElementById('lstsalas').value);
+});
+} // da funcao...
+
+function addsala() {
+navigator.notification.prompt(dic[348], function(r) {
+// alert(JSON.stringify(r));
+if (r.buttonIndex == 1) {
+// verificando caracteres estranhos...
+var px = r.input1;
+px = px.replaceAll('&','');
+px = px.replaceAll('/','');
+px = px.replaceAll('\\','');
+px = px.replaceAll('-','');
+px = px.replaceAll('?','');
+px = px.replaceAll('=','');
+px = px.replaceAll('*','');
+px = px.replaceAll('.','');
+px = px.replaceAll('|','');
+px = px.replaceAll('_',' ');
+px = px.trim();
+
+spopen(dic_path+'api_school.php','act=addsala&email='+localStorage.lge+'&sala='+px,'POST', function(res) {
+getsalas();
+});
+}
+}, 'SnapSects Academic', [dic[296],dic[243]], '');
+} // da funcao...
+
+function gerirprovas() {
+var t='';
+var v = document.getElementById('lstsalas').value;
+var t='<p><label for="lstprovas">'+dic[335]+': </label><select id="lstprovas" onchange="javascript:getprovas(this.value);">';
+for (var r=0;r<data.exerciceos.length;r++) {
+t+='<option value="'+r+'">'+data.exerciceos[r].title+'</option>';
+} // do for...
+t+='</select></p>';
+t+='<div id="dvprovas"></div>';
+t+='<center><button id="cmdaddexerciceos" onclick="javascript:addexerciceos('+"'"+v+"'"+');">'+dic[351]+'</button></center>';
+document.getElementById('dvshow').innerHTML = t;
+getprovas(document.getElementById('lstprovas').value);
+} // da funcao...
+
+function getprovas(vv) {
+var v = document.getElementById('lstsalas').value;
+t='<p><label for="chk'+vv+'">'+dic[538]+' </label><input type="checkbox" id="chk'+vv+'" onclick="javascript:setpublished('+"'"+data.exerciceos[vv].id+"', '"+document.getElementById('lstsalas').value+"', this.checked);"+'" title="'+data.exerciceos[vv].title+'" ';
+t+=(data.exerciceos[vv].visible == '0')?'>':' checked>';
+t+=' <a href="#" onclick="javascript:window.location='+"'add_exerciceos.html?id="+data.exerciceos[vv].id+'&sala='+v+"';"+'">'+data.exerciceos[vv].title+'</a>';
+t+=' <input type="button" value="'+dic[370]+'" onclick="javascript:delquest('+"'"+data.exerciceos[vv].id+"', '"+v+"');"+'" title="'+data.exerciceos[vv].title+'"></p>';
+t+='<table border="2" width="100%"><tr>';
+t+='<td width="50%"><center><h3>'+dic[386]+'</h3></center>';
+t+='<ul>';
+for (var r=0;r<data.exerciceos[vv].provas.length;r++) {
+t+='<li><a href="correcao.html?sala='+document.getElementById('lstsalas').value+'&id='+data.exerciceos[vv].id+'&prova='+data.exerciceos[vv].provas[r].aluno+'">'+data.exerciceos[vv].provas[r].nome+' - '+data.exerciceos[vv].provas[r].aluno+'</a>';
+t+='  <button onclick="javascript:anular('+"'"+document.getElementById('lstsalas').value+"', '"+data.exerciceos[vv].id+"', '"+data.exerciceos[vv].provas[r].aluno+"'"+');" title="'+data.exerciceos[vv].provas[r].nome+'">'+dic[543]+'</button></li>';
+} // do for...
+t+='</ul></td>';
+
+t+='<td width="50%"><center><h3>'+dic[405]+'</h3></center>';
+t+='<ul>';
+for (var r=0;r<data.exerciceos[vv].corrigidas.length;r++) {
+t+='<li><a href="correcao.html?sala='+document.getElementById('lstsalas').value+'&id='+data.exerciceos[vv].id+'&prova='+data.exerciceos[vv].corrigidas[r].aluno+'">'+data.exerciceos[vv].corrigidas[r].nota+' - '+data.exerciceos[vv].corrigidas[r].nome+' - '+data.exerciceos[vv].corrigidas[r].aluno+'</a></li>';
+// t+='<li>'+data.exerciceos[vv].corrigidas[r].nome+' - '+data.exerciceos[vv].corrigidas[r].aluno+'</li>';
+} // do for...
+t+='</ul></td>';
+
+t+='</tr></table>';
+
+document.getElementById('dvprovas').innerHTML = t;
+
+sndplay('beep.wav', function() {
+fala(document.getElementById('dvshow').textContent);
+});
+
+} // da funcao...
+
+function anular(sala,id,aluno) {
+if (confirm(dic[544])) {
+var t='act=anulaprova&email='+localStorage.lge+'&sala='+sala+'&id='+id+'&aluno='+aluno;
+spjson(dic_path+'api_school.php',t,'POST', function(res) {
+sndplay('beep2.wav', function() {
+show(document.getElementById('lstsalas').value, function() {
+gerirprova();
+}); // do show...
+});
+});
+} // confirmado...
+} // da funcao...
+
+function geriralunos() {
+var t='<center><h2>'+dic[381]+' ('+document.getElementById('lstsalas').value+')</h2></center>';
+t+='<ul>';
+for (var r=0;r<data.alunos.length;r++) {
+t+='<li>';
+t+=(data.alunos[r].nome.length < 1)?data.alunos[r].email+' - ('+dic[537]+')':data.alunos[r].nome+' - '+data.alunos[r].email;
+t+='<input type="button" onclick="delconv('+"'"+data.alunos[r].email+"'"+');" value="'+dic[370]+'" title="'+data.alunos[r].nome+' '+data.alunos[r].email+'">';
+t+='</li>';
+} // do for...
+t+='</ul>';
+t+='<center><input type="button" id="cmdaddconv" value="'+dic[368]+'" onclick="javascript:addconv();"></center>';
+
+document.getElementById('dvshow').innerHTML = t;
+
+sndplay('beep.wav', function() {
+fala(document.getElementById('dvshow').textContent);
+});
+
+} // da funcao...
+
+function gerirleituras() {
+var t='<center><h2>'+dic[350]+'</h2></center>';
+var len=data.leituras.length;
+if (len > 0) {
+t+='<ul>';
+for (var r=0;r<len;r++) {
+t+='<li><a href="add_leituras.html?sala='+document.getElementById('lstsalas').value+'&id='+data.leituras[r]+'">'+data.leituras[r]+'</a>';
+t+='<input type="button" value="'+dic[370]+'" title="'+data.leituras[r]+'" onclick="javascript:delleitura('+"'"+data.leituras[r]+"', '"+document.getElementById('lstsalas').value+"'"+');">';
+t+='</li>';
+} // do for...
+t+='</ul>';
+} // existem leituras...
+t+='<center><button id="cmdaddleituras" onclick="javascript:addleituras('+"'"+document.getElementById('lstsalas').value+"'"+');">'+dic[352]+'</button></center>';
+
+document.getElementById('dvshow').innerHTML = t;
+
+sndplay('beep.wav', function() {
+fala(document.getElementById('dvshow').textContent);
+});
+
+} // da funcao...
+
+function gerircursos(v) {
+var t='<center><h2>'+v+'</h2></center>';
+t+='<button id="cmdaddsala" onclick="javascript:addsala();">'+dic[346]+'</button><br>';
+t+='<button id="cmddelsala" onclick="javascript:delsala();">'+dic[373]+'</button>';
+
+document.getElementById('dvshow').innerHTML = t;
+sndplay('beep.wav', function() {
+fala(document.getElementById('dvshow').textContent);
+});
+} // da funcao...
+
+function show(v, okfunc) {
+localStorage.defaultsalas = v;
+if (v.length > 0) {
+
+spjson(dic_path+'api_school.php','act=getshow&email='+localStorage.lge+'&sala='+v,'POST', function(res) {
+data = res;
+gerircursos(v);
+if (!okfunc) { } else { okfunc(); }
+return false;
+var t='<p><label for="lstprovas">'+dic[335]+': </label><select id="lstprovas">';
+for (var r=0;r<res.exerciceos.length;r++) {
+t+='<option value="">'+res.exerciceos[r].title+'</option>';
+} // do for...
+t+='</select></p>';
+document.getElementById('dvprovas').innerHTML = t;
+
+var t='<table border="0" width="100%"><tr>';
+t+='<td width="45%"><center>'+dic[349]+'</center>';
+var len = res.exerciceos.length;
+if (len > 0) {
+// t+='<table border="0" width="100%"><tr>';
+// t+='<th width="10%">'+dic[538]+'</th>';
+// t+='<th width="80%">'+dic[366]+'</th>';
+// t+='<th width="10%">'+dic[370]+'</th>';
+// t+='</tr>';
+for (var r=0;r<len;r++) {
+// t+='<tr>';
+t+='<p><label for="chk'+r+'">'+dic[538]+' </label><input type="checkbox" id="chk'+r+'" onclick="javascript:setpublished('+"'"+res.exerciceos[r].id+"', '"+v+"', this.checked);"+'" title="'+res.exerciceos[r].title+'" ';
+t+=(res.exerciceos[r].visible == '0')?'>':' checked>';
+// t+='</td>';
+t+=' <a href="#" onclick="javascript:window.location='+"'add_exerciceos.html?id="+res.exerciceos[r].id+'&sala='+v+"';"+'">'+res.exerciceos[r].title+'</a>';
+t+=' <input type="button" value="'+dic[370]+'" onclick="javascript:delquest('+"'"+res.exerciceos[r].id+"', '"+v+"');"+'" title="'+res.exerciceos[r].title+'"></p>';
+// t+='</tr>';
+} // do for...
+// t+='</table>';
+} // existem itens...
+t+='<center><button id="cmdaddexerciceos" onclick="javascript:addexerciceos('+"'"+v+"'"+');">'+dic[351]+'</button></center>';
+t+='</td><td width="45%"><center>'+dic[350]+'</center>';
+var len=res.leituras.length;
+if (len > 0) {
+t+='<ul>';
+for (var r=0;r<len;r++) {
+t+='<li><a href="add_leituras.html?sala='+v+'&id='+res.leituras[r]+'">'+res.leituras[r]+'</a>';
+t+='<input type="button" value="'+dic[370]+'" title="'+res.leituras[r]+'" onclick="javascript:delleitura('+"'"+res.leituras[r]+"', '"+v+"'"+');">';
+t+='</li>';
+} // do for...
+t+='</ul>';
+} // existem leituras...
+t+='<center><button id="cmdaddleituras" onclick="javascript:addleituras('+"'"+v+"'"+');">'+dic[352]+'</button></center>';
+t+='</td></tr></table>';
+// agora as provas...
+t+='<center><h2>'+dic[386]+'</h2></center>';
+if (res.provas.length > 0) {
+for (var r=0;r<res.provas.length;r++) {
+t+='<center><h3>'+res.provas[r].title+'</h3></center>';
+t+='<ul>';
+for (var rr=0;rr<res.provas[r].provas.length;rr++) {
+t+='<li><a href="correcao.html?sala='+document.getElementById('lstsalas').value+'&id='+res.provas[r].id+'&prova='+res.provas[r].provas[rr]+'">'+res.provas[r].provas[rr]+'</a></li>';
+} // do for rr
+t+='</ul>';
+} // do for...
+} // existem provas...
+// agora os exerciceos corrigidos
+t+='<center><h2>'+dic[405]+'</h2></center>';
+// alert(JSON.stringify(res.provas));
+if (res.provas.length > 0) {
+for (var r=0;r<res.provas.length;r++) {
+t+='<center><h3>'+res.provas[r].title+'</h3></center>';
+t+='<ul>';
+for (var rr=0;rr<res.provas[r].corrigidas.length;rr++) {
+t+='<li><a href="correcao.html?sala='+document.getElementById('lstsalas').value+'&id='+res.provas[r].id+'&prova='+res.provas[r].corrigidas[rr].title+'">'+res.provas[r].corrigidas[rr].nota+' - '+res.provas[r].corrigidas[rr].title+'</a></li>';
+} // do for rr
+t+='</ul>';
+} // do for...
+} // existem provas...
+t+='<center><h2>'+dic[381]+' ('+document.getElementById('lstsalas').value+')</h2></center>';
+if (res.alunos.length > 0) {
+t+='<ul>';
+for (var r=0;r<res.alunos.length;r++) {
+t+='<li>';
+t+=(res.alunos[r].nome.length < 1)?res.alunos[r].email+' - (Ainda não se logou':res.alunos[r].nome+' - '+res.alunos[r].email;
+t+='<input type="button" onclick="delconv('+"'"+res.alunos[r].email+"'"+');" value="'+dic[370]+'" title="'+res.alunos[r].nome+' '+res.alunos[r].email+'">';
+t+='</li>';
+} // do for...
+t+='</ul>';
+} // existem alunos...
+document.getElementById('dvshow').innerHTML = t;
+});
+document.getElementById('cmddelsala').style.display='inline';
+document.getElementById('cmdaddconv').style.display='inline';
+} else {
+document.getElementById('dvshow').innerHTML = '';
+document.getElementById('cmddelsala').style.display='none';
+document.getElementById('cmdaddconv').style.display='none';
+} // nao existe item selecionado...
+
+} // da funcao...
+
+function addexerciceos(x) {
+window.location='add_exerciceos.html?id=0&pasta='+x;
+} // da funcao
+
+function addleituras(x) {
+window.location='add_leituras.html?sala='+x+'&id=';
+} // da funcao...
+
+function addconv() {
+navigator.notification.prompt(dic[383], function(r) {
+if (r.buttonIndex == 1) {
+// verificando caracteres estranhos...
+var px = r.input1;
+px = px.replaceAll('&','');
+px = px.replaceAll('/','');
+px = px.replaceAll('\\','');
+px = px.replaceAll('?','');
+px = px.replaceAll('=','');
+px = px.replaceAll('*','');
+px = px.replaceAll('|','');
+px = px.trim();
+spjson(dic_path+'api_school.php','act=addconv&profid='+localStorage.lgi+'&email='+localStorage.lge+'&aluno='+px+'&sala='+document.getElementById('lstsalas').value,'POST', function(res) {
+if (res.status == 'ok') {
+alert(dic[384]);
+show(document.getElementById('lstsalas').value);
+} // esta ok...
+else { alert(dic[385]); }
+});
+} // envia o convite...
+},'SnapSects Academic',['Ok','Cancelar'],'');
+} // da funcao...
+
+function setpublished(i, s, v) {
+var x =(v == true)?1:0;
+spopen(dic_path+'api_school.php','act=setindex&email='+localStorage.lge+'&sala='+s+'&id='+i+'&value='+x,'POST', function(res) {
+
+});
+} // da funcao...
+
+function delquest(i, s) {
+navigator.notification.confirm(dic[369], function(opc) {
+if (opc == 1) {
+spopen(dic_path+'api_school.php','act=delquest&email='+localStorage.lge+'&sala='+s+'&id='+i,'POST', function(res) {
+show(s);
+});
+} // removendo...
+},'SnapSects Academic',[dic[370],dic[243]]);
+} // da funcao...
+
+function delsala() {
+var v = document.getElementById('lstsalas').value;
+navigator.notification.confirm(dic[374], function(opc) {
+if (opc == 1) {
+spopen(dic_path+'api_school.php','act=delsala&email='+localStorage.lge+'&sala='+v,'POST', function(res) {
+window.location='school.html';
+});
+} // removendo...
+},'SnapSects Academic',[dic[370],dic[243]]);
+} // da funcao...
+
+function delleitura(i,s) {
+navigator.notification.confirm(dic[377], function(r) {
+if (r == 1) {
+spopen(dic_path+'api_school.php','act=delleitura&email='+localStorage.lge+'&sala='+s+'&id='+i,'POST', function(rr) {
+show(s);
+}); // removendo...
+} // ok...
+},'SnapSects Academic',[dic[370],dic[243]]);
+} // da funcao...
+
+function delconv(a) {
+var s = document.getElementById('lstsalas').value;
+navigator.notification.confirm(dic[382], function(r) {
+if (r == 1) {
+spopen(dic_path+'api_school.php','act=delconv&email='+localStorage.lge+'&sala='+s+'&aluno='+a,'POST', function(res) {
+show(s);
+});
+} // pode remover...
+},'SnapSects Academic',[dic[370],dic[243]]);
+} // da funcao...
+
+</script>
+</body>
+</html>

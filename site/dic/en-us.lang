@@ -1,0 +1,640 @@
+﻿[name]
+English
+[controler]
+1
+[0]
+SNAPSECT logo
+[1]
+IDENTIFY YOUR ARTHROPOD
+[2]
+DESCRIBE YOUR ARTHROPOD
+[3]
+COLLECTING METHOD
+[4]
+MEDIATION TEXT
+[5]
+PROEMIAL NOTES
+[6]
+AUDIO DESCRIPTION
+[7]
+Search Arthropod
+[8]
+Common name
+[9]
+Search
+[10]
+Select Author and Date
+[11]
+All
+[12]
+Select Class
+[13]
+Arachinida
+[14]
+Chilopoda
+[15]
+Diplopoda
+[16]
+Insecta
+[17]
+Malacostraca
+[18]
+Select Order
+[19]
+Family
+[20]
+Select Antennae
+[21]
+Filiform
+[22]
+Setaceous
+[23]
+Geniculate
+[24]
+Plumose
+[25]
+Clavate (gradual club)
+[26]
+Capitate (abrupt club or knob)
+[27]
+Aristate
+[28]
+Monoliform or Moniliform
+[29]
+Lamelate or Lamelar
+[30]
+Serrate
+[31]
+Pectinate
+[32]
+Minute and bristle-like
+[33]
+Flabellate
+[34]
+other
+[35]
+Select Mouth parts
+[36]
+Chewing
+[37]
+Sucking (Sucker-maxillary)
+[38]
+Sucking-labial
+[39]
+Lapping
+[40]
+Sponging
+[41]
+Piercing-sucking
+[42]
+Siphoning
+[43]
+other
+[44]
+Select wings
+[45]
+Membranous
+[46]
+Elytra
+[47]
+Hemielytra
+[48]
+Tegmina
+[49]
+Haltere (dumbbells)
+[50]
+Fringed
+[51]
+Scaly
+[52]
+Aptera (no wings)
+[53]
+other
+[54]
+Select number of legs
+[55]
+six
+[56]
+eight
+[57]
+ten
+[58]
+more than ten (add number in description box)
+[59]
+Select the type of legs
+[60]
+Ambulatorial
+[61]
+Cursorial
+[62]
+Saltatorial
+[63]
+Scansorial
+[64]
+Fossorial
+[65]
+Raptorial
+[66]
+Natatorial
+[67]
+Collector
+[68]
+other
+[69]
+Search
+[70]
+wellcome to snapsects school! You are search arthropoda screen...
+[71]
+Search arthropoda screen...
+[72]
+<center><h2>ARTHROPODA</h2></center><br><p align="justify">The phylum Arthropoda is part of the Animalia kingdom and covers the largest variety of species on the planet. Insects, crustaceans, arachnids, diplopods and chilopods belong to this phylum. Arthropods, invertebrate animals, are characterized by a rigid and chitinous exoskeleton, segmented body, bilateral symmetry and articulated legs. In general, the arthropods body consists of head, thorax and abdomen. In some cases, however, head and thorax are classified as cephalothorax, because they are united. In these cases, the arthropods body is divided into cephalothorax and abdomen. Although they have similar characteristics, arthropods are very diversified. They may have so different morphological characteristics that, in the eyes of the layman, they will not look like they belong to the same group. For example, shrimp and crabs are decapods and belong to the subphylum Crustacea. Similarly, spiders and scorpions are arachnids, belonging to the subphylum Chelicerata.</p>
+[73]
+<center>CopyRight</center><br><p>Copyright 2017 - 2018 - Francisco J. Lima</p><br><br><p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p><br><p>1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p><br><p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p><br><p>3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p><br><br><p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+[74]
+Updating the language library.
+[75]
+arthropoda found
+[76]
+No arthropoda found
+[77]
+Settings
+[78]
+Return
+[79]
+Discard Changes
+[80]
+SAVE AND VIEW
+[81]
+DESCRIBERS AND COLLABORATORS
+[82]
+BIBLIOGRAPHY
+[83]
+PICTURE
+[84]
+<p>Write the name or names that your specimen is commonly known as.</p>
+[85]
+<p>Write the scientific name of your specimen</p>
+[86]
+Scientific name
+[87]
+<p>Write who identified your specimen; write the year your specimen was identified.</p>
+[88]
+Author and Date
+[89]
+Kingdom: Animalia
+[90]
+Phylum (Arthropoda)
+[91]
+<p>Select the class of your specimen</p>
+[92]
+Not informed
+[93]
+<p>Write the order of your specimen</p>
+[94]
+Order
+[95]
+<p>Write the family of your specimen</p>
+[96]
+<p>Write the genus of your specimen</p>
+[97]
+Genus
+[98]
+<p>Write the species of your specimen</p>
+[99]
+Species
+[100]
+<p>Select the Sex of your specimen.</p>
+[101]
+Select Sex
+[102]
+female
+[103]
+male
+[104]
+unknown
+[105]
+<p>Tell what developmental stage the specimen is in (e.g., larvae, pupa, nymph and adult).</p>
+[106]
+Select the developmental stage
+[107]
+Larvae
+[108]
+Pupa
+[109]
+Nymph
+[110]
+Adult
+[111]
+<p>Tell what type of metamorphosis your specimen has. For instance, its  metamorphosis is simple, gradual or complete, it has incomplete metamorphosis.</p>
+[112]
+Metamorphosis
+[113]
+<p>Describe your specimen clearly, with detailed visual attributes; indicate the color(s) of your specimen; e.g., it has black dots, it is luminous, it has black and brown stripes, or it's a blue butterfly.</p>
+[114]
+Visual attributes
+[115]
+<p>Tell the weight, size, length, width and shape of your specimen (e.g., It is long, its body is elongate and stick-like; or It is broad, flattened laterally compressed.  Tell how body of your specimen is divided (e.g., Its body is divided in head, thorax and abdomen; is divided in cephalothorax and abdomen or in head and trunk).</p>
+[116]
+Body
+[117]
+<p>Tell the size and shape of the head of your specimen (e.g., it is triangular or rounded; It has bulbous regions between mouthparts and antennae; or Drawn into a beak with mouthparts forward”.</p>
+[118]
+Head
+[119]
+<p>Tell the size, shape, length, number of segments, number of existing wings, and/or legs in the thorax of your specimen.</p><p>Describe its Pronotum shape (e.g., It is short and distinct from the head; It is short and distinct from sides of prothorax; It is entirely or almost entirely covering head; It is elongate; It is long and wide; Short, with lobes descending over sides of the prothorax).</p>
+[120]
+Thorax
+[121]
+<p>Tell the size, shape, length and number of segments of the abdomen of your specimen. Describe the overall abdomen shape of your specimen: (e.g., It is oval or elongate). Also describe the parts of the abdomen: abdominal base (e.g., Broadly attached to thorax; Constricted to a narrow waist flexibly hinged to body), abdominal apex (e.g., With a one long filament; With two long filaments; With three long filaments; With a forked jumping organ; With hardened forceps), type of cerci (e.g., Short with one segment; Elongate with more than two segments).</p>
+[122]
+Abdomen
+[123]
+Select type of Antennae
+[124]
+other (add type in description box)
+[125]
+<p>Describe the antennae of your specimen. Describe number of antennae, the direction of the antennae (e.g., Projecting from the top of the head and curving behind along the body; Projecting from top sides of the head pointing forward), the shape (e.g., Densely feathered antennae; Hooked club-like antennae), length (e.g., “Longer than the body”).</p>
+[126]
+Antennae
+[127]
+<p>Tell the number, size and type of eyes and ocelli your specimen has. Describe the shape of the eyes and ocelli, where they are located on the head (e.g., Separated; Meeting in midline dorsally) and their localization in relation to other parts in the head.</p>
+[128]
+Eyes and ocelli
+[129]
+Select type of Mouth parts
+[130]
+<p>Describe what types of mouth parts that your specimen has: (include the number and shapes of parts, Mandibles and tubular structure. Also tell where they are located in the head (e.g., External, with chewing mandibles; Forming a coiled, cylindrical tube beneath the head; Inside the head capsule).</p>
+[131]
+Mouth parts
+[132]
+Select type of forewings
+[133]
+<p>Describe the wings of your specimen. Describe the color, pattern and texture (e.g., Both pairs of wings are membranous, covered in microscopic hairs; With many veins and cross veins; Forewings leathery and brown, Forewings hard, opaque, forming close-fitting covers over abdomen, hind wings transparent;). Describe the size and shape (e.g., Broad, large; Narrow, with a fringe of long hairs; Narrow), the length and number of wings (e.g., Four wings; Two, hind pair reduced to tiny clubs; Two, fore pair reduced to small clubs), the length of wingspan. Indicate whether wings are functional for flight (e.g., Functional; Reduced to small pads).</p>
+[134]
+Forewings
+[135]
+Select type of Hind Wings
+[136]
+<p>Describe the hind wings of your specimen. Describe the color, pattern and texture (e.g., Both pairs of hind wings are membranous, covered in microscopic hairs; With many veins and cross veins; hind wings leathery and brown, hind wings hard, opaque, forming close-fitting covers over abdomen, hind wings transparent;). Describe the size and shape (e.g., Broad, large; Narrow, with a fringe of long hairs; Narrow), the length and number of hind wings (e.g., Four wings; Two, hind pair reduced to tiny clubs; Two, fore pair reduced to small clubs), the length of wingspan. Indicate whether wings are functional for flight (e.g., Functional; Reduced to small pads).</p>
+[137]
+Hind Wings
+[138]
+<p>Describe the legs of your specimen. Tell how they are modified or adapted. For instance, Forelegs (e.g., Forelegs armed with stout spines and modified for seizing prey; Foretarsi with basal segment swollen, containing silk glands), Hind Legs (e.g., Hind legs enlarged, modified for jumping; its hind legs are collectors or it has collector legs). Include the descriptions of the leg segments such as cocci, trochanter, femur, tarsus, pretarsus (e.g., With claws; With bladder-like swelling) and where they are located on the body.</p>
+[139]
+Description of legs
+[140]
+Select number of Tarsomere
+[141]
+One
+[142]
+Two
+[143]
+Three
+[144]
+Four
+[145]
+Five
+[146]
+Select Cerci
+[147]
+Short with one segment
+[148]
+Short with two segments
+[149]
+Elongate with more than two segments
+[150]
+<p>Describe other specific characteristics of your specimen; any specialization of an appendage (e.g., There is) (It has) a stinger at the end of the abdomen).</p>
+[151]
+Specific morphological characteristics
+[152]
+<p>Tell how you collected your specimen</p>
+[153]
+Collecting method
+[154]
+<p>Describe the environment where you found your specimen, for instance, in clear, running water; on the ground among rocks; in sandy soil; flying in a forest.</p>
+[155]
+Habitat (Place of collection)
+[156]
+<p>Inform the abiotic factors at the time of collection (e.g., wind, temperature, humidity, precipitation, pressure, UV index)</p>
+[157]
+Abiotic factors
+[158]
+Get position
+[159]
+Localization
+[160]
+Latitude
+[161]
+Longitude
+[162]
+City
+[163]
+State or Province
+[164]
+country
+[165]
+Date of collection
+[166]
+Temperature
+[167]
+<p align="justify">Write a concise, but complete text about your specimen. Write about the ecology, the reproduction, and other important curious detail. That may distinguish your specimen or interest your audience.</p>
+[168]
+Mediation Text
+[169]
+<p align="justify">Write a text that introduce your specimen. Present at its general attributes, specific concepts that will improve understanding of the audio description. Use clear, concise, concrete and specific linguage to convey the image of your specimen.</p>
+[170]
+Proemial notes
+[171]
+CLEAR
+[172]
+Taxonomy and Collection
+[173]
+<p align="justify">Write your audio description with realistic and imaginative. Give relevant detailed visual information about your specimen.</p>
+[174]
+Audio description
+[175]
+CLEAR
+[176]
+GET ALL
+[177]
+Bibliography
+[178]
+Change photo
+[179]
+Take picture
+[180]
+Picture library
+[181]
+Picture description
+[182]
+REMOVE A PICTURE AND PICTURE DESCRIPTION
+[183]
+Do you want to remove a picture and picture description?
+[184]
+<p>Write the name or names of those who took part in the audio description.</p>
+[185]
+Describer
+[186]
+<p>Write an email for contact.</p>
+[187]
+Email
+[188]
+<p>Provide your home page, Facebook page or Blog Address.</p>
+[189]
+Home Page
+[190]
+<p>Write the name or names of those who have collaborated with you during the process of producing your script: the photographer, the intern who helped with the research etc.</p>
+[191]
+Collaborators
+[192]
+List of collaborators
+[193]
+REMOVE this arthropod
+[194]
+Do you want to remove it?
+[195]
+add new arthropod...
+[196]
+Body (size shape and segments)
+[197]
+Head (size shape and other attributes of the head of your specimen)
+[198]
+Type of antennae
+[199]
+Type of mouth parts
+[200]
+Type of forewings
+[201]
+Type of hind wings
+[202]
+Number of legs
+[203]
+Type of legs
+[204]
+Locomotive legs
+[205]
+Tarsomere
+[206]
+Cerci
+[207]
+Specific characteristics
+[208]
+Development
+[209]
+Kingdom
+[210]
+Phylum
+[211]
+Class: (Insecta)
+[212]
+Order of your specimen
+[213]
+Sex
+[214]
+Please write author and email...
+[215]
+Save author and email for future submissions? If you choose "Cancel" you will have to fill up author name and email address fields next time you submit an audio description.
+[216]
+SEARCH ARTHROPOD
+[217]
+SEND EMAIL
+[218]
+EDIT
+[219]
+Picture of
+[220]
+Credits
+[221]
+Described by
+[222]
+Identification
+[223]
+Class
+[224]
+Partial Description
+[225]
+Collection
+[226]
+View
+[227]
+Language
+[228]
+Select language
+[229]
+edit
+[230]
+<center><h2>About the class Arachnida</h2></center><p align="justify">The Arachnida belong to the subphylum Chelicerata. Some of the most common examples of arachnids are ticks, spiders, scorpions and mites. Like all arthropods, arachnids have a bilaterally symmetrical body, articulated appendages and exoskeleton ecdysis.  They are characterized by having chelicerae (instead of mandibles), a pair of pedipalps in the oral region and four pairs of legs in the cephalothorax. Their body is divided into the cephalothorax and abdomen. The cephalic region features simple eyes, which vary in numbers depending on the group, and it has chelicerae and pedipalps, which compose their oral apparatus. The thoracic region presents four pairs of legs. The abdomen usually houses the reproductive and defense structures, and shows variation in appearance. For example, the spider's abdomen is oval and shows spinners in the posterior-ventral region, whereas the scorpion’s abdomen is elongated (it has a tail aspect), with a stinger in the last abdominal segment.</p>
+[231]
+<center><h2>About the class Chilopoda</h2></center><p align="justify">The Class Chilopoda belongs to the subphylum Myriapoda and is commonly referred to as centipedes. Like other arthropods, they have an exoskeleton and articulated legs. The chilopods’ appendages are uniramous. Chilopods differ from other arthropods because their bodies are divided into two main parts: head and trunk. The trunk is composed of thorax and abdomen. Dorsolaterally on the anterior part of the head there is a pair of antennae (with variable numbers of segments), and dorsolaterally near the middle of the head there is a pair of simple eyes. Ventrally on the anterior part of the head are the mouthparts, which are composed of a pair of mandibles and two pairs of maxillae. The thorax of the chilopods consists of 15 to 193 segments, and each segment has a pair of hinged legs. The first pair of legs has venom claws and the last pair of legs extends behind the body.<br>Reference. BRUSCA, R. C.; BRUSCA, G. J. Filo Arthropoda: Miriápodes (Centopéias, Milípedes e Afins). In: ________. Invertebrados. Rio de Janeiro: Guanabara Koogan, p. 664-677, 2007.</p>
+[232]
+<center><h2>About the class Diplopoda</h2></center><br><p align="justify">The class Diplopoda belongs to the subphylum Myriapoda and is commonly known as millipedes. The Diplopods are found in tropical environments and, like other arthropods, they have an exoskeleton, articulated legs and segmented bodies.<br>They are characterized by presenting two tagma, the head and the trunk (fused thorax and abdomen) which are homonymous and multisegmented.<br>The head of the diplopods features a pair of antennae on the front edge, a pair of simple eyes, laterally located on the posterior part of the head, and mouthparts composed of a pair of mandibles and maxillae. The thorax has 11 to 192 diplosegments (segments in pairs). In each of them, except for the first and last, there are two pairs of legs.<br>References<br>BRUSCA, R. C.; BRUSCA, G. J. Filo Arthropoda: Miriápodes (Centopéias, Milípedes e Afins). In: ________. Invertebrados. Rio de Janeiro: Guanabara Koogan, p. 664-677, 2007.</p>
+[233]
+<center><h2>About the class Insecta</h2></center><p align="justify">The term insect has its origin in the Latin word “insectum” and it means animal of grooved body, or segmented body. The class Insecta comprises 70% of the animal species. Like other arthropods, insects have an exoskeleton, articulated legs and body symmetry. Some of the most commonly known insects are the bees, cockroaches, flies, crickets, butterflies and beetles.<br>Insects differ from other arthropods because their bodies are divided into three main parts: head, thorax and abdomen. On their head are a pair of antennae, the eyes and ocelli, and the external mouth parts. Their thorax has up to four wings dorsally, and it has six legs ventrally. On the abdomen are the genital structures. Some structures are only present or apparent in the adult life stage.<br>The insect antennae are in the frontal region of the head, and can be classified in types including: filiform (e.g., cockroach, cricket), setaceous (e.g., grasshopper), geniculate (e.g. ant), plumose (e.g. mosquito), clavate (e.g., butterfly), aristate (e.g., fly) and serrate (e.g., beetle).<br>Insects, in most cases, present a pair of compound eyes, located in the lateral part of the head; and many also present simple eyes or ocelli (usually three), located at the apex of the head.<br>The insects’ mouthparts can be put into different categories, according to the specialization that it presents, and it may be: chewer (e.g., cockroaches, cricket); chewer/defense (e.g., termite, ant); maxilla-sucker (e.g., butterfly); labium suckers (e.g., mosquitoes, cicadas, bedbugs and fleas); licking (e.g., bee). The insects’ thorax is divided into three segments: from front, anterior, to back, posterior, prothorax, mesothorax and metathorax. If four wings, two pairs, are present, the insect will be tetrapterous. In this case, the metathorax will feature the pair of forewings and the metathorax will bear the pair of hindwings. Some hindwings may look dumbbell-shaped and be atrophied. Dumbbell-shaped atrophied wings, haltere, are not functional for flying and are very difficult to be seen with naked eyes. Because of that, insects with haltere wings are thought to have only two wings, for example those that belong to the order  diptera, e.g., mosquitoes and flies.<br>Insects that have no wings are apterous or wingless.<br>Wings can be distinguished as: membranous (e.g., wasps), tegamina (e.g., crickets, locusts and cockroaches), elytra (e.g., beetles), hemelytra (e.g., bugs) and haltere (e.g., flies, mosquitoes). Some insects may have two types of wings – for example, a beetle will have a pair of elytra covering over a pair of membranous wings.<br>The insects’ legs have different characteristics, according to the function they carry out, and some insects will have more than one type of legs, for example a honey bee have six ambulatory legs, and the pair attached to the metathorax are used for cleaning and the prothorax legs are collectors. They can be: ambulatorial (e.g., bee), cursorial (e.g. ants); saltatorial (e.g. crickets and grasshoppers); raptorial (e.g. mantis); collector (e.g., bees); scansorial (e.g., lice), among others.<br>The abdomen of the insects is divided into six to twelve segments, usually contains  sensory and genital structures. The abdomen may be free (e.g. butterflies, bees), sessile (e.g. crickets) or pedunculated (e.g., ant, wasps).</p><br>References<br>GALLO, D. et al. (Orgs.). Entomologia Agrícola. Piracicaba: FEALQ, 2002.</p>
+[234]
+<center><h2>About the class Malacostraca</h2></center><br><p align="justify">The Class Malacostraca belongs to the subphylum Crustacea. Lobsters, crabs, shrimps, barnacles and woodlouse are some of the most common known examples.<br>The name crustacean, given to these arthropods, comes from the Latin "crusta" which means crust. In general, they are aquatic animals (e.g., lobsters and shrimps), or live in very wet land areas (e.g., the Isopods).<br>Crustaceans have segmented bodies (cephalothorax and abdomen) and articulated appendages. The Crustacean’s cephalic region features five or six segments, which include two pairs of antennae, a pair of eyes, usually pedunculated, and the mouthparts, which consists of a pair of mandibles and two pairs of maxillae. Most crustaceans have a cephalothorax covered by a carapace.<br>Crustacean breathe through their gills which are located in the thoracic region.  The thoracic region has eight segments, three pairs of maxillipeds in the anterior region and five pairs of legs, called pereopods in the posterior region. Crustaceans usually bear five pairs of legs in the abdomen which are called pleopods. In the last abdominal segments, the appendages are the uropods and the telson.</p>
+[235]
+MENU
+[236]
+Open main menu
+[237]
+Advanced Search
+[238]
+Closing main menu
+[239]
+Main Menu
+[240]
+About
+[241]
+FAQ
+[242]
+Disclaimer
+[243]
+Cancel
+[244]
+<h3>About</h3><br><h3>SnapSects</h3><p>Version 0.83 Beta</p><br><p>Programming - Luiz Eduardo Porto Mariz</p><br><p>This program is free software; you can redistribute it and/or modify it under the terms of the  3-Clause BSD License, as published in public domain on ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change</p><br><br><p>SnapSects is an interactive web/mobile application designed to make pictures of arthropods accessible to people who are blind or have low vision through Scientific Audio Description. It is a tool for scientific classification of arthropods, specially insects, and an educational asset for learning about biodiversity and the visual anatomical aspects or the external morphology of those organisms.</p><br><p>SnapSects relies on users` volunteering contributions by means of taking and submitting pictures of arthropods, making audio description of them, revising scientific contents and edit proofing the site`s texts. </p><br><br><p>SnapSects was developed after a 2017 post-doctorial research at the Department of Entomology of the Museum of Natural History - Smithsonian Institution (United States), with a grant from the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - CAPES (Brazil) and it is in compliance with best practices of accessibility and Audio Description.</p><br><br><p> This is a free software, but it still costs money to write, support, and distribute it. If you enjoy using it, please consider a donation to the authors of this software. It will help to make SnapSects even better!</p> 
+[245]
+<h3>Frequently Asked Questions</h3><br><br><p><h4>What is SnapSects?</h4></p><br>It is an interactive web/mobile application designed to make pictures of arthropods accessible to people who are blind or have low vision through Scientific Audio Description made by SnapSectors.<br /></p><br><p><h4>What is a SnapSector?</h4><br>Once you become a collaborator to the SnapSects web page or user of the SnapSects Mobile App and upload a description or help with the description of an arthropod, you become a SnapSector, a member of a group of volunteers whose objective is to make science accessible to people who are blind or have low vision.<br /></p><br><p><h4>Does SnapSects automatically audio describe a picture I upload?</h4><br>No. SnapSects does not automatically describe any picture. It guides you to a Scientific Audio Description with suggestions on what to describe. Then, it prompts you with a text you can edit to perfect your Audio Description<br /></p><br><<br>p><h4>Can I upload any picture to SnapSects?</h4><br>No. Only pictures of Insects and other Arthropods are accepted at this moment.<br /></p><br><br><p><h4>Can I upload a picture that somebody else took, or any other picture I found on the web?</h4><br>You should only upload pictures that you have the right or permission to use. Pictures from the web should only be used if they are in public domain or otherwise have no restriction to be used by you or any third parties.<br /></p><br><br><p><h4>Can I upload a picture with no description?</h4><br>Yes. But keep in mind that the aim of the SnapSects is to provide people who are blind or have low vision access to scientific Audio Description of Arthropods. You should use the app to get a basic description to your picture, so others can help filling up the gaps. In any case, you can always revisit your posting and complete or change your description.<br /></p><br><br><p><h4>Can I change any description I have made?</h4><br>Yes. You can always revisit your posting and complete or change your description. You can also authorize a collaborator to do so.<br /></p><br><p><h4>Do I have to be an expert to upload or describe a picture?</h4><br>No. But you should always carefully research about the arthropod on your picture, so to provide reliable description.<br /></p><br><p><h4>Can I describe pictures uploaded by other SnapSectors?</h4><br>Yes. You can either contact a SnapSector, let him or her know that you want to collaborate with the audio description, or post your contribution to the description.<br /></p><br><br><p><h4>Can I comment or give an opinion on the SnapSects postings?</h4><br>Yes. Your contribution and opinions are always welcome and invaluable. Remember always to be courteous, considerate and respectful. All SnapSectors are here with the objective of making scientific visual information on arthropods available to people who are blind or have low vision.<br /></p><br><br><p><h4>Can I comment or give an opinion on the SnapSects postings?</h4>
+[246]
+<h3>Disclaimer</h3><br><br><p>Last updated: June, 21th, 2018</p><br><br><p>The information contained on this Software (the "Service") is for general information purposes only. The Copyright Holders and contributors (also known as SnapSectors)  assume no responsibility for errors or omissions in the contents on the Service.</p><br><p>In no event shall The Copyright Holders and contributors be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. The Copyright Holders and contributors reserve the right to make additions, deletions, or modification to the contents on the Service at any time without prior notice. The Copyright Holders and contributors do not warrant that the website is free of viruses or other harmful components.</p>
+[247]
+Do you want to check the dictionary every time you open this application?
+[248]
+No
+[249]
+Yes
+[250]
+Select the speed of the voice
+[251]
+Too slow
+[252]
+Slow
+[253]
+Normal
+[254]
+Quick
+[255]
+Very fast
+[256]
+the voice speed has changed.
+[257]
+Speech settings
+[258]
+Automatically speak the contents of the screens?
+[259]
+Stop talking
+[260]
+Personal Settings
+[261]
+Enter your name
+[262]
+Enter your email address
+[263]
+Save personal settings
+[264]
+setup screen
+[265]
+Saved settings
+[266]
+Opening the edit menu
+[267]
+Edit menu
+[268]
+Opening the menu go to
+[269]
+Go To Menu
+[270]
+Click the title below to view its contents
+[271]
+ADD YOUR ARTROPOD
+[272]
+TO CONNECT
+[273]
+DISCONNECT
+[274]
+ADMINISTER USERS
+[275]
+Type your e-mail
+[276]
+Type your password
+[277]
+Submit
+[278]
+new user
+[279]
+Forgot password
+[280]
+Please fill in the email field!
+[281]
+Please fill in the password field!
+[282]
+Welcome
+[283]
+Invalid email or password
+[284]
+Error connecting to the internet, please try again later ...
+[285]
+An error occurred, please try again ...
+[286]
+Waiting confirmation
+[287]
+User
+[288]
+Teacher
+[289]
+Editor
+[290]
+Administrator
+[291]
+Name
+[292]
+Status
+[293]
+Email
+[294]
+Users
+[295]
+Filter by
+[296]
+To save
+[297]
+Comments
+[298]
+Manage users screen
+[299]
+Welcome to the academic snapsects!
+[300]
+Confirm your password
+[301]
+Login screen
+[302]
+User not found!
+[303]
+Your password has been sent to your email address!
+[304]
+SnapSects - Send Password ...
+[305]
+Your password is
+[306]
+An error has occurred! The passwords are different, please fill in again!
+[307]
+Please fill in the field name!
+[308]
+The email field is incorrect. Please fill in the email field again!
+[309]
+The password must have more than six letters!
+[310]
+Existing user, use another email address!
+[311]
+Thanks for signing up for SnapSects! We sent an email to your address with a link to confirm your registration ...
+[312]
+SnapSects - Confirmation of registration ...
+[313]
+To complete your registration click the following link:
+[314]
+Confirm the registration
+[315]
+Remove user
+[316]
+Are you sure you want to remove the user?
+[317]
+Are you sure you want to disconnect?

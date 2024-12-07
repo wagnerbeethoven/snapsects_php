@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+<title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+</head>
+<body>
+<div id="dvpage">
+<table border="0" width="100%"><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="100%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+<hr>
+<button id="cmdvoltar" onclick="javascript:window.location='index.html';">{dic78}</button>
+<center><h2>{dic227}</h2></center>
+<div id="dvlanguage">
+<p><label for="language">{dic228}: </label><select id="language" name="language" onchange="javascript:changelanguage(this.value);">
+</select></p>
+</div>
+<p><input type="checkbox" id="cmdautodic" onclick="javascript:changeautodic();"><label for="cmdautodic"> {dic247}</label></p>
+<br>
+<center><h2>{dic257}</h2></center>
+<center><input type="button" id="cmddelvel" onclick="javascript:var vv = parseFloat(localStorage.vel) - 0.30;localStorage.vel = vv.toString(); fala(dic[479]);" value="{dic480}">   <input type="button" id="cmdaddvel" onclick="javascript:var vv = parseFloat(localStorage.vel) + 0.30;localStorage.vel = vv.toString(); fala(dic[481]);" value="{dic482}"></center>
+<p><input type="checkbox" id="cmdautospeak" onclick="javascript:changeautospeak();"><label for="cmdautospeak"> {dic258}</label></p>
+<p><input type="checkbox" id="cmdmute" onclick="javascript:changemute();"><label for="cmdmute"> {dic259}</label></p>
+<p><input type="checkbox" id="cmdmove" onclick="javascript:changemove();"><label for="cmdmove"> {dic483}</label></p>
+<p><input type="checkbox" id="cmdautoform" onclick="javascript:changeautoform();"><label for="cmdautoform"> {dic484}</label></p>
+
+<br>
+<center><h2>{dic260}</h2></center>
+<p><label for="txtnome">{dic261}: </label><input type="text" id="txtnome" value="" ></p>
+<p><label for="txtemail">{dic262}: </label><input type="email" id="txtemail" value="" ></p>
+<center><button id="cmdsave" onclick="javascript:salvarconfig();">{dic263}</button></center>
+<hr>
+{dic73}
+</div>
+<br><br>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript" src="js/dados.js"></script>
+<script type="text/javascript" src="js/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<h3>About</h3>
+
+<h3>SnapSects</h3>
+<p>Version 0.83 Beta</p>
+
+<p>Programming - Luiz Eduardo Porto Marins</p>
+
+<p>This program is free software; you can redistribute it and/or modify it under the terms of the  3-Clause BSD License, as published in public domain on ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change</p>
+
+<p>SnapSects is an interactive web/mobile application designed to make pictures of arthropods accessible to people who are blind or have low vision through Scientific Audio Description. It is a tool for scientific classification of arthropods, specially insects, and an educational asset for learning about biodiversity and the visual anatomical aspects or the external morphology of those organisms.</p> 
+
+<p>SnapSects relies on users` volunteering contributions by means of taking and submitting pictures of arthropods, making audio description of them, revising scientific contents and edit proofing the site`s texts. </p>
+
+
+<p>SnapSects was developed after a 2017 post-doctorial research at the Department of Entomology of the Museum of Natural History - Smithsonian Institution (United States), with a grant from the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - CAPES (Brazil) and it is in compliance with best practices of accessibility and Audio Description.</p>
+
+<p> This is a free software, but it still costs money to write, support, and distribute it. If you enjoy using it, please consider a donation to the authors of this software. It will help to make SnapSects even better!</p> 

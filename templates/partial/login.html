@@ -1,0 +1,38 @@
+﻿    <form name="frm" method="POST">
+<input type="hidden" id="lang" name="lang" value="{LANG}">
+        <fieldset>
+            <legend>
+                <img title="SnapSects" src="DIR_LAYOUT/img/logo/site-logo.svg">
+                <span class="sr-only">SnapSects</span>
+            </legend>
+
+            <h2>Por favor preencha:</h1>
+                <ul>
+                    <li>
+                        <label for="email">[dic275]</label>
+                        <input type="email" name="email" id="email" value="" placeholder="[dic275]" required
+                               autofocus>
+                    </li>
+                    <li>
+                        <label for="pws">[dic276]</label>
+                        <input type="password" name="pws" id="pws" value="" placeholder="[dic276]">
+                    </li>
+                </ul>
+                <div class="login-reset">
+                    <input class="login-reset-btn" type="submit" name="cmdforget" id="cmdforget" value="[dic279]">
+                </div>
+                <input class="send" type="submit" name="cmdlogin" id="cmdlogin" value="Login">
+                <div class="login-create-account">
+                   Ainda não tem conta? <input type="button" name="cmdnewuser" id="cmdnewuser" value="[dic278]" onclick="javascript:window.location='newuser.php?lang={LANG}';">
+</div>
+                <div class="login-reset">
+<input type="button" class="login-reset-btn" name="voltar" id="voltar" value="[dic243]" onclick="javascript:window.location='index.php';">
+</div>
+        </fieldset>
+    </form>
+
+<script>
+    windows.onload = function(){
+        document.getElementById('email').focus();
+    };
+</script>

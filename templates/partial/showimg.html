@@ -1,0 +1,63 @@
+﻿<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" name="voltar" id="voltar" value="[dic78]" onclick="javascript:window.location='show_snapsect.php?id={CODID}&lang={LANG}';"></td>
+<td width="33%"></td>
+<td width="33%"></td>
+</tr></table>
+
+<main>
+  <article>
+    <div class="content page-add-about">
+      <section class="section-form">
+
+        <div class="hgroup">
+          <h2 id="showimg"><a class="anchorjs-link" href="#showimg"></a>
+            [dic322]
+          </h2>
+        </div>
+
+        <style>
+          figure img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+          }
+        </style>
+
+        <figure class="d-block mx-auto">
+          {URL}
+          <figcaption>
+            {TEXTO}
+          </figcaption>
+        </figure>
+
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-outline-danger" id="cmdinf" onclick="javascript:"><i class="fas fa-bomb"></i> [dic323]</button>
+          <button id="cmdrem" class="btn btn-outline-secondary"
+            onclick="javascript:if (confirm('[dic183]')) { delimg(querystring(0),querystring(1)); }"> <i
+              class="far fa-trash-alt"></i> [dic182]</button>
+          <button class="btn btn-outline-primary" id="cmdedit" onclick="javascript:editing();"> <i class="fas fa-pencil-alt"></i> [dic325]</button>
+        </div>
+      </section>
+    </div>
+  </article>
+</main>
+
+<script type="text/javascript" src="js/spajax.js"></script>
+<script language="javascript" src="templates/myajax.js"></script>
+<script>
+function redimensiona() {
+document.images['grpi'].width = 300;
+}
+
+function delimg(ii,pp) {
+pp = pp.substr(pp.lastIndexOf('/')+1);
+spopen(URL_SITE+'snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang={LANG}','POST', function(res) {
+window.location='show_snapsect.php?id='+ii+'&lang={LANG}';
+});
+} // da funcao...
+
+function editimg() {
+window.location='add_snapsect_photo.php?codid={CODID}&pasta={PHOTO}';
+} // da funcao...
+</script>

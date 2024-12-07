@@ -1,0 +1,10 @@
+2018/12/12 15:28	add Scarab_beetle(Cetonia_aurata_).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 15:29	add Scarab_beetle(Cetonia_aurata_).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 15:30	add Tick(Dermacentor_occidentalis).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 15:30	add Scarab_beetle(Cetonia_aurata_).jpg	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 15:31	delete error: no file name	3	Francisco Lima	limafj.us@gmail.com
+2018/12/19 01:41	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2018/12/19 01:42	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:51	del Tick(Dermacentor_occidentalis).jpg	4	Thais	slima_thais@hotmail.com
+2019/03/13 22:42	add Cetonia aurata.jpg	4	Thais	slima_thais@hotmail.com
+2019/05/23 09:50	add 12-2_Cetonia_Aurata.mp3	3	Francisco Lima	limafj.us@gmail.com

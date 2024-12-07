@@ -1,0 +1,81 @@
+    <button id="cmdaddphoto" class="" type="button"
+        onclick="javascript:window.location='snapsect_ger.php?lang={LANG}&id={ID}';">
+        <i class="far fa-images"></i> [dic78]</button>
+
+
+<!-- BEGIN BLOCK_EDIT -->
+    <button id="cmdaddphoto" class="especie-fotos" type="button"
+        onclick="javascript:window.location='snapsect_print.php?lang={LANG}&id={ID}';">
+        <i class="far fa-images"></i> [dic217]</button>
+
+    <button type="button" class="especie-edit" onclick="javascript:window.location='add_snapsect.php?id={ID}';"> <i
+            class="fas fa-pencil-alt"></i>
+        [dic218]</button>
+
+    <button type="button" class="especie-edit" onclick="javascript:window.location='add_snapsect_photo.php?id=0&codid={CODID}&lang={LANGUAGE}';"> <i
+            class="fas fa-pencil-alt"></i>
+        [dic330]</button>
+
+<!-- END BLOCK_EDIT -->
+<!-- BEGIN BLOCK_NOEDIT -->
+
+<!-- END BLOCK_NOEDIT -->
+</div>
+{SHOWTITULO}
+{SHOWFOTOS}
+<div id="dvvideo" style="display:none">
+<video controls></video>
+</div>
+{SHOWVIDEOS}
+<div id="dvpxaudio" style="display:none">
+<audio controls></audio>
+</div>
+{SHOWAUDIOS}
+{TEXTO}
+
+
+<script type="text/javascript" src="js/spajax.js"></script>
+<script>
+function redimensiona() {
+document.images['grpi'].width = 300;
+}
+
+function showimg(i, p) {
+window.location='showimg.php?id='+i+'&photo='+p+'&lang={LANG}';
+} // da funcao...
+
+function showvideo(i) {
+document.getElementById('dvvideo').style.display='inline';
+var v = document.getElementsByTagName("video")[0];
+v.addEventListener('ended', function() {
+document.getElementById('dvvideo').style.display='none';
+});
+
+v.src = i;
+v.play();
+
+} // da funcao...
+
+function showaudio(i) {
+document.getElementById('dvpxaudio').style.display = 'inline';
+var v = document.getElementsByTagName("audio")[0];
+v.addEventListener('ended', function() {
+document.getElementById('dvpxaudio').style.display='none';
+});
+
+v.src = i;
+v.play();
+} // da funcao...
+
+<!-- BEGIN BLOCK_VIDEOFUNC -->
+function delvideo(ii,pp) {
+pp = pp.substr(pp.lastIndexOf('/')+1);
+if (confirm('[dic339]')) {
+spopen(dic_path+'snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang={LANG}','POST', function(res) {
+window.location='show_snapsect.php?id='+ii;
+});
+} else {
+} // cancelar...
+} // da funcao...
+<!-- END BLOCK_VIDEOFUNC -->
+</script>

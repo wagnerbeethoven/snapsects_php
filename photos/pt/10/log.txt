@@ -1,0 +1,16 @@
+2018/12/12 15:16	add Beetle(Dorcacerus_barbatus).png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/19 16:37	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:36	del logo.jpg	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:36	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:37	delete error: no file name	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:37	del Beetle(Dorcacerus_barbatus).png	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:39	add logo.tif	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:39	del logo.tif	4	Thais	slima_thais@hotmail.com
+2019/02/28 02:40	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2019/03/05 03:09	add Dorcacerus barbatus .jpg	4	Thais	slima_thais@hotmail.com
+2019/05/23 08:58	add 5-1_dorcacerus_barbatus.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 08:59	add 5-2_dorcacerus_barbatus.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 09:00	del 51_dorcacerus_barbatus.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 09:01	add 5-1_dorcacerus_barbatus.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 11:36	add 5-1_dorcacerus_barbatus.mp3	3	Francisco Lima	limafj.us@gmail.com
+2019/05/23 11:37	add 5-2_dorcacerus_barbatus.mp3	3	Francisco Lima	limafj.us@gmail.com

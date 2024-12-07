@@ -1,0 +1,6 @@
+2018/12/12 15:46	add Leafcutter_ant(Atta_cephalotes_)2.png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/12 15:46	add Leafcutter_ant(Atta_cephalotes_)2.png	3	Francisco Lima	limafj.us@gmail.com
+2018/12/19 03:03	add logo.tif	4	Thais	slima_thais@hotmail.com
+2018/12/19 03:04	del logo.tif	4	Thais	slima_thais@hotmail.com
+2018/12/19 03:04	add logo.jpg	4	Thais	slima_thais@hotmail.com
+2019/02/28 03:32	del Leafcutter_ant(Atta_cephalotes_)2.png	4	Thais	slima_thais@hotmail.com

@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='school.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"><input type="button" onclick="javascript:save();" value="{dic296}"></td>
+</tr></table>
+</div>
+<hr>
+<form name="frm">
+<div id="dvtitle"></div>
+<div id="dvresultado"></div>
+</form>
+<br>
+<hr>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+var sala = '';
+var id = '';
+var prova = '';
+var resp = [];
+var quest = [];
+var ok = [];
+var tab = [];
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+cvoz();
+sala = querystring(0);
+id = querystring(1);
+prova = querystring(2);
+
+tab['0'] = ' '; // dic[394];
+tab['1'] = 'X'; // dic[393];
+tab['v'] = dic[371];
+tab['f'] = dic[372];
+
+var t = '<center><h2>'+sala.replaceAll('_',' ')+'</h2></center>';
+spjson(dic_path+'api_school.php','act=getcorrecao&email='+localStorage.lge+'&sala='+sala+'&id='+id+'&prova='+prova,'POST', function(res) {
+if (res.status == 'ok') {
+quest = res.results.quest;
+resp = res.results.resp;
+ok = res.results.ok;
+t+='<center><h2>'+quest.titulo+'</h2></center>';
+var soma = 0;
+for (var r=0;r<quest.quest.length;r++) {
+if (quest.quest[r].foto.length > 0) {
+t+='<center><img width="300px" alt="image" src="'+dic_path+'school/'+localStorage.lge+'/'+sala.replaceAll(' ','_')+'/exerciceos/'+id+'/'+quest.quest[r].foto+'"></center>';
+} // existe foto...
+
+t+='<p>'+quest.quest[r].texto+'</p>';
+t+='<h3>'+(r+1)+') '+quest.quest[r].enunciado;
+if (ok.nota) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+ok.quest[r].nota+'">';
+} // existe correcao...
+else {
+if (quest.quest[r].tipo == 0) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="0">';
+} else {
+var err = quest.quest[r].opcoes.length;
+for (var rr=0;rr<quest.quest[r].opcoes.length;rr++) {
+if (quest.quest[r].opcoes[rr].value == resp[r].opc[rr]) {
+err--;
+}
+} // do for rr.
+if (err == 0) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+quest.quest[r].nota+'">';
+} else {
+var vl = quest.quest[r].valor / quest.quest[r].opcoes.length;
+vl = vl * err;
+vl = quest.quest[r].valor - vl;
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+parseFloat(vl).toFixed(1)+'">';
+}
+// alert(err);
+}
+} // calcula a correcao automatica...
+t+=' ('+quest.quest[r].valor+')';
+t+='</h3>';
+if (quest.quest[r].tipo == 0) {
+t+='<center><b>'+dic[418]+'</b></center>';
+t+='<p>'+resp[r].resposta+'</p>';
+t+='<center><b>'+dic[419]+'</b></center>';
+t+='<p><b>'+quest.quest[r].resultado+'</b></p>';
+} else {
+for (var rr=0;rr<quest.quest[r].opcoes.length;rr++) {
+var subtexto = (quest.quest[r].tipo == 3)? '('+quest.quest[r].opcoes[rr].value+') '+quest.quest[r].opcoes[rr].title+' ('+resp[r].opc[rr]+')':'('+tab[quest.quest[r].opcoes[rr].value]+') '+quest.quest[r].opcoes[rr].title+' ('+tab[resp[r].opc[rr]]+')';
+var cl = (quest.quest[r].opcoes[rr].value == resp[r].opc[rr])?' title="'+dic[401]+' - '+subtexto+'" class="clcerto"':' title="'+dic[402]+' - '+subtexto+'" class="clerrado"';
+t+='<p'+cl+'>'+subtexto+'</p>';
+} // do for...
+} // outras opcoes...
+// soma += resp[r].nota;
+// if (resp[r].erros.length > 0) {
+// t+='<ul>';
+// for (var rr=0;rr<resp[r].erros.length;rr++) {
+// var co = '';
+// if (resp[r].erros[rr].correto.length == 1) { co = tab[resp[r].erros[rr].correto]; }
+// else {
+// co = resp[r].erros[rr].errado; 
+// }
+// t+='<li>'+resp[r].erros[rr].title+' - '+co+'</li>';
+// } // do for rr
+// t+='</ul>';
+// } // existe erros...
+ t+='<center><label for="mem'+r+'">'+dic[415]+'</label></center>';
+if (ok.nota) {
+t+='<textarea id="mem'+r+'" rows="5" cols="30">'+ok.quest[r].obs+'</textarea>';
+} else {
+t+='<textarea id="mem'+r+'" rows="5" cols="30"></textarea>';
+}
+
+t+='<br>';
+} // do for r
+if (ok.nota) {
+t+='<p><b>'+dic[397]+'<input type="number" value="'+ok.nota+'" id="intsoma"></b></p>';
+} // existe correcao...
+else {
+t+='<p><b>'+dic[397]+'<input type="number" value="'+soma+'" id="intsoma"></b></p>';
+}
+document.getElementById('dvresultado').innerHTML = t;
+atualiza();
+fala(dic[397]+' '+document.getElementById('intsoma').value+' '+prova.replaceAll('_',' '));
+} // resultado ok
+else {
+if (res.status == 'changed') {
+alert(dic[417]);
+window.location='school.html?sala='+querystring(0)+'&id='+querystring(1)+'&prova='+querystring(2);
+} // volta para a pagina anterior...
+}
+});
+
+    }, false);
+
+function atualiza() {
+var soma = 0;
+for (var r=0;r<quest.quest.length;r++) {
+var su = document.getElementById('conta'+r.toString()).value;
+soma+=parseFloat(su);
+}  // do for...
+document.getElementById('intsoma').value = soma.toFixed(1);
+} // da funcao...
+
+function save() {
+var t = 'act=setcorrecao&email='+localStorage.lge+'&sala='+sala+'&id='+id+'&prova='+prova;
+t+='&contador='+resp.length+'&nota='+document.getElementById('intsoma').value.toString().replaceAll(',','.');
+for (var r=0;r<quest.quest.length;r++) {
+t+='&quest'+r+'='+document.getElementById('mem'+r.toString()).value+'|';
+// alert('cheguei');
+t+=document.getElementById('conta'+r.toString()).value.toString().replaceAll(',','.');
+} // do for...
+spjson(dic_path+'api_school.php',t,'POST', function(res) {
+window.location='school.html';
+});
+} // da funcao...
+
+</script>
+</body>
+</html>

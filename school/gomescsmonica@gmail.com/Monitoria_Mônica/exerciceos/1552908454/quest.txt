@@ -1,0 +1,12 @@
+LISTA DE QUESTÕES 1|Lista de questões de diversos assuntos.||2019-03-18|2019-03-20|2019-03-20|10
+|Por quantas notas de 5 reais uma pessoa pode trocar a de 20 reais?||1|1||5#0_3#0_4#1_6#0_2#0||
+|O resultado de 346 24 é?||1|1||586#0_370#1_360#0_322#0||
+|Relacione as colunas de acordo com a classificação dos animais:||1|3||Girafa# Herbívoro_Leão#0_Porco#Onívoros|Carnívoro _ Herbívoro_Onívoro|
+|Futebol é o esporte mais jogado no Brasil?||1|2||||
+|Discorra sobre o processo de fotossíntese. ||1|0||||
+|Correlacione as colunas conforme as cores:||1|3||Céu#0_Plantas#Verde_Sol# Amarelo| Azul_ Amarelo_Verde|
+|Se ontem foi segunda que dia será daqui dois dias?||1|0|Quinta.|||
+|São matérias escolar:||1|2||Caneta#v_Panela#f_Cabo de aço#f_Lápis#v_Caderno#v_Tesoura#v_Louça#f_Espelho#v_Cama#v_Pincel#f||
+|Qual disciplina estuda a biodiversidade?||1|1||Português#0_Artes#0_Filosofia#0_Biologia#1_Matemática#0||
+|Qual destas cidades são capitais Nordestinas?||1|2||Caruaru#v_Cuiabar#f_Fortaleza#v_São Vicente #f_Recife#v_Salvador#v_São Paulo#f_Maceió#v_João Pessoa#v||
+|||0|0||||

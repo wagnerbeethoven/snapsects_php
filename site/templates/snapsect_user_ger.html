@@ -1,0 +1,35 @@
+                                 <html>
+<head>
+<title>SnapSects User</title>
+</head>
+<body>
+<h2>User</h2>
+<center><table border="2">
+<tr>
+<th TEXT-ALIGN="CENTER">Status: </th>
+<th TEXT-ALIGN="CENTER">Name: </th>
+<th TEXT-ALIGN="CENTER">URL: </th>
+<th TEXT-ALIGN="CENTER">Text: </th>
+<th>EDITAR</TH>
+<th>REMOVER</TH>
+<th>SEND PASSWORD</TH>
+</tr>
+<!-- BEGIN BLOCK_CAMPOS -->
+<tr>
+<td align="center">{STATUS}</td>
+<td align="center">{P->NOME}, {P->EMAIL}</td>
+<td align="center">{P->URL}</td>
+<td align="center">{P->OBS}</td>
+<td><input type="button" name="editar" value="EDITAR" title="Editar: {P->ID} {P->NOME}" onclick="javascript:document.location.href='add_snapsect_user.php?id={P->ID}';"></td>
+<td><input type="button" name="remover" value="REMOVER" title="remover: {P->ID} {P->NOME}" onclick="javascript:if (confirm('Do you want to remove {P->nome}?')) { document.location.href='snapsect_user_ger.php?id={P->ID}&act=remover'; }"></td>
+<td><input type="button" name="sendpass" value="SEND PASSWORD" title="Send password: {P->ID} {P->NOME}" onclick="javascript:document.location.href='snapsect_user_ger.php?id={P->ID}&act=sendpassword'; }"></td>
+</tr>
+<!-- END BLOCK_CAMPOS -->
+</table></center>
+<center><input type="button" name="sair" value="VOLTAR" title="voltar" onclick="javascript:document.location.href='index_adm.php';">
+<div class="foother">
+{RODAPE}
+</div>
+
+</body>
+</html>

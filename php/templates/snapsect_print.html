@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects</title>
+<style>
+body {
+text-align: justify;
+}
+</style>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script>
+function redimensiona() {
+document.images['grpi'].width = 300;
+}
+
+function showimg(i, p) {
+window.location='showimg.php?id='+i+'&photo='+p+'&lang={LANG}';
+} // da funcao...
+
+function showvideo(i) {
+document.getElementById('dvvideo').style.display='inline';
+var v = document.getElementsByTagName("video")[0];
+v.addEventListener('ended', function() {
+document.getElementById('dvvideo').style.display='none';
+});
+
+v.src = i;
+v.play();
+
+} // da funcao...
+
+function preparetela22() {
+document.getElementById('dvmenu2').style.display='inline';
+document.getElementById('dvmenu').style.display='none';
+} // da funcao...
+
+function preprint22() {
+preparetela22();
+alert('[dic380]');
+ print();
+window.location='show_snapsect.html?id={ID}&lang={LANG}';
+
+} // da funcao...
+
+<!-- BEGIN BLOCK_VIDEOFUNC -->
+function delvideo(ii,pp) {
+pp = pp.substr(pp.lastIndexOf('/')+1);
+if (confirm('[dic339]')) {
+spopen('http://www.snapsects.com/teste/snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang={LANG}','POST', function(res) {
+window.location='show_snapsect.php?id='+ii;
+});
+} else {
+} // cancelar...
+} // da funcao...
+<!-- END BLOCK_VIDEOFUNC -->
+</script>
+  </head>
+  <body>
+<div id="dvmenu">
+<table width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='show_snapsect.php?lang={LANG}&id={ID}';" value="[dic78]"></td>
+<td width="33%"></td>
+<td width="33%"></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><img src="http://www.snapsects.com/teste/img/logo_application.jpeg" width="50%" alt="[dic0]"></td>
+<td width="33%"></td>
+</tr></table>
+<ul>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvidentificacao').style.display=(this.checked)?'inline':'none';" id="chkidentificacao" checked><label for="chkidentificacao">[dic222]</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvdescricao').style.display=(this.checked)?'inline':'none';" id="chkdescricao" checked><label for="chkdescricao">[dic224]</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvcolecao').style.display=(this.checked)?'inline':'none';" id="chkcolecao" checked><label for="chkcolecao">[dic225]</label></li>
+<li id="linotes"><input type="checkbox" onclick="javascript:document.getElementById('dvnotes').style.display=(this.checked)?'inline':'none';" id="chknotes" checked><label for="chknotes">[dic170]</label></li>
+<li id="liaudio"><input type="checkbox" onclick="javascript:document.getElementById('dvaudio').style.display=(this.checked)?'inline':'none';" id="chkaudio" checked><label for="chkaudio">[dic174]</label></li>
+<li id="litext"><input type="checkbox" onclick="javascript:document.getElementById('dvtext').style.display=(this.checked)?'inline':'none';" id="chktext" checked><label for="chktext">[dic168]</label></li>
+<li id="libibliografia"><input type="checkbox" onclick="javascript:document.getElementById('dvbibliografia').style.display=(this.checked)?'inline':'none';" id="chkbibliografia" checked><label for="chkbibliografia">[dic177]</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvartropode').style.display=(this.checked)?'inline':'none';" id="chkartropode" checked><label for="chkartropode">[dic378]</label></li>
+</ul>
+<input type="button" id="cmdprint" onclick="javascript:preprint22();" value="[dic379]">
+</div>
+<div id="dvmenu2" style="display:none">
+<table width="100%"><tr>
+<td width="33%"></td>
+<td width="33%"><br><img src="http://www.snapsects.com/teste/img/logo_application.jpeg" width="50%" alt="[dic0]"></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<div id="dvvideo" style="display:none">
+<video controls></video>
+</div>
+{TEXTO}
+
+
+</body>
+</html>

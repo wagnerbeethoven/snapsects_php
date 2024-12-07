@@ -1,0 +1,27 @@
+<form name="frm" method="post">
+<input type="hidden" name="id" id="id" value="{P->ID}">
+<table border=0 width="90%"><tr>
+<td width="20%"><input type="button" name="voltar" id="voltar" value="[dic78]" onclick="javascript:window.location='snapsect_user_ger.php';"></td>
+<td width="60%"><center><div id="nometitulo"></div></center></td>
+<td width="20%"><input type="submit" name="save" id="save" value="[dic296]"></td>
+</tr></table>
+<script language="javascript" src="templates/func.js"></script>
+<script language="javascript" src="templates/myajax.js"></script>
+<p><label for="status">[dic292]: </label><select name="status" id="status" value="{P->STATUS}">
+<option value="0">[dic286]</option>
+<option value="1">[dic287]</option>
+<option value="5">[dic288]</option>
+<option value="50">[dic289]</option>
+<option value="67">[dic290]</option>
+</select></p>
+<p><label for="nome">[dic291]: </label><input type="text" name="nome" id="nome" value="{P->NOME}"></p>
+<p><label for="email">[dic293]: </label><input type="text" name="email" id="email" value="{P->EMAIL}"></p>
+<p><label for="url">URL: </label><input type="text" name="url" id="url" value="{P->URL}"></p>
+<p><label for="obs">[dic297]: </label><input type="text" name="obs" id="obs" value="{P->OBS}"></p>
+</form>
+
+<script>
+window.onload = function() {
+document.getElementById('status').value='{P->STATUS}';
+}
+</script>

@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects</title>
+<style>
+body {
+text-align: justify;
+}
+
+ul {
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+
+li {
+		display:block;
+		margin:0;
+		padding:0;
+		margin-bottom:1px;
+	}
+
+
+</style>
+
+  </head>
+  <body onload="show(document.getElementById('lstsalas').value);">
+<div id="dvpage">
+<div id="menu">
+<table width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='index.php';" value="[dic78]"></td>
+<td width="33%"><br><img src="img/logo_application.jpeg" width="50%" alt="[dic0]"></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<h1>{TITULO}</h1>
+<p><label for="lstsalas">[dic339]: </label><select id="lstsalas" onchange="show(this.value);">
+<!-- BEGIN BLOCK_SALAS -->
+<option value="{SALA}">{SALA}</option>
+<!-- END BLOCK_SALAS -->
+</select></p>
+<button id="cmdaddsala" onclick="javascript:addsala();">[dic340]</button>
+<button id="cmddelsala" onclick="javascript:delsala();">[dic341]</button>
+<div id="dvshow">
+
+</div>
+<input type="button" id="cmdaddconv" value="[dic342]" onclick="javascript:addconv();">
+
+</div>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript">
+var dic_path = 'http://www.snapsects.com/teste/';
+function show(v) {
+var t='<table width="100%"><tr>';
+t+='<td width="45%">[dic343]';
+
+spjson('http://www.snapsects.com/teste/school_api.php','act=getshow&email={EMAIL}&sala='+v,'POST', function(res) {
+var len = res.exerciceos.length;
+if (len > 0) {
+t+='<ul>';
+for (var r=0;r<len;r++) {
+
+t+='<li><input type="checkbox" id="chk'+r+'" onclick="javascript:setpublished('+"'"+res.exerciceos[r].id+"', '"+v+"', this.checked);"+'"';
+t+=(res.exerciceos[r].visible == '0')?'>':' checked>';
+t+=' <a href="#" onclick="javascript:window.location='+"'add_exerciceos.php?email={EMAIL}&id="+res.exerciceos[r].id+'&sala='+v+"';"+'">'+res.exerciceos[r].title+'</a>';
+t+='<input type="button" value="-" onclick="javascript:delquest('+"'"+res.exerciceos[r].id+"', '"+v+"');"+'">';
+t+='</li>';
+} // do for...
+t+='</ul>';
+} // existem itens...
+t+='<button id="cmdaddexerciceos" onclick="javascript:addexerciceos('+"'"+v+"'"+');">[dic344]</button>';
+t+='</td><td width="45%">[dic345]';
+var len=res.leituras.length;
+if (len > 0) {
+t+='<ul>';
+for (var r=0;r<len;r++) {
+t+='<li><a href="add_leituras.php?email={EMAIL}&sala='+v+'&id='+res.leituras[r]+'">'+res.leituras[r]+'</a>';
+t+='<input type="button" value="-" onclick="javascript:delleitura('+"'"+res.leituras[r]+"', '"+v+"'"+');">';
+t+='</li>';
+} // do for...
+t+='</ul>';
+} // existem leituras...
+t+='<button id="cmdaddleituras" onclick="javascript:addleituras('+"'"+v+"'"+');">[dic346]</button>';
+t+='</td></tr></table>';
+// agora as provas...
+t+='<h2>[dic347]</h2>';
+if (res.provas.length > 0) {
+for (var r=0;r<res.provas.length;r++) {
+t+='<h3>'+res.provas[r].title+'</h3>';
+t+='<ul>';
+for (var rr=0;rr<res.provas[r].provas.length;rr++) {
+t+='<li><a href="correcao.php?email={EMAIL}&sala='+document.getElementById('lstsalas').value+'&id='+res.provas[r].id+'&prova='+res.provas[r].provas[rr]+'">'+res.provas[r].provas[rr]+'</a></li>';
+} // do for rr
+t+='</ul>';
+} // do for...
+} // existem provas...
+// agora os exerciceos corrigidos
+t+='<h2>[dic348]</h2>';
+// alert(JSON.stringify(res.provas));
+if (res.provas.length > 0) {
+for (var r=0;r<res.provas.length;r++) {
+t+='<h3>'+res.provas[r].title+'</h3>';
+t+='<ul>';
+for (var rr=0;rr<res.provas[r].corrigidas.length;rr++) {
+t+='<li><a href="correcao.php?sala='+document.getElementById('lstsalas').value+'&id='+res.provas[r].id+'&prova='+res.provas[r].corrigidas[rr].title+'">'+res.provas[r].corrigidas[rr].nota+' - '+res.provas[r].corrigidas[rr].title+'</a></li>';
+} // do for rr
+t+='</ul>';
+} // do for...
+} // existem provas...
+t+='<h2>[dic349] ('+document.getElementById('lstsalas').value+')</h2>';
+if (res.alunos.length > 0) {
+t+='<ul>';
+for (var r=0;r<res.alunos.length;r++) {
+t+='<li>'+res.alunos[r];
+t+='<input type="button" onclick="delconv('+"'"+res.alunos[r]+"'"+');" value="-">';
+t+='</li>';
+} // do for...
+t+='</ul>';
+} // existem alunos...
+document.getElementById('dvshow').innerHTML = t;
+});
+document.getElementById('cmddelsala').style.display='inline';
+document.getElementById('cmdaddconv').style.display='inline';
+
+} // da funcao...
+
+function addsala() {
+var px = prompt('[dic348]','');
+// verificando caracteres estranhos...
+px = px.replaceAll('&','');
+px = px.replaceAll('/','');
+px = px.replaceAll('\\','');
+px = px.replaceAll('-','');
+px = px.replaceAll('?','');
+px = px.replaceAll('=','');
+px = px.replaceAll('*','');
+px = px.replaceAll('.','');
+px = px.replaceAll('|','');
+px = px.replaceAll('_',' ');
+px = px.trim();
+if (px.length > 0) {
+spopen(dic_path+'school_api.php','act=addsala&email={EMAIL}&sala='+px,'POST', function(res) {
+window.location='school.php?email={EMAIL}';
+});
+}
+} // da funcao...
+
+function delsala() {
+var v = document.getElementById('lstsalas').value;
+if (window.confirm('[dic374]')) {
+spopen(dic_path+'school_api.php','act=delsala&email={EMAIL}&sala='+v,'POST', function(res) {
+window.location='school.php?email={EMAIL}';
+});
+} // removendo...
+} // da funcao...
+
+function addexerciceos(x) {
+window.location='add_exerciceos.php?email={EMAIL}&id=0&sala='+x;
+} // da funcao
+
+function delquest(i, s) {
+if (confirm('[dic369]')) {
+spopen(dic_path+'school_api.php','act=delquest&email={EMAIL}&sala='+s+'&id='+i,'POST', function(res) {
+show(s);
+});
+} // removendo...
+} // da funcao...
+
+function setpublished(i, s, v) {
+var x =(v == true)?1:0;
+spopen(dic_path+'school_api.php','act=setindex&email={EMAIL}&sala='+s+'&id='+i+'&value='+x,'POST', function(res) {
+
+});
+} // da funcao...
+
+function addleituras(x) {
+window.location='add_leituras.php?email={EMAIL}&sala='+x+'&id=';
+} // da funcao...
+
+function addconv() {
+var input1 = window.prompt('[dic383]');
+if (input1.length > 0) {
+spjson(dic_path+'school_api.php','act=addconv&email={EMAIL}&aluno='+input1+'&sala='+document.getElementById('lstsalas').value,'POST', function(res) {
+if (res.status == 'ok') {
+alert('[dic384]');
+show(document.getElementById('lstsalas').value);
+} // esta ok...
+else { alert('[dic385]'); }
+});
+} // envia o convite...
+} // da funcao...
+
+function delleitura(i,s) {
+if(confirm('[dic377]')) {
+spopen(dic_path+'school_api.php','act=delleitura&email={EMAIL}&sala='+s+'&id='+i,'POST', function(rr) {
+show(s);
+}); // removendo...
+} // ok...
+} // da funcao...
+
+function delconv(a) {
+var s = document.getElementById('lstsalas').value;
+if (confirm('[dic382]')) {
+spopen(dic_path+'school_api.php','act=delconv&email={EMAIL}&sala='+s+'&aluno='+a,'POST', function(res) {
+show(s);
+});
+} // pode remover...
+} // da funcao...
+</script>
+</body>
+</html>

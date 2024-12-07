@@ -1,0 +1,159 @@
+<style>
+.clcerto {
+        color: blue;
+}
+
+.clerrado {
+        color: red;
+}
+
+</style>
+ 
+<div id="dvpage">
+<div id="menu">
+<table width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='school.php';" value="[dic78]"></td>
+<td width="33%"><br><img src="img/logo_application.jpeg" width="50%" alt="[dic0]"></td>
+<td width="33%"><input type="button" onclick="javascript:save();" value="[dic296]"></td>
+</tr></table>
+</div>
+<hr>
+<form name="frm">
+<div id="dvtitle"></div>
+<div id="dvresultado"></div>
+</form>
+
+</div>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript">
+var dic_path = URL_SITE;
+var sala = '';
+var id = '';
+var prova = '';
+var resp = [];
+var quest = [];
+var ok = [];
+var tab = [];
+
+function inicio() {
+sala = '{SALA}';
+sala = sala.replaceAll(' ','_');
+id = '{ID}';
+prova = '{PROVA}';
+prova = prova.replaceAll(' ','_');
+
+tab['0'] = ' '; 
+tab['1'] = 'X'; // dic[393];
+tab['v'] = '[dic371]';
+tab['f'] = '[dic372]';
+
+var t = '<h2>'+sala.replaceAll('_',' ')+'</h2>';
+spjson(dic_path+'school_api.php','act=getcorrecao&email={EMAIL}&sala='+sala.replaceAll(' ','_')+'&id='+id+'&prova='+prova.replaceAll(' ','_'),'POST', function(res) {
+quest = res.results.quest;
+resp = res.results.resp;
+ok = res.results.ok;
+t+='<h2>'+quest.titulo+'</h2>';
+var soma = 0;
+for (var r=0;r<quest.quest.length;r++) {
+t+='<p>'+quest.quest[r].texto+'</p>';
+t+='<h3>'+(r+1)+') '+quest.quest[r].enunciado;
+if (ok.nota) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+ok.quest[r].nota+'">';
+} // existe correcao...
+else {
+if (quest.quest[r].tipo == 0) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="0">';
+} else {
+var err = quest.quest[r].opcoes.length;
+for (var rr=0;rr<quest.quest[r].opcoes.length;rr++) {
+if (quest.quest[r].opcoes[rr].value == resp[r].opc[rr]) {
+err--;
+}
+} // do for rr.
+if (err == 0) {
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+quest.quest[r].nota+'">';
+} else {
+var vl = quest.quest[r].valor / quest.quest[r].opcoes.length;
+vl = vl * err;
+vl = quest.quest[r].valor - vl;
+t+=' valor = <input type="number" id="conta'+r+'" onchange="javascript:ok.quest['+r+'].nota=this.value;atualiza();" value="'+parseFloat(vl).toFixed(1)+'">';
+}
+// alert(err);
+}
+} // calcula a correcao automatica...
+t+=' ('+quest.quest[r].valor+')';
+t+='</h3>';
+if (quest.quest[r].tipo == 0) {
+t+='<p>'+resp[r].resposta+'</p>';
+t+='<p><b>'+quest.quest[r].resultado+'</b></p>';
+} else {
+for (var rr=0;rr<quest.quest[r].opcoes.length;rr++) {
+var cl = (quest.quest[r].opcoes[rr] == resp[r].opc[rr])?' class="clcerto"':' class="clerrado"';
+if (quest.quest[r].tipo == 3) {
+t+='<p'+cl+'>('+quest.quest[r].opcoes[rr].value+') '+quest.quest[r].opcoes[rr].title+' ('+resp[r].opc[rr]+')</p>';
+} else {
+t+='<p'+cl+'>('+tab[quest.quest[r].opcoes[rr].value]+') '+quest.quest[r].opcoes[rr].title+' ('+tab[resp[r].opc[rr]]+')</p>';
+} 
+} // do for...
+} // outras opcoes...
+// soma += resp[r].nota;
+// if (resp[r].erros.length > 0) {
+// t+='<ul>';
+// for (var rr=0;rr<resp[r].erros.length;rr++) {
+// var co = '';
+// if (resp[r].erros[rr].correto.length == 1) { co = tab[resp[r].erros[rr].correto]; }
+// else {
+// co = resp[r].erros[rr].errado; 
+// }
+// t+='<li>'+resp[r].erros[rr].title+' - '+co+'</li>';
+// } // do for rr
+// t+='</ul>';
+// } // existe erros...
+ t+='<label for="mem'+r+'">[dic415]</label>';
+if (ok.nota) {
+t+='<textarea id="mem'+r+'" rows="5" cols="30">'+ok.quest[r].obs+'</textarea>';
+} else {
+t+='<textarea id="mem'+r+'" rows="5" cols="30"></textarea>';
+}
+
+t+='<br>';
+} // do for r
+if (ok.nota) {
+t+='<p><b>[dic397]<input type="number" value="'+ok.nota+'" id="intsoma"></b></p>';
+} // existe correcao...
+else {
+t+='<p><b>[dic397]<input type="number" value="'+soma+'" id="intsoma"></b></p>';
+}
+document.getElementById('dvresultado').innerHTML = t;
+atualiza();
+fala('[dic397] '+document.getElementById('intsoma').value+' '+prova.replaceAll('_',' '));
+});
+
+    } // da funcao.
+
+function atualiza() {
+var soma = 0;
+for (var r=0;r<quest.quest.length;r++) {
+var su = document.getElementById('conta'+r.toString()).value;
+soma+=parseFloat(su);
+}  // do for...
+document.getElementById('intsoma').value = soma.toFixed(1);
+} // da funcao...
+
+function save() {
+var t = 'act=setcorrecao&email={EMAIL}&sala='+sala+'&id='+id+'&prova='+prova;
+t+='&contador='+resp.length+'&nota='+document.getElementById('intsoma').value.toString().replaceAll(',','.');
+for (var r=0;r<quest.quest.length;r++) {
+t+='&quest'+r+'='+document.getElementById('mem'+r.toString()).value+'|';
+// alert('cheguei');
+t+=document.getElementById('conta'+r.toString()).value.toString().replaceAll(',','.');
+} // do for...
+spjson(dic_path+'school_api.php',t,'POST', function(res) {
+window.location='school.html';
+});
+} // da funcao...
+window.onload = function()
+{
+    inicio();
+}
+</script>

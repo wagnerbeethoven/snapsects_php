@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects School</title>
+
+<link rel="stylesheet" href="css/index.css" type="text/css">
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript" src="js/dados.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+function opnmenu() {
+if (device.platform == 'Android') { openandroid(); }
+else {
+            navigator.notification.confirm(dic[267], function(ok) {
+            if (ok == 1) { window.location='add_snapsect.html?id=-1&tela=dvauthor'; }
+if (ok == 2) { window.location='add_snapsect.html?id=-1&tela=dvprincipal'; }
+if (ok == 3) { window.location='add_snapsect.html?id=-1&tela=dvdescriptions'; }
+if (ok == 4) { window.location='add_snapsect.html?id=-1&tela=dvmore'; }
+if (ok == 5) { window.location='add_snapsect.html?id=-1&tela=dvnotes'; }
+if (ok == 6) { window.location='add_snapsect.html?id=-1&tela=dvaudiodesc'; }
+if (ok == 7) { window.location='add_snapsect.html?id=-1&tela=dvmediation'; }
+if (ok == 8) { window.location='add_snapsect.html?id=-1&tela=dvbibliography'; }
+if (ok == 9) { window.location='add_snapsect.html?id=-1&tela=dvpicture'; }
+},dic[267],[dic[81],dic[1],dic[2],dic[3],dic[5],dic[6],dic[4],dic[82],dic[83],dic[243]]);
+
+}
+} // da funcao...
+
+function openandroid() {
+document.getElementById('dvpage').style.display = 'none';
+fala(dic[341]);
+var entries = [];
+
+entries.push({    
+title: dic[81],
+id: "window.location='add_snapsect.html?id=-1&tela=dvauthor';"
+});
+
+entries.push({    
+title: dic[1],
+id: "window.location='add_snapsect.html?id=-1&tela=dvprincipal';"
+});
+
+entries.push({    
+title: dic[2],
+id: "window.location='add_snapsect.html?id=-1&tela=dvdescriptions';"
+});
+
+entries.push({    
+title: dic[3],
+id: "window.location='add_snapsect.html?id=-1&tela=dvmore';"
+});
+
+entries.push({    
+title: dic[5],
+id: "window.location='add_snapsect.html?id=-1&tela=dvnotes';"
+});
+
+entries.push({    
+title: dic[6],
+id: "window.location='add_snapsect.html?id=-1&tela=dvaudiodesc';"
+});
+
+entries.push({    
+title: dic[4],
+id: "window.location='add_snapsect.html?id=-1&tela=dvmediation';"
+});
+
+entries.push({    
+title: dic[82],
+id: "window.location='add_snapsect.html?id=-1&tela=dvbibliography';"
+});
+
+entries.push({    
+title: dic[83],
+id: "window.location='add_snapsect.html?id=-1&tela=dvpicture';"
+});
+
+entries.push({    
+title: '',    
+id: '',    
+isSeparator: true
+});
+
+entries.push({    
+title: dic[243],
+id: ''
+});
+
+var context = {    
+title: dic[341],
+items: entries,    
+x: 0,    
+y: 0
+}
+
+ContextMenu.open(context, function (ele) {    
+document.getElementById('dvpage').style.display = 'inline';
+fala(dic[238]);
+eval(ele);
+
+});
+
+} // da funcao
+
+</script>
+  </head>
+  <body>
+<div id="dvprimeiravez" style="display: none">
+<center><h1>Instalando a biblioteca de idiomas...</h1></center>
+</div>
+<div id="dvpage">
+<div id="menu" class="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<div id="dvcontent">
+<hr>
+<ul>
+<li><a href="find.html">{dic7}</a></li>
+<li><select id="lstaddss" onchange="javascript:if (this.value != '') { window.location='add_snapsect.html?id=-1&tela='+this.value; }">
+<option value="">{dic271}</option>
+<option value="dvauthor">{dic81}</option>
+<option value="dvprincipal">{dic1}</option>
+<option value="dvdescriptions">{dic2}</option>
+<option value="dvmore">{dic3}</option>
+<option value="dvnotes">{dic5}</option>
+<option value="dvaudiodesc">{dic6}</option>
+<option value="dvmediation">{dic4}</option>
+<option value="dvbibliography">{dic82}</option>
+<option value="dvpicture">{dic83}</option>
+</select></li>
+<li><a href="snapsect_school.html">{dic334}</a></li>
+<li><a href="settings.html">{dic77}</a></li>
+<li><a href="showabout.html?id=244">{dic240}</a></li>
+<li><a href="showabout.html?id=245">{dic241}</a></li>
+<li><a href="showabout.html?id=246">{dic242}</a></li>
+</ul>
+<div id="dvresultado"></div>
+<hr>
+<div id="dvrodape">
+{dic73}
+</div>
+</div>
+</div>
+</body>
+</html>

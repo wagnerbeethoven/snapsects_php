@@ -1,0 +1,68 @@
+<script language="javascript" src="templates/func.js"></script>
+<script language="javascript" src="templates/myajax.js"></script>
+<script>
+    function redimensiona() {
+        document.images['grpi'].width = 300;
+    }
+</script>
+<main>
+    <article>
+        <div class="hgroup">
+            <h2>Adicionar imagem</h2>
+            <h3></h3>
+        </div>
+
+
+        <form name="frmphoto" enctype="multipart/form-data" method="POST">
+            <input type="hidden" name="id" id="id" value="{P->ID}">
+            <input type="hidden" name="codid" id="codid" value="{P->CODID}">
+            <input type="hidden" name="url" id="url" value="{P->URL}">
+            <div id="menu">
+                
+            </div>
+            <section class="section-form">
+                <div class="form-group">
+                    <label for="grpfoto">Selecione a imagem</label>
+                    <div class="input-container">
+
+                        <input type="file" name="grpfoto" id="grpfoto">
+                    </div>
+                    <figure class="img-select">
+                        <img id="grfoto" src="{P->URL}">
+                    </figure>
+                </div>
+
+                <div class="form-group">
+                    <label for="datacad">Date: </label>
+                    <div class="input-container">
+                        <input type="date" name="datacad" id="datacad" value="{P->DATACAD}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title: </label>
+                    <div class="input-container">
+                        <input type="text" name="title" id="title" value="{P->TITLE}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="obs">Picture description:</label>
+                    <div class="input-container">
+                        <textarea width="500px" rows="10" id="obs" name="obs">{P->OBS}</textarea>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="buttons">
+
+                    <button type="button"  type="button" name="voltar" id="voltar" 
+                    onclick="javascript:window.location='show_snapsect.php?id={P->CODID}';">Cancelar    </button>
+                    <button type="submit" name="save" id="save"><i class="far fa-save"></i>
+                        Salvar</button>
+                </div>
+            </section>
+        </form>
+    </article>
+</main>

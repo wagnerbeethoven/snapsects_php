@@ -1,0 +1,46 @@
+
+<h2>[dic274]</h2>
+<p><label for="find">[dic295]: </label><select name="find" id="find" onchange="javascript:window.location='snapsect_user_ger.php?find='+this.value;">
+<!-- BEGIN BLOCK_FIND -->
+<option value="{CHAVE}" {BB}>[dic{BASE}]</option>
+<!-- END BLOCK_FIND -->
+</select></p>
+<center><input type="button" name="editar" value="[dic278]" onclick="javascript:document.location.href='add_snapsect_user.php?id=0';"></center>
+<center><table border="2">
+<tr>
+<th TEXT-ALIGN="CENTER">[dic291]: </th>
+<th TEXT-ALIGN="CENTER">[dic292]: </th>
+<th TEXT-ALIGN="CENTER">[dic604]: </th>
+<th TEXT-ALIGN="CENTER">URL: </th>
+<th TEXT-ALIGN="CENTER">[dic297]: </th>
+<th>[dic370]</TH>
+<th>[dic416]</TH>
+</tr>
+<!-- BEGIN BLOCK_CAMPOS -->
+<tr>
+<td align="center"><a href="#" onclick="javascript:document.location.href='add_snapsect_user.php?id={P->ID}';">{P->NOME}, {P->EMAIL}</a></td>
+<td align="center"><select name="find2" id="find2" onchange="javascript:atualiza('{P->ID}', this.value);">
+<!-- BEGIN BLOCK_FIND2 -->
+<option value="{CHAVE}" {BB}>[dic{BASE}]</option>
+<!-- END BLOCK_FIND2 -->
+</select></td>
+<td align="center">{P->SCHOOL}</td>
+<td align="center">{P->URL}</td>
+<td align="center">{P->OBS}</td>
+<td><input type="button" name="remover" value="[dic370] {P->ID} {P->NOME}" onclick="javascript:if (confirm('[dic316] ({P->nome})?')) { document.location.href='snapsect_user_ger.php?id={P->ID}&act=remover'; }"></td>
+<td><input type="button" name="sendpass" value="[dic416] {P->ID} {P->NOME}" onclick="javascript:document.location.href='snapsect_user_ger.php?id={P->ID}&act=sendpassword'; }"></td>
+</tr>
+<!-- END BLOCK_CAMPOS -->
+</table></center>
+<center><input type="button" name="sair" value="[dic78]" onclick="javascript:document.location.href='index.php';">
+
+    <script src="js/spajax.js"></script>
+<script>
+function atualiza(id, v) {
+spopen(dic_path+'snapsect_user_api.php','act=chus&id='+id+'&status='+v,'GET', function(res) {
+alert('[dic605]');
+// fala('Status alterado com sucesso!');
+// mostra();
+});
+} // da funcao...
+</script>

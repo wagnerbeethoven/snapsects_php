@@ -1,0 +1,74 @@
+<div id="dvpage" class="d-none">
+    <div id="menu">
+        <table width="100%">
+            <tr>
+                <td width="33%"><input type="button" onclick="javascript:window.location='school.php?email={EMAIL}';"
+                        value="[dic78]"></td>
+                <td width="33%"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<form name="frm">
+    <main>
+        <article>
+            <div class="content page-new-activity">
+                <div class="hgroup">
+                    <input type="button" onclick="javascript:save();window.location='school.php?email={EMAIL}';"
+                        value="[dic78]" style="display: inline;width: auto !important;float: right;">
+                    <h2 class="new-activity">
+                        Nova leitura
+                    </h2>
+
+                </div>
+                <section class="section-form">
+                    <div class="form-group">
+                        <label for="txttitle">Nome do livro [dic375]:</label>
+                        <div class="input-container">
+                            <input type="text" id="txttitle" value="{ID}"
+                                onchange="javascript:licao.titulo = this.value; ">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txttext">
+                            Descrição do livro [dic376]: </label>
+                        <div class="input-container">
+                            <textarea id="txttext"
+                                onchange="javascript:licao.text = this.value;document.getElementById('cmdproxima').style.display=(licao.quest[page-1].texto.length+licao.quest[page-1].enunciado.length < 1)?'none':'inline';">{TEXTO}</textarea>
+                        </div>
+                    </div>
+
+
+
+                    <div class="buttons">
+                        <button type="submit" value="[dic296]" onclick="javascript:save();">
+                            <i class="far fa-save"></i> [dic296] </button>
+                    </div>
+
+
+                </section>
+            </div>
+        </article>
+    </main>
+</form>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript">
+    var dic_path = URL_SITE;
+    var licao = {
+        titulo: '{SALA}',
+        text: '{TEXTO}'
+    }
+    var id = '{ID}';
+
+    function save() {
+        var t = 'act=addleitura&email={EMAIL}';
+        t += '&sala={SALA}';
+        t += '&title=' + document.getElementById('txttitle').value;
+        t += '&text=' + licao.text;
+        spopen(dic_path + 'school_api.php', t, 'POST', function (res) {
+            // alert(id+' '+res.status);
+            window.location = 'school.php?email={EMAIL}';
+        });
+    } // da funcao...
+</script>

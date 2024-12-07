@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<div id="dvlogado">
+<table border="0" width="100%"><tr>
+<td width="20%"></td>
+<td width="60%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="20%"></td>
+</tr><tr>
+<td width="20%"><input type="button" onclick="javascript:if (parseInt(querystring(0)) < 0) { window.location='index.html'; } else { window.location='find.html'; }" value="{dic78}"></td>
+<td width="60%"><center><input type="button" onclick="javascript:window.location='snapsect_print.html?id='+querystring(0);" value="{dic217}"></center></td>
+<td width="20%"><select id="lstaddss" onchange="javascript:if (this.value != '') { window.location='add_snapsect.html?id='+querystring(0)+'&tela='+this.value; }">
+<option value="">{dic218}</option>
+<option value="dvauthor">{dic81}</option>
+<option value="dvprincipal">{dic1}</option>
+<option value="dvdescriptions">{dic2}</option>
+<option value="dvmore">{dic3}</option>
+<option value="dvnotes">{dic5}</option>
+<option value="dvaudiodesc">{dic6}</option>
+<option value="dvmediation">{dic4}</option>
+<option value="dvbibliography">{dic82}</option>
+<option value="dvpicture">{dic83}</option>
+</select></td>
+</tr></table>
+<center><button id="cmdaddphoto" onclick="javascript:window.location='add_snapsect_photo.html?id='+querystring(0);">{dic319}</button></center>
+<center><button id="cmdaddvideo" onclick="javascript:window.location='add_snapsect_video.html?id='+querystring(0);">{dic327}</button></center>
+<center><button id="cmdaddaudio" onclick="javascript:window.location='add_snapsect_media.html?id='+querystring(0);">Adicionar áudio</button></center>
+</div>
+<div id="dvdeslogado">
+<table border="0" width="100%"><tr>
+<td width="20%"><input type="button" onclick="javascript:window.location='index.html';" value="{dic78}"></td>
+<td width="60%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="20%"></td>
+</tr></table>
+</div>
+</div>
+<hr>
+<div id="dvshowtitulo"></div>
+<div id="dvshowfotos"></div>
+<div id="dvvideo" style="display:none">
+<video controls></video>
+</div>
+<div id="dvshowvideos"></div>
+<div id="dvshowaudio"></div>
+
+<div id="dvtexto">
+</div>
+<hr>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+
+    document.addEventListener("deviceready", function () {
+if (querystring(0) < '1') {
+window.location='index.html';
+} // nao tem informacao...
+convertpage();
+document.getElementById('dvdeslogado').style.display='inline';
+document.getElementById('dvlogado').style.display='none';
+
+if (!sessionStorage.lgs)  { }
+else {
+// alert('estou logado');
+if (sessionStorage.lgs.length < 1) {
+} else {
+document.getElementById('dvdeslogado').style.display='none';
+document.getElementById('dvlogado').style.display='inline';
+// alert('estou aqui');
+} // esta logado...
+} // existe lgs
+mostra();
+// cvoz();
+    }, false);
+
+function mostra() {
+var ii = '';
+if (!localStorage.lgi) { } else { ii = '&uid='+localStorage.lgi; }
+if (!sessionStorage.lgs) { } else { ii += '&ust='+sessionStorage.lgs; }
+spjson(dic_path+'cel_api.php','act=gettext&id='+querystring(0)+'&lang='+localStorage.language+ii,'POST', function(q) {
+var res = q.text;
+var ee = q.data;
+// alert(ee.commonname);
+// alert(res);
+while(res.charAt(0) != '<') { res = res.substr(1); }
+if (!sessionStorage.lgs) { }
+else {
+if ((localStorage.lgi == q.userid) || (q.users.indexOf('|'+localStorage.lgi+'|') > -1) || (sessionStorage.lgs == '67') || (localStorage.lgs == '50')) {
+document.getElementById('dvdeslogado').style.display='none';
+document.getElementById('dvlogado').style.display='inline';
+} // pode mostrar...
+else {
+document.getElementById('dvdeslogado').style.display='inline';
+document.getElementById('dvlogado').style.display='none';
+} // nao edita...
+} // verificando se abre o edit...
+var media_url = dic_path+'photos/'+localStorage.language.substring(0,2)+'/'+q.id+'/';
+// titulo
+var t = '<center><h2>'+ee.commonname+' ('+ee.scientificname+')</h2></center>';
+if (ee.photo.length > 0) {
+t += '<br><center><img id="grpi" src="'+media_url+ee.photo+'" alt="'+dic[219]+' '+ee.commonname+' ('+ee.scientificname+') - '+ee.photodesc+'" width="500px" onload="redimensiona();" onclick="showimg('+ee.id+", '"+ee.photo+"');"+'" /></center><br>';
+}
+document.getElementById('dvshowtitulo').innerHTML = t;
+// fotos...
+var l = q.photos;
+var phtxt = '';
+if (l.length > 0) {
+if (l.length == 1) {
+phtxt = '<center><img src="'+media_url+l[0].url+'" width="300px" ';
+phtxt+=(l[0].text.length > 0)?'alt="'+l[0].text+'"':'alt="Image"';
+phtxt+=' onclick="showimg('+q.id+", '"+l[0].url+"');"+'"></center>';
+} // apenas uma foto...
+else {
+phtxt +='<table border="0" width="100%"><tr>';
+pht = 1;
+for (var r=0;r<l.length;r++) {
+phtxt += '<td width="33%"><center><img src="'+media_url+l[r].url+'" width="300px" ';
+phtxt +=(l[r].text.length > 0)?'alt="'+l[r].text+'"':'alt="Image"';
+phtxt +=' onclick="showimg('+q.id+", '"+l[r].url+"');"+'"></center>';
+phtxt +='</td>';
+pht = pht + 1;
+if (pht > 3) {
+pht = 1;
+phtxt+='</tr><tr>';
+} // do pht >3
+} // do for...
+phtxt+='</tr></table>';
+} // mais que uma foto...
+} // existem imagens...
+// final das fotos...
+document.getElementById('dvshowfotos').innerHTML = phtxt;
+
+// videos
+var l = q.videos;
+var phtxt = '';
+if (l.length > 0) {
+phtxt+='<ul>';
+for (var r=0;r<l.length;r++) {
+phtxt += '<li><button onclick="javascript: showvideo('+"'"+media_url+l[r].url+"');"+'" >'+l[r].text+'</button>';
+if (document.getElementById('dvlogado').style.display == 'inline') {
+phtxt += '   <button onclick="javascript: delvideo('+q.id+', '+"'"+media_url+l[r].url+"');"+'" >** '+l[r].text+' **</button>';
+} // mostrando o botao de remover
+phtxt += '</li>';
+} // do for...
+phtxt+='</ul>';
+} // existem videos.
+document.getElementById('dvshowvideos').innerHTML = phtxt;
+
+// audio
+var l = q.audios;
+var phtxt='';
+if (l.length > 0) {
+// $phtxt.='<audio id="sndaudio" controls></audio>';
+phtxt+='<ul>';
+for (var r=0;r<l.length;r++) {
+phtxt += '<li><input type="button" id="cmdaudio'+r+'" onclick="javascript:showaudio('+"'"+media_url+l[r].url+"');"+'" value="'+l[r].text+'">';
+// $phtxt.='<audio controls>';
+// $pxurl = explode('.',$r["url"]);
+// $audiourl = $pxurl[count($pxurl)-1];
+// $phtxt.='<source src="http://www.snapsects.com/'.$ee->photos->pasta.$id.'/'.$r["url"].'" type="audio/'.$audiourl.'">';
+// $phtxt.='<embed height="60" type="audio/midi" width="144" src="http://www.snapsects.com/'.$ee->photos->pasta.$id.'/'.$r["url"].'" loop="false" autostart="false" />';
+// $phtxt.='</audio>';
+// $phtxt.='<embed height="60" type="audio/midi" width="144" src="http://www.snapsects.com/'.$ee->photos->pasta.$id.'/'.$r["url"].'" loop="false" autostart="false" />';
+if (document.getElementById('dvlogado').style.display == 'inline') {
+phtxt += '   <button onclick="javascript: delvideo('+q.id+', '+"'"+media_url+l[r].url+"');"+'" >** '+l[r].text+' **</button>';
+} // mostrando o botao de remover
+phtxt += '</li>';
+} // do for...
+phtxt+='</ul>';
+} // existem videos.
+document.getElementById('dvshowaudio').innerHTML = phtxt;
+
+document.getElementById('dvtexto').innerHTML = convertdic(res);
+// fala(dic[226]); // +' '+e.commonname); // +' '+dic[ee.classe]+' '+ee.commonname);
+fala(dic[226]+' '+q.commonname, cvoz);
+}, function(e) { alert(e+' erro '+querystring(0)); });
+} // da funcao
+
+function redimensiona() {
+document.images['grpi'].width = 300;
+} // da funcao
+
+function showimg(i, p) {
+document.getElementById('dvpage').style.display = 'none';
+fala(dic[322]);
+var entries = [];
+
+entries.push({    
+title: dic[323],
+id: "alert('informar imagem imprópria');"
+});
+
+entries.push({    
+title: dic[324],
+id: "delimg(i,p);"
+});
+
+entries.push({    
+title: dic[325],
+id: "window.location='add_snapsect_photo.html?id='+i+'&pasta='+p;"
+});
+
+entries.push({    
+title: dic[243],
+id: "var c = 1;"
+});
+
+var context = {    
+title: dic[322],
+items: entries,    
+x: 0,    
+y: 0
+}
+
+ContextMenu.open(context, function (ele) {    
+document.getElementById('dvpage').style.display = 'inline';
+fala(dic[238]);
+eval(ele);
+
+});
+
+
+} // da funcao...
+
+function delimg(ii,pp) {
+if (confirm(dic[183])) {
+spopen(dic_path+'snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang='+localStorage.language,'POST', function(res) {
+window.location='show_snapsect.html?id='+ii;
+});
+} else {
+} // cancelar...
+} // da funcao...
+
+function showvideo(i) {
+document.getElementById('dvvideo').style.display='inline';
+var v = document.getElementsByTagName("video")[0];
+v.addEventListener('ended', function() {
+document.getElementById('dvvideo').style.display='none';
+});
+
+v.src = i;
+v.play();
+
+} // da funcao...
+
+function showaudio(i) {
+fala(dic[551], function() {
+var v = new Media(i);
+v.play();
+});
+
+} // da funcao...
+
+function delvideo(ii,pp) {
+pp = pp.substr(pp.lastIndexOf('/')+1);
+if (confirm(dic[339])) {
+spopen(dic_path+'snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang='+localStorage.language,'POST', function(res) {
+window.location='show_snapsect.html?id='+ii;
+});
+} else {
+} // cancelar...
+} // da funcao...
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects - VIEW Photo</title>
+<style>
+body {
+text-align: justify;
+}
+</style>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script language="javascript" src="templates/myajax.js"></script>
+<script>
+function redimensiona() {
+document.images['grpi'].width = 300;
+}
+
+function delimg(ii,pp) {
+pp = pp.substr(pp.lastIndexOf('/')+1);
+spopen('http://www.snapsects.com/teste/snapsect_api.php','act=delimage&id='+ii+'&arquivo='+pp+'&lang={LANG}','POST', function(res) {
+window.location='show_snapsect.php?id='+ii;
+});
+} // da funcao...
+
+</script>
+  </head>
+  <body>
+<div id="menu">
+<table width="100%"><tr>
+<td width="33%"><input type="button" name="voltar" id="voltar" value="[dic78]" onclick="javascript:window.location='show_snapsect.php?id={CODID}&lang={LANG}';"></td>
+<td width="33%"></td>
+<td width="33%"></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><img src="http://www.snapsects.com/teste/img/logo_application.jpeg" width="50%" alt="[dic0]"></td>
+<td width="33%"></td>
+</tr></table>
+<hr>
+{URL}
+{TEXTO}
+<br>
+
+<button id="cmdinf" onclick="javascript:">Informar imagem imprópria</button>   
+<button id="cmdrem" onclick="javascript:if (confirm('[dic183]')) { delimg(querystring(0),querystring(1)); }">[dic182]</button>   
+<button id="cmdedit" onclick="javascript:">Editar descrição</button>
+
+<hr><br>
+
+</body>
+</html>

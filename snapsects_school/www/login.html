@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects School</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='index.html';" value="{dic78}"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<form name="frm" method="POST">
+<div id="dvnome">
+<p><label for="txtnome">{dic261}: </label><input type="text" id="txtnome" value="" ></p>
+</div>
+<div id="dvemail">
+<p><label for="email">{dic600}: </label><input type="email" name="email" id="email" value=""></p>
+</div>
+<div id="dvpassword" style="display: none">
+<p><label for="pws">{dic276}: </label><input type="password" name="pws" id="pws" value=""></p>
+</div>
+<div id="dvpws" style="display: none">
+<p><label for="pws2">{dic300}: </label><input type="password" name="pws2" id="pws2" value=""></p>
+</div>
+<center><input type="button" name="cmdverifylogin" id="cmdverifylogin" onclick="javascript: sendverifylogin();" value="{dic277}"></center>
+<center><input type="button" name="cmdlogin" id="cmdlogin" onclick="javascript: sendlogin();" style="display: none" value="{dic277}"></center>
+</form>
+<br>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+var act = '';
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+
+act = querystring(0);
+
+if (!localStorage.nome) { } else { document.getElementById('txtnome').value = localStorage.nome; }
+
+if (!localStorage.email) { } else { document.getElementById('email').value = localStorage.email; }
+if (!localStorage.pws) { } else { document.getElementById('pws').value = localStorage.pws; }
+
+switch(act) {
+case 'add': 
+document.getElementById('txtnome').focus();
+document.getElementById('dvpws').style.display = 'inline';
+document.getElementById('dvpassword').style.display = 'inline';
+document.getElementById('cmdlogin').style.display = 'inline';
+document.getElementById('cmdverifylogin').style.display = 'none';
+break;
+case 'login':
+if (localStorage.email.length > 0) {
+document.getElementById('dvnome').style.display = 'none';
+document.getElementById('dvemail').innerHTML = '<center>'+localStorage.email+'</center>';
+document.getElementById('dvpassword').style.display = 'inline';
+document.getElementById('pws').select();
+} else {
+document.getElementById('email').focus();
+document.getElementById('dvpws').style.display = 'none';
+document.getElementById('dvnome').style.display = 'none';
+}
+break;
+}
+fala(dic[301],cvoz);
+    }, false);
+
+function sendverifylogin() {
+if (localStorage.email) {
+login();
+return false;
+}
+var email = document.getElementById('email').value;
+if (email.length < 5) {
+alert(dic[548]);
+document.getElementById('email').setfocus();
+} else {
+spjson(dic_path+'api_school.php','act=verifyemail&email='+email,'POST', function(res) {
+switch(res.status) {
+case 'add':
+localStorage.email = email;
+window.location='login.html?act=add';
+break;
+case 'ok':
+localStorage.email = email;
+window.location='login.html?act=login';
+break;
+case 'error':
+alert(dic[547]);
+break;
+} // do case...
+});
+} // envia solicitação...
+} // da funcao...
+
+function sendlogin() {
+var email = document.getElementById('email').value;
+var pws = document.getElementById('pws').value;
+var pws2 = document.getElementById('pws2').value;
+var nome = document.getElementById('txtnome').value;
+var erro = 0;
+if (email.length < 5) {
+alert(dic[280]);
+document.getElementById('email').setfocus();
+erro = 1;
+return false;
+} // email invalido...
+if (pws.length < 5) {
+alert(dic[281]);
+document.getElementById('pws').setfocus();
+erro = 1;
+return false;
+} // arruma o e-mail...
+if (pws != pws2) { erro = 10; }
+if (erro == 0) {
+spjson(dic_path+'api_school.php','act=setlogin&email='+email+'&pws='+pws+'&nome='+nome,'POST',function(q) {
+if (q.status == 'ok') {
+localStorage.nome = nome;
+localStorage.email = email;
+localStorage.pws = pws;
+localStorage.token = q.token;
+sndplay('index.m4a', function() {
+window.location='snapsect_school.html';
+});
+} // login ok...
+}); // tentando o login...
+} // solicitando o login...
+} // da funcao...
+
+
+function getmail() {
+var email = document.getElementById('email').value;
+if (email.length < 5) {
+alert(dic[281]);
+} // email vazio...
+else {
+spopen(dic_path+'cel_api.php','act=cmdforget&email='+email+'&lang='+localStorage.language,'POST', function(res) {
+alert(dic[parseInt(res)]);
+});
+} // email preenchido...
+} // da funcao...
+
+function login() {
+var pws = document.getElementById('pws').value;
+if (pws.length > 4) {
+spjson(dic_path+'api_school.php','act=login&email='+localStorage.email+'&pws='+pws,'POST', function(res) {
+switch(res.status) {
+case 'ok':
+localStorage.pws = pws;
+localStorage.nome = res.nome;
+localStorage.token = res.token;
+sndplay('index.m4a', function() {
+window.location='snapsect_school.html';
+});
+break;
+case 'add':
+window.location='login.html?act=add';
+break;
+default:
+alert(dic[550]);
+document.getElementById('dvpassword').focus();
+} // nao e 
+});
+} else {
+alert(dic[549]);
+document.getElementById('pws').focus();
+} // menor que 4
+} // da funcao...
+</script>
+</body>
+</html>

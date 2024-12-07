@@ -1,0 +1,2 @@
+Teste 2|Este é uma questão para conhecer o novo aplicativo do Francisco.||Wed Mar 20 2019 15:53:03 GMT-0300 (Hora oficial do Brasil)|Wed Mar 21 2019 15:53:03 GMT-0300 (Hora oficial do Brasil)|Wed Mar 21 2019 15:53:03 GMT-0300 (Hora oficial do Brasil)|10
+|1. Como você avalia o novo aplicativo do Francisco?||10|1||ótimo#1_ruim#0_péssimo#0||

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="json2.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/dic.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+    <script type="text/javascript" charset="utf-8">
+var pic;
+
+document.addEventListener("deviceready", function () {
+convertpage();
+fala(dic[327],cvoz);
+captureVideo();
+}, false);
+
+    function captureSuccess(mediaFiles) {
+document.getElementById('dvvideo').style.display = 'block';
+var v = document.getElementsByTagName("video")[0];
+        var i, len;
+        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+            pic = mediaFiles[i];
+// alert(pic.name);
+v.src = mediaFiles[i].fullPath;
+//            uploadFile(mediaFiles[i]);
+        }       
+    }
+
+    // Called if something bad happens.
+    // 
+    function captureError(error) {
+        var msg = 'An error occurred during capture: ' + error.code;
+        navigator.notification.alert(msg, null, 'Uh oh!');
+    }
+
+    // A button will call this function
+    //
+    function captureVideo() {
+        // Launch device video recording application, 
+        // allowing user to capture up to 2 video clips
+        navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 1});
+    }
+
+    // Upload files to server
+    function uploadFile(mediaFile) {
+document.getElementById('dvenvia').style.display='inline';
+document.getElementById('dvprincipal').style.display='none';
+        var ft = new FileTransfer(),
+            path = mediaFile.fullPath,
+            name = localStorage.language[0]+localStorage.language[1]+'_'+querystring(0)+'_'+mediaFile.name;
+
+        ft.upload(path,
+            "http://www.snapsects.com/upl.php",
+            function(result) {
+//                alert('Upload success: ' + result.responseCode);
+//                alert(result.bytesSent + ' bytes sent');
+enviar();
+            },
+            function(error) {
+                alert('Error uploading file ' + path + ': ' + error.code);
+document.getElementById('dvprincipal').style.display='inline';
+document.getElementById('dvenvia').style.display='none';
+            },
+            { fileName: name, chunkedMode: false });   
+    }
+
+function enviar() {
+var temp = 'act=addvideo&lang='+localStorage.language;
+temp+='&id='+querystring(0);
+temp+='&text='+document.getElementById('text').value;
+temp+='&arquivo='+dic.name;
+spjson(dic_path+'snapsect_api.php', temp, 'POST', function(res) {
+window.location='show_snapsect.html&id='+querystring(0);
+}, function(e) {
+alert('ocorreu um erro, tente mais tarde...');
+document.getElementById('dvprincipal').style.display='inline';
+document.getElementById('dvenvia').style.display='none';
+});
+} // da funcao...
+    </script>
+    </head>
+    <body>
+<div id="dvpage">
+<table id="tabprincipal" border=0 width="100%"><tr>
+<td width="33%"><input type="button" name="voltar" id="voltar" value="{dic79}" onclick="javascript:if (querystring(0) > -1) {window.location='show_snapsect.html?id='+querystring(0);} else {window.location='index.html'; }"></td>
+<td width="33%"></td>
+<td width="33%"><center><input type="button" name="saveandview" id="saveandview" value="{dic80}" onclick="javascript:uploadFile(pic);"></center></td>
+</tr><tr>
+<td width="33%"></td>
+<td width="33%"><br><center><img src="img/logo_application.jpeg" width="40%" alt="{dic0}" onclick="javascript:startcommand();"></center><center><div id="nometitulo"></div></center></td>
+<td width="33%"></td>
+</tr></table>
+<div id="dvprincipal">
+<hr>
+<div id="dvvideo" style="display:none">
+<video controls></video>
+</div>
+
+        <button onclick="captureVideo();">{dic328}</button> <br>
+<form name="frm" id="frm" enctype="multipart/form-data" method="post" >
+<input type="hidden" id="id" name="id" value="">
+<input type="hidden" id="lang" name="lang" value="">
+<input type="hidden" id="act" name="act" value="addvideo">
+<input type="hidden" id="arquivo" name="arquivo" value="">
+<center><label for="text">{dic329}:</label></center>
+<textarea width="100%" rows="5" id="text" name="text"></textarea>
+</form>
+</div>
+<div id="dvenvia" style="display:none">
+<center><h2>AGUARDE ENQUANTO PUBLICAMOS SEU VÍDEO...</h2></center>
+</div>
+<hr>
+{dic73}
+</div>
+    </body>
+</html>

@@ -1,0 +1,139 @@
+<form name="frm" id="frm" enctype="multipart/form-data" method="POST">
+    <main>
+        <article>
+            <div class="hgroup">
+                <h2 id="adm-picture"><a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="#"
+                        href="#adm-picture"
+                        style="opacity: 1; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Administrar
+                    imagens</h2>
+                <h3>Você poderá atualizar as figuras utilizadas pelo sistema</h3>
+            </div>
+
+
+
+
+
+            <div class="content page-adm-picture">
+
+                <section class="section-form">
+                    <div class="form-group">
+                        <p>
+                            Selecione a imagem que você deseja alterar no selector abaixo.
+                        </p>
+                        <input type="hidden" id="act" value="addimage">
+                        <label for="lst">Select the item: </label>
+                        <div class="input-container">
+                            <select name="lst" id="lst" value=""
+                                onchange="javascript:mostraimagem(this.value,'imglst');">
+
+                                <optgroup label="SnapSects">
+                                    <option value="logo application">Logo application</option>
+                                </optgroup>
+                                <optgroup label="Class">
+                                    <option value="Arachinida">Arachinida</option>>
+                                    <option value="Chilopoda">Chilopoda</option>
+                                    <option value="Diplopoda">Diplopoda</option>
+                                    <option value="Insecta">Insecta</option>
+                                    <option value="Malacostraca">Malacostraca</option>
+                                </optgroup>
+                                <optgroup label="Antennae">
+                                    <option value="Filiform">Filiform</option>
+                                    <option value="Setaceous">Setaceous</option>
+                                    <option value="Geniculate">Geniculate</option>
+                                    <option value="Plumose">Plumose</option>
+                                    <option value="Clavate (gradual club)">Clavate (gradual club)</option>
+                                    <option value="Capitate (abrupt club or knob)">Capitate (abrupt club or knob)
+                                    </option>
+                                    <option value="Aristate">Aristate</option>
+                                    <option value="Monoliform or Moniliform">Monoliform or Moniliform</option>
+                                    <option value="Lamelate or Lamelar">Lamelate or Lamelar</option>
+                                    <option value="Serrate">Serrate</option>
+                                    <option value="Pectinate">Pectinate</option>
+                                    <option value="Minute and bristle-like">Minute and bristle-like</option>
+                                    <option value="Flabellate">Flabellate</option>
+                                </optgroup>
+
+                                <optgroup label="Mouth parts">
+                                    <option value="Chewing">Chewing</option>
+                                    <option value="Sucking (Sucker-maxillary)">Sucking (Sucker-maxillary)</option>
+                                    <option value="Sucking-labial">Sucking-labial</option>
+                                    <option value="Lapping">Lapping</option>
+                                    <option value="Sponging">Sponging</option>
+                                    <option value="Piercing-sucking">Piercing-sucking</option>
+                                    <option value="Siphoning">Siphoning</option>
+                                </optgroup>
+                                <optgroup label="Forewings">
+                                    <option value="Membranous">Membranous</option>
+                                    <option value="Elytra">Elytra</option>
+                                    <option value="Hemielytra">Hemielytra</option>
+                                    <option value="Tegmina">Tegmina</option>
+                                    <option value="Fringed">Fringed</option>
+                                    <option value="Scaly">Scaly</option>
+                                    <option value="Aptera (no wings)">Aptera (no wings)</option>
+                                </optgroup>
+                                <optgroup label="Hind Wings">
+                                    <option value="Haltere (dumbbells)">Haltere (dumbbells)</option>
+                                    <option value="Fringed">Fringed</option>
+                                    <option value="Scaly">Scaly</option>
+                                    <option value="Aptera (no hind wings)">Aptera (no hind wings)</option>
+                                </optgroup>
+                                <optgroup label="Legs">
+                                    <option value="Ambulatorial">Ambulatorial</option>
+                                    <option value="Cursorial">Cursorial</option>
+                                    <option value="Saltatorial">Saltatorial</option>
+                                    <option value="Scansorial">Scansorial</option>
+                                    <option value="Fossorial">Fossorial</option>
+                                    <option value="Raptorial">Raptorial</option>
+                                    <option value="Natatorial">Natatorial</option>
+                                    <option value="Collector">Collector</option>
+                                </optgroup>
+                                <optgroup label="Cerci">
+                                    <option value="Short with one segment">Short with one segment</option>
+                                    <option value="Short with two segments">Short with two segments</option>
+                                    <option value="Elongate with more than two segments">Elongate with more than two
+                                        segments</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <figure class="img-select">
+                            <img id="imglst">
+                            <figcaption class="text-muted text-center"> <small>This picture is .JPG</small>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="form-group" id="dvprincipal" style="display: none">
+                        <label for="grpfoto">Subtituit imagem selecionada</label>
+                        <div class="input-container">
+                            <input type="file" name="grpfoto" id="grpfoto">
+                        </div>
+
+                    </div>
+
+
+                    <div class="buttons">
+
+                        <button type="submit" name="enviar" id="enviar">
+                            <i class="far fa-save"></i> [dic296]</button>
+
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+</form>
+<script type="text/javascript" src="scripts/spajax.js"></script>
+<script type="text/javascript">
+    function mostraimagem(arq, obj) {
+        document.getElementById(obj).style.display = 'none';
+        document.getElementById('dvprincipal').style.display = 'none';
+        if (arq.length > 0) {
+            document.getElementById(obj).src = URL_SITE + 'img/' + arq.replaceAll(' ', '_') + '.jpg';
+            document.getElementById(obj).width = 200;
+            document.getElementById(obj).style.display = '';
+            document.getElementById('dvprincipal').style.display = '';
+        } // pode mostrar...
+    } // da funcao
+</script>

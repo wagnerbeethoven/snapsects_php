@@ -1,0 +1,21 @@
+LISTA DE QUESTÕES 2|Lista de questões de diversos assuntos.||2019-03-21|2019-03-25|2019-03-25|20
+|O Saara é o maior deserto do mundo.||1|2||Essa afirmação é? #f||
+|Entre os fãs de histórias em quadrinhos e fãs de super heróis qual alternativa a seguir está correta, em sua opinião?||1|1||Marvel#1_DC#0_Esquadrão Amazônia#0||
+|Qual o nome da nave que transportou os astronautas na missão da lua?||1|0|Apolo XI|||
+|O Monte Everest localiza-se na Cordilheira dos Andes?||1|2||Essa pergunta é?#f||
+|Qual dos filmes abaixo não foi premiado com o Oscar de melhor filme?||1|1||Birdman#0_O regresso#0_Pulp Fiction #1_A Forma de Água#0||
+|De acordo com os Números Reais, relacione as colunas:||1|3||{0,,1,2,3,4,5,6...}# Números Naturais_{...,1/2,3/4,-3/5,,,}#0_{..., -1,--2,-3,-4,-5,-6...}# Números Inteiros| Números Racionais_ Números Inteiros_ Números Naturais|
+|Qual dos pintores abaixo não fez parte do movimento impressionista?||1|1||Claudete Monet#0_Leonardo da Vinci #1_Pablo Picasso#0_Vicente Van Gogh#0||
+|De quem é a famosa frase PENSO,LOGO EXISTO?||1|0|Descartes.|||
+|Em média são retirados 450 mililitros em uma doação de sangue?||1|2||Essa pergunta é?#v||
+|Qual o livro mais vendido no mundo a seguir à Bíblia?||1|1||Dom Quixote#1_O Senhor dos Anéis#0_O Pequeno Príncipe#0_Ela, a Feiticeira#0_Um Conto de Duas Cidades#0||
+|Relacione as colunas de acordo com o tipo de Material que cada um grupo corresponde:||1|3||Talheres, Louças, Copos# Cozinha_Tijolos, Argamassa, Cimento# Construção_Caderno, Borracha, Lápis#0| Escolar_ Cozinha_ Construção|
+|Quantos litros em média uma pessoa normal possui?||1|0|Entre 4 e 6 litros|||
+|A terra possui luz própria.||1|2||Essa afirmação é?#f||
+|Quantas casas decimais tem o número PI?||1|1||Duas#0_Centenas#0_Trilhares#1_Vinte#0_Milhares#0||
+|A Inglaterra é a maior potência da Europa?||1|2||Essa pergunta é?#f||
+|De acordo com as cores relacione as colunas:||1|3||Sangue# Vermelho_Céu# Azul_Planta# Verde_Sol#0_Terra# Marron| Amarelo_ Vermelho_ Verde_ Azul_ Marron|
+|A quem pertence a fraseEU TENHO UM SONHO?||1|0|Martin Luther King.|||
+|A pintura intitulada Guernica é de autoria de Pablo Picasso?||1|2||Essa pergunta é?#v||
+|Qual país possui a maior população carcerária do mundo?||1|1||Brasil#0_China#0_Estados Unidos #1_Holanda#0_Rússia#0||
+|O elefante Africano é o maior animal terrestre do mundo.||1|2||Essa afirmação é?#v||

@@ -1,0 +1,62 @@
+<main>
+    <article>
+        <div class="hgroup">
+            <h2 id="add_about"><a class="anchorjs-link" href="#add_about"></a>
+                [dic329]
+            </h2>
+        </div>
+        <form nam e="frmt" id="frmt" method="post">
+            <div class="content page-add-about">
+                <section class="section-form">
+                    <div class="form-group">
+                        <input type="hidden" name="act" id="act" value="1">
+                        <label for="t0">[dic330]:</label>
+                        <div class="input-container">
+                            <select id="about-language" name="lang"
+                                onchange="javascript:window.location='add_about.php?lang='+this.value;">
+                                <option>Selecione o idioma</option>
+                                <option value="it-it">Italiano</option>
+                                <option value="fr-fr">Francês</option>
+                                <option value="en-us">English</option>
+                                <option value="es-es">Spanish</option>
+                                <option value="pt-br">Português</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="t0">[dic240]:</label>
+                        <div class="input-container">
+                            <textarea rows="4" cols="50" id="t0" name="t0">{T0}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="t3">[dic241]:</label>
+                        <div class="input-container">
+                            <textarea rows="4" cols="50" id="t3" name="t3">{T3}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="t2">[dic242]:</label>
+                        <div class="input-container">
+                            <textarea rows="4" cols="50" id="t2" name="t2">{T2}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="t1">CopyRight:</label>
+                        <div class="input-container">
+                            <textarea rows="4" cols="50" id="t1" name="t1">{T1}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="submit" value="Save" name="saveandview" id="save">
+                            <i class="far fa-save"></i> [dic296] </button>
+                    </div>
+                </section>
+        </form>
+        <script>
+            document.getElementById('about-language').value = '{LANG}';
+        </script>
+        {TEXTO}
+    </article>
+</main>

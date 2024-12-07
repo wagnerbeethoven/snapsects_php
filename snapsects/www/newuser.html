@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects Academic</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+  </head>
+  <body>
+<div id="dvpage">
+<div id="menu">
+<table border="0" width="100%"><tr>
+<td width="20%"><input type="button" onclick="javascript:window.location='login.html';" value="{dic78}"></td>
+<td width="60%"><br><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="20%"></td>
+</tr></table>
+</div>
+<form name="frm" method="POST">
+<p><label for="nome">{dic261}: </label><input type="text" name="nome" id="nome" value=""></p>
+<p><label for="email">{dic275}: </label><input type="email" name="email" id="email" value=""></p>
+<p><label for="pws">{dic276}: </label><input type="password" name="pws" id="pws" value=""></p>
+<p><label for="pws2">{dic300}: </label><input type="password" name="pws2" id="pws2" value=""></p>
+<p><label for="url">{dic189}: </label><input type="text" name="url" id="url" value=""></p>
+<center><input type="button" name="cmdadduser" id="cmdadduser" value="{dic277}" onclick="javascript:salvar();"></center>
+</form>
+<br>
+{dic73}
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript">
+
+    document.addEventListener("deviceready", function () {
+convertpage();
+fala(dic[278],cvoz);
+document.getElementById('nome').focus();
+if (!localStorage.lge) { } else { document.getElementById('email').value = localStorage.lge; }
+if (!localStorage.lgp) { } else { document.getElementById('pws').value = localStorage.lgp; }
+    }, false);
+
+function salvar() {
+if (document.getElementById('nome').value.length < 2) {
+alert(dic[307]);
+document.getElementById('nome').focus();
+} else {
+if ((document.getElementById('email').value.length < 2) || (document.getElementById('email').value.indexOf('@') < 0)) {
+alert(dic[308]);
+document.getElementById('email').focus();
+} else {
+if (document.getElementById('pws').value.length < 5) {
+alert(dic[309]);
+document.getElementById('pws').focus();
+} else {
+if (document.getElementById('pws').value != document.getElementById('pws2').value) {
+alert(dic[306]);
+document.getElementById('pws').focus();
+} else {
+var temp = 'act=nuser';
+temp+='&nome='+document.getElementById('nome').value;
+temp+='&email='+document.getElementById('email').value;
+temp+='&pws='+document.getElementById('pws').value;
+temp+='&url='+document.getElementById('url').value;
+spjson(dic_path+'cel_api.php',temp,'POST', function(msg) {
+alert(dic[parseInt(msg.result)]); // dic[parseInt(msg.result)]);
+if (msg.result == '311') { window.location='login.html'; }
+});
+} // ok pode salvar...
+} // campo pws ok
+} // campo email ok...
+} // campo nome ok...
+} // da funcao...
+</script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSect</title>
+<style>
+body, div {
+	background-color: #FFFFFF;
+}
+
+</style>
+
+  </head>
+  <body>
+<center><h1>SnapSect</h1></center>
+<form name="frm" enctype="multipart/form-data" method="post">
+<input type="hidden" name="id" id="id" value="">
+<input type="hidden" name="userid" id="userid" value="">
+<table border=0 width="90%"><tr>
+<td width="20%"><input type="button" name="voltar" id="voltar" value="Discard Changes" title="Discard Changes" onclick="javascript:window.location='show_snapsect.html?id='+querystring(0);"></td>
+<td width="60%"><center><div id="nometitulo"></div></center></td>
+<td width="20%"><input type="button" name="saveandview" id="saveandview" onclick="javascript:envia();" value="SAVE AND VIEW"></td>
+</tr></table>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript">
+var mydados; 
+var apifile = 'http://www.domvirt.com.br/snapsect/snapsect_api.php';
+var imagem = '';
+
+    document.addEventListener("deviceready", function () {
+document.getElementById('id').value=querystring(0);
+// alert(querystring(0));
+if (querystring(0) < '1') document.getElementById('remover').style.display='none';
+if (querystring(1).length > 0) { changetela(querystring(1)); } else { changetela('dvprincipal'); }
+if (querystring(0) > '0') { spjson(apifile,'act=get&id='+querystring(0),'GET', mostra, function() { }); }
+
+    }, false);
+
+function changetela(tela) {
+document.getElementById('cmdprincipal').enabled = true;
+document.getElementById('dvauthor').style.display='none';
+document.getElementById('dvprincipal').style.display='none';
+document.getElementById('dvdescriptions').style.display='none';
+document.getElementById('dvmore').style.display='none';
+document.getElementById('dvmediation').style.display='none';
+document.getElementById('dvnotes').style.display='none';
+document.getElementById('dvaudiodesc').style.display='none';
+document.getElementById('dvbibliography').style.display='none';
+document.getElementById('dvaudiodesc').style.display='none';
+document.getElementById(tela).style.display='inline';
+document.getElementById('cmdprincipal').enabled = false;
+} // da funcao.
+
+function getgps() {
+navigator.geolocation.getCurrentPosition(function(l) {
+document.getElementById('lat').value = l.coords.latitude;
+document.getElementById('lng').value = l.coords.longitude;
+spjson("http://maps.google.com/maps/api/geocode/json?latlng="+l.coords.latitude+","+l.coords.longitude+"&sensor=false&region=", '', '', function(data) {
+// alert(JSON.stringify(data.results[0].address_components[1].short_name));
+var e = data.results[0];
+document.getElementById('address').value=e.address_components[1].short_name+', '+e.address_components[0].short_name;
+document.getElementById('city').value=e.address_components[3].long_name;
+document.getElementById('uf').value=e.address_components[5].long_name;
+document.getElementById('country').value=e.address_components[6].long_name;
+});
+}, function(e) { });
+} // da funcao...
+
+function clearaudiodesc() {
+document.getElementById('audiodesc').value='';
+} // da funcao
+
+function getaudiodesc() {
+var t='Visual attributes: '+document.getElementById('colors').value+'\n';
+t+='Body (size shape and segments): '+document.getElementById('bbody').value+'\n';
+t+='Head (size shape and other attributes of the head of your specimen): '+document.getElementById('hhead').value+'\n';
+t+='Thorax: '+document.getElementById('thorax').value+'\n';
+t+='Abdomen: '+document.getElementById('abdomen').value+'\n';
+t+='Type of antennae: '+document.getElementById('lstantennae').value+'\n';
+t+='Antennae: '+document.getElementById('antennae').value+'\n';
+t+='Eyes and ocelli: '+document.getElementById('eyesandocelli').value+'\n';
+t+='Type of mouth parts: '+document.getElementById('lstmouthparts').value+'\n';
+t+='Mouth parts: '+document.getElementById('mouthparts').value+'\n';
+t+='Type of forewings: '+document.getElementById('lstwings').value+'\n';
+t+='Forewings: '+document.getElementById('wings').value+'\n';
+t+='Type of hind wings: '+document.getElementById('lsthindwings').value+'\n';
+t+='Hind wings: '+document.getElementById('hindwings').value+'\n';
+t+='Number of legs: '+document.getElementById('lstnumlegs').value+'\n';
+t+='Type of legs: '+document.getElementById('lstlegs').value+'\n';
+t+='Locomotive legs: '+document.getElementById('locomotive').value+'\n';
+t+='Tarsomere: '+document.getElementById('tarsomere').value+'\n';
+t+='Cerci: '+document.getElementById('cerci').value+'\n';
+t+='Specific characteristics: '+document.getElementById('specificcharacteristics').value+'\n';
+t+='Development: '+document.getElementById('development').value+'\n';
+t+='Metamorphosis: '+document.getElementById('metamorphosis').value+'\n';
+t+='Collecting method: '+document.getElementById('collecting').value+'\n';
+t+='Habitat (Place of collection): '+document.getElementById('place').value+'\n';
+t+='Mediation text: '+document.getElementById('mediation').value+'\n';
+ document.getElementById('audiodesc').value = t;
+} // da funcao
+
+function clearnotes() {
+document.getElementById('notes').value='';
+} // da funcao
+
+function getnotes() {
+var t='Common name: '+document.getElementById('commonname').value+'\n';
+t+='Scientific name: '+document.getElementById('scientificname').value+'\n';
+t+='Author and Date: '+document.getElementById('other').value+'\n';
+t+='Kingdom: '+document.getElementById('kingdom').value+'\n';
+t+='Phylum (Arthropoda): '+document.getElementById('phylum').value+'\n';
+t+='Class: (Insecta): '+document.getElementById('classe').value+'\n';
+t+='Order of your specimen: '+document.getElementById('oorder').value+'\n';
+t+='Family: '+document.getElementById('family').value+'\n';
+t+='Genus: '+document.getElementById('genus').value+'\n';
+t+='Species: '+document.getElementById('species').value+'\n';
+t+='Sex: '+document.getElementById('gender').value+'\n';
+
+t+='Development: '+document.getElementById('development').value+'\n';
+t+='Metamorphosis: '+document.getElementById('metamorphosis').value+'\n';
+t+='Collecting method: '+document.getElementById('collecting').value+'\n';
+t+='Place of collection: '+document.getElementById('place').value+'\n';
+ document.getElementById('notes').value = t;
+} // da funcao
+
+function delimage() {
+spopen('http://www.domvirt.com.br/snapsect/snapsect_api.php','act=delimage&id='+document.getElementById('id').value,'POST', function(res) {
+document.getElementById('photodesc').value='';
+document.getElementById('grfoto').src = '';
+});
+} // da funcao.
+
+function mostra(res) {
+var dados = res.snapsect;
+document.getElementById('id').value=dados.id;
+document.getElementById('userid').value=dados.userid;
+document.getElementById('commonname').value=dados.commonname;
+document.getElementById('scientificname').value=dados.scientificname;
+document.getElementById('other').value=dados.other;
+document.getElementById('kingdom').value=dados.kingdom;
+document.getElementById('phylum').value=dados.phylum;
+document.getElementById('classe').value=dados.classe;
+document.getElementById('oorder').value=dados.oorder;
+document.getElementById('family').value=dados.family;
+document.getElementById('genus').value=dados.genus;
+document.getElementById('species').value=dados.species;
+document.getElementById('gender').value=dados.gender;
+document.getElementById('colors').value=dados.colors;
+document.getElementById('bbody').value=dados.bbody;
+document.getElementById('hhead').value=dados.hhead;
+document.getElementById('thorax').value=dados.thorax;
+document.getElementById('abdomen').value=dados.abdomen;
+document.getElementById('lstantennae').value=dados.lstantennae;
+document.getElementById('antennae').value=dados.antennae;
+document.getElementById('eyesandocelli').value=dados.eyesandocelli;
+document.getElementById('lstmouthparts').value=dados.lstmouthparts;
+document.getElementById('mouthparts').value=dados.mouthparts;
+document.getElementById('lstwings').value=dados.lstwings;
+document.getElementById('wings').value=dados.wings;
+document.getElementById('lsthindwings').value=dados.lsthindwings;
+document.getElementById('hindwings').value=dados.hindwings;
+document.getElementById('lstnumlegs').value=dados.lstnumlegs;
+document.getElementById('lstlegs').value=dados.lstlegs;
+document.getElementById('locomotive').value=dados.locomotive;
+document.getElementById('tarsomere').value=dados.tarsomere;
+document.getElementById('cerci').value=dados.cerci;
+document.getElementById('specificcharacteristics').value=dados.specificcharacteristics;
+document.getElementById('development').value=dados.development;
+document.getElementById('metamorphosis').value=dados.metamorphosis;
+document.getElementById('collecting').value=dados.collecting;
+document.getElementById('place').value=dados.place;
+document.getElementById('datacad').value=dados.datacad;
+document.getElementById('lat').value=dados.lat;
+document.getElementById('lng').value=dados.lng;
+document.getElementById('city').value=dados.city;
+document.getElementById('country').value=dados.country;
+document.getElementById('uf').value=dados.uf;
+document.getElementById('address').value=dados.address;
+document.getElementById('win').value=dados.win;
+document.getElementById('temperature').value=dados.temperature;
+document.getElementById('mediation').value=dados.mediation;
+document.getElementById('notes').value=dados.notes;
+document.getElementById('audiodesc').value=dados.audiodesc;
+document.getElementById('water').value=dados.water;
+document.getElementById('grfoto').src='http://www.domvirt.com.br/snapsect/'+dados.photo;
+document.getElementById('photodesc').value=dados.photodesc;
+document.getElementById('ground').value=dados.ground;
+document.getElementById('author').value=dados.author;
+document.getElementById('email').value=dados.email;
+document.getElementById('url').value=dados.url;
+document.getElementById('colaborative').value=dados.colaborative;
+
+} // da funcao...
+
+function envia() {
+if (document.getElementById('commonname').value.length > 0) {
+if (document.getElementById('scientificname').value.length > 0) {
+var temp='act=add';
+temp+='&id='+document.getElementById('id').value;
+temp+='&userid='+document.getElementById('userid').value;
+temp+='&commonname='+document.getElementById('commonname').value;
+temp+='&scientificname='+document.getElementById('scientificname').value;
+temp+='&other='+document.getElementById('other').value;
+temp+='&kingdom='+document.getElementById('kingdom').value;
+temp+='&phylum='+document.getElementById('phylum').value;
+temp+='&classe='+document.getElementById('classe').value;
+temp+='&oorder='+document.getElementById('oorder').value;
+temp+='&family='+document.getElementById('family').value;
+temp+='&genus='+document.getElementById('genus').value;
+temp+='&species='+document.getElementById('species').value;
+temp+='&gender='+document.getElementById('gender').value;
+temp+='&colors='+document.getElementById('colors').value;
+temp+='&bbody='+document.getElementById('bbody').value;
+temp+='&hhead='+document.getElementById('hhead').value;
+temp+='&thorax='+document.getElementById('thorax').value;
+temp+='&abdomen='+document.getElementById('abdomen').value;
+temp+='&lstantennae='+document.getElementById('lstantennae').value;
+temp+='&antennae='+document.getElementById('antennae').value;
+temp+='&eyesandocelli='+document.getElementById('eyesandocelli').value;
+temp+='&lstmouthparts='+document.getElementById('lstmouthparts').value;
+temp+='&mouthparts='+document.getElementById('mouthparts').value;
+temp+='&lstwings='+document.getElementById('lstwings').value;
+temp+='&wings='+document.getElementById('wings').value;
+temp+='&lsthindwings='+document.getElementById('lsthindwings').value;
+temp+='&hindwings='+document.getElementById('hindwings').value;
+temp+='&lstnumlegs='+document.getElementById('lstnumlegs').value;
+temp+='&lstlegs='+document.getElementById('lstlegs').value;
+temp+='&locomotive='+document.getElementById('locomotive').value;
+temp+='&tarsomere='+document.getElementById('tarsomere').value;
+temp+='&cerci='+document.getElementById('cerci').value;
+temp+='&specificcharacteristics='+document.getElementById('specificcharacteristics').value;
+temp+='&development='+document.getElementById('development').value;
+temp+='&metamorphosis='+document.getElementById('metamorphosis').value;
+temp+='&collecting='+document.getElementById('collecting').value;
+temp+='&place='+document.getElementById('place').value;
+temp+='&datacad='+document.getElementById('datacad').value;
+temp+='&lat='+document.getElementById('lat').value;
+temp+='&lng='+document.getElementById('lng').value;
+temp+='&city='+document.getElementById('city').value;
+temp+='&country='+document.getElementById('country').value;
+temp+='&uf='+document.getElementById('uf').value;
+temp+='&address='+document.getElementById('address').value;
+temp+='&win='+document.getElementById('win').value;
+temp+='&temperature='+document.getElementById('temperature').value;
+temp+='&mediation='+document.getElementById('mediation').value;
+temp+='&notes='+document.getElementById('notes').value;
+temp+='&audiodesc='+document.getElementById('audiodesc').value;
+temp+='&water='+document.getElementById('water').value;
+temp+='&photo='+document.getElementById('grfoto').src;
+temp+='&photodesc='+document.getElementById('photodesc').value;
+temp+='&ground='+document.getElementById('ground').value;
+temp+='&author='+document.getElementById('author').value;
+temp+='&email='+document.getElementById('email').value;
+temp+='&url='+document.getElementById('url').value;
+temp+='&colaborative='+document.getElementById('colaborative').value;
+if (document.getElementById('salvafoto').checked == true) {
+temp+='&salvafoto=1';
+} else {
+temp+='&salvafoto=0';
+} // salvar foto...
+spjson(apifile,temp,'POST', function(resposta) {
+window.location='show_snapsect.html?id='+resposta.id;
+}, function() { });
+} // scientificname existe
+else { document.getElementById('scientificname').focus(); }
+} // commonname existe...
+else { document.getElementById('commonname').focus(); }
+} // da funcao...
+
+function snapshot() {
+navigator.camera.getPicture(function(imageData) {
+    var image = document.getElementById('grfoto');
+    image.src = "data:image/jpeg;base64," + imageData;
+imagem = imageData;
+}, function(message) {
+    alert('Failed because: ' + message);
+}, { quality: 50,
+//     destinationType: Camera.DestinationType.DATA_URL
+                                destinationType: navigator.camera.DestinationType.FILE_URI,
+                                sourceType: navigator.camera.PictureSourceType.PHOTO
+
+});
+} // da funcao
+
+function delbicho(v) {
+
+} // da funcao...
+</script>
+<table border=0 width="100%"><tr>
+<!-- BEGIN BLOCK_TAB -->
+<td><center><input type="button" id="cmdauthor" onclick="javascript:changetela('dvauthor');" value="DESCRIBER AND COLLABORATORS" title="DESCRIBER DESCRIPTION"></center></td>
+<!-- END BLOCK_TAB -->
+<td><center><input type="button" id="cmdprincipal" onclick="javascript:changetela('dvprincipal');" value="IDENTIFY YOUR ARTHROPOD" title="IDENTIFY YOUR ARTHROPOD"></center></td>
+</tr><tr>
+<td><center><input type="button" id="cmddescriptions" onclick="javascript:changetela('dvdescriptions');" value="DESCRIBE YOUR ARTHROPOD" title="DESCRIBE YOUR ARTHROPOD"></center></td>
+<td><center><input type="button" id="cmdmore" onclick="javascript:changetela('dvmore');" value="ADDITIONAL INFORMATION" title="ADDITIONAL INFORMATION"></center></td>
+</tr><tr>
+<td><center><input type="button" id="cmdnotes" onclick="javascript:changetela('dvnotes');" value="PROEMIAL NOTES" title="PROEMIAL NOTES"></center></td>
+<td><center><input type="button" id="cmdaudiodesc" onclick="javascript:changetela('dvaudiodesc');" value="AUDIO DESCRIPTION" title="Audio description"></center></td>
+</tr><tr>
+<td><center><input type="button" id="cmdmediation" onclick="javascript:changetela('dvmediation');" value="MEDIATION TEXT" title="MEDIATION TEXT"></center></td>
+<td><center><input type="button" id="cmdbibliography" onclick="javascript:changetela('dvbibliography');" value="BIBLIOGRAPHY" title="bibliography"></center></td>
+</tr><tr>
+<td><center><input type="button" id="cmdpicture" onclick="javascript:changetela('dvpicture');" value="PICTURE" title="Picture"></center></td>
+</tr></table>
+<div id="dvprincipal" style="display:inline">
+<p>Write the name that your specimen is known as where you found it; write any known popular names</p>
+<p><label for="commonname">Common name: </label><input type="text" name="commonname" id="commonname" value=""></p>
+<p>Write the scientific name of your specimen</p>
+<p><label for="scientificname">Scientific name: </label><input type="text" name="scientificname" id="scientificname" value=""></p>
+<p>Write who identified your specimen; write the year your specimen was identified.</p>
+<p><label for="other">Author and Date: </label><input type="text" name="other" id="other" value=""></p>
+<p><label for="kingdom">Kingdom: Animalia: </label><input type="text" name="kingdom" id="kingdom" value=""></p>
+<p><label for="phylum">Phylum: Arthropoda: </label><input type="text" name="phylum" id="phylum" value=""></p>
+<p>Select the class of your specimen</p>
+<p><label for="classe">Select Class: </label><select name="classe" id="classe" value="" onchange="javascript:filtro();">
+<option value="Arachinida">Arachinida</option>>
+<option value="Chilopoda">Chilopoda</option>
+<option value="Diplopoda">Diplopoda</option>
+<option value="Insecta">Insecta</option>
+<option value="Malacostraca">Malacostraca</option>
+</select></p>
+<p>Write the order of your specimen</p>
+<p><label for="oorder">Order: Write the order of your specimen: </label><input type="text" name="oorder" id="oorder" value=""></p>
+<p>Write the family of your specimen</p>
+<p><label for="family">Family: Write the Family of your specimen: </label><input type="text" name="family" id="family" value=""></p>
+<p>Write the genus of your specimen</p>
+<p><label for="genus">Genus: Write the Genus of your specimen: </label><input type="text" name="genus" id="genus" value=""></p>
+<p>Write the species of your specimen</p>
+<p><label for="species">Species: Write the Species of your specimen: </label><input type="text" name="species" id="species" value=""></p>
+<p>Select the Sex of your specimen.</p>
+<p><label for="gender">Select Sex: </label><select name="gender" id="gender" >
+<option value="female">female</option>
+<option value="male">male</option>
+<option value="unknown">unknown</option>
+</select></p>
+</div>
+<div id="dvdescriptions" style="display:none">
+<p>Describe your specimen clearly, with detailed visual attributes; indicate the color(s) of your specimen; e.g., it has black dots, it is luminous, it has black and brown stripes, or it's a blue butterfly.</p>
+<p><label for="colors">Visual attributes: </label></p>
+<p><textarea name="colors" id="colors" width="500px" height="300px"></textarea></p>
+<p>Tell the weight, size, length, width and shape of your specimen (e.g., It is long, its body is elongate and stick-like; or It is broad, flattened laterally compressed. Describe the type and number of segments (e.g., It has three body regions or segmentations; The body segmentation is imperceptible to the naked eye).</p>
+<p><label for="bbody">Body: </label><input type="text" name="bbody" id="bbody" value=""></p>
+<p>Tell the size and shape of the head of your specimen (e.g., it is triangular or rounded; It has bulbous regions between mouthparts and antennae; or Drawn into a beak with mouthparts forward”.</p>
+<p><label for="hhead">Head: </label><input type="text" name="hhead" id="hhead" value=""></p>
+Tell the size, shape, length, number of segments, number of existing wings, and/or legs in the thorax of your specimen.
+<p>Describe its Pronotum shape (e.g., It is short and distinct from the head; It is short and distinct from sides of prothorax; It is entirely or almost entirely covering head; It is elongate; It is long and wide; Short, with lobes descending over sides of the prothorax).</p>
+<p><label for="thorax">Thorax: </label><input type="text" name="thorax" id="thorax" value=""></p>
+<p>Tell the size, shape, length and number of segments of the abdomen of your specimen. Describe the overall abdomen shape of your specimen: (e.g., It is oval or elongate). Also describe the parts of the abdomen: abdominal base (e.g., Broadly attached to thorax; Constricted to a narrow waist flexibly hinged to body), abdominal apex (e.g., With a one long filament; With two long filaments; With three long filaments; With a forked jumping organ; With hardened forceps), type of cerci (e.g., Short with one segment; Elongate with more than two segments).</p>
+<p><label for="abdomen">Abdomen: </label><input type="text" name="abdomen" id="abdomen" value=""></p>
+
+<p><label for="lstantennae">Select type of Antennae: </label><select name="lstantennae" id="lstantennae" value="">
+<option value="Filiform">Filiform</option>
+<option value="Setaceous">Setaceous</option>
+<option value="Geniculate">Geniculate</option>
+<option value="Plumose">Plumose</option>
+<option value="Clavate (gradual club)">Clavate (gradual club)</option>
+<option value="Capitate (abrupt club or knob)">Capitate (abrupt club or knob)</option>
+<option value="Aristate">Aristate</option>
+<option value="Monoliform or Moniliform">Monoliform or Moniliform</option>
+<option value="Lamelate or Lamelar">Lamelate or Lamelar</option>
+<option value="Serrate">Serrate</option>
+<option value="Pectinate">Pectinate</option>
+<option value="Minute and bristle-like">Minute and bristle-like</option>
+<option value="Flabellate">Flabellate</option>
+<option value="other (add type in description box)">other (add type in description box)</option>
+</select></p>
+<p>Describe the antennae of your specimen. Describe number of antennae, the direction of the antennae (e.g., Projecting from the top of the head and curving behind along the body; Projecting from top sides of the head pointing forward), the shape (e.g., Densely feathered antennae; Hooked club-like antennae), length (e.g., “Longer than the body”).</p>
+<p><label for="antennae">Antennae: </label><input type="text" name="antennae" id="antennae" value=""></p>
+<p>Tell the number, size and type of eyes and ocelli your specimen has. Describe the shape of the eyes and ocelli, where they are located on the head (e.g., Separated; Meeting in midline dorsally) and their localization in relation to other parts in the head.</p>
+<p><label for="eyesandocelli">Eyes and ocelli: </label><input type="text" name="eyesandocelli" id="eyesandocelli" value=""></p>
+<p><label for="lstmouthparts">Select type of Mouth parts: </label><select name="lstmouthparts" id="lstmouthparts">
+<option value="Chewing">Chewing</option>
+<option value="Sucking (Sucker-maxillary)">Sucking (Sucker-maxillary)</option>
+<option value="Sucking-labial">Sucking-labial</option>
+<option value="Lapping">Lapping</option>
+<option value="Sponging">Sponging</option>
+<option value="Piercing-sucking">Piercing-sucking</option>
+<option value="Siphoning">Siphoning</option>
+<option value="other (add type in description box)">other (add type in description box)</option>
+</select></p>
+<p>Describe what types of mouth parts that your specimen has: (include the number and shapes of parts, Mandibles and tubular structure. Also tell where they are located in the head (e.g., External, with chewing mandibles; Forming a coiled, cylindrical tube beneath the head; Inside the head capsule).</p>
+<p><label for="mouthparts">Mouth parts: </label><input type="text" name="mouthparts" id="mouthparts" value=""></p>
+<p><label for="lstwings">Select type of forewings: </label><select name="lstwings" id="lstwings">
+<option value="Membranous">Membranous</option>
+<option value="Elytra">Elytra</option>
+<option value="Hemielytra">Hemielytra</option>
+<option value="Tegmina">Tegmina</option>
+<option value="Fringed">Fringed</option>
+<option value="Scaly">Scaly</option>
+<option value="Aptera (no wings)">Aptera (no wings)</option>
+<option value="other (add type in description box)">other (add type in description box)</option>
+</select></p>
+<p>Describe the wings of your specimen. Describe the color, pattern and texture (e.g., Both pairs of wings are membranous, covered in microscopic hairs; With many veins and cross veins; Forewings leathery and brown, Forewings hard, opaque, forming close-fitting covers over abdomen, hind wings transparent;). Describe the size and shape (e.g., Broad, large; Narrow, with a fringe of long hairs; Narrow), the length and number of wings (e.g., Four wings; Two, hind pair reduced to tiny clubs; Two, fore pair reduced to small clubs), the length of wingspan. Indicate whether wings are functional for flight (e.g., Functional; Reduced to small pads).</p>
+<p><label for="wings">Forewings: </label><input type="text" name="wings" id="wings" value=""></p>
+<p><label for="lsthindwings">Select type of Hind Wings: </label><select name="lsthindwings" id="lsthindwings">
+<option value="Membranous">Membranous</option>
+<option value="Haltere (dumbbells)">Haltere (dumbbells)</option>
+<option value="Fringed">Fringed</option>
+<option value="Scaly">Scaly</option>
+<option value="Aptera (no hind wings)">Aptera (no hind wings)</option>
+<option value="other (add type in description box)">other (add type in description box)</option>
+</select></p>
+<p>Describe the hind wings of your specimen. Describe the color, pattern and texture (e.g., Both pairs of hind wings are membranous, covered in microscopic hairs; With many veins and cross veins; hind wings leathery and brown, hind wings hard, opaque, forming close-fitting covers over abdomen, hind wings transparent;). Describe the size and shape (e.g., Broad, large; Narrow, with a fringe of long hairs; Narrow), the length and number of hind wings (e.g., Four wings; Two, hind pair reduced to tiny clubs; Two, fore pair reduced to small clubs), the length of wingspan. Indicate whether wings are functional for flight (e.g., Functional; Reduced to small pads).</p>
+<p><label for="hindwings">Hind Wings: </label><input type="text" name="hindwings" id="hindwings" value=""></p>
+<p><label for="lstnumlegs">Select number of legs: </label><select name="lstnumlegs" id="lstnumlegs">
+<option value="6">six</option>
+<option value="8">eight</option>
+<option value="10">ten</option>
+<option value="+10">more than ten (add number in description box)</option>
+</select></p>
+<p><label for="lstlegs">Select the type of Locomotive legs: </label><select name="lstlegs" id="lstlegs">
+<option value="Ambulatorial">Ambulatorial</option>
+<option value="Cursorial">Cursorial</option>
+<option value="Saltatorial">Saltatorial</option>
+<option value="Scansorial">Scansorial</option>
+<option value="Fossorial">Fossorial</option>
+<option value="Raptorial">Raptorial</option>
+<option value="Natatorial">Natatorial</option>
+<option value="Collector">Collector</option>
+<option value="other (add types in description box)">other (add types in description box)</option>
+</select></p>
+<p>Describe the legs of your specimen. Tell how they are modified or adapted. For instance, Forelegs (e.g., Forelegs armed with stout spines and modified for seizing prey; Foretarsi with basal segment swollen, containing silk glands), Hind Legs (e.g., Hind legs enlarged, modified for jumping; its hind legs are collectors or it has collector legs). Include the descriptions of the leg segments such as cocci, trochanter, femur, tarsus, pretarsus (e.g., With claws; With bladder-like swelling) and where they are located on the body.</p>
+<p><label for="locomotive">Description of legs: </label><input type="text" name="locomotive" id="locomotive" value=""></p>
+<p><label for="tarsomere">Select number of Tarsomere: </label><select name="tarsomere" id="tarsomere">
+<option value="One">One</option>
+<option value="Two">Two</option>
+<option value="Three">Three</option>
+<option value="Four">Four</option>
+<option value="Five">Five</option>
+</select></p>
+<p><label for="cerci">Select Cerci: </label><select name="cerci" id="cerci">
+<option value="Short with one segment">Short with one segment</option>
+<option value="Short with two segments">Short with two segments</option>
+<option value="Elongate with more than two segments">Elongate with more than two segments</option>
+</select></p>
+<p>Describe other specific characteristics of your specimen; any specialization of an appendage (e.g., There is) (It has) a stinger at the end of the abdomen).</p>
+<p><label for="specificcharacteristics">Specific characteristics: </label><input type="text" name="specificcharacteristics" id="specificcharacteristics" value=""></p>
+</div>
+<div id="dvmore" style="display:none">
+<p>Tell what developmental stage the specimen is in, for example larvae or adult</p>
+<p><label for="development">Development: </label><input type="text" name="development" id="development" value=""></p>
+<p>Tell what type of metamorphosis your specimen has. For instance, its  metamorphosis is simple, gradual or complete, it has incomplete metamorphosis.</p>
+<p><label for="metamorphosis">Metamorphosis: </label><input type="text" name="metamorphosis" id="metamorphosis" value=""></p>
+<p>Tell how you collected your specimen</p>
+<p><label for="collecting">Collecting method: </label><input type="text" name="collecting" id="collecting" value=""></p>
+<p>Describe the environment where you found your specimen, for instance, “in clear, running water”; “on the ground among rocks”; “in sandy soil”; “flying in a forest”.</p>
+<p><label for="place">Habitat (Place of collection): </label><input type="text" name="place" id="place" value=""></p>
+<p><label for="datacad">Date of collection: </label><input type="text" name="datacad" id="datacad" value=""></p>
+<p><input type="button" id="cmdgps" onclick="javascript:getgps();" value="Get position"></p>
+<p><label for="lat">Latitude: </label><input type="text" name="lat" id="lat" value=""></p>
+<p><label for="lng">Longitude: </label><input type="text" name="lng" id="lng" value=""></p>
+<p><label for="address">Address: </label><input type="text" name="address" id="address" value=""></p>
+<p><label for="city">City: </label><input type="text" name="city" id="city" value=""></p>
+<p><label for="uf">UF: </label><input type="text" name="uf" id="uf" value="" ></p>
+<p><label for="country">country: </label><input type="text" name="country" id="country" value=""></p>
+<p><label for="win">Wind: </label><input type="text" name="win" id="win" value=""></p>
+<p><label for="temperature">Temperature: </label><input type="text" name="temperature" id="temperature" value=""></p>
+</div>
+<div id="dvmediation" style="display:none">
+<center><label for="mediation">Mediation Text:</label></center>
+<textarea width="500px" height="300px" id="mediation" name="mediation"></textarea>
+</div>
+<div id="dvnotes" style="display:none">
+<center><label for="notes">Proemial notes:</label></center>
+<textarea width="500px" height="300px" id="notes" name="notes"></textarea>
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:clearnotes();" value="CLEAR"></td>
+<td width="33%"></td>
+<td width="33%"><input type="button" onclick="javascript:getnotes();" value="Taxonomy and Collection"></td>
+</tr></table>
+</div>
+<div id="dvaudiodesc" style="display:none">
+<center><label for="audiodesc">Audio description:</label></center>
+<textarea width="500px" height="300px" id="audiodesc" name="audiodesc"></textarea>
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:clearaudiodesc();" value="CLEAR"></td>
+<td width="33%"></td>
+<td width="33%"><input type="button" onclick="javascript:getaudiodesc();" value="GET ALL"></td>
+</tr></table>
+</div>
+<div id="dvbibliography" style="display:none">
+<center><label for="water">Bibliography:</label></center>
+<textarea width="500px" height="300px" id="water" name="water"></textarea>
+</div>
+<div id="dvpicture" style="display:none">
+<input type="hidden" id="salvafoto" name="salvafoto" value="0">
+<p><input type="checkbox" id="addfoto" name="addfoto" onclick="javascript:if (this.checked == true) { document.getElementById('dvchangephoto').style.display='inline'; document.getElementById('salvafoto').value='1'; } else { document.getElementById('dvchangephoto').style.display='none'; document.getElementById('salvafoto').value='0'; }"><label for="addfoto"> Change photo</label></p>
+<div id="dvchangephoto" style="display:none">
+    <input type="button" onclick="javascript:snapshot();" value="tapshot" />
+</div>
+<img id="grfoto" src="">
+<center><label for="photodesc">Picture description:</label></center>
+<textarea width="500px" height="300px" id="photodesc" name="photodesc"></textarea>
+<center><input type="button" id="delpic" name="delpic" value="REMOVE A PICTURE AND PICTURE DESCRIPTION" onclick="javascript:if (confirm('Do you want to remove a picture and picture description?')) { delimage(); }"></center>
+</div>
+<div id="dvauthor" style="display:none">
+<input type="hidden" id="ground" name="ground" value="">
+<p><label for="author">Describer: </label><input type="text" name="author" id="author" value=""></p>
+<p><label for="email">Email: </label><input type="text" name="email" id="email" value=""></p>
+<p><label for="url">Home Page: </label><input type="text" name="url" id="url" value=""></p>
+<center><label for="colaborative">Collaborators:</label></center>
+<textarea width="500px" height="300px" id="colaborative" name="colaborative"></textarea>
+<center>List of collaborators</center>
+<ul>
+<!-- BEGIN BLOCK_USER -->
+<li><input type="checkbox" id="chk{NUMERO}" onclick="javascript:if (this.checked) { document.getElementById('ground').value +='|'+{UID}+'|'; } else { document.getElementById('ground').value = document.getElementById('ground').value.replaceAll('|'+{UID}+'|',''); }" {MARCADO}><label for="chk{NUMERO}"> {UNOME}</label></li>
+<!-- END BLOCK_USER -->
+</ul>
+</div>
+<center><input type="button" id="remover" name="remover" value="REMOVE this arthropod" onclick="javascript:if (confirm('Do you want to remove it?')) {delbicho(querystring(0)); }"></center>
+</form>
+</body>
+</html>

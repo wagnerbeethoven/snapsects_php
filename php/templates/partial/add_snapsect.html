@@ -1,0 +1,743 @@
+
+<script language="javascript" src="templates/func.js"></script>
+<script language="javascript" src="js/spajax.js"></script>
+<script language="javascript" >
+function mostraimagem(arq, obj) {
+document.getElementById(obj).src = URL_SITE+'img/'+arq.replaceAll(' ','_')+'.jpg';
+document.getElementById(obj).width = 200;
+} // da funcao
+
+function changetela(tela) {
+document.getElementById('cmdprincipal').enabled = true;
+document.getElementById('dvauthor').style.display='none';
+document.getElementById('dvprincipal').style.display='none';
+document.getElementById('dvdescriptions').style.display='none';
+document.getElementById('dvmore').style.display='none';
+document.getElementById('dvmediation').style.display='none';
+document.getElementById('dvnotes').style.display='none';
+document.getElementById('dvaudiodesc').style.display='none';
+document.getElementById('dvbibliography').style.display='none';
+document.getElementById('dvaudiodesc').style.display='none';
+document.getElementById(tela).style.display='inline';
+document.getElementById('cmdprincipal').enabled = false;
+} // da funcao.
+
+function loading() {
+if ({P->ID} < 1) document.getElementById('remover').style.display='none';
+document.getElementById('classe').value='{P->CLASSE}';
+document.getElementById('development').value='{P->DEVELOPMENT}';
+document.getElementById('gender').value='{P->GENDER}';
+document.getElementById('lstantennae').value='{P->LSTANTENNAE}';
+document.getElementById('lstmouthparts').value='{P->LSTMOUTHPARTS}';
+document.getElementById('lstwings').value='{P->LSTWINGS}';
+document.getElementById('lsthindwings').value='{P->LSTHINDWINGS}';
+document.getElementById('lstnumlegs').value='{P->LSTNUMLEGS}';
+document.getElementById('lstlegs').value='{P->LSTLEGS}';
+document.getElementById('cerci').value='{P->CERCI}';
+document.getElementById('tarsomere').value='{P->TARSOMERE}';
+changetela('{DVINIT}');
+} // da funcao...
+
+function getgps() {
+navigator.geolocation.getCurrentPosition(function(l) {
+document.getElementById('lat').value = l.coords.latitude;
+document.getElementById('lng').value = l.coords.longitude;
+spjson("http://maps.google.com/maps/api/geocode/json?latlng="+l.coords.latitude+","+l.coords.longitude+"&sensor=false&region=", '', '', function(data) {
+// alert(JSON.stringify(data.results[0].address_components[1].short_name));
+var e = data.results[0];
+document.getElementById('address').value=e.address_components[1].short_name+', '+e.address_components[0].short_name;
+document.getElementById('city').value=e.address_components[3].long_name;
+document.getElementById('uf').value=e.address_components[5].long_name;
+document.getElementById('country').value=e.address_components[6].long_name;
+});
+}, function(e) { });
+} // da funcao...
+
+function clearaudiodesc() {
+document.getElementById('audiodesc').value='';
+} // da funcao
+
+function getaudiodesc() {
+var t='[ Visual attributes: ] '+document.getElementById('colors').value+'\n';
+t+='[ Body (size shape and segments): ] '+document.getElementById('bbody').value+'\n';
+t+='[ Head (size shape and other attributes of the head of your specimen): ] '+document.getElementById('hhead').value+'\n';
+t+='[ Thorax: ] '+document.getElementById('thorax').value+'\n';
+t+='[ Abdomen: ] '+document.getElementById('abdomen').value+'\n';
+t+='[ Type of antennae: ] '+document.getElementById('lstantennae').value+'\n';
+t+='[ Antennae: ] '+document.getElementById('antennae').value+'\n';
+t+='[ Eyes and ocelli: ] '+document.getElementById('eyesandocelli').value+'\n';
+t+='[ Type of mouth parts: ] '+document.getElementById('lstmouthparts').value+'\n';
+t+='[ Mouth parts: ] '+document.getElementById('mouthparts').value+'\n';
+t+='[ Type of forewings: ] '+document.getElementById('lstwings').value+'\n';
+t+='[ Forewings: ] '+document.getElementById('wings').value+'\n';
+t+='[ Type of hind wings: ] '+document.getElementById('lsthindwings').value+'\n';
+t+='[ Hind wings: ] '+document.getElementById('hindwings').value+'\n';
+t+='[ Number of legs: ] '+document.getElementById('lstnumlegs').value+'\n';
+t+='[ Type of legs: ] '+document.getElementById('lstlegs').value+'\n';
+t+='[ Locomotive legs: ] '+document.getElementById('locomotive').value+'\n';
+t+='[ Tarsomere: ] '+document.getElementById('tarsomere').value+'\n';
+t+='[ Cerci: ] '+document.getElementById('cerci').value+'\n';
+t+='[ Specific characteristics: ] '+document.getElementById('specificcharacteristics').value+'\n';
+t+='[ Collecting method: ] '+document.getElementById('collecting').value+'\n';
+t+='[ Habitat (Place of collection): ] '+document.getElementById('place').value+'\n';
+t+='[ Mediation text: ] '+document.getElementById('mediation').value+'\n';
+ document.getElementById('audiodesc').value = t;
+} // da funcao
+
+function clearnotes() {
+document.getElementById('notes').value='';
+} // da funcao
+
+function getnotes() {
+var t='[ Common name: ] '+document.getElementById('commonname').value+'\n';
+t+='[ Scientific name: ] '+document.getElementById('scientificname').value+'\n';
+t+='[ Author and Date: ] '+document.getElementById('other').value+'\n';
+t+='[ Kingdom: ] '+document.getElementById('kingdom').value+'\n';
+t+='[ Phylum (Arthropoda): ] '+document.getElementById('phylum').value+'\n';
+t+='[ Class: (Insecta): ] '+document.getElementById('classe').value+'\n';
+t+='[ Order of your specimen: ] '+document.getElementById('oorder').value+'\n';
+t+='[ Family: ] '+document.getElementById('family').value+'\n';
+t+='[ Genus: ] '+document.getElementById('genus').value+'\n';
+t+='[ Species: ] '+document.getElementById('species').value+'\n';
+t+='[ Sex: ] '+document.getElementById('gender').value+'\n';
+
+t+='[ Development: ] '+document.getElementById('development').value+'\n';
+t+='[ Metamorphosis: ] '+document.getElementById('metamorphosis').value+'\n';
+t+='[ Collecting method: ] '+document.getElementById('collecting').value+'\n';
+t+='[ Place of collection: ] '+document.getElementById('place').value+'\n';
+t+='[ Abiotic factors: ] '+document.getElementById('win').value+'\n';
+t+='[ Localization: ] '+document.getElementById('address').value+'\n';
+t+='[ Latitude: ] '+document.getElementById('lat').value+'\n';
+t+='[ Longitude: ] '+document.getElementById('lng').value+'\n';
+t+='[ City: ] '+document.getElementById('city').value+'\n';
+t+='[ State or Province: ] '+document.getElementById('uf').value+'\n';
+t+='[ Country: ] '+document.getElementById('country').value+'\n';
+t+='[ Date of collection: ] '+document.getElementById('datacad').value+'\n';
+t+='[ Temperature: ] '+document.getElementById('temperature').value+'\n';
+
+ document.getElementById('notes').value = t;
+} // da funcao
+
+function delimage() {
+spopen(URL_SITE+'snapsect_api.php','act=delimage&id={P->ID}','POST', function(res) {
+document.getElementById('photodesc').value='';
+document.getElementById('grfoto').src = '';
+});
+} // da funcao.
+
+windows.onload = function() {
+    loading();
+}
+
+</script>
+<!-- BEGIN BLOCK_TAB -->
+<!-- <input type="button"  value="DESCRIBERS AND COLLABORATORS"> --> <!-- Sem utilidade -->
+<!-- END BLOCK_TAB -->
+<!-- <h1>SnapSects</h1> -->
+<style>
+.section-form article .hgroup {
+    border-bottom: none !important;
+}
+</style>
+<main>
+    <article>
+            <form name="frm" enctype="multipart/form-data" method="post">
+                <input type="hidden" name="id" id="id" value="{P->ID}">
+                <div>
+                    <div id="nometitulo"></div>
+                </div>
+                <div class="content page-add-snapsect">
+                    <section class="section-form">
+                        <!-- INICIO Identificar o seu artrópode -->
+                        <div id="dvprincipal" style="display:inline">
+                            <div class="hgroup">
+                                <h2>[dic1]</h2>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Write the name or names that your specimen is commonly known as.</p>
+                                <label for="commonname">Common name: </label>
+                                <div class="input-container">
+                                    <input type="text" name="commonname" id="commonname" value="{P->COMMONNAME}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Write the scientific name of your specimen</p>
+                                <label for="scientificname">Scientific name: </label>
+                                <div class="input-container">
+                                    <input type="text" name="scientificname" id="scientificname"
+                                        value="{P->SCIENTIFICNAME}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Write who identified your specimen; write the year your specimen was identified.</p>
+                                <label for="other">Author and Date: </label>
+                                <div class="input-container">
+                                    <input type="text" name="other" id="other" value="{P->OTHER}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="kingdom">Kingdom: Animalia: </label>
+                                <div class="input-container">
+                                    <input type="text" name="kingdom" id="kingdom" value="{P->KINGDOM}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phylum">Phylum: Arthropoda: </label>
+                                <div class="input-container">
+                                    <input type="text" name="phylum" id="phylum" value="{P->PHYLUM}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Select the class of your specimen</p>
+                                <label for="classe">Select Class: </label>
+                                <div class="input-container">
+                                    <select name="classe" id="classe" value="{P->CLASSE}"
+                                        onchange="javascript:mostraimagem(this.value,'imgclass');">
+                                        <option value="">Not informed</option>
+                                        <option value="Arachinida">Arachinida</option>
+                                        <option value="Chilopoda">Chilopoda</option>
+                                        <option value="Diplopoda">Diplopoda</option>
+                                        <option value="Insecta">Insecta</option>
+                                        <option value="Malacostraca">Malacostraca</option>
+                                    </select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imgclass">
+                                </figure>
+                            </div>
+                            <div class="form-group">
+                                <p>Write the order of your specimen</p>
+                                <label for="oorder">Order: </label>
+                                <div class="input-container">
+                                    <input type="text" name="oorder" id="oorder" value="{P->OORDER}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Write the family of your specimen</p>
+                                <label for="family">Family: </label>
+                                <div class="input-container">
+                                    <input type="text" name="family" id="family" value="{P->FAMILY}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Write the genus of your specimen</p>
+                                <label for="genus">Genus: Write the Genus of your specimen: </label>
+                                <div class="input-container">
+                                    <input type="text" name="genus" id="genus" value="{P->GENUS}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Write the species of your specimen</p>
+                                <label for="species">Species: </label>
+                                <div class="input-container">
+                                    <input type="text" name="species" id="species" value="{P->SPECIES}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Select the Sex of your specimen.</p>
+                                <label for="gender">Select Sex: </label>
+                                <div class="input-container">
+                                    <select name="gender" id="gender">
+                                        <option value="">Not informed</option>
+                                        <option value="female">female</option>
+                                        <option value="male">male</option>
+                                        <option value="unknown">unknown</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Tell what developmental stage the specimen is in (e.g., larvae, pupa, nymph and
+                                    adult).</p>
+                                <label for="development">Select the developmental stage: </label>
+                                <div class="input-container">
+                                    <select name="development" id="development" value="{P->DEVELOPMENT}">
+                                        <option value="">Not informed</option>
+                                        <option value="Larvae">Larvae</option>
+                                        <option value="Pupa">Pupa</option>
+                                        <option value="Nymph">Nymph</option>
+                                        <option value="Adult">Adult</option>
+                                        <option value="Unknown">Unknown</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Tell what type of metamorphosis your specimen has. For instance, its metamorphosis is
+                                    simple, gradual or complete, it has incomplete metamorphosis.</p>
+                                <label for="metamorphosis">Metamorphosis: </label>
+                                <div class="input-container">
+                                    <input type="text" name="metamorphosis" id="metamorphosis"
+                                        value="{P->METAMORPHOSIS}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- FIM Identificar o seu artrópode -->
+
+                        <!-- INICIO Descreva seu artrópode -->
+                        <div id="dvdescriptions" style="display:none">
+                            <div class="hgroup">
+                                <h2>[dic2]</h2>
+                            </div>
+                            <div class="form-group">
+                                <p>Describe your specimen clearly, with detailed visual attributes; indicate the color(s) of your specimen; e.g., it has black dots, it is luminous, it has black and brown stripes, or it's a blue butterfly.</p>
+                                <label for="colors">Visual attributes: </label>
+                                <div class="input-container">
+                                    <textarea name="colors" id="colors" width="500px" height="300px">{P->COLORS}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Tell the weight, size, length, width and shape of your specimen (e.g., It is long, its body is elongate and stick-like; or It is broad, flattened laterally compressed.  Tell how body of your specimen is divided (e.g., Its body is divided in head, thorax and abdomen; is divided in cephalothorax and abdomen or in head and trunk).</p>
+                                <label for="bbody">Body: </label>
+                                <div class="input-container">
+                                    <input type="text" name="bbody" id="bbody" value="{P->BBODY}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Tell the size and shape of the head of your specimen (e.g., it is triangular or rounded; It has bulbous regions between mouthparts and antennae; or Drawn into a beak with mouthparts forward”.</p>
+                                <label for="hhead">Head: </label>
+                                <div class="input-container">
+                                    <input type="text" name="hhead" id="hhead" value="{P->HHEAD}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Tell the size, shape, length, number of segments, number of existing wings, and/or legs in the thorax of your specimen.</p>
+                                <p>Describe its Pronotum shape (e.g., It is short and distinct from the head; It is short and distinct from sides of prothorax; It is entirely or almost entirely covering head; It is elongate; It is long and wide; Short, with lobes descending over sides of the prothorax).</p>
+                                <label for="thorax">Thorax: </label>
+                                <div class="input-container">
+                                    <input type="text" name="thorax" id="thorax" value="{P->THORAX}"></p>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <p>Tell the size, shape, length and number of segments of the abdomen of your specimen. Describe the overall abdomen shape of your specimen: (e.g., It is oval or elongate). Also describe the parts of the abdomen: abdominal base (e.g., Broadly attached to thorax; Constricted to a narrow waist flexibly hinged to body), abdominal apex (e.g., With a one long filament; With two long filaments; With three long filaments; With a forked jumping organ; With hardened forceps), type of cerci (e.g., Short with one segment; Elongate with more than two segments).</p>
+                                <label for="abdomen">Abdomen: </label>
+                                <div class="input-container">
+                                    <input type="text" name="abdomen" id="abdomen" value="{P->ABDOMEN}">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="lstantennae">Select type of Antennae: </label>
+                                <div class="input-container">
+                                    <select name="lstantennae" id="lstantennae" value="{P->LSTANTENNAE}" onchange="javascript:mostraimagem(this.value,'imglstantennae');">
+                                        <option value="">Not informed</option>
+                                        <option value="Filiform">Filiform</option>
+                                        <option value="Setaceous">Setaceous</option>
+                                        <option value="Geniculate">Geniculate</option>
+                                        <option value="Plumose">Plumose</option>
+                                        <option value="Clavate (gradual club)">Clavate (gradual club)</option>
+                                        <option value="Capitate (abrupt club or knob)">Capitate (abrupt club or knob)</option>
+                                        <option value="Aristate">Aristate</option>
+                                        <option value="Monoliform or Moniliform">Monoliform or Moniliform</option>
+                                        <option value="Lamelate or Lamelar">Lamelate or Lamelar</option>
+                                        <option value="Serrate">Serrate</option>
+                                        <option value="Pectinate">Pectinate</option>
+                                        <option value="Minute and bristle-like">Minute and bristle-like</option>
+                                        <option value="Flabellate">Flabellate</option>
+                                        <option value="other (add type in description box)">other (add type in description box)</option>
+                                    </select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imglstantennae">
+                                </figure>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Describe the antennae of your specimen. Describe number of antennae, the direction of the antennae (e.g., Projecting from the top of the head and curving behind along the body; Projecting from top sides of the head pointing forward), the shape (e.g., Densely feathered antennae; Hooked club-like antennae), length (e.g., “Longer than the body”).</p>
+                                <label for="antennae">Antennae: </label>
+                                <div class="input-container">
+                                    <input type="text" name="antennae" id="antennae" value="{P->ANTENNAE}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Tell the number, size and type of eyes and ocelli your specimen has. Describe the shape of the eyes and ocelli, where they are located on the head (e.g., Separated; Meeting in midline dorsally) and their localization in relation to other parts in the head.</p>
+                                <label for="eyesandocelli">Eyes and ocelli: </label>
+                                <div class="input-container">
+                                    <input type="text" name="eyesandocelli" id="eyesandocelli" value="{P->EYESANDOCELLI}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lstmouthparts">Select type of Mouth parts: </label>
+                                <div class="input-container">
+                                    <select name="lstmouthparts" id="lstmouthparts" onchange="javascript:mostraimagem(this.value,'imglstmouthparts');">
+                                        <option value="">Not informed</option>
+                                        <option value="Chewing">Chewing</option>
+                                        <option value="Sucking (Sucker-maxillary)">Sucking (Sucker-maxillary)</option>
+                                        <option value="Sucking-labial">Sucking-labial</option>
+                                        <option value="Lapping">Lapping</option>
+                                        <option value="Sponging">Sponging</option>
+                                        <option value="Piercing-sucking">Piercing-sucking</option>
+                                        <option value="Siphoning">Siphoning</option>
+                                        <option value="other (add type in description box)">other (add type in description box)</option>
+                                    </select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imglstmouthparts">
+                                </figure>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Describe what types of mouth parts that your specimen has: (include the number and shapes of parts, Mandibles and tubular structure. Also tell where they are located in the head (e.g., External, with chewing mandibles; Forming a coiled, cylindrical tube beneath the head; Inside the head capsule).</p>
+                                <label for="mouthparts">Mouth parts: </label>
+                                <div class="input-container">
+                                    <input type="text" name="mouthparts" id="mouthparts" value="{P->MOUTHPARTS}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lstwings">Select type of forewings: </label>
+                                <div class="input-container">
+                                    <select name="lstwings" id="lstwings" onchange="javascript:mostraimagem(this.value,'imglstwings');">
+                                        <option value="">Not informed</option>
+                                        <option value="Membranous">Membranous</option>
+                                        <option value="Elytra">Elytra</option>
+                                        <option value="Hemielytra">Hemielytra</option>
+                                        <option value="Tegmina">Tegmina</option>
+                                        <option value="Fringed">Fringed</option>
+                                        <option value="Scaly">Scaly</option>
+                                        <option value="Aptera (no wings)">Aptera (no wings)</option>
+                                        <option value="other (add type in description box)">other (add type in description box)</option>
+                                    </select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imglstwings">
+                                </figure>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Describe the wings of your specimen. Describe the color, pattern and texture (e.g., Both pairs of wings are membranous, covered in microscopic hairs; With many veins and cross veins; Forewings leathery and brown, Forewings hard, opaque, forming close-fitting covers over abdomen, hind wings transparent;). Describe the size and shape (e.g., Broad, large; Narrow, with a fringe of long hairs; Narrow), the length and number of wings (e.g., Four wings; Two, hind pair reduced to tiny clubs; Two, fore pair reduced to small clubs), the length of wingspan. Indicate whether wings are functional for flight (e.g., Functional; Reduced to small pads).</p>
+                                <label for="wings">Forewings: </label>
+                                <div class="input-container">
+                                    <input type="text" name="wings" id="wings" value="{P->WINGS}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lsthindwings">Select type of Hind Wings: </label>
+                                <div class="input-container">
+                                    <select name="lsthindwings" id="lsthindwings" onchange="javascript:mostraimagem(this.value,'imglsthindwings');">
+                                        <option value="">Not informed</option>
+                                        <option value="Membranous">Membranous</option>
+                                        <option value="Haltere (dumbbells)">Haltere (dumbbells)</option>
+                                        <option value="Fringed">Fringed</option>
+                                        <option value="Scaly">Scaly</option>
+                                        <option value="Aptera (no hind wings)">Aptera (no hind wings)</option>
+                                        <option value="other (add type in description box)">other (add type in description box)</option>
+                                    </select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imglsthindwings">
+                                </figure>
+                            </div>
+                            <div class="form-group">
+                                <p>Describe the hind wings of your specimen. Describe the color, pattern and texture (e.g., Both pairs of hind wings are membranous, covered in microscopic hairs; With many veins and cross veins; hind wings leathery and brown, hind wings hard, opaque, forming close-fitting covers over abdomen, hind wings transparent;). Describe the size and shape (e.g., Broad, large; Narrow, with a fringe of long hairs; Narrow), the length and number of hind wings (e.g., Four wings; Two, hind pair reduced to tiny clubs; Two, fore pair reduced to small clubs), the length of wingspan. Indicate whether wings are functional for flight (e.g., Functional; Reduced to small pads).</p>
+                                <label for="hindwings">Hind Wings: </label>
+                                <div class="input-container">
+                                    <input type="text" name="hindwings" id="hindwings" value="{P->HINDWINGS}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lstnumlegs">Select number of legs: </label>
+                                <div class="input-container">
+                                    <select name="lstnumlegs" id="lstnumlegs">
+                                        <option value="">Not informed</option>
+                                        <option value="6">six</option>
+                                        <option value="8">eight</option>
+                                        <option value="10">ten</option>
+                                        <option value="+10">more than ten (add number in description box)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lstlegs">Select the type of legs: </label>
+                                <div class="input-container">
+                                    <select name="lstlegs" id="lstlegs" onchange="javascript:mostraimagem(this.value,'imglstlegs');">
+                                        <option value="">Not informed</option>
+                                        <option value="Ambulatorial">Ambulatorial</option>
+                                        <option value="Cursorial">Cursorial</option>
+                                        <option value="Saltatorial">Saltatorial</option>
+                                        <option value="Scansorial">Scansorial</option>
+                                        <option value="Fossorial">Fossorial</option>
+                                        <option value="Raptorial">Raptorial</option>
+                                        <option value="Natatorial">Natatorial</option>
+                                        <option value="Collector">Collector</option>
+                                        <option value="other (add types in description box)">other (add types in description box)</option>
+                                    </select>
+                                    <figure class="img-select">
+                                        <img id="imglstlegs">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Describe the legs of your specimen. Tell how they are modified or adapted. For instance, Forelegs (e.g., Forelegs armed with stout spines and modified for seizing prey; Foretarsi with basal segment swollen, containing silk glands), Hind Legs (e.g., Hind legs enlarged, modified for jumping; its hind legs are collectors or it has collector legs). Include the descriptions of the leg segments such as cocci, trochanter, femur, tarsus, pretarsus (e.g., With claws; With bladder-like swelling) and where they are located on the body.</p>
+                                <label for="locomotive">Description of legs: </label>
+                                <div class="input-container">
+                                    <input type="text" name="locomotive" id="locomotive" value="{P->LOCOMOTIVE}">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tarsomere">Select number of Tarsomere: </label>
+                                <div class="input-container">
+                                    <select name="tarsomere" id="tarsomere">
+                                        <option value="">Not informed</option>
+                                        <option value="One">One</option>
+                                        <option value="Two">Two</option>
+                                        <option value="Three">Three</option>
+                                        <option value="Four">Four</option>
+                                        <option value="Five">Five</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cerci">Select Cerci: </label>
+                                <div class="input-container">
+                                    <select name="cerci" id="cerci">
+                                        <option value="">Not informed</option>
+                                        <option value="Short with one segment">Short with one segment</option>
+                                        <option value="Short with two segments">Short with two segments</option>
+                                        <option value="Elongate with more than two segments">Elongate with more than two segments</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <p>Describe other specific characteristics of your specimen; any specialization of an appendage (e.g., There is) (It has) a stinger at the end of the abdomen).</p>
+                                <label for="specificcharacteristics">Specific morphological characteristics: </label>
+                                <div class="input-container">
+                                    <input type="text" name="specificcharacteristics" id="specificcharacteristics" value="{P->SPECIFICCHARACTERISTICS}">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIM Descreva seu artrópode -->
+                        
+                        <!-- INICIO Metodo de coleta -->
+                        <div id="dvmore" style="display:none">
+                            <div class="hgroup">
+                                <h2>[dic3]</h2>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Tell how you collected your specimen</p>
+                                <label for="collecting">Collecting method: </label>
+                                <div class="input-container">
+                                    <input type="text" name="collecting" id="collecting" value="{P->COLLECTING}"></p>
+                                </div>    
+                            </div>    
+                            <div class="form-group">
+                                    <p>Describe the environment where you found your specimen, for instance, in clear, running water; on the ground among rocks; in sandy soil; flying in a forest.</p>
+                                <label for="place">Habitat (Place of collection): </label>
+                                <div class="input-container">
+                                    <input type="text" name="place" id="place" value="{P->PLACE}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p>Inform the abiotic factors at the time of collection (e.g., wind, temperature, humidity, precipitation, pressure, UV index)</p>
+                                <label for="win">Abiotic factors: </label>
+                                <div class="input-container">
+                                    <input type="text" name="win" id="win" value="{P->WIN}">
+                                </div>
+                            </div>
+                            <div class="gps">
+                                <button type="button" id="cmdgps" onclick="javascript:getgps();" value="Get position">
+                                <i class="fas fa-map-marked-alt"></i>
+                                Capturar localização por GPS
+                                </button>
+                            </div>
+                            <div class="form-group"><label for="address">Localization: </label><div class="input-container"><input type="text" name="address" id="address" value="{P->ADDRESS}"></div></div>
+                            <div class="form-group"><label for="lat">Latitude: </label><div class="input-container"><input type="text" name="lat" id="lat" value="{P->LAT}"></div></div>
+                            <div class="form-group"><label for="lng">Longitude: </label><div class="input-container"><input type="text" name="lng" id="lng" value="{P->LNG}"></div></div>
+                            <div class="form-group"><label for="city">City: </label><div class="input-container"><input type="text" name="city" id="city" value="{P->CITY}"></div></div>
+                            <div class="form-group"><label for="uf">State or Province: </label><div class="input-container"><input type="text" name="uf" id="uf" value="{P->UF}" ></div></div>
+                            <div class="form-group"><label for="country">Country: </label><div class="input-container"><input type="text" name="country" id="country" value="{P->COUNTRY}"></div></div>
+                            <div class="form-group"><label for="datacad">Date of collection: </label><div class="input-container"><input type="text" name="datacad" id="datacad" value="{P->DATACAD}"></div></div>
+                            <div class="form-group"><label for="temperature">Temperature:</label><div class="input-container"><input type="text" name="temperature" id="temperature" value="{P->TEMPERATURE}"></div></div>
+                        </div>
+                        <!-- FIM Metodo de coleta-->
+
+                        <div id="dvmediation" style="display:none">
+                            <div class="hgroup">
+                                <h2>[dic168]</h2>
+                            </div>
+                            <div class="form-group">
+                                <p>Write a concise, but complete text about your specimen. Write about the ecology, the reproduction, and other important curious detail. That may distinguish your specimen or interest your audience.</p>
+                                <label for="mediation">Mediation Text:</label>
+                                <div class="input-container">
+                                    <textarea id="mediation" name="mediation">{P->MEDIATION}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- INICIO Notas proêmias -->
+                        <div id="dvnotes" style="display:none">
+                            <div class="hgroup">
+                                <h2>[dic5]</h2>
+                            </div>
+                            <div class="form-group">
+                                <p>Write a text that introduce your specimen. Present at its general attributes, specific concepts that will improve understanding of the audio description. Use clear, concise, concrete and specific linguage to convey the image of your specimen.</p>
+                                <label for="notes">Proemial notes:</label>
+                                <div class="input-container">
+                                    <textarea id="notes" name="notes">{P->NOTES}</textarea>
+                                </div>
+                                <aside>
+                                    <button class="copy" type="button" onclick="javascript:getnotes();" title="Capturar
+                                    taxonomia e dados de coleta">
+                                        <i class="far fa-clone"></i>
+                                        Capturar taxonomia <br>e dados de coleta
+                                    </button>
+                                    <button class="clear" type="button" onclick="javascript:clearnotes();" title="Limpar">
+                                        <i class="far fa-trash-alt"></i>
+                                        Limpar
+                                    </button>
+                                </aside>
+                            </div>    
+                        </div>
+                        <!-- FIM Notas proêmias -->
+
+                        <!-- INICIO Audio-descrição -->
+                        <div id="dvaudiodesc" style="display:none">
+                            <div class="hgroup">
+                                <h2>[dic6]</h2>
+                            </div>
+                            <div class="form-group">
+                                <p>Write your audio description with realistic and imaginative. Give relevant detailed visual information about your specimen.</p>
+                                <label for="audiodesc">Audio description:</label>
+                                <div class="input-container">
+                                    <textarea id="audiodesc" name="audiodesc">{P->AUDIODESC}</textarea>
+                                </div>
+                                <aside>
+                                    <button class="copy" type="button" onclick="javascript:getaudiodesc();" title="Capturar taxonomia e dados de coleta">
+                                        <i class="fas fa-align-left"></i>
+                                        Gerar texto
+                                    </button>
+
+                                    <button class="clear" type="button" onclick="javascript:clearaudiodesc();" title="Limpar">
+                                        <i class="far fa-trash-alt"></i>
+                                        Limpar</button>
+                                </aside>
+                            </div>         
+                           
+                        </div>
+                        <!-- FIM Audio-descrição -->
+
+                        <!-- INICIO Bibliografia -->
+                        <div id="dvbibliography" style="display:none">
+                            <div class="hgroup">
+                                <h2>[dic82]</h2>
+                            </div>
+                            <div class="form-group">
+                                <label for="water">Bibliography:</label>
+                                <div class="input-container">
+                                    <textarea id="water" name="water">{P->WATER}</textarea>
+                                </div>    
+                            </div>
+                        </div>
+                        <!-- FIM Bibliografia -->
+
+                        <!-- INICIO Imagem -->
+                        <div id="dvpicture" style="display:none">
+                            <div class="hgroup">
+                                <h2>[dic83]</h2>
+                            </div>
+                            <input type="hidden" id="salvafoto" name="salvafoto" value="0">
+                            <div class="form-group">
+                                <input type="checkbox" class="d-none" id="addfoto" name="addfoto" onclick="javascript:if (this.checked) { document.getElementById('dvchangephoto').style.display='inline'; document.getElementById('salvafoto').value='1'; } else { document.getElementById('dvchangephoto').style.display='none'; document.getElementById('salvafoto').value='0'; }">
+                                <label for="addfoto"> Change photo</label>
+                                <div class="input-container" id="dvchangephoto" style="display:none">
+                                    <input type="file" name="grpfoto" id="grpfoto">
+                                </div>
+                                <figure class="img-select">
+                                    <img id="grfoto" src="{P->PHOTO}">
+                                </figure>
+                            </div>
+                            <div class="form-group">
+                                <label for="photodesc">Picture description:</label>
+                                <div class="input-container">
+                                    <textarea id="photodesc" name="photodesc">{P->PHOTODESC}</textarea>
+                                </div>
+
+                                <aside>
+                                    <button class="clear" type="button" id="delpic" name="delpic" onclick="javascript:if (confirm('Tem certeza de que deseja remover a fotografia com descrição oculta?')) { delimage(); }">
+                                        <i class="far fa-trash-alt"></i>
+                                        Remover fotografia e a descrição oculta
+                                    </button>
+                                </aside>
+                            </div>
+                        </div>
+                        <!-- FIM Imagem -->
+
+
+                        <!-- INICIO Descritores e colaboradores -->
+                        <div id="dvauthor" style="display:none">
+                            <div class="hgroup">
+                                <h2>[dic81]</h2>
+                            </div>
+                            <input type="hidden" id="ground" name="ground" value="{P->GROUND}">
+                            
+                            <div class="form-group">
+                                <p>Write the name or names of those who took part in the audio description.</p>
+                                <label for="author">Describer: </label>
+                                <div class="input-container">
+                                    <input type="text" name="author" id="author" value="{P->AUTHOR}">
+                                </div>
+                            </div>     
+                            <div class="form-group">
+                                <p>Write an email for contact.</p>
+                                <label for="email">Email: </label>
+                                <div class="input-container">
+                                    <input type="text" name="email" id="email" value="{P->EMAIL}">
+                                </div>
+                            </div>   
+                            <div class="form-group">
+                                <p>Provide your home page, Facebook page or Blog Address.</p>
+                                <label for="url">Home Page: </label>
+                                <div class="input-container">
+                                    <input type="text" name="url" id="url" value="{P->URL}">
+                                </div>
+                            </div>  
+                            <div class="form-group">
+                                <p>Write the name or names of those who have collaborated with you during the process of producing your script: the photographer, the intern who helped with the research etc.</p>
+                                <label for="colaborative">Collaborators:</label>
+                                <div class="input-container">
+                                    <textarea id="colaborative" name="colaborative">{P->COLABORATIVE}</textarea>
+                                </div>
+                            </div> 
+                            <div class="colab-list">
+                                <h3>Lista dos colaboradores</h3>
+                                <ul>
+                                    <!-- BEGIN BLOCK_USER -->
+                                    <li>
+                                        <input type="checkbox" id="chk{NUMERO}" onclick="javascript:if (this.checked) { document.getElementById('ground').value +='|'+{UID}+'|'; } else { document.getElementById('ground').value = document.getElementById('ground').value.replaceAll('|'+{UID}+'|',''); }" {MARCADO}>
+                                        <label for="chk{NUMERO}">
+                                            <i class="far fa-check-square"></i><i class="far fa-square"></i>
+                                            {UNOME}
+                                        </label>
+                                    </li>
+                                    <!-- END BLOCK_USER -->
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- FIM Descritores e colaboradores -->
+
+
+                        <div class="buttons">
+                            <button type="button" name="voltar" id="voltar" onclick="javascript:window.location='show_snapsect.php?id={P->ID}';">Descartar mudanças</button>
+                            <button type="button" id="remover" name="remover" onclick="javascript:if (confirm('Do you want to remove it?')) {document.location.href='snapsect_ger.php?id={P->ID}&act=remover'; }"> <i class="far fa-trash-alt"></i> Remover artrópode</button>
+                            <button type="submit" name="saveandview" id="saveandview"><i class="far fa-save"></i> Salvar e visualizar</button>
+                        </div>
+
+                    </section>
+                </div>
+            </form>
+    </article>
+</main>

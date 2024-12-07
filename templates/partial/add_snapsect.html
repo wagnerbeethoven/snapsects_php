@@ -1,0 +1,957 @@
+﻿<main>
+    <article>
+
+<form id="frm" name="frm" enctype="multipart/form-data" method="post">
+<input type="hidden" name="id" id="id" value="{P->ID}">
+<input type="hidden" id="status" name="status" value="{P->STATUS}">
+<input type="hidden" name="hhead" id="hhead" value="{P->HHEAD}">
+<input type="hidden" name="thorax" id="thorax" value="{P->THORAX}">
+<input type="hidden" name="abdomen" id="abdomen" value="{P->ABDOMEN}">
+<input type="hidden" id="salvafoto" name="salvafoto" value="0">
+<input type="hidden" id="ground" name="ground" value="{P->GROUND}">
+<input type="hidden" id="lang" name="lang" value="{LANG}">
+
+                        <div class="buttons">
+
+                            <button type="button" name="voltar" id="voltar" onclick="javascript:if ({P->ID} > 0) {window.location='show_snapsect.php?id={P->ID}&lang={LANG}'; } else { window.location='index.php?lang={LANG}'; }"><i class="far fa-save"></i>[dic79]</button>
+
+                            <button type="submit" name="save" id="save"><i class="far fa-save"></i> [dic80]</button>
+                        </div>
+
+    <nav class="new-insect">
+        <div class="container">
+            <button type="button" title="[dic341]" data-toggle="collapse" data-target="#new-insect"
+                aria-controls="new-insect" aria-expanded="false"
+                aria-label="[dic597]">
+                <i class="fas fa-spider"></i> <span>[dic195]</span>
+            </button>
+            <div class="collapse" id="new-insect">
+
+                <ul>
+<!-- BEGIN BLOCK_TAB -->
+                    <li class=""><a id="cmdauthor" href="#" onclick="javascript:changetela('dvauthor');">[dic81]</a></li>
+<!-- END BLOCK_TAB -->
+                    <li class=""><a id="cmdprincipal" href="#" onclick="javascript:changetela('dvprincipal');">[dic1]</a></li>
+                    <li class=""><a id="cmddescriptions" href="#" onclick="javascript:changetela('dvdescriptions');">[dic2]</a></li>
+                    <li class=""><a id="cmdmore" href="#" onclick="javascript:changetela('dvmore');">[dic3]</a></li>
+                    <li class=""><a id="cmdnotes" href="#" onclick="javascript:changetela('dvnotes');">[dic5]</a></li>
+                    <li class=""><a id="cmdaudiodesc" href="#" onclick="javascript:changetela('dvaudiodesc');">[dic6]</a></li>
+                    <li class=""><a id="cmdmediation" href="#" onclick="javascript:changetela('dvmediation');">[dic4]</a></li>
+                    <li class=""><a id="cmdbibliography" href="#" onclick="javascript:changetela('dvbibliography');">[dic82]</a></li>
+                    <li class=""><a id="cmdpicture" href="#" onclick="javascript:changetela('dvpicture');">[dic83]</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<p><input type="checkbox" id="chkstatus" onclick="javascript:document.getElementById('status').value = (this.checked)?'1':'0';" {SSTATUS}><label for="chkstatus"> [dic331]</label></p>
+
+                <div class="content page-add-snapsect">
+                    <section class="section-form">
+
+<div id="dvprincipal" style="display:inline">
+                            <div class="hgroup">
+<h2>[dic1]</h2>
+</div>
+
+                            <div class="form-group">
+[dic84]
+
+<label for="commonname">[dic8]: </label>
+                                <div class="input-container">
+<input type="text" name="commonname" id="commonname" value="{P->COMMONNAME}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+[dic85]
+<label for="scientificname">[dic86]: </label>
+                                <div class="input-container">
+<input type="text" name="scientificname" id="scientificname" value="{P->SCIENTIFICNAME}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+[dic87]
+<label for="other">[dic88]: </label>
+                                <div class="input-container">
+<input type="text" name="other" id="other" value="{P->OTHER}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+<label for="kingdom">[dic89]: </label>
+                                <div class="input-container">
+<input type="text" name="kingdom" id="kingdom" value="{P->KINGDOM}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+<label for="phylum">[dic90]: </label>
+                                <div class="input-container">
+<input type="text" name="phylum" id="phylum" value="{P->PHYLUM}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic91]
+<label for="classe">[dic12]: </label>
+                                <div class="input-container">
+<select name="classe" id="classe" value="{P->CLASSE}" onchange="javascript:mostraimagem(this.value,'imgclass'); document.getElementById('classe2').value = this.value; arrumaclasse();">
+<option value="92" selected>[dic92]</option>
+<option value="13">[dic13]</option>
+<option value="14">[dic14]</option>
+<option value="15">[dic15]</option>
+<option value="16">[dic16]</option>
+<option value="17">[dic17]</option>
+</select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imgclass">
+                                </figure>
+                            </div>
+                            <div class="form-group">
+[dic93]
+<label for="oorder">[dic94]: </label>
+                                <div class="input-container">
+<input type="text" name="oorder" id="oorder" value="{P->OORDER}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic95]
+<label for="family">[dic19]: </label>
+                                <div class="input-container">
+<input type="text" name="family" id="family" value="{P->FAMILY}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic96]
+<label for="genus">[dic97]: </label>
+                                <div class="input-container">
+<input type="text" name="genus" id="genus" value="{P->GENUS}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic98]
+<label for="species">[dic99]: </label>
+                                <div class="input-container">
+<input type="text" name="species" id="species" value="{P->SPECIES}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic100]
+<label for="gender">[dic101]: </label>
+                                <div class="input-container">
+<select name="gender" id="gender" >
+<option value="92" selected>[dic92]</option>
+<option value="102">[dic102]</option>
+<option value="103">[dic103]</option>
+<option value="104">[dic104]</option>
+</select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic105]
+<label for="development">[dic106]: </label>
+                                <div class="input-container">
+<select name="development" id="development" value="{P->DEVELOPMENT}">
+<option value="92" selected>[dic92]</option>
+<option value="107">[dic107]</option>
+<option value="108">[dic108]</option>
+<option value="109">[dic109]</option>
+<option value="110">[dic110]</option>
+<option value="104">[dic104]</option>
+</select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic111]
+<label for="metamorphosis">[dic112]: </label>
+                                <div class="input-container">
+<input type="text" name="metamorphosis" id="metamorphosis" value="{P->METAMORPHOSIS}">
+                                </div>
+                            </div>
+
+</div>
+<div id="dvdescriptions" style="display:none">
+                            <div class="hgroup">
+<h2>[dic2]</h2>
+</div>
+                            <div class="form-group">
+[dic91]
+<label for="classe2">[dic12]: </label>
+                                <div class="input-container">
+<select name="classe2" id="classe2" value="{P->CLASSE}" onchange="javascript:mostraimagem(this.value,'imgclass2'); document.getElementById('classe').value = this.value; arrumaclasse();">
+<option value="92" selected>[dic92]</option>
+<option value="13">[dic13]</option>
+<option value="14">[dic14]</option>
+<option value="15">[dic15]</option>
+<option value="16">[dic16]</option>
+<option value="17">[dic17]</option>
+</select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imgclass2">
+                                </figure>
+                            </div>
+                            <div class="form-group">
+[dic113]
+<label for="colors">[dic114]: </label>
+                                <div class="input-container">
+<textarea name="colors" id="colors" width="500px" height="300px">{P->COLORS}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic115]
+<label for="bbody">[dic116]: </label>
+                                <div class="input-container">
+<input type="text" name="bbody" id="bbody" value="{P->BBODY}">
+                                </div>
+                            </div>
+
+<div id="dvinseto" style="display:none">
+                            <div class="form-group">
+[dic117]
+<label for="hhead1">[dic118]: </label>
+                                <div class="input-container">
+<input type="text" name="hhead1" id="hhead1" value="{P->HHEAD}" onchange="javascript:document.getElementById('hhead').value=this.value;">
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic119]
+<label for="thorax1">[dic120]: </label>
+                                <div class="input-container">
+<input type="text" name="thorax1" id="thorax1" value="{P->THORAX}" onchange="javascript:document.getElementById('thorax').value=this.value;">
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic121]
+<label for="abdomen1">[dic122]: </label>
+                                <div class="input-container">
+<input type="text" name="abdomen1" id="abdomen1" value="{P->ABDOMEN}" onchange="javascript:document.getElementById('abdomen').value=this.value;">
+                                </div>
+                            </div>
+
+</div>
+<div id="dvaranha" style="display:none">
+                            <div class="form-group">
+<label for="hhead2">[dic320]: </label>
+                                <div class="input-container">
+<input type="text" name="hhead2" id="hhead2" value="{P->HHEAD}" onchange="javascript:document.getElementById('hhead').value=this.value;">
+                                </div>
+                            </div>
+                            <div class="form-group">
+<label for="abdomen2">[dic122]: </label>
+                                <div class="input-container">
+<input type="text" name="abdomen2" id="abdomen2" value="{P->ABDOMEN}" onchange="javascript:document.getElementById('abdomen').value=this.value;">
+                                </div>
+                            </div>
+
+</div>
+<div id="dvmiriapode" style="display:none">
+                            <div class="form-group">
+<label for="hhead3">[dic118]: </label>
+                                <div class="input-container">
+<input type="text" name="hhead3" id="hhead3" value="{P->HHEAD}" onchange="javascript:document.getElementById('hhead').value=this.value;">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+<label for="thorax3">[dic321]: </label>
+                                <div class="input-container">
+<input type="text" name="thorax3" id="thorax3" value="{P->THORAX}" onchange="javascript:document.getElementById('thorax').value=this.value;">
+                                </div>
+                            </div>
+
+</div>
+<div id="dvantenas" style="display:none">
+                            <div class="form-group">
+<label for="lstantennae">[dic123]: </label>
+                                <div class="input-container">
+<select name="lstantennae" id="lstantennae" value="{P->LSTANTENNAE}" onchange="javascript:mostraimagem(this.value,'imglstantennae');">
+<option value="92" selected>[dic92]</option>
+<option value="21">[dic21]</option>
+<option value="22">[dic22]</option>
+<option value="23">[dic23]</option>
+<option value="24">[dic24]</option>
+<option value="25">[dic25]</option>
+<option value="26">[dic26]</option>
+<option value="27">[dic27]</option>
+<option value="28">[dic28]</option>
+<option value="29">[dic29]</option>
+<option value="30">[dic30]</option>
+<option value="31">[dic31]</option>
+<option value="32">[dic32]</option>
+<option value="33">[dic33]</option>
+<option value="124">[dic124]</option>
+</select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imglstantennae">
+                                </figure>
+                            </div>
+
+                            <div class="form-group">
+[dic125]
+<label for="antennae">[dic126]: </label>
+                                <div class="input-container">
+<input type="text" name="antennae" id="antennae" value="{P->ANTENNAE}">
+                                </div>
+                            </div>
+
+</div>
+                            <div class="form-group">
+[dic127]
+<label for="eyesandocelli">[dic128]: </label>
+                                <div class="input-container">
+<input type="text" name="eyesandocelli" id="eyesandocelli" value="{P->EYESANDOCELLI}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+<label for="lstmouthparts">[dic129]: </label>
+                                <div class="input-container">
+<select name="lstmouthparts" id="lstmouthparts" onchange="javascript:mostraimagem(this.value,'imglstmouthparts');">
+<option value="92" selected>[dic92]</option>
+<option value="36">[dic36]</option>
+<option value="37">[dic37]</option>
+<option value="38">[dic38]</option>
+<option value="39">[dic39]</option>
+<option value="40">[dic40]</option>
+<option value="41">[dic41]</option>
+<option value="42">[dic42]</option>
+<option value="124">[dic124]</option>
+</select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imglstmouthparts">
+                                </figure>
+                            </div>
+
+                            <div class="form-group">
+[dic130]
+<label for="mouthparts">[dic131]: </label>
+                                <div class="input-container">
+<input type="text" name="mouthparts" id="mouthparts" value="{P->MOUTHPARTS}">
+                                </div>
+                            </div>
+
+<div id="dvasas" style="display:none">
+                            <div class="form-group">
+<label for="lstwings">[dic132]: </label>
+                                <div class="input-container">
+<select name="lstwings" id="lstwings" onchange="javascript:mostraimagem(this.value,'imglstwings');">
+<option value="92" selected>[dic92]</option>
+<option value="45">[dic45]</option>
+<option value="46">[dic46]</option>
+<option value="47">[dic47]</option>
+<option value="48">[dic48]</option>
+<option value="50">[dic50]</option>
+<option value="51">[dic51]</option>
+<option value="52">[dic52]</option>
+<option value="124">[dic124]</option>
+</select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imglstwings">
+                                </figure>
+                            </div>
+
+                            <div class="form-group">
+[dic133]
+<label for="wings">[dic134]: </label>
+                                <div class="input-container">
+<input type="text" name="wings" id="wings" value="{P->WINGS}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+<label for="lsthindwings">[dic135]: </label>
+                                <div class="input-container">
+<select name="lsthindwings" id="lsthindwings" onchange="javascript:mostraimagem(this.value,'imglsthindwings');">
+<option value="92" selected>[dic92]</option>
+<option value="45">[dic45]</option>
+<option value="49">[dic49]</option>
+<option value="50">[dic50]</option>
+<option value="51">[dic51]</option>
+<option value="52">[dic52]</option>
+<option value="124">[dic124]</option>
+</select>
+                                </div>
+                                <figure class="img-select">
+                                    <img id="imglsthindwings">
+                                </figure>
+                            </div>
+
+                            <div class="form-group">
+[dic136]
+<label for="hindwings">[dic137]: </label>
+                                <div class="input-container">
+<input type="text" name="hindwings" id="hindwings" value="{P->HINDWINGS}">
+                                </div>
+                            </div>
+
+</div>
+
+                            <div class="form-group">
+<label for="lstnumlegs">[dic54]: </label>
+                                <div class="input-container">
+<select name="lstnumlegs" id="lstnumlegs">
+<option value="92" selected>[dic92]</option>
+<option value="55">[dic55]</option>
+<option value="56">[dic56]</option>
+<option value="57">[dic57]</option>
+<option value="58">[dic58]</option>
+</select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+<label for="lstlegs">[dic59]: </label>
+                                <div class="input-container">
+<select name="lstlegs" id="lstlegs" onchange="javascript:mostraimagem(this.value,'imglstlegs');">
+<option value="92" selected>[dic92]</option>
+<option value="60">[dic60]</option>
+<option value="61">[dic61]</option>
+<option value="62">[dic62]</option>
+<option value="63">[dic63]</option>
+<option value="64">[dic64]</option>
+<option value="65">[dic65]</option>
+<option value="66">[dic66]</option>
+<option value="67">[dic67]</option>
+<option value="124">[dic124]</option>
+</select>
+                                    <figure class="img-select">
+                                        <img id="imglstlegs">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic138]
+<label for="locomotive">[dic139]: </label>
+                                <div class="input-container">
+<input type="text" name="locomotive" id="locomotive" value="{P->LOCOMOTIVE}">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+<label for="tarsomere">[dic140]: </label>
+                                <div class="input-container">
+<select name="tarsomere" id="tarsomere">
+<option value="92" selected>[dic92]</option>
+<option value="141">[dic141]</option>
+<option value="142">[dic142]</option>
+<option value="143">[dic143]</option>
+<option value="144">[dic144]</option>
+<option value="145">[dic145]</option>
+</select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+<label for="cerci">[dic146]: </label>
+                                <div class="input-container">
+<select name="cerci" id="cerci">
+<option value="92" selected>[dic92]</option>
+<option value="147">[dic147]</option>
+<option value="148">[dic148]</option>
+<option value="149">[dic149]</option>
+</select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic150]
+<label for="specificcharacteristics">[dic151]: </label>
+                                <div class="input-container">
+<input type="text" name="specificcharacteristics" id="specificcharacteristics" value="{P->SPECIFICCHARACTERISTICS}">
+                                </div>
+                            </div>
+
+</div>
+<div id="dvmore" style="display:none">
+                            <div class="hgroup">
+<h2>[dic3]</h2>
+</div>
+
+                            <div class="form-group">
+[dic152]
+<label for="collecting">[dic153]: </label>
+                                <div class="input-container">
+<input type="text" name="collecting" id="collecting" value="{P->COLLECTING}">
+                                </div>    
+                            </div>    
+                            <div class="form-group">
+[dic154]
+<label for="place">[dic155]: </label>
+                                <div class="input-container">
+<input type="text" name="place" id="place" value="{P->PLACE}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+[dic156]
+<label for="win">[dic157]: </label>
+                                <div class="input-container">
+<input type="text" name="win" id="win" value="{P->WIN}">
+                                </div>
+                            </div>
+                            <div class="gps">
+                                <button type="button" id="cmdgps" onclick="javascript:getgps();" value="[dic158]">
+                                <i class="fas fa-map-marked-alt"></i>
+[dic158]
+                                </button>
+</div>
+
+                            <div class="form-group">
+<label for="address">[dic159]: </label>
+                                <div class="input-container">
+<input type="text" name="address" id="address" value="{P->ADDRESS}">
+</div>
+</div>
+                            <div class="form-group">
+<label for="lat">[dic160]: </label>
+                                <div class="input-container">
+<input type="text" name="lat" id="lat" value="{P->LAT}">
+</div>
+</div>
+                            <div class="form-group">
+<label for="lng">[dic161]: </label>
+                                <div class="input-container">
+<input type="text" name="lng" id="lng" value="{P->LNG}">
+</div>
+</div>
+                            <div class="form-group">
+<label for="city">[dic162]: </label>
+                                <div class="input-container">
+<input type="text" name="city" id="city" value="{P->CITY}">
+</div>
+</div>
+                            <div class="form-group">
+<label for="uf">[dic163]: </label>
+                                <div class="input-container">
+<input type="text" name="uf" id="uf" value="{P->UF}" >
+</div>
+</div>
+                            <div class="form-group">
+<label for="country">[dic164]: </label>
+                                <div class="input-container">
+<input type="text" name="country" id="country" value="{P->COUNTRY}">
+</div>
+</div>
+                            <div class="form-group">
+<label for="datacad">[dic165]: </label>
+                                <div class="input-container">
+<input type="text" name="datacad" id="datacad" value="{P->DATACAD}">
+</div>
+</div>
+
+                            <div class="form-group">
+<label for="temperature">[dic166]: </label>
+                                <div class="input-container">
+<input type="text" name="temperature" id="temperature" value="{P->TEMPERATURE}">
+</div>
+</div>
+
+</div>
+<div id="dvmediation" style="display:none">
+                            <div class="hgroup">
+<h2>[dic4]</h2>
+</div>
+
+                            <div class="form-group">
+[dic167]
+<label for="mediation">[dic168]:</label>
+                                <div class="input-container">
+<textarea id="mediation" name="mediation">{P->MEDIATION}</textarea>
+                                </div>
+                            </div>
+
+</div>
+<div id="dvnotes" style="display:none">
+                            <div class="hgroup">
+<h2>[dic5]</h2>
+</div>
+
+                            <div class="form-group">
+[dic169]
+<label for="notes">[dic170]:</label>
+                                <div class="input-container">
+<textarea id="notes" name="notes">{P->NOTES}</textarea>
+                                </div>
+                                <aside>
+                                    <button class="copy" type="button" onclick="javascript:getnotes();" title="[dic172]">
+                                        <i class="far fa-clone"></i>
+[dic172]
+                                    </button>
+                                    <button class="clear" type="button" onclick="javascript:clearnotes();" title="[dic171">
+                                        <i class="far fa-trash-alt"></i>
+[dic171]
+                                    </button>
+                                </aside>
+                            </div>    
+
+</div>
+<div id="dvaudiodesc" style="display:none">
+                            <div class="hgroup">
+<h2>[dic6]</h2>
+</div>
+
+                            <div class="form-group">
+[dic173]
+<label for="audiodesc">[dic174]:</label>
+                                <div class="input-container">
+<textarea id="audiodesc" name="audiodesc">{P->AUDIODESC}</textarea>
+                                </div>
+                                <aside>
+                                    <button class="copy" type="button" onclick="javascript:getaudiodesc();" title="[dic176]">
+                                        <i class="fas fa-align-left"></i>
+                                        [dic176]
+                                    </button>
+
+                                    <button class="clear" type="button" onclick="javascript:clearaudiodesc();" title="[dic175]">
+                                        <i class="far fa-trash-alt"></i>
+                                        [dic175]
+</button>
+                                </aside>
+                            </div>         
+
+</div>
+<div id="dvbibliography" style="display:none">
+                            <div class="hgroup">
+<h2>[dic82]</h2>
+</div>
+
+                            <div class="form-group">
+<label for="water">[dic177]:</label>
+                                <div class="input-container">
+<textarea id="water" name="water">{P->WATER}</textarea>
+                                </div>    
+                            </div>
+
+</div>
+<div id="dvpicture" style="display:none">
+                            <div class="hgroup">
+<h2>[dic83]</h2>
+</div>
+
+                            <div class="form-group">
+<input type="checkbox" id="addfoto" name="addfoto" class="d-none" onclick="javascript:if (this.checked) { document.getElementById('dvchangephoto').style.display='inline'; document.getElementById('salvafoto').value='1'; } else { document.getElementById('dvchangephoto').style.display='none'; document.getElementById('salvafoto').value='0'; }">
+<label for="addfoto"> [dic178]</label></p>
+                                <div class="input-container" id="dvchangephoto" style="display:none">
+<input type="file" name="grpfoto" id="grpfoto">
+</div>
+                                <figure class="img-select">
+                                    <img id="grfoto" src="{PPHOTO}">
+                                </figure>
+                            </div>
+                            <div class="form-group">
+<label for="photodesc">[dic181]:</label>
+                                <div class="input-container">
+<textarea id="photodesc" name="photodesc">{P->PHOTODESC}</textarea>
+                                </div>
+
+                                <aside>
+                                    <button class="clear" type="button" id="delpic" name="delpic" onclick="javascript:if (confirm('[dic183]')) { delimage(); }">
+                                        <i class="far fa-trash-alt"></i>
+                                        [dic182]
+                                    </button>
+                                </aside>
+                            </div>
+
+</div>
+<div id="dvauthor" style="display:none">
+                            <div class="hgroup">
+<h2>[dic81]</h2>
+</div>
+
+                            <div class="form-group">
+[dic184]
+<label for="author">[dic185]: </label>
+                                <div class="input-container">
+<input type="text" name="author" id="author" value="{P->AUTHOR}"></p>
+                                </div>
+                            </div>     
+                            <div class="form-group">
+[dic186]
+<label for="email">[dic187]: </label>
+                                <div class="input-container">
+<input type="text" name="email" id="email" value="{P->EMAIL}">
+                                </div>
+                            </div>   
+                            <div class="form-group">
+[dic188]
+<label for="url">[dic189]: </label>
+                                <div class="input-container">
+<input type="text" name="url" id="url" value="{P->URL}">
+                                </div>
+                            </div>  
+                            <div class="form-group">
+[dic190]
+<label for="colaborative">[dic191]:</label>
+                                <div class="input-container">
+<textarea id="colaborative" name="colaborative">{P->COLABORATIVE}</textarea>
+                                </div>
+                            </div> 
+                            <div class="colab-list">
+<h3>[dic192]</h3>
+<ul>
+<!-- BEGIN BLOCK_USER -->
+<li>
+<input type="checkbox" id="chk{NUMERO}" onclick="javascript:if (this.checked) { document.getElementById('ground').value +='|'+{UID}+'|'; } else { document.getElementById('ground').value = document.getElementById('ground').value.replaceAll('|'+{UID}+'|',''); }" {MARCADO}>
+<label for="chk{NUMERO}"> 
+                                            <i class="far fa-check-square"></i><i class="far fa-square"></i>
+{UNOME}
+</label>
+</li>
+<!-- END BLOCK_USER -->
+</ul>
+</div>
+
+</div>
+
+                        <div class="buttons">
+
+                            <button type="button" name="voltar" id="voltar" onclick="javascript:if ({P->ID} > 0) {window.location='show_snapsect.php?id={P->ID}&lang={LANG}'; } else { window.location='index.php?lang={LANG}'; }"><i class="far fa-save"></i>[dic79]</button>
+                            <button type="button" id="remover" name="remover" onclick="javascript:if (confirm('[dic194]')) {document.location.href='snapsect_ger.php?id={P->ID}&act=remover&lang={LANG}'; }"> <i class="far fa-trash-alt"></i> [dic193]</button>
+                            <button type="submit" name="saveandview" id="saveandview"><i class="far fa-save"></i> [dic80]</button>
+                        </div>
+
+                    </section>
+                </div>
+            </form>
+    </article>
+
+<script language="javascript" src="templates/func.js"></script>
+<script language="javascript" src="js/spajax.js"></script>
+<script language="javascript" >
+{TEXTDIC}
+
+function mostraimagem(arq, obj) {
+document.getElementById(obj).src = dic_path+'img/'+arq.replaceAll(' ','_')+'.jpg';
+document.getElementById(obj).width = 200;
+} // da funcao
+
+function changetela(tela) {
+document.getElementById('cmdprincipal').enabled = true;
+document.getElementById('dvauthor').style.display='none';
+document.getElementById('dvprincipal').style.display='none';
+document.getElementById('dvdescriptions').style.display='none';
+document.getElementById('dvmore').style.display='none';
+document.getElementById('dvmediation').style.display='none';
+document.getElementById('dvnotes').style.display='none';
+document.getElementById('dvaudiodesc').style.display='none';
+document.getElementById('dvbibliography').style.display='none';
+document.getElementById('dvpicture').style.display='none';
+document.getElementById(tela).style.display='inline';
+document.getElementById('cmdprincipal').enabled = false;
+} // da funcao.
+
+function loading() {
+if ({P->ID} < 1) document.getElementById('remover').style.display='none';
+document.getElementById('classe').value='{P->CLASSE}';
+document.getElementById('classe2').value='{P->CLASSE}';
+document.getElementById('development').value='{P->DEVELOPMENT}';
+document.getElementById('gender').value='{P->GENDER}';
+document.getElementById('lstantennae').value='{P->LSTANTENNAE}';
+document.getElementById('lstmouthparts').value='{P->LSTMOUTHPARTS}';
+document.getElementById('lstwings').value='{P->LSTWINGS}';
+document.getElementById('lsthindwings').value='{P->LSTHINDWINGS}';
+document.getElementById('lstnumlegs').value='{P->LSTNUMLEGS}';
+document.getElementById('lstlegs').value='{P->LSTLEGS}';
+document.getElementById('cerci').value='{P->CERCI}';
+document.getElementById('tarsomere').value='{P->TARSOMERE}';
+arrumaclasse();
+changetela('{DVINIT}');
+} // da funcao...
+
+function arrumaclasse() {
+var d = document.getElementById('classe').value;
+document.getElementById('dvasas').style.display='none';
+document.getElementById('dvantenas').style.display='inline';
+document.getElementById('dvinseto').style.display='none';
+document.getElementById('dvaranha').style.display='none';
+document.getElementById('dvmiriapode').style.display='none';
+if (d == "16") {
+document.getElementById('dvasas').style.display='inline';
+document.getElementById('dvinseto').style.display='inline';
+} // inseto...
+else {
+if ((d == "13") || (d == '17')) {
+document.getElementById('dvaranha').style.display='inline';
+if (d == '13') document.getElementById('dvantenas').style.display='none';
+} // aranha...
+else {
+document.getElementById('dvmiriapode').style.display='inline';
+} // nao e aranha
+} // nao e inseto
+} // da funcao...
+
+function getgps() {
+navigator.geolocation.getCurrentPosition(function(l) {
+document.getElementById('lat').value = l.coords.latitude;
+document.getElementById('lng').value = l.coords.longitude;
+spjson("http://maps.google.com/maps/api/geocode/json?latlng="+l.coords.latitude+","+l.coords.longitude+"&sensor=false&region=", '', '', function(data) {
+// alert(JSON.stringify(data.results[0].address_components[1].short_name));
+var e = data.results[0];
+document.getElementById('address').value=e.address_components[1].short_name+', '+e.address_components[0].short_name;
+document.getElementById('city').value=e.address_components[3].long_name;
+document.getElementById('uf').value=e.address_components[5].long_name;
+document.getElementById('country').value=e.address_components[6].long_name;
+});
+}, function(e) { });
+} // da funcao...
+
+function clearaudiodesc() {
+document.getElementById('audiodesc').value='';
+} // da funcao
+
+function getaudiodesc() {
+// taxonomia
+var t='[dic8]: '+document.getElementById('commonname').value+'\n';
+t+='[dic86]: '+document.getElementById('scientificname').value+'\n';
+t+='[dic88]: '+document.getElementById('other').value+'\n';
+t+='[dic209]: '+document.getElementById('kingdom').value+'\n';
+t+='[dic210]: '+document.getElementById('phylum').value+'\n';
+t+='[dic211]: '+dic[document.getElementById('classe').value]+'\n';
+t+='[dic212]: '+document.getElementById('oorder').value+'\n';
+t+='[dic19]: '+document.getElementById('family').value+'\n';
+t+='[dic97]: '+document.getElementById('genus').value+'\n';
+t+='[dic99]: '+document.getElementById('species').value+'\n';
+t+='[dic213]: '+dic[document.getElementById('gender').value]+'\n';
+t+='[dic208]: '+dic[document.getElementById('development').value]+'\n';
+t+='[dic112]: '+document.getElementById('metamorphosis').value+'\n';
+
+// descricao
+t+='[dic114]: '+document.getElementById('colors').value+'\n';
+t+='[dic196]: '+document.getElementById('bbody').value+'\n';
+if (document.getElementById('classe').value == '16') {
+t+='[dic118]: '+document.getElementById('hhead').value+'\n';
+t+='[dic120]: '+document.getElementById('thorax').value+'\n';
+t+='[dic122]: '+document.getElementById('abdomen').value+'\n';
+} // dos insetos
+else {
+if ((document.getElementById('classe').value == '13') || (document.getElementById('classe').value == '17')) {
+t+='[dic320]: '+document.getElementById('hhead').value+'\n';
+t+='[dic122]: '+document.getElementById('abdomen').value+'\n';
+} // aranha
+else {
+t+='[dic118]: '+document.getElementById('hhead').value+'\n';
+t+='[dic321]: '+document.getElementById('thorax').value+'\n';
+} // nao e aranha.
+} // nao e inseto.
+if (document.getElementById('classe').value != '13') {
+t+='[dic198]: '+dic[document.getElementById('lstantennae').value]+'\n';
+t+='[dic126]: '+document.getElementById('antennae').value+'\n';
+} // nao e aranha...
+t+='[dic128]: '+document.getElementById('eyesandocelli').value+'\n';
+t+='[dic199]: '+dic[document.getElementById('lstmouthparts').value]+'\n';
+t+='[dic131]: '+document.getElementById('mouthparts').value+'\n';
+if (document.getElementById('classe').value == '16') {
+t+='[dic200]: '+dic[document.getElementById('lstwings').value]+'\n';
+t+='[dic134]: '+document.getElementById('wings').value+'\n';
+t+='[dic201]: '+dic[document.getElementById('lsthindwings').value]+'\n';
+t+='[dic137]: '+document.getElementById('hindwings').value+'\n';
+} // das asas dos insetos.
+t+='[dic202]: '+dic[document.getElementById('lstnumlegs').value]+'\n';
+t+='[dic203]: '+dic[document.getElementById('lstlegs').value]+'\n';
+t+='[dic204]: '+document.getElementById('locomotive').value+'\n';
+t+='[dic205]: '+dic[document.getElementById('tarsomere').value]+'\n';
+t+='[dic206]: '+dic[document.getElementById('cerci').value]+'\n';
+t+='[dic207]: '+document.getElementById('specificcharacteristics').value+'\n';
+// t+='[dic208]: '+dic[document.getElementById('development').value]+'\n';
+// t+='[dic112]: '+document.getElementById('metamorphosis').value+'\n';
+
+// notas proemias
+t+=document.getElementById('notes').value+'\n';
+
+// coleta
+// t+='[dic153]: '+document.getElementById('collecting').value+'\n';
+// t+='[dic155]: '+document.getElementById('place').value+'\n';
+// t+='[dic168]: '+document.getElementById('mediation').value+'\n';
+
+ document.getElementById('audiodesc').value = t;
+} // da funcao
+
+function clearnotes() {
+document.getElementById('notes').value='';
+} // da funcao
+
+function getnotes() {
+// taxonomia
+var t='[dic8]: '+document.getElementById('commonname').value+'\n';
+t+='[dic86]: '+document.getElementById('scientificname').value+'\n';
+t+='[dic88]: '+document.getElementById('other').value+'\n';
+t+='[dic209]: '+document.getElementById('kingdom').value+'\n';
+t+='[dic210]: '+document.getElementById('phylum').value+'\n';
+t+='[dic211]: '+dic[document.getElementById('classe').value]+'\n';
+t+='[dic212]: '+document.getElementById('oorder').value+'\n';
+t+='[dic19]: '+document.getElementById('family').value+'\n';
+t+='[dic97]: '+document.getElementById('genus').value+'\n';
+t+='[dic99]: '+document.getElementById('species').value+'\n';
+t+='[dic213]: '+dic[document.getElementById('gender').value]+'\n';
+
+t+='[dic208]: '+dic[document.getElementById('development').value]+'\n';
+t+='[dic112]: '+document.getElementById('metamorphosis').value+'\n';
+// coleta
+t+='[dic153]: '+document.getElementById('collecting').value+'\n';
+t+='[dic155]: '+document.getElementById('place').value+'\n';
+t+='[dic157]: '+document.getElementById('win').value+'\n';
+t+='[dic159]: '+document.getElementById('address').value+'\n';
+t+='[dic160]: '+document.getElementById('lat').value+'\n';
+t+='[dic161]: '+document.getElementById('lng').value+'\n';
+t+='[dic162]: '+document.getElementById('city').value+'\n';
+t+='[dic163]: '+document.getElementById('uf').value+'\n';
+t+='[dic164]: '+document.getElementById('country').value+'\n';
+t+='[dic165]: '+document.getElementById('datacad').value+'\n';
+t+='[dic166]: '+document.getElementById('temperature').value+'\n';
+// descricao
+t+='[dic114]: '+document.getElementById('colors').value+'\n';
+t+='[dic196]: '+document.getElementById('bbody').value+'\n';
+if (document.getElementById('classe').value == '16') {
+t+='[dic118]: '+document.getElementById('hhead').value+'\n';
+t+='[dic120]: '+document.getElementById('thorax').value+'\n';
+t+='[dic122]: '+document.getElementById('abdomen').value+'\n';
+} // dos insetos
+else {
+if ((document.getElementById('classe').value == '13') || (document.getElementById('classe').value == '17')) {
+t+='[dic320]: '+document.getElementById('hhead').value+'\n';
+t+='[dic122]: '+document.getElementById('abdomen').value+'\n';
+} // aranha
+else {
+t+='[dic118]: '+document.getElementById('hhead').value+'\n';
+t+='[dic321]: '+document.getElementById('thorax').value+'\n';
+} // nao e aranha.
+} // nao e inseto.
+if (document.getElementById('classe').value != '13') {
+t+='[dic198]: '+dic[document.getElementById('lstantennae').value]+'\n';
+t+='[dic126]: '+document.getElementById('antennae').value+'\n';
+} // nao e aranha...
+t+='[dic128]: '+document.getElementById('eyesandocelli').value+'\n';
+t+='[dic199]: '+dic[document.getElementById('lstmouthparts').value]+'\n';
+t+='[dic131]: '+document.getElementById('mouthparts').value+'\n';
+if (document.getElementById('classe').value == '16') {
+t+='[dic200]: '+dic[document.getElementById('lstwings').value]+'\n';
+t+='[dic134]: '+document.getElementById('wings').value+'\n';
+t+='[dic201]: '+dic[document.getElementById('lsthindwings').value]+'\n';
+t+='[dic137]: '+document.getElementById('hindwings').value+'\n';
+} // das asas dos insetos.
+t+='[dic202]: '+dic[document.getElementById('lstnumlegs').value]+'\n';
+t+='[dic203]: '+dic[document.getElementById('lstlegs').value]+'\n';
+t+='[dic204]: '+document.getElementById('locomotive').value+'\n';
+t+='[dic205]: '+dic[document.getElementById('tarsomere').value]+'\n';
+t+='[dic206]: '+dic[document.getElementById('cerci').value]+'\n';
+t+='[dic207]: '+document.getElementById('specificcharacteristics').value+'\n';
+// t+='[dic208]: '+dic[document.getElementById('development').value]+'\n';
+// t+='[dic112]: '+document.getElementById('metamorphosis').value+'\n';
+
+ document.getElementById('notes').value = t;
+} // da funcao
+
+function delimage() {
+spopen(dic_path+'snapsect_api.php','act=delimage&id={P->ID}','POST', function(res) {
+document.getElementById('photodesc').value='';
+document.getElementById('grfoto').src = '';
+});
+} // da funcao.
+
+window.onload = function() {
+    loading();
+}
+
+</script>

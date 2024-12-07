@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+                                 <html lang="en-US">
+    <head>
+<meta charset="UTF-8">
+    <title>SnapSects School</title>
+
+<link rel="stylesheet" href="css/snapsects.css" type="text/css">
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/dic.js"></script>
+<script type="text/javascript" src="js/spajax.js"></script>
+<script type="text/javascript" src="js/cvoz.js"></script>
+<script type="text/javascript" src="js/dados.js"></script>
+<script type="text/javascript" src="js/snapsect_print.js"></script>
+<script type="text/javascript">
+function opnmenu() {
+if (device.platform == 'Android') { openandroid(); }
+else {
+            navigator.notification.confirm(dic[267], function(ok) {
+            if (ok == 1) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvauthor'; }
+if (ok == 2) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvprincipal'; }
+if (ok == 3) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvdescriptions'; }
+if (ok == 4) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvmore'; }
+if (ok == 5) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvnotes'; }
+if (ok == 6) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvaudiodesc'; }
+if (ok == 7) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvmediation'; }
+if (ok == 8) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvbibliography'; }
+if (ok == 9) { window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvpicture'; }
+},dic[267],[dic[81],dic[1],dic[2],dic[3],dic[5],dic[6],dic[4],dic[82],dic[83],dic[243]]);
+
+}
+} // da funcao...
+
+function openandroid() {
+document.getElementById('dvpage').style.display = 'none';
+fala(dic[266]);
+var entries = [];
+
+entries.push({    
+title: dic[81],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvauthor';"
+});
+
+entries.push({    
+title: dic[1],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvprincipal';"
+});
+
+entries.push({    
+title: dic[2],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvdescriptions';"
+});
+
+entries.push({    
+title: dic[3],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvmore';"
+});
+
+entries.push({    
+title: dic[5],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvnotes';"
+});
+
+entries.push({    
+title: dic[6],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvaudiodesc';"
+});
+
+entries.push({    
+title: dic[4],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvmediation';"
+});
+
+entries.push({    
+title: dic[82],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvbibliography';"
+});
+
+entries.push({    
+title: dic[83],
+id: "window.location='add_snapsect.html?id='+querystring(0)+'&tela=dvpicture';"
+});
+
+entries.push({    
+title: '',    
+id: '',    
+isSeparator: true
+});
+
+entries.push({    
+title: dic[243],
+id: ''
+});
+
+var context = {    
+title: dic[267],
+items: entries,    
+x: 0,    
+y: 0
+}
+
+ContextMenu.open(context, function (ele) {    
+document.getElementById('dvpage').style.display = 'inline';
+fala(dic[238]);
+eval(ele);
+
+});
+
+} // da funcao
+
+</script>
+  </head>
+  <body>
+<div id="dvpage">
+<div id="dvmenu">
+<table border="0" width="100%"><tr>
+<td width="33%"><input type="button" onclick="javascript:window.location='show_snapsect.html?id='+querystring(0)+'&lang='+querystring(1);" value="{dic78}"></td>
+<td width="33%"><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}" onclick="javascript:startcommand();"></center></td>
+<td width="33%"></td>
+</tr></table>
+<ul>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvidentificacao').style.display=(this.checked)?'inline':'none';" id="chkidentificacao" checked><label for="chkidentificacao">{dic222}</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvdescricao').style.display=(this.checked)?'inline':'none';" id="chkdescricao" checked><label for="chkdescricao">{dic224}</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvcolecao').style.display=(this.checked)?'inline':'none';" id="chkcolecao" checked><label for="chkcolecao">{dic225}</label></li>
+<li id="linotes"><input type="checkbox" onclick="javascript:document.getElementById('dvnotes').style.display=(this.checked)?'inline':'none';" id="chknotes" checked><label for="chknotes">{dic170}</label></li>
+<li id="liaudio"><input type="checkbox" onclick="javascript:document.getElementById('dvaudio').style.display=(this.checked)?'inline':'none';" id="chkaudio" checked><label for="chkaudio">{dic174}</label></li>
+<li id="litext"><input type="checkbox" onclick="javascript:document.getElementById('dvtext').style.display=(this.checked)?'inline':'none';" id="chktext" checked><label for="chktext">{dic168}</label></li>
+<li id="libibliografia"><input type="checkbox" onclick="javascript:document.getElementById('dvbibliografia').style.display=(this.checked)?'inline':'none';" id="chkbibliografia" checked><label for="chkbibliografia">{dic177}</label></li>
+<li><input type="checkbox" onclick="javascript:document.getElementById('dvartropode').style.display=(this.checked)?'inline':'none';" id="chkartropode" checked><label for="chkartropode">{dic378}</label></li>
+</ul>
+<center><input type="button" id="cmdprint" onclick="javascript:preprint22();" value="{dic379}">   <input type="button" value="{dic406}" onclick="javascript:tosend();"></center>
+</div>
+<div id="dvmenu2" style="display:none">
+<table border="0" width="100%"><tr>
+<td width="33%"></td>
+<td width="33%"><center><img src="img/logo_application.jpeg" width="50%" alt="{dic0}"></center></td>
+<td width="33%"></td>
+</tr></table>
+</div>
+<hr>
+<div id="resultado"></div>
+<hr>
+<div id="dvrodape">
+{dic73}
+</div>
+</div>
+</body>
+</html>

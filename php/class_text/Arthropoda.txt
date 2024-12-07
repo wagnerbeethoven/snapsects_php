@@ -1,0 +1,9 @@
+<h2>ARTHROPODA</h2>
+
+
+
+<p align="justify">The phylum Arthropoda is part of the Animalia kingdom and covers the largest variety of species on the planet. Insects, crustaceans, arachnids, diplopods and chilopods belong to this phylum. 
+
+Arthropods, invertebrate animals, are characterized by a rigid and chitinous exoskeleton, segmented body, bilateral symmetry and articulated legs.
+
+In general, the arthropods body consists of head, thorax and abdomen. In some cases, however, head and thorax are classified as cephalothorax, because they are united. In these cases, the arthropods body is divided into cephalothorax and abdomen. Although they have similar characteristics, arthropods are very diversified. They may have so different morphological characteristics that, in the eyes of the layman, they will not look like they belong to the same group. For example, shrimp and crabs are decapods and belong to the subphylum Crustacea. Similarly, spiders and scorpions are arachnids, belonging to the subphylum Chelicerata.</p>

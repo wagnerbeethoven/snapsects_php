@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head><meta charset="UTF-8">
+    <title>SnapSects</title>
+  </head>
+  <body onload="javascript:document.getElementById('status').value='{P->STATUS}';">
+<center><h1>SnapSects User</h1></center>
+<form name="frm" method="post">
+<input type="hidden" name="id" id="id" value="{P->ID}">
+<table border=0 width="90%"><tr>
+<td width="20%"><input type="button" name="voltar" id="voltar" value="CANCEL" title="CANCEL" onclick="javascript:window.location='snapsect_user_ger.php';"></td>
+<td width="60%"><center><div id="nometitulo"></div></center></td>
+<td width="20%"><input type="submit" name="save" id="save" value="SAVE" title="SAVE"></td>
+</tr></table>
+<script language="javascript" src="templates/func.js"></script>
+<script language="javascript" src="templates/myajax.js"></script>
+<p><label for="status">Status: </label><select name="status" id="status" value="{P->STATUS}" title="Status: ">
+<option value="0">Waitting confirmation</option>
+<option value="1">User</option>
+<option value="67">Administrator</option>
+</select></p>
+<p><label for="nome">Name: </label><input type="text" name="nome" id="nome" value="{P->NOME}" title="Name: "></p>
+<p><label for="email">E-mail: </label><input type="text" name="email" id="email" value="{P->EMAIL}" title="E-mail: "></p>
+<p><label for="url">URL: </label><input type="text" name="url" id="url" value="{P->URL}" title="URL: "></p>
+<p><label for="obs">Text: </label><input type="text" name="obs" id="obs" value="{P->OBS}" title="Text: "></p>
+</form>
+<div class="foother">
+{RODAPE}
+</div>
+
+</body>
+</html>

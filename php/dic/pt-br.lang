@@ -1,0 +1,838 @@
+﻿[name]
+Português
+[controler]
+2
+[0]
+Logotipo do Snapsects
+[1]
+Identificar o seu artrópode
+[2]
+Descreva seu artrópode
+[3]
+Método de coleta
+[4]
+Texto de mediação
+[5]
+Notas proêmias
+[6]
+Audio descrição
+[7]
+Localizar artrópode
+[8]
+Nome comum
+[9]
+Buscar
+[10]
+Selecione Autor e Data
+[11]
+Todos
+[12]
+Selecione a Classe
+[13]
+Arachinida
+[14]
+Chilopoda
+[15]
+Diplopoda
+[16]
+Insecta
+[17]
+Malacostraca
+[18]
+Selecione a ordem
+[19]
+Família
+[20]
+Selecione Antenas
+[21]
+Filiforme
+[22]
+Setáceo
+[23]
+Geniculado
+[24]
+Plumose
+[25]
+Clavate (clube gradual)
+[26]
+Capitate (clube ou botão abrupto)
+[27]
+Aristate
+[28]
+Monoliforme ou Moniliforme
+[29]
+Lamelate ou Lamelar
+[30]
+Serrate
+[31]
+Pectinado
+[32]
+Minuto e cerdas
+[33]
+Flabellate
+[34]
+de outros
+[35]
+Selecione partes da boca
+[36]
+Mascar
+[37]
+Chupando (otário-maxilar)
+[38]
+Sucção labial
+[39]
+Lapidação
+[40]
+Esponja
+[41]
+Piercing-sucção
+[42]
+Sifonando
+[43]
+de outros
+[44]
+Selecione as asas
+[45]
+Membranoso
+[46]
+Elytra
+[47]
+Hemielytra
+[48]
+Tegmina
+[49]
+Haltere (halteres)
+[50]
+Franjas
+[51]
+Escamosa
+[52]
+Aptera (sem asas)
+[53]
+de outros
+[54]
+Selecione o número de pernas
+[55]
+seis
+[56]
+oito
+[57]
+dez
+[58]
+mais de dez (adicionar número na caixa de descrição)
+[59]
+Selecione o tipo de pernas
+[60]
+Ambulatorial
+[61]
+Cursorial
+[62]
+Saltatorial
+[63]
+Scansorial
+[64]
+Fossorial
+[65]
+Raptorial
+[66]
+Natatorial
+[67]
+Colecionador
+[68]
+de outros
+[69]
+Buscar
+[70]
+Bem-vindo ao Snapsects school! Você está na tela de pesquisa de artrópodes...
+[71]
+Pesquisar artrópode ...
+[72]
+<h2> ARTHROPODA </h2><p align = "justify"> O filo Arthropoda faz parte do reino Animalia e abrange a maior variedade de espécies do planeta. Insetos, crustáceos, aracnídeos, diplópodos e chilopods pertencem a este filo. Os artrópodes, animais invertebrados, são caracterizados por um exoesqueleto rígido e quitinoso, corpo segmentado, simetria bilateral e pernas articuladas. Em geral, o corpo dos artrópodes é constituído por cabeça, tórax e abdome. Em alguns casos, no entanto, cabeça e tórax são classificados como cefalotórax, porque são unidos. Nestes casos, o corpo dos artrópodes é dividido em cefalotórax e abdome. Embora tenham características semelhantes, os artrópodes são muito diversificados. Eles podem ter características morfológicas tão diferentes que, aos olhos do leigo, não parecerão pertencer ao mesmo grupo. Por exemplo, o camarão e os caranguejos são decapods e pertencem ao subfilo Crustacea. Da mesma forma, aranhas e escorpiões são aracnídeos, pertencentes ao subfilo Chelicerata. </P>
+[73]
+Licença BSD de 3 Claúsulas. 2017-2019 © Todos os direitos reservados - Francisco J. Lima
+[74]
+Atualizando uma biblioteca de idiomas.
+[75]
+artrópodes encontrados
+[76]
+nenhum artrópode encontrado.
+[77]
+Configurações
+[78]
+Voltar
+[79]
+Descartar alterações
+[80]
+Salvar e visualizar
+[81]
+Descritores e colaboradores
+[82]
+Bibliografia
+[83]
+Imagem
+[84]
+<p> Escreva o nome ou os nomes com os quais sua amostra é comumente conhecida. </p>
+[85]
+<p> Escreva o nome científico do seu espécime </p>
+[86]
+Nome científico
+[87]
+<p> Escreva quem identificou seu espécime; escreva o ano em que seu espécime foi identificado. </p>
+[88]
+Autor e Data
+[89]
+Reino Animal
+[90]
+Filo (Arthropoda)
+[91]
+<p> Selecione a classe do seu espécime </p>
+[92]
+Não informado
+[93]
+<p> Escreva a ordem do seu espécime </p>
+[94]
+Ordem
+[95]
+<p> Escreva a família do seu espécime </p>
+[96]
+<p> Escreva o gênero do seu espécime </p>
+[97]
+Gênero
+[98]
+<p> Escreva as espécies do seu espécime </p>
+[99]
+Espécies
+[100]
+<p> Selecione o sexo da sua amostra. </p>
+[101]
+Selecione o sexo
+[102]
+fêmea
+[103]
+masculino
+[104]
+desconhecido
+[105]
+<p> Diga em que estágio de desenvolvimento a amostra está (por exemplo, larvas, pupas, ninfas e adultos). </p>
+[106]
+Selecione o estágio de desenvolvimento
+[107]
+Larvas
+[108]
+Pupa
+[109]
+Ninfa
+[110]
+Adulto
+[111]
+<p> Diga que tipo de metamorfose sua amostra possui. Por exemplo, sua metamorfose é simples, gradual ou completa, tem metamorfose incompleta. </P>
+[112]
+Metamorfose
+[113]
+<p> Descreva seu espécime claramente, com atributos visuais detalhados; indique a (s) cor (es) da sua amostra; por exemplo, tem pontos pretos, é luminoso, tem listras pretas e marrons ou é uma borboleta azul. </p>
+[114]
+Atributos visuais
+[115]
+<p> Diga o peso, tamanho, comprimento, largura e formato da sua amostra (por exemplo: é comprido, o corpo é alongado e em forma de bastão; ou é largo, achatado comprimido lateralmente. Diga como o corpo da sua amostra é dividido (Por exemplo, seu corpo é dividido em cabeça, tórax e abdômen; é dividido em cefalotórax e abdome ou na cabeça e tronco). </p>
+[116]
+Corpo
+[117]
+<p> Diga o tamanho e a forma da cabeça da sua amostra (por exemplo, ela é triangular ou arredondada; ela tem regiões bulbosas entre partes da boca e antenas; ou É atraída para um bico com partes bucais para frente ”. </p>
+[118]
+Cabeça
+[119]
+<p> Diga o tamanho, a forma, o comprimento, o número de segmentos, o número de asas existentes e / ou as pernas no tórax da sua amostra. </p><p> Descreva a forma Pronotum (por exemplo, é curta e distinta da cabeça; é curto e distinto dos lados do protórax; é inteiramente ou quase inteiramente cobrindo a cabeça; é alongado; é longo e largo; curto, com lobos descendo sobre os lados do protórax). </p>
+[120]
+Tórax
+[121]
+<p> Diga o tamanho, a forma, o comprimento e o número de segmentos do abdome da sua amostra. Descreva a forma geral do abdome da sua amostra: (por exemplo, é oval ou alongada). Descreva também as partes do abdômen: base abdominal (por exemplo, amplamente ligado ao tórax; constringido a uma cintura estreita articulada com flexibilidade ao corpo), ápex abdominal (por exemplo, com um filamento longo; com dois filamentos longos; com três filamentos longos; Com um órgão pulando bifurcado; com fórceps endurecido), tipo de cerci (por exemplo, curto com um segmento; alongado com mais de dois segmentos). </P>
+[122]
+Abdômen
+[123]
+Selecione o tipo de antenas
+[124]
+outro (adicionar tipo na caixa de descrição)
+[125]
+<p> Descreva as antenas da sua amostra. Descreva o número de antenas, a direção das antenas (por exemplo, projetando a partir do topo da cabeça e curvando atrás ao longo do corpo; projetando dos lados superiores da cabeça apontando para frente), a forma (por exemplo, antenas Densely penas; Hooked club- como antenas), comprimento (por exemplo, "Mais longo que o corpo"). </p>
+[126]
+Antenas
+[127]
+<p> Diga o número, tamanho e tipo de olhos e ocelos que sua amostra possui. Descreva a forma dos olhos e ocelos, onde eles estão localizados na cabeça (por exemplo, Separado; Encontrando na linha média dorsalmente) e sua localização em relação a outras partes da cabeça. </P>
+[128]
+Olhos e ocelos
+[129]
+Selecione o tipo de partes da boca
+[130]
+<p> Descreva os tipos de partes da boca que sua amostra possui: (inclua o número e formas das partes, mandíbulas e estrutura tubular. Diga também onde estão localizadas na cabeça (por exemplo, Externo, com mandíbulas de mastigação; Formando uma espiral, tubo cilíndrico abaixo da cabeça; dentro da cápsula da cabeça). </p>
+[131]
+Partes da boca
+[132]
+Selecione o tipo de asas dianteiras
+[133]
+<p> Descreva as asas do seu espécime. Descreva a cor, padrão e textura (por exemplo, Ambos os pares de asas são membranosas, cobertos de pêlos microscópicos; Com muitas veias e veias cruzadas; Ternos curtos e marrons, Ternos duros, opacos, formando capas justas sobre o abdômen, asas posteriores transparentes ;). Descreva o tamanho e a forma (por exemplo, largo, grande; estreito, com uma franja de pêlos compridos; estreito), o comprimento e o número de asas (por exemplo, quatro asas; dois, par traseiro reduzido a minúsculos tacos; para clubes pequenos), o comprimento da envergadura. Indique se as asas são funcionais para o voo (por exemplo, Funcional; Reduzido para pequenas almofadas). </P>
+[134]
+Asas dianteiras
+[135]
+Selecione o tipo de asas traseiras
+[136]
+<p> Descreva as asas traseiras do seu espécime. Descreva a cor, padrão e textura (por exemplo, ambos os pares de asas traseiras são membranosas, cobertas de pêlos microscópicos; com muitas veias e veias cruzadas; asas traseiras coriáceas e marrons, asas traseiras duras, opacas, formando capas justas sobre o abdômen, asas traseiras transparentes;). Descreva o tamanho e a forma (por exemplo, largo, grande; estreito, com uma franja de pêlos compridos; estreito), o comprimento e o número de asas posteriores (por exemplo, quatro asas; dois, par traseiro reduzido a minúsculos tacos; reduzido a pequenos clubes), o comprimento da envergadura. Indique se as asas são funcionais para o voo (por exemplo, Funcional; Reduzido para pequenas almofadas). </P>
+[137]
+Asas traseiras
+[138]
+<p> Descreva as pernas da sua amostra. Diga como eles são modificados ou adaptados. Por exemplo, Forelegs (por exemplo, Forelegs armados com espinhos fortes e modificados para apreender presas; Foretarsi com segmento basal inchado, contendo glândulas de seda), pernas posteriores (por exemplo, pernas posteriores ampliadas, modificadas para pular; suas patas traseiras são colecionadores ou pernas coletoras). Inclua as descrições dos segmentos das pernas, como cocos, trocânter, fêmur, tarso, pretarsus (por exemplo, com garras; com inchaço semelhante à bexiga) e onde eles estão localizados no corpo. </P>
+[139]
+Descrição das pernas
+[140]
+Selecione o número de Tarsomere
+[141]
+Um
+[142]
+Dois
+[143]
+Três
+[144]
+Quatro
+[145]
+Cinco
+[146]
+Selecione Cerci
+[147]
+Curto com um segmento
+[148]
+Curto com dois segmentos
+[149]
+Alongado com mais de dois segmentos
+[150]
+<p> Descreva outras características específicas do seu espécime; qualquer especialização de um apêndice (por exemplo, existe) (tem) um ferrão no final do abdômen). </p>
+[151]
+Características morfológicas específicas
+[152]
+<p> Diga como você coletou seu espécime </p>
+[153]
+Método de coleta
+[154]
+<p> Descreva o ambiente em que você encontrou seu espécime, por exemplo, em água corrente e limpa; no chão entre rochas; em solo arenoso; voando em uma floresta. </p>
+[155]
+Habitat (local de coleta)
+[156]
+<p> Informar os fatores abióticos no momento da coleta (por exemplo, vento, temperatura, umidade, precipitação, pressão, índice UV) </p>
+[157]
+Fatores abióticos
+[158]
+Capturar local
+[159]
+Localização
+[160]
+Latitude
+[161]
+Longitude
+[162]
+Cidade
+[163]
+Estado ou província
+[164]
+País
+[165]
+Data da coleta
+[166]
+Temperatura
+[167]
+<p align = "justify"> Escreva um texto conciso, mas completo, sobre o seu espécime. Escreva sobre a ecologia, a reprodução e outros detalhes curiosos importantes. Isso pode distinguir seu espécime ou interessar seu público. </P>
+[168]
+Texto de mediação
+[169]
+<p align = "justify"> Escreva um texto que introduza sua amostra. Apresentar em seus atributos gerais, conceitos específicos que melhorarão a compreensão da descrição em áudio. Use uma linguagem clara, concisa, concreta e específica para transmitir a imagem do seu espécime. </P>
+[170]
+Notas proeminentes
+[171]
+LIMPAR
+[172]
+Taxonomia e Coleta
+[173]
+<p align = "justify"> Escreva sua descrição de áudio com realista e imaginativa. Forneça informações visuais detalhadas relevantes sobre sua amostra. </P>
+[174]
+Audio descrição
+[175]
+Limpar
+[176]
+Capturar tudo
+[177]
+Bibliografia
+[178]
+Alterar imagem
+[179]
+Tirar foto
+[180]
+Biblioteca de imagens
+[181]
+Descrição da imagem
+[182]
+Remover imagem e audio descrição
+[183]
+Tem certeza de que deseja remover a imagem e sua audio descrição?
+[184]
+<p> Escreva o nome ou os nomes daqueles que participaram da descrição em áudio. </p>
+[185]
+Descritor
+[186]
+<p> Escreva um email para contato. </p>
+[187]
+O email
+[188]
+<p>Forneça o endereço do seu site, de sua página no Facebook e/ou de seu Blog. Mantenha os usuários informados a respeito da áudio-descrição e de seu trabalho. Esses recursos podem ser muito úteis e educativos.</p>
+[189]
+Página inicial
+[190]
+<p> Escreva o nome ou os nomes daqueles que colaboraram com você durante o processo de produção de seu roteiro: o fotógrafo, o estagiário que ajudou na pesquisa, etc. </p>
+[191]
+Colaboradores
+[192]
+Lista dos colaboradores
+[193]
+Remover artrópode
+[194]
+Tem certeza de que deseja remover?
+[195]
+Adicionando um novo artrópode.
+[196]
+Corpo (forma e segmentos do tamanho)
+[197]
+Cabeça (forma de tamanho e outros atributos da cabeça do seu espécime)
+[198]
+Tipo de antena
+[199]
+Tipo de partes da boca
+[200]
+Tipo de asas dianteiras
+[201]
+Tipo de asas traseiras
+[202]
+Número de pernas
+[203]
+Tipo de pernas
+[204]
+Pernas locomotoras
+[205]
+Tarsomere
+[206]
+Cerci
+[207]
+Características específicas
+[208]
+Desenvolvimento
+[209]
+Reino
+[210]
+Filo (Arthropoda)
+[211]
+Classe: (Inseto)
+[212]
+Ordem do seu espécie
+[213]
+Sexo
+[214]
+Por favor preencha o campo autor e email.
+[215]
+Salvar autor e email para envios futuros? Se você escolher "Cancelar", precisará preencher os campos de nome do autor e endereço de e-mail na próxima vez que enviar uma descrição de áudio.
+[216]
+LOCALIZAR ARTRÓPODE
+[217]
+ENVIAR POR EMAIL
+[218]
+EDITAR
+[219]
+Imagem
+[220]
+Créditos
+[221]
+Descrito por
+[222]
+Identificação
+[223]
+Classe
+[224]
+Descrição parcial
+[225]
+Collection
+[226]
+Mostrando
+[227]
+Idioma
+[228]
+Selecione o idioma
+[229]
+Editando
+[230]
+<h2>Sobre a classe Arachnida</h2><p align = "justify"> Os Arachnida pertencem ao subfilo Chelicerata. Alguns dos exemplos mais comuns de aracnídeos são carrapatos, aranhas, escorpiões e ácaros. Como todos os artrópodes, os aracnídeos têm um corpo bilateralmente simétrico, apêndices articulados e ecdise de exoesqueleto. Eles são caracterizados por ter quelíceras (em vez de mandíbulas), um par de pedipalpos na região oral e quatro pares de pernas no cefalotórax. Seu corpo é dividido em cefalotórax e abdome. A região cefálica apresenta olhos simples, que variam em número, dependendo do grupo, e tem quelíceras e pedipalpos, que compõem seu aparelho bucal. A região torácica apresenta quatro pares de pernas. O abdome geralmente abriga as estruturas reprodutivas e de defesa, e mostra variação na aparência. Por exemplo, o abdome da aranha é oval e mostra spinners na região posterior-ventral, enquanto o abdômen do escorpião é alongado (tem aspecto de cauda), com um ferrão no último segmento abdominal.</P>
+[231]
+<h2>Sobre a classe Chilopoda</h2><p align = "justify"> A Classe Chilopoda pertence ao subfilo Myriapoda e é comumente chamada de centopéia. Como outros artrópodes, eles têm um exoesqueleto e pernas articuladas. Os apêndices dos chilopodes são uniramous. Chilopods diferem de outros artrópodes, porque seus corpos são divididos em duas partes principais: cabeça e tronco. O tronco é composto de tórax e abdome. Dorsolateralmente na parte anterior da cabeça há um par de antenas (com números variáveis ​​de segmentos) e dorsolateralmente perto do meio da cabeça há um par de olhos simples. Ventralmente na parte anterior da cabeça são os aparelhos bucais, que são compostos por um par de mandíbulas e dois pares de maxilas. O tórax dos chilopods consiste de 15 a 193 segmentos, e cada segmento tem um par de pernas articuladas. O primeiro par de pernas tem garras de veneno e o último par de pernas se estende atrás do corpo. <br> Referência. BRUSCA, R. C; BRUSCA, G.J. Filo Arthropoda: Miriápodes (Centopéias, Milípedes e Afins). Dentro: ________. Invertebrados. Rio de Janeiro: Guanabara Koogan, p. 664-677, 2007. </P>
+[232]
+<h2>Sobre a classe Diplopoda</h2><p align = "justify"> A classe Diplopoda pertence ao subfilo Myriapoda e é comumente conhecida como milípedes. Os Diplopods são encontrados em ambientes tropicais e, como outros artrópodes, têm um exoesqueleto, pernas articuladas e corpos segmentados. <br> Caracterizam-se por apresentar dois tagma, a cabeça e o tronco (tórax fundido e abdômen) que são homônimos e O chefe dos diplópodos possui um par de antenas na borda frontal, um par de olhos simples, localizado lateralmente na parte posterior da cabeça, e partes bucais compostas de um par de mandíbulas e maxilares. O tórax tem 11 a 192 diplosegmentos (segmentos em pares). Em cada um deles, com exceção do primeiro e do último, há dois pares de pernas. <br> Referências <br> BRUSCA, R. C .; BRUSCA, G.J. Filo Arthropoda: Miriápodes (Centopéias, Milípedes e Afins). Dentro: ________. Invertebrados. Rio de Janeiro: Guanabara Koogan, p. 664-677, 2007. </P>
+[233]
+<h2>Sobre a classe Insecta</h2><p align = "justify"> O termo inseto tem sua origem na palavra latina “insectum” e significa animal de corpo estriado ou corpo segmentado. . A classe Insecta compreende 70% das espécies animais. Como outros artrópodes, os insetos têm um exoesqueleto, pernas articuladas e simetria corporal. Alguns dos insetos mais comumente conhecidos são as abelhas, baratas, moscas, grilos, borboletas e besouros. Os insetos diferem dos outros artrópodes porque seus corpos são divididos em três partes principais: cabeça, tórax e abdômen. Em sua cabeça há um par de antenas, os olhos e ocelos e as partes externas da boca. Seu tórax tem até quatro asas dorsalmente e tem seis pernas ventralmente. No abdômen estão as estruturas genitais. Algumas estruturas só estão presentes ou aparentes na fase da vida adulta. <br> As antenas de insetos estão na região frontal da cabeça, e podem ser classificadas em tipos incluindo: filiformes (por exemplo, baratas, grilos), acácias (por exemplo, gafanhoto).), geniculado (por exemplo, formiga), plumose (por exemplo, mosquito), clavado (por exemplo, borboleta), aristado (por exemplo, voar) e serrilhado (por exemplo, besouro). <br> Insetos, na maioria dos casos, apresentam um par de olhos compostos localizado na parte lateral da cabeça; e muitos também apresentam olhos simples ou ocelos (geralmente três), localizados no ápice da cabeça. <br> Os aparelhos bucais dos insetos podem ser colocados em categorias diferentes, de acordo com a especialização que ele apresenta, e pode ser: chewer ( por exemplo, baratas, críquete); mastigador / defesa (por exemplo, cupim, formiga); sugador de maxila (por exemplo, borboleta); sugadores de labio (por exemplo, mosquitos, cigarras, percevejos e pulgas); lamber (por exemplo, abelha). O tórax dos insetos é dividido em três segmentos: da frente, anterior, para trás, posterior, protórax, mesotórax e metatórax. Se quatro asas, dois pares, estiverem presentes, o inseto será tetrapterous. Neste caso, o metatórax contará com o par de forewings eo metathorax arcará com o par de hindwings. Alguns posteriores podem parecer em forma de haltere e atrofiados. As asas atrofiadas em forma de haltere, haltere, não são funcionais para voar e são muito difíceis de serem vistas a olho nu. Por causa disso, acredita-se que os insetos com asas iguais tenham apenas duas asas, por exemplo, aqueles que pertencem à ordem diptera, por exemplo, mosquitos e moscas. <br> Insetos que não têm asas são ápteros ou sem asas. ser distinguido como: membranoso (por exemplo, vespas), tegamina (por exemplo, grilos, gafanhotos e baratas), élitros (por exemplo, besouros), hemelytra (por exemplo, insetos) e haltere (por exemplo, moscas, mosquitos). Alguns insetos podem ter dois tipos de asas - por exemplo, um besouro terá um par de elytra cobrindo um par de asas membranosas. <br><br>As pernas dos insetos têm características diferentes, de acordo com a função que desempenham, e alguns insetos terão mais de um tipo de patas, por exemplo, uma abelha tem seis patas, e o par preso ao metatórax é usado para limpeza e as pernas do protórax são colecionadores. Podem ser: ambulatorial (por exemplo, abelha), cursorial (por exemplo, formigas); salino (por exemplo, grilos e gafanhotos); raptorial (por exemplo mantis); coletor (por exemplo, abelhas); scansorial (por exemplo, piolhos), entre outros.<br>O abdome dos insetos é dividido em seis a doze segmentos, geralmente contém estruturas sensoriais e genitais. O abdómen pode estar livre (por exemplo, borboletas, abelhas), sésseis (por exemplo, grilos) ou pedunculados (por exemplo, formigas, vespas). </P><br>Referências<br>GALLO, D. et al. (Orgs.) Entomologia Agrícola. Piracicaba: FEALQ, 2002. </p>
+[234]
+<h2>Sobre a classe Malacostraca</h2><p align = "justify"> A Classe Malacostraca pertence ao subfilo Crustacea. Lagostas, caranguejos, camarões, cracas e woodlouse são alguns dos exemplos mais comuns conhecidos. <br> O nome crustáceo, dado a estes artrópodes, vem do latim "crusta", que significa crosta. Em geral, são animais aquáticos (por exemplo, lagostas e camarões) ou vivem em áreas de terra muito molhadas (por exemplo, os isópodos). Os crustáceos têm corpos segmentados (cefalotórax e abdome) e apêndices articulados. A região cefálica do crustáceo apresenta cinco ou seis segmentos, que incluem dois pares de antenas, um par de olhos, geralmente pedunculados, e a parte bucal, que consiste de um par de mandíbulas e dois pares de maxilares. A maioria dos crustáceos tem um cefalotórax coberto por uma carapaça. <br> Os crustáceos respiram através de suas brânquias localizadas na região torácica. A região torácica possui oito segmentos, três pares de maxilares na região anterior e cinco pares de pernas, chamados pereópodos na região posterior. Os crustáceos geralmente têm cinco pares de pernas no abdômen, chamadas de pleópodos. Nos últimos segmentos abdominais, os apêndices são os uropodos e o telson.</P>
+[235]
+MENU
+[236]
+Abrindo o menu principal
+[237]
+Busca Avançada
+[238]
+Fechando o menu
+[239]
+Menu principal
+[240]
+Sobre
+[241]
+Perguntas frequentes
+[242]
+Licença de uso
+[243]
+Cancelar
+[244]
+<h3> Sobre </h3><br><h3> Snapsects </h3><p> Versão 0.83 Beta </​​p><br><p> Programação - Luiz Eduardo Porto Mariz </p><br><p > Este programa é software livre; você pode redistribuí-lo e / ou modificá-lo sob os termos da Licença BSD de 3 Cláusulas, conforme publicado em domínio público em ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change</p><br><br><p> Snapsects é uma aplicação web / móvel interactiva concebida para tornar as imagens de artrópodes acessíveis a pessoas cegas ou com baixa visão através da Descrição Científica de Áudio. É uma ferramenta para a classificação científica de artrópodes, especialmente insetos, e um recurso educacional para aprender sobre a biodiversidade e os aspectos anatômicos visuais ou a morfologia externa desses organismos. </P><p> Snapsects confia no voluntariado dos usuários contribuições por meio da captação e submissão de fotos de artrópodes, fazendo a audiodescrição das mesmas, revisando o conteúdo científico e editando a prova dos textos do site. </p><br><br><p> O Snapsects foi desenvolvido após uma pesquisa pós-documental em 2017 no Departamento de Entomologia do Museu de História Natural - Smithsonian Institution (Estados Unidos), com uma bolsa da Coordenação de Aperfeiçoamento. de Pessoal de Nível Superior - CAPES (Brasil) e está em conformidade com as melhores práticas de acessibilidade e descrição de áudio. </p><br><br><p> Este é um software livre, mas ainda custa dinheiro para escrever , suporte e distribuição. Se você gosta de usá-lo, por favor considere uma doação para os autores deste software. Isso ajudará a tornar o Snapsects ainda melhor! </P>
+[245]
+<h3> Perguntas mais frequentes </h3><br><br><p><h4> O que é o Snapsects? </h4></p><br> É uma aplicação web / móvel interactiva concebida para fazer fotografias de artrópodes acessíveis a pessoas cegas ou com baixa visão através da Descrição de Áudio Científico feita pelo SnapSectors. <br /></p><br><p><h4> O que é um SnapSector? </h4><br> Torne-se um colaborador da página da web Snapsects ou usuário do Snapsects Mobile App e envie uma descrição ou ajuda com a descrição de um artrópode, você se torna um SnapSector, um membro de um grupo de voluntários cujo objetivo é tornar a ciência acessível a pessoas que são cegos ou têm baixa visão. <br /></p><br><p><h4> O Snapsects de áudio automático descreve uma imagem que eu carrego? </h4><br> O Snapsects não descreve automaticamente nenhuma imagem. Ele orienta você para uma Descrição de Áudio Científico com sugestões sobre o que descrever. Em seguida, ele solicitará um texto que você pode editar para aperfeiçoar sua Descrição de áudio <br /></p><br><br> p><h4> Posso fazer upload de qualquer foto para Snapsects? </H4><br > Não. Somente fotos de Insetos e outros Artrópodes são aceitas neste momento. <br /></p><br><br><p><h4> Posso fazer upload de uma foto tirada por outra pessoa, ou qualquer outra foto que encontrei a web? </h4><br> Você só deve enviar fotos que você tem o direito ou permissão para usar. As fotos da web só devem ser usadas se estiverem em domínio público ou não tiverem restrições para serem usadas por você ou por terceiros. <br /></p><br><br><p><h4> Eu envio uma foto sem descrição? </H4><br> Sim. Mas lembre-se de que o objetivo dos Snapsects é fornecer às pessoas cegas ou com acesso à visão subnormal a Descrição de áudio científica de Artrópodes. Você deve usar o aplicativo para obter uma descrição básica para sua foto, para que outros possam ajudar a preencher as lacunas. Em qualquer caso, você sempre pode revisitar sua postagem e concluir ou alterar sua descrição. <br /></p><br><br><p><h4> Posso alterar qualquer descrição que eu tenha feito? </H4><br> Sim. Você sempre pode revisitar sua postagem e concluir ou alterar sua descrição. Você também pode autorizar um colaborador a fazê-lo. <br /></p><br><p><h4> Eu tenho que ser um especialista para enviar ou descrever uma foto? </H4><br> Não. Mas você deve sempre pesquisar cuidadosamente sobre o artrópode em sua foto, para fornecer uma descrição confiável. <br /></p><br><p><h4> Posso descrever fotos enviadas por outros SnapSectors? </H4>< br> Sim. Você pode entrar em contato com um SnapSector, informá-lo que deseja colaborar com a descrição em áudio ou publicar sua contribuição para a descrição. <br /></p><br><br><p><h4> Posso comentar ou dar uma opinião sobre os anúncios do Snapsects? </H4><br> Sim. Sua contribuição e opiniões são sempre bem-vindas e inestimáveis. Lembre-se sempre de ser cortês, atencioso e respeitoso. Todos os SnapSectors estão aqui com o objetivo de disponibilizar informações visuais científicas sobre artrópodes a pessoas cegas ou com baixa visão. <br /></p><br><br><p><h4> Posso comentar ou dar uma opinião sobre os lançamentos Snapsects? </h4>
+[246]
+<h3> Aviso de isenção </h3><br><br><p> Última atualização: 21 de junho de 2018 </p><br><br><p> As informações contidas neste software (o "Serviço") é para fins de informação geral. Os detentores de direitos autorais e contribuidores (também conhecidos como SnapSectors) não assumem nenhuma responsabilidade por erros ou omissões no conteúdo do serviço. </P><br><p> Em caso algum os detentores dos direitos autorais e os contribuintes serão responsáveis ​​por quaisquer direitos especiais, danos diretos, indiretos, conseqüentes ou incidentais ou quaisquer danos, seja em uma ação de contrato, negligência ou outro ato ilícito, decorrentes de ou em conexão com o uso do Serviço ou o conteúdo do Serviço. Os detentores e contribuidores de direitos autorais reservam-se o direito de fazer acréscimos, exclusões ou modificações no conteúdo do serviço a qualquer momento, sem aviso prévio. Os detentores de direitos autorais e colaboradores não garantem que o site esteja livre de vírus ou outros componentes prejudiciais. </P>
+[247]
+Você deseja fazer a verificação do dicionário sempre que abrir esse aplicativo?
+[248]
+Não
+[249]
+Sim
+[250]
+Selecione a velocidade da voz
+[251]
+Muito lento
+[252]
+Lenta
+[253]
+Normal
+[254]
+Rápida
+[255]
+Muito rápida
+[256]
+a velocidade da voz foi alterada.
+[257]
+Configurações da fala
+[258]
+Falar automaticamente o conteudo das telas?
+[259]
+Parar de falar
+[260]
+Configurações pessoais
+[261]
+Digite o seu nome
+[262]
+Digite o seu endereço de e-mail
+[263]
+Salvar configurações pessoais
+[264]
+tela de configuração
+[265]
+configurações salvas
+[266]
+Abrindo o menu editar
+[267]
+Menu Editar
+[268]
+Abrindo o menu ir para
+[269]
+Menu Ir Para
+[270]
+Clique no título a seguir para visualizar seu conteúdo
+[271]
+Adicionar seu artrópode
+[272]
+Conectar
+[273]
+Desconectar
+[274]
+Administrar usuários
+[275]
+Digite seu email
+[276]
+Digite sua senha
+[277]
+Enviar
+[278]
+Criar conta
+[279]
+Esqueceu a senha
+[280]
+Por favor, preencha o campo email!
+[281]
+Por favor, preencha o campo da senha!
+[282]
+Seja bem vindo
+[283]
+Email ou senha inválida
+[284]
+Erro na conexão com a internet, por favor tente mais tarde...
+[285]
+Ocorreu um erro, tente mais tarde...
+[286]
+Aguardando confirmação
+[287]
+Usuário
+[288]
+Professor
+[289]
+Editor
+[290]
+Administrador
+[291]
+Nome
+[292]
+Status
+[293]
+E-mail
+[294]
+Usuários
+[295]
+Filtrar por
+[296]
+Salvar
+[297]
+Observações
+[298]
+Tela de gerenciar usuários
+[299]
+bem vindo ao Snapsects acadêmico!
+[300]
+Confirme sua senha
+[301]
+Tela de login
+[302]
+Usuário não encontrado!
+[303]
+Sua senha foi enviada para seu endereço de e-mail!
+[304]
+Snapsects - Envio de senha...
+[305]
+Sua senha é
+[306]
+Ocorreu um erro! As senhas estão diferentes, por favor preencha novamente!
+[307]
+Por favor preencha o campo nome!
+[308]
+O campo e-mail está incorreto. Por favor preencha o campo e-mail novamente!
+[309]
+A senha precisa ter mais de seis letras!
+[310]
+Usuário já existente, utilize outro endereço de e-mail!
+[311]
+Obrigado por se cadastrar no Snapsects! Enviamos um e-mail para seu endereço com um link para confirmação do seu cadastro...
+[312]
+Snapsects - Confirmação do cadastro...
+[313]
+Para concluir seu cadastro clique no link a seguir:<br>
+[314]
+Confirmar o cadastro
+[315]
+Remover usuário
+[316]
+Tem certeza de qque deseja remover o usuário?
+[317]
+Tem certeza de que deseja desconectar?
+[318]
+Index ADM
+[319]
+Users administrator
+[320]
+Arthropods information
+[321]
+Items Picture
+[322]
+About & CopyRight
+[323]
+Simple Search
+[324]
+Prencha as informações abaixo
+[325]
+Já tem uma senha?
+[326]
+Acessar o sistema
+[327]
+Retornar a tela inicial
+[328]
+Criar meu usuário
+[329]
+Atualizar informações institucionais
+[330]
+Selecione o idioma
+[331]
+Título da atividade
+[332]
+Data de publicação
+[333]
+Data de término
+[334]
+Data do envio do gabarito
+[335]
+Valor da nota
+[336]
+Próxima página
+[337]
+Apresentação da atividade proposta
+[338]
+CopyRight
+[339]
+Seus cursos
+[340]
+Novo curso
+[341]
+Remover curso
+[342]
+Adicionar aluno
+[343]
+Atividades sugeridas
+[344]
+Adicionar atividades
+[345]
+Leituras sugeridas
+[346]
+Adicionar leituras
+[347]
+Atividades aguardando correção
+[348]
+Atividades corrigidas
+[349]
+Alunos
+[350]
+Digite o nome do curso
+[351]
+Tem certeza de que deseja realmente remover o curso e todas as atividades e materiais de estudo nele contidos?
+[352]
+Tem certeza de que deseja remover essa atividade?
+[353]
+Digite o endereço de e-mail do aluno:
+[354]
+Seu aluno foi cadastrado com sucesso...
+[355]
+Ocorreu um erro, tente novamente mais tarde...
+[356]
+Tem certeza de que deseja remover o texto sugerido?
+[357]
+Tem certeza de que deseja remover o aluno?
+[358]
+Escola
+[359]
+Selecione o curso no combo abaixo ou crie um novo pelo botão, adicionar novo curso.
+[360]
+Ir para atividade
+[361]
+Excluir a atividade
+[362]
+Atividades disponíveis do curso
+[363]
+Exibir/ocultar meus cursos
+[364]
+Exibir/ocultar atividades sugeridas
+[365]
+Nome da atividade
+[366]
+Ações
+[367]
+Alterar status publicação
+[368]
+Exibir/ocultar leituras sugeridas
+[369]
+Leituras disponíveis
+[370]
+Nome da leitura
+[371]
+Descrição da leitura
+[372]
+Ir para leitura
+[373]
+Excluir a leitura
+[374]
+Exibir/ocultar atividades aguardando correção
+[375]
+Lista dos alunos do curso
+[376]
+que ainda não tiveram a atividade corrigida
+[377]
+Aluno
+[378]
+Corrigir a atividade de
+[379]
+Exibir/ocultar alunos inscritos
+[380]
+Alunos inscritos
+[381]
+Nova atividade
+[382]
+Nome do curso
+[383]
+Titulo da atividade
+[384]
+Apresentação:
+[385]
+Próxima passo
+[386]
+Voltar para tela da escola
+[387]
+Dissertativa
+[388]
+Múltipla escolha
+[389]
+Verdadeiro ou falso
+[390]
+Combinar colunas
+[391]
+Tipo da resposta:
+[392]
+Próxima página
+[393]
+Página anterior
+[394]
+Salvar e visualizar
+[395]
+Valor da atividade
+[396]
+Texto de apoio
+[397]
+Espaço destinado para contextualização do assunto, caso seja necessário
+[398]
+Enunciado
+[399]
+Descreve aqui qual o objetio da sua questão
+[400]
+Espaço destinado para resposta do aluno
+[401]
+Múltiplas escolhas:
+[402]
+Adicionar alternativa
+[403]
+Resposta:
+[404]
+Alternativa correta. Clique para marcar como incorreta
+[405]
+Clique para marcar como alterantiva correta
+[406]
+Remover alternativa
+[407]
+V
+[408]
+F
+[409]
+Verdadeiro
+[410]
+Falso
+[411]
+Remover
+[412]
+Coluna A
+[413]
+Adicionar item a coluna A
+[414]
+Coluna B
+[415]
+Adicionar item a coluna B
+[416]
+Associação item da coluna B
