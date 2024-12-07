@@ -1,25 +1,30 @@
-*.class
+# Created by https://www.toptal.com/developers/gitignore/api/windows
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows
 
-# Package Files #
-*.jar
-*.war
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
 
-# gwt caches and compiled units #
-war/gwt_bree/
-gwt-unitCache/
+# Dump file
+*.stackdump
 
-# boilerplate generated classes #
-.apt_generated/
+# Folder config file
+[Dd]esktop.ini
 
-# more caches and things from deploy #
-war/WEB-INF/deploy/
-war/WEB-INF/classes/
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
-#compilation logs
-.gwt/
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
 
-#gwt junit compilation files
-www-test/
+# Windows shortcuts
+*.lnk
 
-#old GWT (1.5) created this dir
-.gwt-tmp/
+# End of https://www.toptal.com/developers/gitignore/api/windows
